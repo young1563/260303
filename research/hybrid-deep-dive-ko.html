@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼 캐주얼 → 하이브리드 캐주얼 전환 분석 | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose'
+        });
+    </script>
+    <style>
+        .kpi-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .kpi-card {
+            background: #111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+
+        .kpi-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-source {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .chart-box {
+            background: #111;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .mermaid-box {
+            background: #050505;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+        }
+
+        .article-table-wrap {
+            background: #111;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            margin: 3rem 0;
+        }
+
+        .article-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .article-table th {
+            background: rgba(255, 61, 0, 0.1);
+            padding: 1.2rem;
+            text-align: left;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .article-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+        }
+
+        .article-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .case-study {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .case-study h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .source-list {
+            background: #0d0d0d;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .source-list h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .source-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .source-list li {
+            margin-bottom: 0.8rem;
+            word-break: break-all;
+        }
+
+        .source-list a {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index-ko.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index-ko.html">홈</a></li>
+                <li><a href="../research-ko.html" class="active">리서치</a></li>
+                <li><a href="../index-ko.html#about">소개</a></li>
+                <li><a href="../index-ko.html#contact">연락처</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hybrid-deep-dive.html">EN</a>
+                <a href="hybrid-deep-dive-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="article-header">
+                <h1>하이퍼 캐주얼 → 하이브리드 캐주얼 전환:<br>수익 구조의 전면 재설계</h1>
+                <p class="article-meta">발행일: 2026년 2월 | 출처: 게임 산업 심층 보고서 [S1~S18]</p>
+            </div>
+
+            <div class="article-body">
+                <div
+                    style="background: rgba(255, 61, 0, 0.05); padding: 2rem; border-left: 4px solid var(--accent-color); border-radius: 0 12px 12px 0; margin-bottom: 3rem;">
+                    <strong>Executive Summary:</strong><br>
+                    하이퍼 캐주얼은 초단기 세션과 광고 기반으로 빠르게 설치를 만들지만, D1 <25% / D7 <8%로 대표되는 잔존율 급락이 구조적 한계로 지목됩니다. 시장에서는 하이퍼 캐주얼
+                        설치 점유율이 하락하는 동시에, IAP와 메타 시스템을 결합하여 더 높은 LTV로 UA 비용을 상쇄하는 <strong>하이브리드 캐주얼</strong>이 필승 해법으로
+                        부상했습니다.
+                </div>
+
+                <div class="kpi-grid-container">
+                    <div class="kpi-card">
+                        <div class="kpi-label">하이퍼 캐주얼 잔존율</div>
+                        <div class="value kpi-value">D1 <25% / D7 <8%</div>
+                                <div class="kpi-source">출처: [S1]</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">하이퍼 설치 점유율 변화</div>
+                            <div class="value kpi-value">~50% → ~30%</div>
+                            <div class="kpi-source">2021년 대비 [S2]</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">하이브리드 IAP 매출 목표</div>
+                            <div class="value kpi-value">$2.1B+ (2023)</div>
+                            <div class="kpi-source">성장 가속화 [S5]</div>
+                        </div>
+                    </div>
+
+                    <h2>1. 정의: 하이퍼와 하이브리드의 경계</h2>
+                    <p><strong>하이퍼 캐주얼</strong>은 즉시 이해되는 단일 코어 메커닉을 중심으로 짧은 세션과 낮은 진입 장벽을 통해 대규모 설치를 확보합니다. 수익 모델은 인앱
+                        광고(IAA)에 95% 이상 의존하며 "볼륨 × 광고 노출"이 핵심입니다.</p>
+
+                    <p><strong>하이브리드 캐주얼</strong>은 이러한 하이퍼의 접근성 위에, 미드코어 장르에서 검증된 <strong>메타 구조(성장, 수집, 업그레이드)</strong>와
+                        <strong>인앱 결제(IAP)</strong>를 결합합니다. 단순히 결제를 추가하는 것이 아니라 장기적인 목표와 경제 시스템을 구축하는 것이 본질입니다.</p>
+
+                    <div class="mermaid-box">
+                        <div class="mermaid">
+                            flowchart LR
+                            subgraph "Hyper Casual"
+                            A[Core Loop] --> B[Short Session]
+                            B --> C[IAA Exposure]
+                            C --> D[Churn/Install]
+                            end
+
+                            subgraph "Hybrid Casual"
+                            E[Core Loop] --> F[Meta Loop: Growth]
+                            F --> G[IAP/IAA Mixed]
+                            G --> H[Live Ops/Events]
+                            H --> E
+                            end
+
+                            style A fill:#333,stroke:#ff3d00
+                            style E fill:#333,stroke:#ff8a00
+                        </div>
+                    </div>
+
+                    <h2>2. 수익 모델: IAA 단일 모델에서 Hybrid로</h2>
+                    <p>과거에는 낮은 LTV를 초저가 CPI로 상쇄하는 공식이 통했지만, ATT(App Tracking Transparency) 도입 이후 타겟팅이 어려워지며 UA 효율이 흔들리기
+                        시작했습니다. 하이브리드 캐주얼은 IAP를 결합해 **LTV의 천장(Ceiling)을 높이는 전략**입니다.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                        <div class="chart-box">
+                            <canvas id="retentionChart"></canvas>
+                            <p
+                                style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; margin-top: 1rem;">
+                                잔존율 곡선 비교 (예시 데이터)</p>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="ltvMixChart"></canvas>
+                            <p
+                                style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; margin-top: 1rem;">
+                                수익 구성(IAA vs IAP) 비교</p>
+                        </div>
+                    </div>
+
+                    <h2>3. KPI 비교: 무엇을 바꾸어야 하는가</h2>
+                    <div class="article-table-wrap">
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>항목</th>
+                                    <th>하이퍼 캐주얼</th>
+                                    <th>하이브리드 캐주얼</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>핵심 지표</td>
+                                    <td>D1/D7 잔존율, 초동 CPI</td>
+                                    <td>D30+ 잔존율, IAP 전환율, ROAS</td>
+                                </tr>
+                                <tr>
+                                    <td>잔존율 벤치마크</td>
+                                    <td>D1 &lt;25%, D7 &lt;8% [S1]</td>
+                                    <td>D90 10% 이상 달성 (상위 타이틀 기준) [S11]</td>
+                                </tr>
+                                <tr>
+                                    <td>수익화 장치</td>
+                                    <td>인터스티셜, 리워드 광고</td>
+                                    <td>스타터팩, 시즌 패스, 월정액, 라이브옵스 [S5]</td>
+                                </tr>
+                                <tr>
+                                    <td>운영 전략</td>
+                                    <td>다수 테스트 후 빠른 폐기</td>
+                                    <td>지속적인 콘텐츠 업데이트 및 라이브 서비스</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>4. 성공 사례 (Case Studies)</h2>
+
+                    <div class="case-study">
+                        <h3>Case 1: Mob Control</h3>
+                        <p>하이퍼 메커닉 위에 카드 수집 및 RPG식 업그레이드 메타를 성공적으로 결합했습니다. Voodoo에 따르면 이 타이틀은 **연간 런레이트 2억 달러($200M+)**를
+                            돌파하며 하이브리드화의 정석을 보여주었습니다. [S3][S9]</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h3>Case 2: Survivor!.io (탕탕특공대)</h3>
+                        <p>로그라이크 장르의 긴박함과 하이브리드 캐주얼의 강력한 수익 모델을 결합하여, 2023년에만 **인앱 결제 매출 2.4억 달러($240M)**를 기록하는 기염을
+                            토했습니다. [S5]</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h3>Case 3: Color Block Jam</h3>
+                        <p>단순한 퍼즐 코어에 고도화된 난이도 설계와 라이브옵스를 얹어 **1억 달러 이상의 예약 매출($100M bookings)**과 **D90 잔존율 10%**라는 경이로운
+                            지표를 달성했습니다. [S11]</p>
+                    </div>
+
+                    <h2>5. 결론: "수익 곡선"을 확장하라</h2>
+                    <p>전환의 본질은 단순히 장르를 바꾸는 것이 아니라, UA 비용 상승과 개인정보 보호 환경 변화에 맞춰 <strong>제품의 구조를 현대화</strong>하는 것입니다. 하이퍼
+                        캐주얼의 빠른 실험 문화는 유지하되, 하이브리드 캐주얼이 요구하는 경제 설계와 라이브 운영 역량을 추가하는 팀이 다음 모바일 게임 시장의 승자가 될 것입니다.</p>
+
+                    <div class="source-list">
+                        <h4>References (주요 출처)</h4>
+                        <ul>
+                            <li>[S1] Gamesforum Intelligence: Hypercasual Gaming Report (D1/D7 Benchmarks)</li>
+                            <li>[S2] GamesBeat: Hypercasual Market Share Trends (2021-2023)</li>
+                            <li>[S5] Sensor Tower: 2023 State of Hybridcasual Mobile Games Insight</li>
+                            <li>[S9] Voodoo: Inside the story of Mob Control’s success</li>
+                            <li>[S11] PocketGamer: How Rollic scored a $100M hybrid-casual hit</li>
+                        </ul>
+                    </div>
+                </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Retention Chart
+        const retentionCtx = document.getElementById('retentionChart').getContext('2d');
+        new Chart(retentionCtx, {
+            type: 'line',
+            data: {
+                labels: ['D1', 'D7', 'D14', 'D30', 'D60', 'D90'],
+                datasets: [{
+                    label: 'Hyper Casual',
+                    data: [24, 7, 4, 1.5, 0.5, 0.1],
+                    borderColor: '#ff3d00',
+                    backgroundColor: 'rgba(255, 61, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Hybrid Casual',
+                    data: [35, 18, 12, 8, 5, 3],
+                    borderColor: '#ff8a00',
+                    backgroundColor: 'rgba(255, 138, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+
+        // LTV Mix Chart
+        const ltvCtx = document.getElementById('ltvMixChart').getContext('2d');
+        new Chart(ltvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Hyper-casual', 'Hybrid-casual'],
+                datasets: [{
+                    label: 'IAA Revenue',
+                    data: [95, 45],
+                    backgroundColor: '#ff3d00'
+                }, {
+                    label: 'IAP Revenue',
+                    data: [5, 55],
+                    backgroundColor: '#ff8a00'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { stacked: true, grid: { display: false } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

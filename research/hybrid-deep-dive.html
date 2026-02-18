@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-Casual to Hybrid-Casual Transition Analysis | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script type="module">
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose'
+        });
+    </script>
+    <style>
+        .kpi-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .kpi-card {
+            background: #111;
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+
+        .kpi-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-source {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .chart-box {
+            background: #111;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .mermaid-box {
+            background: #050505;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+            overflow-x: auto;
+        }
+
+        .article-table-wrap {
+            background: #111;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            margin: 3rem 0;
+        }
+
+        .article-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .article-table th {
+            background: rgba(255, 61, 0, 0.1);
+            padding: 1.2rem;
+            text-align: left;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .article-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+        }
+
+        .article-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .case-study {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .case-study h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .source-list {
+            background: #0d0d0d;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .source-list h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .source-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .source-list li {
+            margin-bottom: 0.8rem;
+            word-break: break-all;
+        }
+
+        .source-list a {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hybrid-deep-dive.html" class="active">EN</a>
+                <a href="hybrid-deep-dive-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="article-header">
+                <h1>Hyper-Casual to Hybrid-Casual Transition:<br>Redesigning the Global Revenue Structure</h1>
+                <p class="article-meta">Published: February 2026 | Source: Strategic Game Industry Report [S1~S18]</p>
+            </div>
+
+            <div class="article-body">
+                <div
+                    style="background: rgba(255, 61, 0, 0.05); padding: 2rem; border-left: 4px solid var(--accent-color); border-radius: 0 12px 12px 0; margin-bottom: 3rem;">
+                    <strong>Executive Summary:</strong><br>
+                    While hyper-casual games can still generate massive installs, they face structural limits such as
+                    rapid churn (D1 < 25% / D7 < 8%). As market share for pure hyper-casual shrinks, <strong>
+                        Hybrid-Casual</strong>—which combines simple accessibility with meta systems and IAP—has emerged
+                        as the definitive solution to offset rising UA costs with higher LTV.
+                </div>
+
+                <div class="kpi-grid-container">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Hyper-Casual Retention</div>
+                        <div class="value kpi-value">D1 <25% / D7 <8%</div>
+                                <div class="kpi-source">Source: [S1]</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">Install Share Shift</div>
+                            <div class="value kpi-value">~50% → ~30%</div>
+                            <div class="kpi-source">Since 2021 [S2]</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">Hybrid IAP Revenue Goal</div>
+                            <div class="value kpi-value">$2.1B+ (2023)</div>
+                            <div class="kpi-source">Growing Rapidly [S5]</div>
+                        </div>
+                    </div>
+
+                    <h2>1. Definition: The Boundary of Hyper and Hybrid</h2>
+                    <p><strong>Hyper-Casual</strong> focuses on a single core mechanic that is instantly understood,
+                        securing massive installs through short sessions and low barriers to entry. Its revenue model
+                        typically relies 95%+ on In-App Advertising (IAA), where success is driven by "Volume × Ad
+                        Exposure."</p>
+
+                    <p><strong>Hybrid-Casual</strong> builds on this accessibility by integrating <strong>meta
+                            structures (progression, collection, upgrades)</strong> and <strong>In-App Purchases
+                            (IAP)</strong> proven in mid-core genres. The essence is not just adding buttons but
+                        creating long-term goals and a robust economic system.</p>
+
+                    <div class="mermaid-box">
+                        <div class="mermaid">
+                            flowchart LR
+                            subgraph "Hyper Casual"
+                            A[Core Loop] --> B[Short Session]
+                            B --> C[IAA Exposure]
+                            C --> D[Churn/Install]
+                            end
+
+                            subgraph "Hybrid Casual"
+                            E[Core Loop] --> F[Meta Loop: Growth]
+                            F --> G[IAP/IAA Mixed]
+                            G --> H[Live Ops/Events]
+                            H --> E
+                            end
+
+                            style A fill:#333,stroke:#ff3d00
+                            style E fill:#333,stroke:#ff8a00
+                        </div>
+                    </div>
+
+                    <h2>2. Revenue Model: From IAA to Hybrid Monetization</h2>
+                    <p>In the past, the formula of offsetting low LTV with ultra-low CPI worked. However, with the
+                        introduction of ATT (App Tracking Transparency), targeting has become difficult, shaking UA
+                        efficiency. Hybrid-Casual is a strategy to **raise the LTV ceiling** by combining IAP.</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                        <div class="chart-box">
+                            <canvas id="retentionChart"></canvas>
+                            <p
+                                style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; margin-top: 1rem;">
+                                Retention Curve Comparison (Example Data)</p>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="ltvMixChart"></canvas>
+                            <p
+                                style="font-size: 0.8rem; color: var(--text-secondary); text-align: center; margin-top: 1rem;">
+                                Revenue Mix (IAA vs IAP)</p>
+                        </div>
+                    </div>
+
+                    <h2>3. KPI Comparison: What Needs to Change</h2>
+                    <div class="article-table-wrap">
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Hyper-Casual</th>
+                                    <th>Hybrid-Casual</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Key Metrics</td>
+                                    <td>D1/D7 Retention, Initial CPI</td>
+                                    <td>D30+ Retention, IAP Conversion, ROAS</td>
+                                </tr>
+                                <tr>
+                                    <td>Retention Benchmark</td>
+                                    <td>D1 &lt;25%, D7 &lt;8% [S1]</td>
+                                    <td>D90 10%+ (Top tier titles) [S11]</td>
+                                </tr>
+                                <tr>
+                                    <td>Monetization Tools</td>
+                                    <td>Interstitial, Rewarded Ads</td>
+                                    <td>Starter Packs, Season Pass, Events [S5]</td>
+                                </tr>
+                                <tr>
+                                    <td>Operative Strategy</td>
+                                    <td>Test-and-Run (Mass testing)</td>
+                                    <td>Live Service (Roadmaps & Events)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>4. Success Stories (Case Studies)</h2>
+
+                    <div class="case-study">
+                        <h3>Case 1: Mob Control</h3>
+                        <p>Successfully combined hyper-mechanics with card collection and RPG-style upgrade meta.
+                            According to Voodoo, this title surpassed an **annual run-rate of $200M+**, showcasing the
+                            power of hybridization. [S3][S9]</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h3>Case 2: Survivor!.io</h3>
+                        <p>By blending the tension of the rogue-like genre with the strong revenue model of
+                            hybrid-casual, it recorded **$240M in IAP revenue** in 2023 alone. [S5]</p>
+                    </div>
+
+                    <div class="case-study">
+                        <h3>Case 3: Color Block Jam</h3>
+                        <p>Layering a sophisticated difficulty curve and live-ops on a simple puzzle core, it achieved
+                            over **$100M in bookings** and an incredible **D90 retention of 10%**. [S11]</p>
+                    </div>
+
+                    <h2>5. Conclusion: Expand Your Revenue Curve</h2>
+                    <p>The essence of the transition is not just changing genres, but <strong>modernizing your product
+                            structure</strong> to match the evolving UA and privacy landscape. Teams that maintain the
+                        "fail-fast" culture of hyper-casual while adding the economic design and live-ops expertise
+                        required for hybrid will lead the next cycle of the mobile market.</p>
+
+                    <div class="source-list">
+                        <h4>References</h4>
+                        <ul>
+                            <li>[S1] Gamesforum Intelligence: Hypercasual Gaming Report</li>
+                            <li>[S2] GamesBeat: Hypercasual Market Share Trends</li>
+                            <li>[S5] Sensor Tower: 2023 State of Hybridcasual Mobile Games</li>
+                            <li>[S9] Voodoo: Inside the story of Mob Control’s success</li>
+                            <li>[S11] PocketGamer: How Rollic scored a $100M hybrid-casual hit</li>
+                        </ul>
+                    </div>
+                </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Retention Chart
+        const retentionCtx = document.getElementById('retentionChart').getContext('2d');
+        new Chart(retentionCtx, {
+            type: 'line',
+            data: {
+                labels: ['D1', 'D7', 'D14', 'D30', 'D60', 'D90'],
+                datasets: [{
+                    label: 'Hyper Casual',
+                    data: [24, 7, 4, 1.5, 0.5, 0.1],
+                    borderColor: '#ff3d00',
+                    backgroundColor: 'rgba(255, 61, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'Hybrid Casual',
+                    data: [35, 18, 12, 8, 5, 3],
+                    borderColor: '#ff8a00',
+                    backgroundColor: 'rgba(255, 138, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+
+        // LTV Mix Chart
+        const ltvCtx = document.getElementById('ltvMixChart').getContext('2d');
+        new Chart(ltvCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Hyper-casual', 'Hybrid-casual'],
+                datasets: [{
+                    label: 'IAA Revenue',
+                    data: [95, 45],
+                    backgroundColor: '#ff3d00'
+                }, {
+                    label: 'IAP Revenue',
+                    data: [5, 55],
+                    backgroundColor: '#ff8a00'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    x: { stacked: true, grid: { display: false } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#fff' } }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
