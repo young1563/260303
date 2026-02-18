@@ -2,14 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 :root {
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
+    --bg-primary: #000000;
+    --bg-secondary: #0d0d0d;
     --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --accent-color: #00ff88;
-    --accent-secondary: #00ccff;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-secondary: #b0b0b0;
+    --accent-color: #ff3d00;
+    --accent-secondary: #ff8a00;
+    --accent-gradient: linear-gradient(90deg, #ff3d00 0%, #ff8a00 100%);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --font-primary: 'Inter', 'Noto Sans KR', sans-serif;
     --font-heading: 'Outfit', 'Noto Sans KR', sans-serif;
 }
@@ -80,8 +81,9 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background: var(--accent-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -133,7 +135,8 @@ nav a {
     align-items: center;
     text-align: center;
     padding: 2rem;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05), transparent 70%);
+    background: radial-gradient(circle at 80% 20%, rgba(255, 61, 0, 0.1), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255, 138, 0, 0.05), transparent 50%);
 }
 
 .hero h1 {
@@ -142,6 +145,7 @@ nav a {
     margin-bottom: 1.5rem;
     background: linear-gradient(to right, #ffffff, #a0a0a0);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -155,8 +159,8 @@ nav a {
 .cta-button {
     padding: 1rem 2rem;
     border-radius: 50px;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
-    color: #000;
+    background: var(--accent-gradient);
+    color: #fff;
     font-weight: 700;
     font-size: 1.1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -180,7 +184,7 @@ nav a {
 .research-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 2rem;
     transition: transform 0.3s ease, border-color 0.3s ease;
     position: relative;
@@ -262,7 +266,7 @@ nav a {
     font-size: 2rem;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    color: var(--accent-secondary);
+    color: var(--accent-color);
 }
 
 .article-body p {
