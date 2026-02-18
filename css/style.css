@@ -197,6 +197,7 @@ nav a {
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03));
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .research-card:hover {
@@ -225,6 +226,8 @@ nav a {
     gap: 0.5rem;
     font-weight: 600;
     color: var(--accent-color);
+    position: relative;
+    z-index: 10;
 }
 
 /* Article Content */
