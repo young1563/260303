@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-Casual vs Hybrid-Casual Comparison | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+            width: 25%;
+        }
+
+        .diagram-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--glass-border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-family: monospace;
+            line-height: 1.5;
+            color: var(--accent-secondary);
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">ANTIGRAVITY</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../research.html" class="active">Research</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hypercasual-vs-hybrid.html" class="active">EN</a>
+                <a href="hypercasual-vs-hybrid-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="article-header">
+                <h1>Hyper-Casual vs Hybrid-Casual: A Structural Analysis</h1>
+                <p class="article-meta">Published: February 2026 | By: Antigravity Research</p>
+            </div>
+
+            <div class="article-body">
+                <p>As the mobile gaming market trends shift from 'volume-based expansion' to 'quality growth' and
+                    'retention optimization', understanding the clear distinctions between traditional Hyper-Casual
+                    models and the emerging Hybrid-Casual models has become critical.</p>
+
+                <h2>1. Conceptual Definitions</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Hyper-Casual</th>
+                            <th>Hybrid-Casual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Basic Definition</td>
+                            <td>Centered on a single ultra-simple core mechanic, ad-driven mass traffic model.</td>
+                            <td>Hyper-casual accessibility + Midcore meta/growth systems + IAP integration.</td>
+                        </tr>
+                        <tr>
+                            <td>Core Objective</td>
+                            <td>Rapid scale and viral downloads.</td>
+                            <td>Retention + LTV (Lifetime Value) maximization.</td>
+                        </tr>
+                        <tr>
+                            <td>Business Philosophy</td>
+                            <td>"Acquire many, earn a little from each."</td>
+                            <td>"Acquire fewer, but keep them longer and earn more."</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>2. Structural Comparison</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Hyper-Casual</th>
+                            <th>Hybrid-Casual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🎮 Core Gameplay</td>
+                            <td>1-2 simple interactions (Tap, Swipe).</td>
+                            <td>Simple core + Strategic/Growth elements.</td>
+                        </tr>
+                        <tr>
+                            <td>⏱ Play Sessions</td>
+                            <td>Ultra-short (30s to 2m).</td>
+                            <td>Progressively longer (5m to 20m+).</td>
+                        </tr>
+                        <tr>
+                            <td>🧩 Meta System</td>
+                            <td>Minimal to none.</td>
+                            <td>Leveling, Upgrades, Collections, Skins, Stage expansion.</td>
+                        </tr>
+                        <tr>
+                            <td>💰 Monetization</td>
+                            <td>Ad-centric (Interstitial, Rewarded).</td>
+                            <td>Hybrid (Ads + In-App Purchases).</td>
+                        </tr>
+                        <tr>
+                            <td>📉 Day-7 Retention</td>
+                            <td>Typically 5-10%.</td>
+                            <td>Can reach 15-30%.</td>
+                        </tr>
+                        <tr>
+                            <td>📊 LTV</td>
+                            <td>Very low (mostly under $1).</td>
+                            <td>2x to 5x higher than Hyper-casual.</td>
+                        </tr>
+                        <tr>
+                            <td>📈 CPI Tolerance</td>
+                            <td>Must be extremely low (cents).</td>
+                            <td>Can sustain higher acquisition costs.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>3. Monetization Flow</h2>
+                <h3>Hyper-Casual Revenue Structure</h3>
+                <div class="diagram-container">
+                    Mass Downloads → Ad Exposure → Low ARPU → Low LTV → Low CPI Required
+                </div>
+
+                <h3>Hybrid-Casual Revenue Structure</h3>
+                <div class="diagram-container">
+                    Qualified Downloads → Higher Retention → Meta Systems → IAP Conversion → High LTV → High CPI
+                    Tolerance
+                </div>
+
+                <h2>4. The Shift to Hybrid</h2>
+                <p>Driven by structural limits in hyper-casual (Weakened targeting post-ATT, rising CPI, ad revenue
+                    volatility), the following trends are emerging:</p>
+                <ul>
+                    <li><strong>Simple Core:</strong> Keeping barriers to entry as low as hyper-casual games.</li>
+                    <li><strong>Meta Systems:</strong> Providing long-term goals for players.</li>
+                    <li><strong>IAP Integration:</strong> Harvesting revenue from 'Whales' (high-spending users).</li>
+                    <li><strong>Long-term Retention:</strong> Strengthening community and competitive features.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>The Bottom Line</strong><br>
+                    While Hyper-Casual is a <strong>traffic business</strong>, Hybrid-Casual is a <strong>retention
+                        business</strong>.
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

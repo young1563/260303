@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼 캐주얼 vs 하이브리드 캐주얼 비교 | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--glass-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+            width: 25%;
+        }
+
+        .diagram-container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--glass-border);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-family: monospace;
+            line-height: 1.5;
+            color: var(--accent-secondary);
+        }
+
+        .highlight-box {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index-ko.html" class="logo">ANTIGRAVITY</a>
+        <nav>
+            <ul>
+                <li><a href="../index-ko.html">홈</a></li>
+                <li><a href="../research-ko.html" class="active">리서치</a></li>
+                <li><a href="../index-ko.html#about">소개</a></li>
+                <li><a href="../index-ko.html#contact">연락처</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hypercasual-vs-hybrid.html">EN</a>
+                <a href="hypercasual-vs-hybrid-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="article-header">
+                <h1>하이퍼 캐주얼 vs 하이브리드 캐주얼 비교 분석</h1>
+                <p class="article-meta">발행일: 2026년 2월 | 작성: Antigravity Research</p>
+            </div>
+
+            <div class="article-body">
+                <p>모바일 게임 시장의 트렌드가 단순한 '양적 팽창'에서 '질적 성장' 및 '유지율 확보'로 변화함에 따라, 기존의 하이퍼 캐주얼 모델과 이를 보완한 하이브리드 캐주얼 모델의 명확한
+                    차이를 이해하는 것이 중요해졌습니다.</p>
+
+                <h2>1. 개념 정의</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>하이퍼 캐주얼</th>
+                            <th>하이브리드 캐주얼</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>기본 정의</td>
+                            <td>하나의 초단순 코어 메커닉 중심, 광고 기반 대량 트래픽 모델</td>
+                            <td>하이퍼 캐주얼의 접근성 + 미드코어의 메타/성장 시스템 + IAP 결합</td>
+                        </tr>
+                        <tr>
+                            <td>핵심 목표</td>
+                            <td>빠른 다운로드 확산 (Scale)</td>
+                            <td>유지율 + LTV 증대</td>
+                        </tr>
+                        <tr>
+                            <td>비즈니스 철학</td>
+                            <td>“많이 받고 조금 번다”</td>
+                            <td>“덜 받아도 오래 붙잡아 많이 번다”</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>2. 구조적 차이 비교</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>항목</th>
+                            <th>하이퍼 캐주얼</th>
+                            <th>하이브리드 캐주얼</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🎮 코어 게임플레이</td>
+                            <td>1~2개의 단순 조작 (탭, 스와이프)</td>
+                            <td>단순 코어 + 전략/성장 요소</td>
+                        </tr>
+                        <tr>
+                            <td>⏱ 플레이 세션</td>
+                            <td>매우 짧음 (30초~2분)</td>
+                            <td>점진적으로 길어짐 (5~20분 이상)</td>
+                        </tr>
+                        <tr>
+                            <td>🧩 메타 시스템</td>
+                            <td>거의 없음</td>
+                            <td>레벨업, 업그레이드, 수집, 스킨, 스테이지 확장</td>
+                        </tr>
+                        <tr>
+                            <td>💰 수익 모델</td>
+                            <td>광고 중심 (Interstitial, Rewarded)</td>
+                            <td>광고 + IAP 혼합 (Hybrid Monetization)</td>
+                        </tr>
+                        <tr>
+                            <td>📉 Day-7 유지율</td>
+                            <td>5~10% 수준</td>
+                            <td>15~30%까지 상승 가능</td>
+                        </tr>
+                        <tr>
+                            <td>📊 LTV</td>
+                            <td>매우 낮음 (대부분 $1 이하)</td>
+                            <td>하이퍼 대비 2~5배 이상</td>
+                        </tr>
+                        <tr>
+                            <td>📈 CPI 허용 범위</td>
+                            <td>매우 낮아야 함 (수십 센트 수준)</td>
+                            <td>더 높은 CPI 감내 가능</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>3. 수익 구조 비교</h2>
+                <h3>하이퍼 캐주얼 수익 모델</h3>
+                <div class="diagram-container">
+                    대량 다운로드 → 광고 노출 → 낮은 ARPU → 낮은 LTV → 초저가 CPI 필수
+                </div>
+
+                <h3>하이브리드 캐주얼 수익 모델</h3>
+                <div class="diagram-container">
+                    적정 다운로드 → 유지율 상승 → 메타 시스템 → IAP 전환 → LTV 상승 → CPI 허용 범위 확대
+                </div>
+
+                <h2>4. 왜 하이브리드로 전환되는가?</h2>
+                <p>하이퍼 캐주얼이 직면한 구조적 한계(ATT 이후 타겟팅 약화, CPI 상승, 광고 단가 변동성)로 인해 다음과 같은 변화가 일어나고 있습니다.</p>
+                <ul>
+                    <li><strong>단순 코어 유지:</strong> 접근성은 하이퍼 캐주얼처럼 낮게 유지</li>
+                    <li><strong>메타 시스템 추가:</strong> 유저에게 장기적인 목표 제공</li>
+                    <li><strong>IAP 도입:</strong> 고과금 유저(Whales)로부터의 수익 확보</li>
+                    <li><strong>장기 잔존 설계:</strong> 커뮤니티 및 경쟁 요소 강화</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>한 줄 요약</strong><br>
+                    하이퍼 캐주얼이 <strong>트래픽 비즈니스</strong>라면, 하이브리드 캐주얼은 <strong>체류 시간 비즈니스</strong>입니다.
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
