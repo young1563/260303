@@ -138,7 +138,6 @@ nav a.active {
     color: var(--accent-primary);
 }
 
-/* Hero Section */
 .hero {
     min-height: 80vh;
     display: flex;
@@ -146,9 +145,61 @@ nav a.active {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
-    background: radial-gradient(circle at 80% 20%, rgba(124, 77, 255, 0.05), transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.05), transparent 50%);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.hero-bg-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: blobMove 20s infinite alternate ease-in-out;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-primary);
+    top: -100px;
+    right: -100px;
+}
+
+.blob-2 {
+    width: 350px;
+    height: 350px;
+    background: var(--accent-secondary);
+    bottom: -50px;
+    left: -50px;
+    animation-duration: 25s;
+    animation-delay: -5s;
+}
+
+.floating-icon {
+    position: absolute;
+    opacity: 0.15;
+    z-index: 2;
+    animation: floatIcon 10s infinite ease-in-out;
+    transition: transform 0.1s ease-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
 }
 
 .hero h1 {
@@ -187,6 +238,22 @@ nav a.active {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-tag-inline {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(124, 77, 255, 0.1);
+    color: var(--accent-primary);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    margin-right: 0.8rem;
+    text-transform: uppercase;
 }
 
 .section-title {
@@ -425,6 +492,65 @@ nav a.active {
     box-shadow: 0 15px 30px rgba(124, 77, 255, 0.3);
 }
 
+/* Tabs Navigation */
+.research-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 3px;
+}
+
+.tab-btn.active {
+    color: var(--accent-primary);
+}
+
+.tab-btn.active::after {
+    transform: scaleX(1);
+}
+
+.tab-btn:hover {
+    color: var(--accent-primary);
+}
+
+/* Filtering System */
+.research-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.research-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
 /* Footer */
 
 /* Preloader Styles */
@@ -502,4 +628,44 @@ footer {
     border-top: 1px solid var(--glass-border);
     color: var(--text-secondary);
     margin-top: 4rem;
+}
+
+@keyframes blobMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(20px);
+    }
 }
