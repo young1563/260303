@@ -31,4 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Hide preloader when window is fully loaded
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+
+            // Immediately reveal elements already in viewport
+            const revealElements = document.querySelectorAll('.fade-in');
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('visible');
+                }
+            });
+
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 300); // Shorter timeout
+        }
+    });
 });
