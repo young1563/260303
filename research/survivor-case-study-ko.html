@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이스 스터디: 하이브리드 성공 사례 | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .case-study-hero {
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 229, 255, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .case-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-card h2 {
+            color: var(--accent-primary);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(124, 77, 255, 0.1);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .metric-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .metric-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .metric-list li:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .strategy-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-top: 2rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .strategy-box h4 {
+            margin-top: 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index-ko.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index-ko.html">시장 분석</a></li>
+                <li><a href="../index-ko.html#research" class="active">리서치</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="survivor-case-study.html">EN</a>
+                <a href="survivor-case-study-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="case-study-hero">
+                <h1>성장 가속화: 하이브리드화 성공 사례 분석</h1>
+                <p>심플함과 깊이 사이의 간극을 성공적으로 메운 최상위 캐주얼 게임들의 전략적 청사진을 분석합니다.</p>
+            </div>
+
+            <div class="article-body">
+                <div class="case-grid">
+                    <!-- Mob Control -->
+                    <div class="case-card">
+                        <span class="tag">Voodoo</span>
+                        <h2>Mob Control</h2>
+                        <p>정교한 메타 레이어를 통해 하이퍼캐주얼 코어를 수억 달러 규모의 비즈니스로 전환한 대표적인 사례입니다.</p>
+
+                        <ul class="metric-list">
+                            <li><span class="metric-label">연간 런레이트</span> <span class="metric-value">$2억 달러+</span></li>
+                            <li><span class="metric-label">IAP 매출 비중</span> <span class="metric-value">약 50%</span></li>
+                            <li><span class="metric-label">핵심 메커닉</span> <span class="metric-value">멀티플레이 메타</span></li>
+                        </ul>
+
+                        <div class="strategy-box">
+                            <h4>🚀 핵심 전략</h4>
+                            <p>단순한 대포 발사 메커닉 위에 카드 기반 수집 시스템과 RPG 수준의 업그레이드를 결합했습니다. 이러한 변화는 LTV 곡선을 획기적으로 확장시켜 더욱 공격적인
+                                UA 타겟팅을 가능하게 했습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Survivor!.io -->
+                    <div class="case-card">
+                        <span class="tag">Habby</span>
+                        <h2>Survivor!.io (탕탕특공대)</h2>
+                        <p>높은 접근성의 인터페이스와 깊이 있는 다층적 수익 구조를 통해 로그라이크 서바이벌 장르를 재정의했습니다.</p>
+
+                        <ul class="metric-list">
+                            <li><span class="metric-label">2023년 IAP 매출</span> <span class="metric-value">$2.4억
+                                    달러</span></li>
+                            <li><span class="metric-label">1일차 잔존율(D1)</span> <span class="metric-value">약 40%+</span>
+                            </li>
+                            <li><span class="metric-label">수익화 모델</span> <span class="metric-value">배틀패스 / IAP</span>
+                            </li>
+                        </ul>
+
+                        <div class="strategy-box">
+                            <h4>💎 핵심 전략</h4>
+                            <p>'뱀파이어 서바이벌' 식의 핵앤슬래시 재미에 장비 중심의 성장 시스템을 결합했습니다. 특화된 라이브 이벤트와 탄탄한 '시즌 패스' 모델을 통해 Habby는 장기
+                                잔존율을 극대화하는 기계적인 시스템을 구축했습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>개발자를 위한 핵심 시사점</h2>
+                <div
+                    style="background: rgba(124, 77, 255, 0.05); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>접근성에서 시작하라:</strong> 초기 30초 동안은 하이퍼캐주얼 특유의 '즉각적인 재미'를 유지해야 합니다.</li>
+                        <li><strong>복잡성은 단계적으로:</strong> 장비, 카드, 소셜 등 메타 시스템은 유저가 코어 루프에 숙달된 이후에 점진적으로 도입하십시오.</li>
+                        <li><strong>수익 구조의 다변화:</strong> 광고에만 의존하지 마십시오. 소액 결제(마이크로 트랜잭션)라도 유저가 '사고 싶게' 만드는 시스템을 설계해야
+                            합니다.</li>
+                        <li><strong>데이터 기반 반복 개선:</strong> 1일차 설치 수만이 아니라, 30일차 잔존율(D30)과 인앱 결제 전환율을 북극성 지표(North Star
+                            Metrics)로 삼으십시오.</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                    출처: Sensor Tower Insights, Voodoo 공식 리포트, Habby 재무 데이터 (2023-2024).
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

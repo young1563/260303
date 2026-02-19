@@ -4,13 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 하이퍼 캐주얼 시장 분석 | Research</title>
+    <title>2026 하이퍼캐주얼 시장 분석 | Research</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
+    <style>
+        .stats-box-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+
+        .stat-label {
+            margin-top: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+            color: var(--accent-primary);
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .table-wrap {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(124, 77, 255, 0.05);
+            padding: 1.2rem;
+            text-align: left;
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .takeaway-box {
+            background: #fff;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+        }
+
+        .takeaway-box ul {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,10 +119,8 @@
         <a href="../index-ko.html" class="logo">Game Research</a>
         <nav>
             <ul>
-                <li><a href="../index-ko.html">홈</a></li>
-                <li><a href="../research-ko.html" class="active">리서치</a></li>
-                <li><a href="../index-ko.html#about">소개</a></li>
-                <li><a href="../index-ko.html#contact">연락처</a></li>
+                <li><a href="../index-ko.html">시장 분석</a></li>
+                <li><a href="../index-ko.html#research" class="active">리서치</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="2026-hypercasual.html">EN</a>
@@ -34,131 +132,104 @@
     <main class="article-container fade-in">
         <article>
             <div class="article-header">
-                <h1>2026 하이퍼 캐주얼 게임 시장 분석</h1>
-                <p class="article-meta">발행일: 2026년 2월 | 출처: 시장 분석 보고서</p>
+                <h1>2026 하이퍼캐주얼 게임 시장 분석</h1>
+                <p class="article-meta">발행일: 2026년 2월 | 출처: 시장 분석 리포트 [S2, S15]</p>
             </div>
 
             <div class="article-body">
                 <h2>1. 시장 개요</h2>
-                <p>하이퍼 캐주얼 게임 시장은 단순한 조작법과 짧은 플레이 세션으로 누구나 즉시 즐길 수 있는 장르로, 2020년대 중반에 들어서며 성숙기에 접어들었습니다. 현재 시장은 개인정보 보호
-                    규제와 UA(유저 확보) 비용 상승으로 인해 기존의 단순 광고 모델에서 <strong>하이브리드 캐주얼</strong>로의 전환이 가속화되고 있습니다.</p>
+                <p>단순한 메커니즘과 짧은 플레이 세션으로 대표되는 하이퍼캐주얼 게임 시장은 2020년대 중반 성숙기에 접어들었습니다. 개인정보 보호 규제와 상승하는 유저 획득(UA) 비용에 직면하여,
+                    시장은 순수 광고 기반 모델에서 <strong>하이브리드 캐주얼</strong> 전략으로 빠르게 선회하고 있습니다.</p>
 
-                <div class="stats-box"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 2.5rem 0;">
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            글로벌 시장 규모</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            $171억 (2026)</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">2035년 $348억 전망 (CAGR 8.2%)</p>
+                <div class="stats-box-grid">
+                    <div class="stat-item">
+                        <h4 class="stat-label">글로벌 시장 규모</h4>
+                        <p class="stat-value">$17.1B (2026)</p>
+                        <p class="stat-desc">2035년까지 $34.8B 전망 (CAGR 8.2%) [S15]</p>
                     </div>
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            상위 100개 게임 성적</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            24.09억 회</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">2025년 상반기 누적 다운로드</p>
+                    <div class="stat-item">
+                        <h4 class="stat-label">상위 100개 게임</h4>
+                        <p class="stat-value">2.409B 다운로드</p>
+                        <p class="stat-desc">2025년 상반기 누적 다운로드 수 [S2]</p>
                     </div>
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            플랫폼 점유율</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            Android 72%</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">iOS 28% 시장 비중</p>
+                    <div class="stat-item">
+                        <h4 class="stat-label">플랫폼 점유율</h4>
+                        <p class="stat-value">Android 72%</p>
+                        <p class="stat-desc">iOS 28% 시장 거래량 비율 [S2]</p>
                     </div>
                 </div>
 
-                <h2>2. 주요 트렌드 및 지표</h2>
+                <h2>2. 핵심 트렌드 및 지표</h2>
                 <h3>2025년 상반기 주요 퍼블리셔 (다운로드 기준)</h3>
-                <div
-                    style="background: #111; border-radius: 20px; border: 1px solid var(--glass-border); overflow: hidden; margin-bottom: 3rem;">
-                    <table style="width: 100%; border-collapse: collapse;">
+                <div class="table-wrap">
+                    <table>
                         <thead>
-                            <tr style="background: rgba(255, 61, 0, 0.1); text-align: left;">
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">순위</th>
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">퍼블리셔</th>
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">다운로드 (백만)
-                                </th>
+                            <tr>
+                                <th>순위</th>
+                                <th>퍼블리셔</th>
+                                <th>다운로드 (백만 단위)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">1</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Azur Games</td>
-                                <td style="padding: 1.2rem; color: #fff;">609M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">2</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Supersonic Studios</td>
-                                <td style="padding: 1.2rem; color: #fff;">372M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">3</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Voodoo</td>
-                                <td style="padding: 1.2rem; color: #fff;">362M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">4</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">SayGames</td>
-                                <td style="padding: 1.2rem; color: #fff;">335M</td>
+                            <tr>
+                                <td>1</td>
+                                <td style="font-weight: 700;">Azur Games</td>
+                                <td>609M</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1.2rem; font-weight: 700;">5</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Supercent</td>
-                                <td style="padding: 1.2rem; color: #fff;">242M</td>
+                                <td>2</td>
+                                <td style="font-weight: 700;">Supersonic Studios</td>
+                                <td>372M</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td style="font-weight: 700;">Voodoo</td>
+                                <td>362M</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td style="font-weight: 700;">SayGames</td>
+                                <td>335M</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td style="font-weight: 700;">Supercent</td>
+                                <td>242M</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <h3>혁신 기술 및 전략</h3>
+                <h3>혁신 및 전략</h3>
                 <ul>
-                    <li><strong>하이브리드 캐주얼의 부상:</strong> 단순 광고 수익 의존에서 벗어나 메타 진행 시스템(업그레이드, 수집)과 인앱 결제(IAP)를 결합하여 LTV를
-                        극대화하고 있습니다.</li>
-                    <li><strong>AI 기반 개발 효율화:</strong> 생성형 AI를 활용하여 콘텐츠 제작 및 난이도 조절을 자동화함으로써 개발 기간을 약 40% 단축하는 추세입니다.
-                    </li>
-                    <li><strong>광고 크리에이티브 혁신:</strong> UA 비용을 낮추기 위해 짧고 강렬한 플레이 영상 중심의 '빠른 프로토타입-테스트-출시' 전략이 필수적입니다.
-                    </li>
+                    <li><strong>하이브리드 캐주얼의 부상:</strong> 순수 광고 수익을 넘어 메타 진행도(업그레이드, 수집)와 인앱 결제(IAP)를 통합하여 유저 생애 가치(LTV)를
+                        극대화합니다.</li>
+                    <li><strong>AI 기반 개발:</strong> 콘텐츠 생성 및 난이도 조절에 생성형 AI를 활용하여 개발 시간을 약 40% 단축하고 있습니다.</li>
+                    <li><strong>광고 소재의 혁명:</strong> UA 비용을 낮게 유지하기 위해 '프로토타입-테스트-출시' 주기를 고속화하고, 임팩트 있는 짧은 게임플레이 클립에
+                        집중합니다.</li>
                 </ul>
 
-                <h2>3. 도전 과제 및 제약 요인</h2>
-                <p>시장 성숙에 따른 경쟁 심화로 인해 다음과 같은 해결 과제가 대두되고 있습니다.</p>
+                <h2>3. 과제 및 제약 사항</h2>
                 <ul>
-                    <li><strong>저조한 잔존율:</strong> 평균 Day-1 잔존율 25% 미만, Day-7 잔존율 8% 미만으로 유저 이탈이 매우 빠릅니다.</li>
-                    <li><strong>UA 비용 상승:</strong> 애플의 ATT 및 구글의 프라이버시 샌드박스 도입으로 정교한 타겟팅이 어려워지며 유저 확보 비용이 크게 상승했습니다.
-                    </li>
-                    <li><strong>시장 포화:</strong> 개발 장벽이 낮아 수많은 스튜디오가 진입하며 게임의 생명 주기가 더욱 짧아지고 있습니다.</li>
+                    <li><strong>낮은 잔존율:</strong> 평균 1일차 잔존율(D1)이 25% 미만, 7일차(D7)가 8% 미만으로 유저 이탈이 매우 높습니다. [S1]</li>
+                    <li><strong>UA 비용 상승:</strong> 애플의 ATT와 구글의 프라이버시 샌드박스로 인해 정교한 타겟팅이 어려워졌으며, 신규 유저 획득 비용이 크게 증가했습니다.
+                        [S2]</li>
+                    <li><strong>시장 포화:</strong> 진입 장벽이 낮아 수많은 스튜디오가 유입되었으며, 이는 개별 타이틀의 생존 주기를 더욱 단축시키고 있습니다.</li>
                 </ul>
 
                 <h2>4. 향후 전망 및 결론</h2>
-                <p>하이퍼 캐주얼 시장은 소멸하지 않고 <strong>하이브리드화</strong>를 통해 진화하고 있습니다. 2025년 상반기 기록적인 다운로드 수(24억 회)가 이를 증명합니다.
-                    앞으로의 성공 전략은 다음과 같이 요약할 수 있습니다.</p>
-                <div
-                    style="background: rgba(100, 200, 255, 0.05); padding: 2rem; border-left: 4px solid #64c8ff; border-radius: 0 8px 8px 0; margin: 2rem 0;">
+                <p>하이퍼캐주얼 시장은 사라지는 것이 아니라 <strong>하이브리드화</strong>를 통해 진화하고 있습니다. 2025년 상반기 기록적인 2.4B 다운로드는 이 장르의 지속적인
+                    매력을 증명합니다. 다음 세대의 성공은 다음에 달려 있습니다.</p>
+                <div class="takeaway-box">
                     <ul>
-                        <li><strong>지역별 세분화 전략:</strong> 인도, 베트남 등 APAC 신흥 시장의 성장 잠재력에 집중하는 동시에 북미 등 고 ARPU 지역에서는 하이브리드
-                            모델 최적화가 필요합니다.</li>
-                        <li><strong>메타 시스템 도입:</strong> 코어 루프 외에 유저를 장기적으로 붙잡을 수 있는 사회적 경쟁 및 진행 요소의 결합이 필수입니다.</li>
-                        <li><strong>크로스플랫폼 확장:</strong> 모바일 외에 PC, 콘솔 등으로의 플랫폼 확장을 통해 유저 접점을 넓히고 브랜드 지속성을 확보해야 합니다.</li>
+                        <li><strong>지역적 세분화:</strong> 고성장하는 APAC 시장에 집중하는 동시에, 북미 시장을 위한 고ARPU 모델을 최적화합니다.</li>
+                        <li><strong>메타 시스템 통합:</strong> 코어 루프에 소셜 경쟁과 성장 요소를 결합하여 장기 잔존율을 개선합니다.</li>
+                        <li><strong>크로스 플랫폼 확장:</strong> PC와 콘솔 유저에게 도달하여 유저층을 넓히고 브랜드 수명을 확보합니다.</li>
                     </ul>
+                </div>
+
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 3rem;">
+                    * 데이터 출처: Sensor Tower, Newzoo, AppsFlyer 리포트 기반 [S1, S2, S15].
                 </div>
             </div>
         </article>

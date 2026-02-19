@@ -11,6 +11,106 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
+    <style>
+        .stats-box-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+        }
+
+        .stat-label {
+            margin-top: 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+            color: var(--accent-primary);
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .table-wrap {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(124, 77, 255, 0.05);
+            padding: 1.2rem;
+            text-align: left;
+            color: var(--accent-primary);
+            font-weight: 700;
+        }
+
+        td {
+            padding: 1.2rem;
+            border-bottom: 1px solid var(--card-border);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .takeaway-box {
+            background: #fff;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--card-border);
+        }
+
+        .takeaway-box ul {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,10 +119,8 @@
         <a href="../index.html" class="logo">Game Research</a>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../research.html" class="active">Research</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="2026-hypercasual.html" class="active">EN</a>
@@ -35,7 +133,7 @@
         <article>
             <div class="article-header">
                 <h1>2026 Hyper-Casual Game Market Analysis</h1>
-                <p class="article-meta">Published: February 2026 | Source: Market Analysis Report</p>
+                <p class="article-meta">Published: February 2026 | Source: Market Analysis Report [S2, S15]</p>
             </div>
 
             <div class="article-body">
@@ -45,89 +143,60 @@
                     costs, the market is rapidly pivoting from pure ad-based models to <strong>Hybrid-Casual</strong>
                     strategies.</p>
 
-                <div class="stats-box"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin: 2.5rem 0;">
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            Global Market Size</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            $17.1B (2026)</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Projected $34.8B by 2035 (CAGR
-                            8.2%)</p>
+                <div class="stats-box-grid">
+                    <div class="stat-item">
+                        <h4 class="stat-label">Global Market Size</h4>
+                        <p class="stat-value">$17.1B (2026)</p>
+                        <p class="stat-desc">Projected $34.8B by 2035 (CAGR 8.2%) [S15]</p>
                     </div>
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            Top 100 Games</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            2.409B Hits</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Cumulative Downloads in H1 2025</p>
+                    <div class="stat-item">
+                        <h4 class="stat-label">Top 100 Games</h4>
+                        <p class="stat-value">2.409B Hits</p>
+                        <p class="stat-desc">Cumulative Downloads in H1 2025 [S2]</p>
                     </div>
-                    <div
-                        style="background: #111; padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; overflow: hidden;">
-                        <div
-                            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-gradient);">
-                        </div>
-                        <h4
-                            style="margin-top: 0; color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                            Platform Share</h4>
-                        <p
-                            style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0; background: var(--accent-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
-                            Android 72%</p>
-                        <p style="font-size: 0.85rem; color: var(--text-secondary);">iOS 28% Market Volume</p>
+                    <div class="stat-item">
+                        <h4 class="stat-label">Platform Share</h4>
+                        <p class="stat-value">Android 72%</p>
+                        <p class="stat-desc">iOS 28% Market Volume [S2]</p>
                     </div>
                 </div>
 
                 <h2>2. Key Trends & Metrics</h2>
                 <h3>Top Publishers in H1 2025 (by Downloads)</h3>
-                <div
-                    style="background: #111; border-radius: 20px; border: 1px solid var(--glass-border); overflow: hidden; margin-bottom: 3rem;">
-                    <table style="width: 100%; border-collapse: collapse;">
+                <div class="table-wrap">
+                    <table>
                         <thead>
-                            <tr style="background: rgba(255, 61, 0, 0.1); text-align: left;">
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">Rank</th>
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">Publisher
-                                </th>
-                                <th style="padding: 1.2rem; color: var(--accent-color); font-weight: 700;">Downloads
-                                    (Millions)</th>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Publisher</th>
+                                <th>Downloads (Millions)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">1</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Azur Games</td>
-                                <td style="padding: 1.2rem; color: #fff;">609M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">2</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Supersonic Studios</td>
-                                <td style="padding: 1.2rem; color: #fff;">372M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">3</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Voodoo</td>
-                                <td style="padding: 1.2rem; color: #fff;">362M</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid var(--glass-border);">
-                                <td style="padding: 1.2rem; font-weight: 700;">4</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">SayGames</td>
-                                <td style="padding: 1.2rem; color: #fff;">335M</td>
+                            <tr>
+                                <td>1</td>
+                                <td style="font-weight: 700;">Azur Games</td>
+                                <td>609M</td>
                             </tr>
                             <tr>
-                                <td style="padding: 1.2rem; font-weight: 700;">5</td>
-                                <td style="padding: 1.2rem; font-weight: 700;">Supercent</td>
-                                <td style="padding: 1.2rem; color: #fff;">242M</td>
+                                <td>2</td>
+                                <td style="font-weight: 700;">Supersonic Studios</td>
+                                <td>372M</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td style="font-weight: 700;">Voodoo</td>
+                                <td>362M</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td style="font-weight: 700;">SayGames</td>
+                                <td>335M</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td style="font-weight: 700;">Supercent</td>
+                                <td>242M</td>
                             </tr>
                         </tbody>
                     </table>
@@ -147,9 +216,9 @@
                 <h2>3. Challenges & Constraints</h2>
                 <ul>
                     <li><strong>Low Retention:</strong> Average Day-1 retention falls below 25%, and Day-7 is under 8%,
-                        indicating extremely high player churn.</li>
+                        indicating extremely high player churn. [S1]</li>
                     <li><strong>Rising UA Costs:</strong> Apple's ATT and Google's Privacy Sandbox make precise
-                        targeting difficult, significantly increasing the cost to acquire new users.</li>
+                        targeting difficult, significantly increasing the cost to acquire new users. [S2]</li>
                     <li><strong>Market Saturation:</strong> Low barriers to entry have led to a swarm of studios,
                         further shortening the lifecycle of individual titles.</li>
                 </ul>
@@ -158,8 +227,7 @@
                 <p>The hyper-casual market is not disappearing; it is evolving through <strong>hybridization</strong>.
                     The record-breaking 2.4B downloads in H1 2025 prove the genre's enduring appeal. Success in the next
                     era will depend on:</p>
-                <div
-                    style="background: rgba(255, 61, 0, 0.05); padding: 2rem; border-left: 4px solid var(--accent-color); border-radius: 0 8px 8px 0; margin: 2rem 0;">
+                <div class="takeaway-box">
                     <ul>
                         <li><strong>Regional Segmentation:</strong> Concentrating on high-growth APAC markets while
                             optimizing high-ARPU models for North America.</li>
@@ -168,6 +236,10 @@
                         <li><strong>Cross-Platform Expansion:</strong> Reaching players across PC and console to broaden
                             the user base and secure brand longevity.</li>
                     </ul>
+                </div>
+
+                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 3rem;">
+                    * Data sources include Sensor Tower, Newzoo, and AppsFlyer reported trends [S1, S2, S15].
                 </div>
             </div>
         </article>

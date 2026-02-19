@@ -29,13 +29,14 @@
         }
 
         .kpi-card {
-            background: #111;
+            background: var(--bg-secondary);
             padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
+            box-shadow: var(--card-shadow);
         }
 
         .kpi-card:hover {
@@ -63,10 +64,7 @@
         .kpi-value {
             font-size: 1.8rem;
             font-weight: 800;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -77,28 +75,30 @@
         }
 
         .chart-box {
-            background: #111;
-            border-radius: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
             padding: 2rem;
             margin: 2rem 0;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
         }
 
         .mermaid-box {
-            background: #050505;
+            background: #fff;
             padding: 2rem;
-            border-radius: 20px;
+            border-radius: var(--radius-md);
             margin: 2rem 0;
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--card-border);
             overflow-x: auto;
         }
 
         .article-table-wrap {
-            background: #111;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
             overflow: hidden;
             margin: 3rem 0;
+            box-shadow: var(--card-shadow);
         }
 
         .article-table {
@@ -107,17 +107,18 @@
         }
 
         .article-table th {
-            background: rgba(255, 61, 0, 0.1);
+            background: rgba(124, 77, 255, 0.05);
             padding: 1.2rem;
             text-align: left;
-            color: var(--accent-color);
+            color: var(--accent-primary);
             font-weight: 700;
         }
 
         .article-table td {
             padding: 1.2rem;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--card-border);
             font-size: 0.95rem;
+            color: var(--text-primary);
         }
 
         .article-table tr:last-child td {
@@ -125,20 +126,21 @@
         }
 
         .case-study {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
             padding: 2.5rem;
             margin: 3rem 0;
+            box-shadow: var(--card-shadow);
         }
 
         .case-study h3 {
-            color: var(--accent-color);
+            color: var(--accent-primary);
             margin-top: 0;
         }
 
         .source-list {
-            background: #0d0d0d;
+            background: rgba(0, 0, 0, 0.02);
             padding: 2rem;
             border-radius: 12px;
             margin-top: 4rem;
@@ -147,7 +149,7 @@
         }
 
         .source-list h4 {
-            color: #fff;
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
@@ -162,7 +164,7 @@
         }
 
         .source-list a {
-            color: var(--accent-secondary);
+            color: var(--accent-primary);
             text-decoration: underline;
         }
 
@@ -178,10 +180,8 @@
         <a href="../index.html" class="logo">Game Research</a>
         <nav>
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../research.html" class="active">Research</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="hybrid-deep-dive.html" class="active">EN</a>
@@ -368,15 +368,15 @@
                 datasets: [{
                     label: 'Hyper Casual',
                     data: [24, 7, 4, 1.5, 0.5, 0.1],
-                    borderColor: '#ff3d00',
-                    backgroundColor: 'rgba(255, 61, 0, 0.1)',
+                    borderColor: '#7c4dff',
+                    backgroundColor: 'rgba(124, 77, 255, 0.1)',
                     fill: true,
                     tension: 0.4
                 }, {
                     label: 'Hybrid Casual',
                     data: [35, 18, 12, 8, 5, 3],
-                    borderColor: '#ff8a00',
-                    backgroundColor: 'rgba(255, 138, 0, 0.1)',
+                    borderColor: '#00e5ff',
+                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
                     fill: true,
                     tension: 0.4
                 }]
@@ -384,11 +384,11 @@
             options: {
                 responsive: true,
                 scales: {
-                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
                     x: { grid: { display: false } }
                 },
                 plugins: {
-                    legend: { labels: { color: '#fff' } }
+                    legend: { labels: { color: '#1a1b25' } }
                 }
             }
         });
@@ -402,21 +402,21 @@
                 datasets: [{
                     label: 'IAA Revenue',
                     data: [95, 45],
-                    backgroundColor: '#ff3d00'
+                    backgroundColor: '#7c4dff'
                 }, {
                     label: 'IAP Revenue',
                     data: [5, 55],
-                    backgroundColor: '#ff8a00'
+                    backgroundColor: '#00e5ff'
                 }]
             },
             options: {
                 responsive: true,
                 scales: {
-                    y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
                     x: { stacked: true, grid: { display: false } }
                 },
                 plugins: {
-                    legend: { labels: { color: '#fff' } }
+                    legend: { labels: { color: '#1a1b25' } }
                 }
             }
         });

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Hybrid-Casual Success | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .case-study-hero {
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 229, 255, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .case-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-card h2 {
+            color: var(--accent-primary);
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(124, 77, 255, 0.1);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .metric-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .metric-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .metric-list li:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .strategy-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-top: 2rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .strategy-box h4 {
+            margin-top: 0;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="survivor-case-study.html" class="active">EN</a>
+                <a href="survivor-case-study-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container fade-in">
+        <article>
+            <div class="case-study-hero">
+                <h1>Scaling Success: Case Studies in Hybridization</h1>
+                <p>Analyzing the strategic blueprints of top-performing casual games that bridged the gap between
+                    simplicity and depth.</p>
+            </div>
+
+            <div class="article-body">
+                <div class="case-grid">
+                    <!-- Mob Control -->
+                    <div class="case-card">
+                        <span class="tag">Voodoo</span>
+                        <h2>Mob Control</h2>
+                        <p>A prime example of transforming a hyper-casual core into a multi-million dollar business
+                            through sophisticated meta-layers.</p>
+
+                        <ul class="metric-list">
+                            <li><span class="metric-label">Annual Run-rate</span> <span
+                                    class="metric-value">$200M+</span></li>
+                            <li><span class="metric-label">IAP Share</span> <span class="metric-value">~50%</span></li>
+                            <li><span class="metric-label">Key Mechanic</span> <span class="metric-value">Multiplayer
+                                    Meta</span></li>
+                        </ul>
+
+                        <div class="strategy-box">
+                            <h4>🚀 Core Strategy</h4>
+                            <p>Integrated a card-based collection system and RPG upgrades on top of a simple
+                                cannon-shooting mechanic. This shift extended the LTV curve significantly, allowing for
+                                more aggressive UA targeting.</p>
+                        </div>
+                    </div>
+
+                    <!-- Survivor!.io -->
+                    <div class="case-card">
+                        <span class="tag">Habby</span>
+                        <h2>Survivor!.io</h2>
+                        <p>Redefining the rogue-like survival genre with a highly accessible interface and a deep,
+                            multi-tiered monetization system.</p>
+
+                        <ul class="metric-list">
+                            <li><span class="metric-label">2023 IAP Revenue</span> <span
+                                    class="metric-value">$240M</span></li>
+                            <li><span class="metric-label">D1 Retention</span> <span class="metric-value">~40%+</span>
+                            </li>
+                            <li><span class="metric-label">Monetization</span> <span class="metric-value">Battle Pass /
+                                    IAP</span></li>
+                        </ul>
+
+                        <div class="strategy-box">
+                            <h4>💎 Core Strategy</h4>
+                            <p>Combined the 'vampire survival' mechanic with a gear-based progression system. By using
+                                specialized live events and a robust 'Season Pass' model, Habby created a long-term
+                                retention machine.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Key Takeaways for Developers</h2>
+                <div
+                    style="background: rgba(124, 77, 255, 0.05); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Start with Accessibility:</strong> Maintain the hyper-casual 'instant fun' factor in
+                            the first 30 seconds.</li>
+                        <li><strong>Layer Complexity Gradually:</strong> Introduce meta-systems (gear, cards, social)
+                            only after the core loop is mastered.</li>
+                        <li><strong>Diversify Revenue:</strong> Don't rely solely on ads. Design systems that make
+                            players *want* to purchase, even if it's small amounts (micro-transactions).</li>
+                        <li><strong>Data-Driven Iteration:</strong> Use D30 and IAP conversion as your North Star
+                            metrics, not just D1 installs.</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                    Sources: Sensor Tower Insights, Voodoo Official Reports, Habby Financial Data 2023-2024.
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
