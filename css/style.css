@@ -99,6 +99,11 @@ header {
     font-family: var(--font-heading);
 }
 
+nav {
+    display: flex;
+    align-items: center;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -121,21 +126,34 @@ nav a.active {
 
 .lang-switch {
     display: flex;
-    gap: 0.5rem;
-    padding-left: 1rem;
-    border-left: 1px solid var(--card-border);
-    margin-left: 1rem;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    margin-left: 2rem;
+    position: relative;
 }
 
 .lang-switch a {
-    font-size: 0.8rem;
-    font-weight: 700;
-    opacity: 0.4;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    color: var(--text-primary) !important;
 }
 
 .lang-switch a.active {
     opacity: 1;
-    color: var(--accent-primary);
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: var(--accent-primary) !important;
+}
+
+.lang-switch a:hover:not(.active) {
+    opacity: 0.8;
 }
 
 .hero {
