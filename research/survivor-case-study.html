@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .case-study-hero {
             background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 229, 255, 0.05) 100%);
@@ -100,6 +101,69 @@
             align-items: center;
             gap: 0.5rem;
         }
+
+        /* Visualization Styles */
+        .viz-container {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .loop-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .loop-node {
+            padding: 1.2rem;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 2px dashed var(--accent-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            position: relative;
+        }
+
+        .loop-arrow {
+            font-size: 1.5rem;
+            color: var(--card-border);
+        }
+
+        .source-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .source-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .source-links a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .source-links a:hover {
+            opacity: 0.7;
+        }
     </style>
 </head>
 
@@ -140,50 +204,103 @@
                 <div class="case-grid">
                     <!-- Mob Control -->
                     <div class="case-card">
-                        <span class="tag">Voodoo</span>
-                        <h2>Mob Control</h2>
-                        <p>A prime example of transforming a hyper-casual core into a multi-million dollar business
-                            through sophisticated meta-layers.</p>
+                        <div class="case-header-row">
+                            <span class="tag">Voodoo</span>
+                            <h2 style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">Mob Control</h2>
+                            <p>A prime example of transforming a hyper-casual core into a multi-million dollar business
+                                through sophisticated meta-layers.</p>
+                        </div>
 
-                        <ul class="metric-list">
-                            <li><span class="metric-label">Annual Run-rate</span> <span
-                                    class="metric-value">$200M+</span></li>
-                            <li><span class="metric-label">IAP Share</span> <span class="metric-value">~50%</span></li>
-                            <li><span class="metric-label">Key Mechanic</span> <span class="metric-value">Multiplayer
-                                    Meta</span></li>
-                        </ul>
+                        <div class="metric-row">
+                            <div class="metric-item">
+                                <span class="metric-label">Annual Run-rate</span>
+                                <span class="metric-value">$200M+</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">IAP Share</span>
+                                <span class="metric-value">~50%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Key Mechanic</span>
+                                <span class="metric-value">Multiplayer</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Success Factor</span>
+                                <span class="metric-value">LTV Boost</span>
+                            </div>
+                        </div>
 
-                        <div class="strategy-box">
-                            <h4>🚀 Core Strategy</h4>
-                            <p>Integrated a card-based collection system and RPG upgrades on top of a simple
-                                cannon-shooting mechanic. This shift extended the LTV curve significantly, allowing for
-                                more aggressive UA targeting.</p>
+                        <div class="case-strategy-row">
+                            <div class="strategy-box" style="background: none; border: none; padding: 0;">
+                                <h4 style="margin-bottom: 1rem;">🚀 Core Strategy</h4>
+                                <p style="font-size: 1.05rem; line-height: 1.8;">Integrated a <strong>card-based
+                                        collection system</strong> and <strong>RPG upgrades</strong> on top of a simple
+                                    cannon-shooting mechanic. This shift extended the LTV curve significantly, allowing
+                                    for more aggressive UA targeting compared to competitors.</p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Survivor!.io -->
                     <div class="case-card">
-                        <span class="tag">Habby</span>
-                        <h2>Survivor!.io</h2>
-                        <p>Redefining the rogue-like survival genre with a highly accessible interface and a deep,
-                            multi-tiered monetization system.</p>
+                        <div class="case-header-row">
+                            <span class="tag">Habby</span>
+                            <h2 style="font-size: 2rem; font-weight: 800; margin: 0.5rem 0 1rem;">Survivor!.io</h2>
+                            <p>Redefining the rogue-like survival genre with a highly accessible interface and a deep,
+                                multi-tiered monetization system.</p>
+                        </div>
 
-                        <ul class="metric-list">
-                            <li><span class="metric-label">2023 IAP Revenue</span> <span
-                                    class="metric-value">$240M</span></li>
-                            <li><span class="metric-label">D1 Retention</span> <span class="metric-value">~40%+</span>
-                            </li>
-                            <li><span class="metric-label">Monetization</span> <span class="metric-value">Battle Pass /
-                                    IAP</span></li>
-                        </ul>
+                        <div class="metric-row">
+                            <div class="metric-item">
+                                <span class="metric-label">2023 IAP Revenue</span>
+                                <span class="metric-value">$240M</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">D1 Retention</span>
+                                <span class="metric-value">40%+</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">BM Structure</span>
+                                <span class="metric-value">Hybrid</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Genre</span>
+                                <span class="metric-value">Roguelike</span>
+                            </div>
+                        </div>
 
-                        <div class="strategy-box">
-                            <h4>💎 Core Strategy</h4>
-                            <p>Combined the 'vampire survival' mechanic with a gear-based progression system. By using
-                                specialized live events and a robust 'Season Pass' model, Habby created a long-term
-                                retention machine.</p>
+                        <div class="case-strategy-row">
+                            <div class="strategy-box" style="background: none; border: none; padding: 0;">
+                                <h4 style="margin-bottom: 1rem;">💎 Core Strategy</h4>
+                                <p style="font-size: 1.05rem; line-height: 1.8;">Combined the 'vampire survival' core
+                                    with a <strong>gear-based progression system</strong>. By using specialized live
+                                    events and a robust <strong>Season Pass</strong> model, Habby created a long-term
+                                    retention machine that keeps players engaged daily.</p>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="viz-container">
+                    <h3>📈 Explosive Growth of Hybrid-Casual Market</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Global Hybrid-Casual IAP Revenue Trend
+                        ($B)</p>
+                    <div class="chart-wrapper">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+
+                <h2>The Formula: Hybrid Core Loop</h2>
+                <p>Moving beyond a simple linear structure (Play-Ad-Exit) to build a sustainable virtuous cycle is the
+                    key to hybridization.</p>
+
+                <div class="loop-diagram">
+                    <div class="loop-node">Accessible Core (Hyper)</div>
+                    <div class="loop-arrow">→</div>
+                    <div class="loop-node">Meta Layer Growth (RPG)</div>
+                    <div class="loop-arrow">→</div>
+                    <div class="loop-node">Revenue Diversification (Hybrid)</div>
+                    <div class="loop-arrow">↺</div>
                 </div>
 
                 <h2>Key Takeaways for Developers</h2>
@@ -201,13 +318,62 @@
                     </ul>
                 </div>
 
-                <div
-                    style="font-size: 0.8rem; color: var(--text-primary); opacity: 0.6; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
-                    Sources: Sensor Tower Insights, Voodoo Official Reports, Habby Financial Data 2023-2024.
+                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                    <h3>🔗 Reference Reports & Sources</h3>
+                    <ul class="source-links">
+                        <li><a href="https://sensortower.com/ko/blog/state-of-hybridcausal-mobile-games-2023-report-KR"
+                                target="_blank">1. Sensor Tower - State of Hybrid-Casual Mobile Games 2023</a></li>
+                        <li><a href="https://voodoo.io/news/inside-voodoo-s-hit-the-story-of-mob-control-s-200m-rise"
+                                target="_blank">2. Voodoo - Inside the Hit: The Story of Mob Control’s $200M Rise</a>
+                        </li>
+                        <li><a href="https://www.gameanalytics.com/blog/hybrid-casual-higher-retention-better-engagement"
+                                target="_blank">3. GameAnalytics - Hybrid-casual: The Secret Sauce to Retention</a></li>
+                        <li><a href="https://liftoff.cn/blog/what-the-rise-of-hybrid-casual-games-means-for-advertisers/"
+                                target="_blank">4. Liftoff - What the Rise of Hybrid-Casual Means for Advertisers</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </article>
     </main>
+
+    <script>
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2021', '2022', '2023 (P)'],
+                datasets: [{
+                    label: 'IAP Revenue ($B)',
+                    data: [0.6, 1.2, 1.63, 2.1],
+                    borderColor: '#7c4dff',
+                    backgroundColor: 'rgba(124, 77, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#7c4dff',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>

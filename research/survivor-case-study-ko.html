@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .case-study-hero {
             background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 229, 255, 0.05) 100%);
@@ -100,6 +101,198 @@
             align-items: center;
             gap: 0.5rem;
         }
+
+        /* Modernized Case Card Layout */
+        .case-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .case-card {
+            display: flex;
+            flex-direction: row;
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 15px 35px rgba(124, 77, 255, 0.1);
+        }
+
+        .case-info-side {
+            flex: 1.2;
+            padding: 2.5rem;
+            border-right: 1px solid var(--card-border);
+        }
+
+        .case-strategy-side {
+            flex: 1;
+            padding: 2.5rem;
+            background: rgba(124, 77, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .case-card h2 {
+            color: var(--text-primary);
+            margin: 0.5rem 0 1rem;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric-item {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+        }
+
+        .metric-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 992px) {
+            .case-card {
+                flex-direction: column;
+            }
+
+            .case-info-side {
+                border-right: none;
+                border-bottom: 1px solid var(--card-border);
+            }
+        }
+
+        /* Visualization Styles */
+        .viz-container {
+            margin: 4rem 0;
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .loop-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .loop-node {
+            padding: 1.2rem;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 2px dashed var(--accent-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            position: relative;
+        }
+
+        .loop-arrow {
+            font-size: 1.5rem;
+            color: var(--card-border);
+        }
+
+        .source-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .source-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .source-links a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .source-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Full Width Row Adjustments */
+        .case-card {
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .case-header-row {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .case-title-area {
+            flex: 1;
+        }
+
+        .metric-row {
+            padding: 1.5rem 2.5rem;
+            background: rgba(124, 77, 255, 0.01);
+            border-bottom: 1px solid var(--card-border);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .case-strategy-row {
+            padding: 2rem 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .case-header-row {
+                flex-direction: column;
+            }
+
+            .metric-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
@@ -139,66 +332,171 @@
                 <div class="case-grid">
                     <!-- Mob Control -->
                     <div class="case-card">
-                        <span class="tag">Voodoo</span>
-                        <h2>Mob Control</h2>
-                        <p>정교한 메타 레이어를 통해 하이퍼캐주얼 코어를 수억 달러 규모의 비즈니스로 전환한 대표적인 사례입니다.</p>
+                        <div class="case-header-row">
+                            <div class="case-title-area">
+                                <span class="tag">Voodoo</span>
+                                <h2>Mob Control</h2>
+                                <p>정교한 메타 레이어를 통해 하이퍼캐주얼 코어를 수억 달러 규모의 비즈니스로 전환한 혁신적 사례.</p>
+                            </div>
+                        </div>
 
-                        <ul class="metric-list">
-                            <li><span class="metric-label">연간 런레이트</span> <span class="metric-value">$2억 달러+</span></li>
-                            <li><span class="metric-label">IAP 매출 비중</span> <span class="metric-value">약 50%</span></li>
-                            <li><span class="metric-label">핵심 메커닉</span> <span class="metric-value">멀티플레이 메타</span></li>
-                        </ul>
+                        <div class="metric-row">
+                            <div class="metric-item">
+                                <span class="metric-label">연간 런레이트</span>
+                                <span class="metric-value">$2억 달러+</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">IAP 매출 비중</span>
+                                <span class="metric-value">약 50%</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">핵식 메커닉</span>
+                                <span class="metric-value">멀티플레이</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">성공 요인</span>
+                                <span class="metric-value">LTV 극대화</span>
+                            </div>
+                        </div>
 
-                        <div class="strategy-box">
-                            <h4>🚀 핵심 전략</h4>
-                            <p>단순한 대포 발사 메커닉 위에 카드 기반 수집 시스템과 RPG 수준의 업그레이드를 결합했습니다. 이러한 변화는 LTV 곡선을 획기적으로 확장시켜 더욱 공격적인
-                                UA 타겟팅을 가능하게 했습니다.</p>
+                        <div class="case-strategy-row">
+                            <div class="strategy-box" style="background: none; border: none; padding: 0;">
+                                <h4 style="margin-bottom: 1rem;">🚀 핵심 전략 (Core Strategy)</h4>
+                                <p style="font-size: 1.05rem; line-height: 1.8;">단순 대포 발사 루프 위에 <strong>카드 기반 수집
+                                        시스템</strong>과 <strong>RPG 업그레이드</strong>를 결합했습니다. 이는 유저의 장기 체류(LTV)를 획기적으로 늘려,
+                                    경쟁사보다 더 비싼 단가로 공격적인 UA 마케팅을 가능케 한 원동력이 되었습니다.</p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Survivor!.io -->
                     <div class="case-card">
-                        <span class="tag">Habby</span>
-                        <h2>Survivor!.io (탕탕특공대)</h2>
-                        <p>높은 접근성의 인터페이스와 깊이 있는 다층적 수익 구조를 통해 로그라이크 서바이벌 장르를 재정의했습니다.</p>
+                        <div class="case-header-row">
+                            <div class="case-title-area">
+                                <span class="tag">Habby</span>
+                                <h2>Survivor!.io (탕탕특공대)</h2>
+                                <p>로그라이크 서바이벌 장르에 깊이 있는 다층적 수익 구조를 입혀 글로벌 흥행을 기록한 사례.</p>
+                            </div>
+                        </div>
 
-                        <ul class="metric-list">
-                            <li><span class="metric-label">2023년 IAP 매출</span> <span class="metric-value">$2.4억
-                                    달러</span></li>
-                            <li><span class="metric-label">1일차 잔존율(D1)</span> <span class="metric-value">약 40%+</span>
-                            </li>
-                            <li><span class="metric-label">수익화 모델</span> <span class="metric-value">배틀패스 / IAP</span>
-                            </li>
-                        </ul>
+                        <div class="metric-row">
+                            <div class="metric-item">
+                                <span class="metric-label">2023 IAP 매출</span>
+                                <span class="metric-value">$2.4억 달러</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">D1 잔존율</span>
+                                <span class="metric-value">40%+</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">BM 구조</span>
+                                <span class="metric-value">하이브리드</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">장르</span>
+                                <span class="metric-value">로그라이크</span>
+                            </div>
+                        </div>
 
-                        <div class="strategy-box">
-                            <h4>💎 핵심 전략</h4>
-                            <p>'뱀파이어 서바이벌' 식의 핵앤슬래시 재미에 장비 중심의 성장 시스템을 결합했습니다. 특화된 라이브 이벤트와 탄탄한 '시즌 패스' 모델을 통해 Habby는 장기
-                                잔존율을 극대화하는 기계적인 시스템을 구축했습니다.</p>
+                        <div class="case-strategy-row">
+                            <div class="strategy-box" style="background: none; border: none; padding: 0;">
+                                <h4 style="margin-bottom: 1rem;">💎 핵심 전략 (Core Strategy)</h4>
+                                <p style="font-size: 1.05rem; line-height: 1.8;">'뱀파이어 서바이벌'의 코어 재미에 <strong>장비 및 스킬 성장
+                                        시스템</strong>을 완벽히 이식했습니다. 특히 탄탄한 <strong>시즌 패스</strong>와 정교한 라이브 이벤트 루프를 구축하여,
+                                    유저가 매일 접속해야만 하는 '기계적 잔존 시스템'을 완성했습니다.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <h2>개발자를 위한 핵심 시사점</h2>
-                <div
-                    style="background: rgba(124, 77, 255, 0.05); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
-                    <ul style="margin-bottom: 0;">
-                        <li><strong>접근성에서 시작하라:</strong> 초기 30초 동안은 하이퍼캐주얼 특유의 '즉각적인 재미'를 유지해야 합니다.</li>
-                        <li><strong>복잡성은 단계적으로:</strong> 장비, 카드, 소셜 등 메타 시스템은 유저가 코어 루프에 숙달된 이후에 점진적으로 도입하십시오.</li>
-                        <li><strong>수익 구조의 다변화:</strong> 광고에만 의존하지 마십시오. 소액 결제(마이크로 트랜잭션)라도 유저가 '사고 싶게' 만드는 시스템을 설계해야
-                            합니다.</li>
-                        <li><strong>데이터 기반 반복 개선:</strong> 1일차 설치 수만이 아니라, 30일차 잔존율(D30)과 인앱 결제 전환율을 북극성 지표(North Star
-                            Metrics)로 삼으십시오.</li>
-                    </ul>
+            <div class="viz-container">
+                <h3>📈 하이브리드 캐주얼 시장의 폭발적 성장</h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">글로벌 하이브리드 캐주얼 인앱 결제(IAP) 매출 규모 추이 ($B)</p>
+                <div class="chart-wrapper">
+                    <canvas id="growthChart"></canvas>
                 </div>
+            </div>
 
-                <div
-                    style="font-size: 0.8rem; color: var(--text-primary); opacity: 0.6; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
-                    출처: Sensor Tower Insights, Voodoo 공식 리포트, Habby 재무 데이터 (2023-2024).
-                </div>
+            <h2>성공의 공식: 하이브리드 코어 루프</h2>
+            <p>단순한 일방향 구조(Play-Ad-Exit)를 넘어 지속 가능한 선순환 구조를 구축하는 것이 하이브리드화의 정석입니다.</p>
+
+            <div class="loop-diagram">
+                <div class="loop-node">접근성 높은 코어 (Hyper)</div>
+                <div class="loop-arrow">→</div>
+                <div class="loop-node">메타 레이어 성장 (RPG)</div>
+                <div class="loop-arrow">→</div>
+                <div class="loop-node">수익화 다변화 (Hybrid)</div>
+                <div class="loop-arrow">↺</div>
+            </div>
+
+            <h2>개발자를 위한 핵심 시사점</h2>
+            <div
+                style="background: rgba(124, 77, 255, 0.05); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
+                <ul style="margin-bottom: 0;">
+                    <li><strong>접근성에서 시작하라:</strong> 초기 30초 동안은 하이퍼캐주얼 특유의 '즉각적인 재미'를 유지해야 합니다.</li>
+                    <li><strong>복잡성은 단계적으로:</strong> 장비, 카드, 소셜 등 메타 시스템은 유저가 코어 루프에 숙달된 이후에 점진적으로 도입하십시오.</li>
+                    <li><strong>수익 구조의 다변화:</strong> 광고에만 의존하지 마십시오. 소액 결제(마이크로 트랜잭션)라도 유저가 '사고 싶게' 만드는 시스템을 설계해야
+                        합니다.</li>
+                    <li><strong>데이터 기반 반복 개선:</strong> 1일차 설치 수만이 아니라, 30일차 잔존율(D30)과 인앱 결제 전환율을 북극성 지표(North Star
+                        Metrics)로 삼으십시오.</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                <h3>🔗 참고 리포트 및 출처</h3>
+                <ul class="source-links">
+                    <li><a href="https://sensortower.com/ko/blog/state-of-hybridcausal-mobile-games-2023-report-KR"
+                            target="_blank">1. Sensor Tower - 2023 모바일 하이브리드 캐주얼 게임 시장 인사이트</a></li>
+                    <li><a href="https://voodoo.io/news/inside-voodoo-s-hit-the-story-of-mob-control-s-200m-rise"
+                            target="_blank">2. Voodoo - Inside the Hit: The Story of Mob Control’s $200M Rise</a></li>
+                    <li><a href="https://www.gameanalytics.com/blog/hybrid-casual-higher-retention-better-engagement"
+                            target="_blank">3. GameAnalytics - Hybrid-casual: The Secret Sauce to Retention</a></li>
+                    <li><a href="https://liftoff.cn/blog/what-the-rise-of-hybrid-casual-games-means-for-advertisers/"
+                            target="_blank">4. Liftoff - What the Rise of Hybrid-Casual Means for Advertisers</a></li>
+                </ul>
+            </div>
             </div>
         </article>
     </main>
+
+    <script>
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2021', '2022', '2023 (E)'],
+                datasets: [{
+                    label: 'IAP Revenue ($B)',
+                    data: [0.6, 1.2, 1.63, 2.1],
+                    borderColor: '#7c4dff',
+                    backgroundColor: 'rgba(124, 77, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#7c4dff',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(0,0,0,0.05)' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>

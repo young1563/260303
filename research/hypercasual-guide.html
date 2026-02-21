@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyper-Casual Game Guide | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(124, 77, 255, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .section-card h2 {
+            color: var(--accent-primary);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .strategy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-list li {
+            padding: 1.2rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .strategy-list strong {
+            color: var(--accent-primary);
+            min-width: 140px;
+        }
+
+        .source-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .source-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hypercasual-guide.html" class="active">EN</a>
+                <a href="hypercasual-guide-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <article>
+            <div class="guide-hero">
+                <h1>Hyper-Casual Games: Market Insights & Success Strategies</h1>
+                <p>A comprehensive summary of hyper-casual game definitions and evolving market trends based on Appier
+                    reports.</p>
+            </div>
+
+            <div class="section-card">
+                <h2>🎯 Defining Hyper-Casual</h2>
+                <p>Hyper-casual games focus on "extreme simplicity" that anyone can enjoy instantly without tutorials.
+                    They are designed as "snackable" content for short bursts of play during daily commutes or breaks.
+                </p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="feature-title">Minimalist UI</span>
+                        <span class="feature-desc">Clean, distraction-free interfaces</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">Simple Mechanics</span>
+                        <span class="feature-desc">Single-action focus (Tap/Swipe)</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">Low Entry Barrier</span>
+                        <span class="feature-desc">Free-to-play and small file sizes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>📈 Market Trends: Moving Toward Hybrid</h2>
+                <p>The hyper-casual market is currently in a transition period, moving beyond simple download numbers
+                    toward long-term sustainability.</p>
+                <ul class="strategy-list">
+                    <li><strong>Retention Limits</strong> Typically exhibit a sharp decline in retention after Day 1.
+                    </li>
+                    <li><strong>Hybridization</strong> Integrating RPG elements and meta-progression to boost player
+                        retention.</li>
+                    <li><strong>Intense Competition</strong> As development is relatively easy, the market is saturated,
+                        making sophisticated marketing essential.</li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <h2>🚀 4 Key Strategies for Success</h2>
+                <p>Appier suggests these solutions for maximizing performance and revenue in the hyper-casual space.</p>
+                <ul class="strategy-list">
+                    <li><strong>UA Optimization</strong> Using AI to precisely target high-value users inclined toward
+                        ad engagement.</li>
+                    <li><strong>Cross-Promotion</strong> Leveraging existing game portfolios to circulate users and
+                        increase LTV.</li>
+                    <li><strong>Creative Testing</strong> Validating immersive ad formats like Playable Ads to boost
+                        conversions.</li>
+                    <li><strong>Retargeting</strong> Bringing back lapsed users at optimal moments to expand ad exposure
+                        opportunities.</li>
+                </ul>
+            </div>
+
+            <div class="source-footer">
+                <h3>🔗 Source Report</h3>
+                <a href="https://www.appier.com/ko-kr/blog/hyper-casual-game" target="_blank" class="source-link">
+                    Read the full article at Appier ➔
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
