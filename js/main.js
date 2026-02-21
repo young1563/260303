@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const revealElements = document.querySelectorAll('.fade-in');
+    const revealElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
     revealElements.forEach(el => observer.observe(el));
 
     // Smooth scroll for anchor links
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preloader.classList.add('fade-out');
 
             // Immediately reveal elements already in viewport
-            const revealElements = document.querySelectorAll('.fade-in');
+            const revealElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
             revealElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight) {

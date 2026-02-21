@@ -110,22 +110,50 @@
     </section>
 
     <section class="dashboard-container">
+      <h2 class="section-title fade-in" style="animation-delay: 0.5s;">Global Market Insights 2025</h2>
+      <div class="global-summary-grid">
+        <div class="summary-card slide-left" style="animation-delay: 0.1s;">
+          <div class="icon">🌍</div>
+          <h3>$2.17 Trillion</h3>
+          <p>Total Global Content Market Size in 2025</p>
+        </div>
+        <div class="summary-card fade-in" style="animation-delay: 0.3s;">
+          <div class="icon">🎮</div>
+          <h3>$211.8 Billion</h3>
+          <p>Game Industry Value (8.5% of Content Market)</p>
+        </div>
+        <div class="summary-card slide-right" style="animation-delay: 0.5s;">
+          <div class="icon">📈</div>
+          <h3>+5.65% CAGR</h3>
+          <p>Projected Game Market Growth to $278.8B by 2029</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 5rem;">
+        <a href="research/global-report-2025.html" class="btn-primary fade-in" style="animation-delay: 0.9s;">Explore
+          2025 Global Market Report &rarr;</a>
+      </div>
+
+      <h2 class="section-title fade-in" style="animation-delay: 1.0s;">Key Genre Benchmarks</h2>
       <div class="stats-grid">
-        <div class="stat-card fade-in" style="animation-delay: 0.5s;">
+        <div class="stat-card slide-left" style="animation-delay: 0.2s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Hyper-casual Benchmark</span>
           <h4>Next-Day Return Rate (D1 Retention)</h4>
           <p class="stat-desc">The percentage of players who return to the game one day after installation.</p>
           <div class="value">&lt;25%</div>
           <div class="trend down">▼ Benchmark</div>
           <div class="data-source">Source: Gamesforum ⓘ</div>
         </div>
-        <div class="stat-card fade-in" style="animation-delay: 0.6s;">
+        <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Market Trend Report</span>
           <h4>Market Install Share</h4>
           <p class="stat-desc">The portion of total mobile game downloads belonging to the hyper-casual genre.</p>
           <div class="value">30%</div>
           <div class="trend down">▼ -20% since 2021</div>
           <div class="data-source">Source: GamesBeat ⓘ</div>
         </div>
-        <div class="stat-card fade-in" style="animation-delay: 0.7s;">
+        <div class="stat-card slide-right" style="animation-delay: 0.6s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Hybrid-casual Growth</span>
           <h4>In-Game Purchase Growth (IAP)</h4>
           <p class="stat-desc">Revenue increase from direct in-app item purchases, showing trend toward hybridization.
           </p>
@@ -134,112 +162,89 @@
           <div class="data-source">Source: Sensor Tower ⓘ</div>
         </div>
       </div>
+    </section>
+    <section class="dashboard-container" id="research">
+      <h2 class="section-title fade-in">Deep Dive Research</h2>
 
-      <h2 class="section-title fade-in" style="animation-delay: 0.75s;">Global Market Insights 2025</h2>
-      <div class="global-summary-grid">
-        <div class="summary-card fade-in" style="animation-delay: 0.8s;">
-          <div class="icon">🌍</div>
-          <h3>$2.17 Trillion</h3>
-          <p>Total Global Content Market Size in 2025</p>
-        </div>
-        <div class="summary-card fade-in" style="animation-delay: 0.9s;">
-          <div class="icon">🎮</div>
-          <h3>$211.8 Billion</h3>
-          <p>Game Industry Value (8.5% of Content Market)</p>
-        </div>
-        <div class="summary-card fade-in" style="animation-delay: 1.0s;">
-          <div class="icon">📈</div>
-          <h3>+5.65% CAGR</h3>
-          <p>Projected Game Market Growth to $278.8B by 2029</p>
-        </div>
+      <div class="research-tabs fade-in">
+        <button class="tab-btn active" data-target="all">All Research</button>
+        <button class="tab-btn" data-target="market">Market Analysis</button>
+        <button class="tab-btn" data-target="game">Game Analysis</button>
       </div>
 
-      <div style="text-align: center; margin: 2rem 0 4rem;">
-        <a href="research/global-report-2025.html" class="btn-primary fade-in" style="animation-delay: 1.1s;">Explore
-          2025 Global Market Report &rarr;</a>
+      <div class="research-grid">
+        <!-- Card 1: Global Market Report -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Market Analysis</span>
+              <span class="date">Feb 2025</span>
+              <span class="read-time">15 min read</span>
+            </div>
+            <h3>2025 Global Game Market Deep Dive</h3>
+            <p>Comprehensive analysis of revenue trends, regional growth, and future forecasts across 26 countries.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: KOCCA, PwC</span>
+              <a href="research/global-report-2025.html" class="read-more">View Report →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Block Blast Analysis -->
+        <article class="research-card fade-in" data-category="game">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Game Analysis</span>
+              <span class="date">Feb 2025</span>
+              <span class="read-time">8 min read</span>
+            </div>
+            <h3>Block Blast: UX & Growth Strategy</h3>
+            <p>Deconstructing the secret behind Hungry Studio's 100M+ downloads and its unique 'Juicy' feedback loop.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: Market Data</span>
+              <a href="research/block-blast-analysis.html" class="read-more">View Analysis →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Hyper-casual -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Market Analysis</span>
+              <span class="date">Jan 2025</span>
+              <span class="read-time">12 min read</span>
+            </div>
+            <h3>2026 Hyper-Casual Market Trends</h3>
+            <p>How hyper-casual games are evolving into hybrid-casual to sustain long-term revenue.</p>
+            <div class="card-footer">
+              <span class="source">Source: Sensor Tower</span>
+              <a href="research/2026-hypercasual.html" class="read-more">Read More →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Survivor!.io -->
+        <article class="research-card fade-in" data-category="game">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Case Study</span>
+              <span class="date">Dec 2024</span>
+              <span class="read-time">10 min read</span>
+            </div>
+            <h3>Survivor!.io: Hybridization Success</h3>
+            <p>A deep dive into the monetization and retention mechanics of the most successful hybrid-casual title.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: AppMagic</span>
+              <a href="research/survivor-case-study.html" class="read-more">Read More →</a>
+            </div>
+          </div>
+        </article>
       </div>
-      <section class="dashboard-container" id="research">
-        <h2 class="section-title fade-in">Deep Dive Research</h2>
-
-        <div class="research-tabs fade-in">
-          <button class="tab-btn active" data-target="all">All Research</button>
-          <button class="tab-btn" data-target="market">Market Analysis</button>
-          <button class="tab-btn" data-target="game">Game Analysis</button>
-        </div>
-
-        <div class="research-grid">
-          <!-- Card 1: Global Market Report -->
-          <article class="research-card fade-in" data-category="market">
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-tag-inline">Market Analysis</span>
-                <span class="date">Feb 2025</span>
-                <span class="read-time">15 min read</span>
-              </div>
-              <h3>2025 Global Game Market Deep Dive</h3>
-              <p>Comprehensive analysis of revenue trends, regional growth, and future forecasts across 26 countries.
-              </p>
-              <div class="card-footer">
-                <span class="source">Source: KOCCA, PwC</span>
-                <a href="research/global-report-2025.html" class="read-more">View Report →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2: Block Blast Analysis -->
-          <article class="research-card fade-in" data-category="game">
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-tag-inline">Game Analysis</span>
-                <span class="date">Feb 2025</span>
-                <span class="read-time">8 min read</span>
-              </div>
-              <h3>Block Blast: UX & Growth Strategy</h3>
-              <p>Deconstructing the secret behind Hungry Studio's 100M+ downloads and its unique 'Juicy' feedback loop.
-              </p>
-              <div class="card-footer">
-                <span class="source">Source: Market Data</span>
-                <a href="research/block-blast-analysis.html" class="read-more">View Analysis →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: Hyper-casual -->
-          <article class="research-card fade-in" data-category="market">
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-tag-inline">Market Analysis</span>
-                <span class="date">Jan 2025</span>
-                <span class="read-time">12 min read</span>
-              </div>
-              <h3>2026 Hyper-Casual Market Trends</h3>
-              <p>How hyper-casual games are evolving into hybrid-casual to sustain long-term revenue.</p>
-              <div class="card-footer">
-                <span class="source">Source: Sensor Tower</span>
-                <a href="research/2026-hypercasual.html" class="read-more">Read More →</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4: Survivor!.io -->
-          <article class="research-card fade-in" data-category="game">
-            <div class="card-content">
-              <div class="card-meta">
-                <span class="card-tag-inline">Case Study</span>
-                <span class="date">Dec 2024</span>
-                <span class="read-time">10 min read</span>
-              </div>
-              <h3>Survivor!.io: Hybridization Success</h3>
-              <p>A deep dive into the monetization and retention mechanics of the most successful hybrid-casual title.
-              </p>
-              <div class="card-footer">
-                <span class="source">Source: AppMagic</span>
-                <a href="research/survivor-case-study.html" class="read-more">Read More →</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
+    </section>
   </main>
 
   <footer>
