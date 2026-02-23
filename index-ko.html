@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포트폴리오 | 크리에이티브 개발자</title>
-    <meta name="description" content="크리에이티브 개발자 및 리서처의 개인 포트폴리오입니다.">
+    <title>포트폴리오 | 기획 아티클 아카이브</title>
+    <meta name="description" content="크리에이티브 기획자 및 리서처의 개인 포트폴리오입니다.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,197 +112,261 @@
             </div>
         </section>
 
-        <section class="dashboard-container">
-            <h2 class="section-title fade-in" style="animation-delay: 0.5s;">2025 글로벌 시장 인사이트</h2>
-            <div class="global-summary-grid">
-                <div class="summary-card slide-left" style="animation-delay: 0.1s;">
-                    <div class="icon">🌍</div>
-                    <h3>$2.17 Trillion</h3>
-                    <p>2025년 전 세계 콘텐츠 시장 규모</p>
-                </div>
-                <div class="summary-card fade-in" style="animation-delay: 0.3s;">
-                    <div class="icon">🎮</div>
-                    <h3>$211.8 Billion</h3>
-                    <p>게임 산업 가치 (전체 콘텐츠 시장의 8.5%)</p>
-                </div>
-                <div class="summary-card slide-right" style="animation-delay: 0.5s;">
-                    <div class="icon">📈</div>
-                    <h3>+5.65% CAGR</h3>
-                    <p>2029년 $278.8B 규모 성장 전망</p>
-                </div>
+        <div class="layout-wrapper">
+            <div class="content-area">
+                <section class="dashboard-container" style="padding: 2rem 0;">
+                    <h2 class="section-title fade-in" style="animation-delay: 0.5s; text-align: left;">2025 글로벌 시장 인사이트
+                    </h2>
+                    <div class="global-summary-grid">
+                        <div class="summary-card slide-left" style="animation-delay: 0.1s;">
+                            <div class="icon">🌍</div>
+                            <h3>$2.17 Trillion</h3>
+                            <p>2025년 전 세계 콘텐츠 시장 규모</p>
+                        </div>
+                        <div class="summary-card fade-in" style="animation-delay: 0.3s;">
+                            <div class="icon">🎮</div>
+                            <h3>$211.8 Billion</h3>
+                            <p>게임 산업 가치</p>
+                        </div>
+                        <div class="summary-card slide-right" style="animation-delay: 0.5s;">
+                            <div class="icon">📈</div>
+                            <h3>+5.65% CAGR</h3>
+                            <p>2029년 성장 전망</p>
+                        </div>
+                    </div>
+
+                    <h2 class="section-title fade-in"
+                        style="animation-delay: 1.0s; text-align: left; margin-top: 4rem;">장르별 핵심 지표</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card slide-left" style="animation-delay: 0.2s;">
+                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이퍼캐주얼</span>
+                            <h4>D1 Retention</h4>
+                            <div class="value">&lt;25%</div>
+                            <div class="trend down">▼ 업계 벤치마크</div>
+                        </div>
+                        <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+                            <span class="card-tag-inline" style="margin-bottom: 1rem;">시장 점유율</span>
+                            <h4>Install Share</h4>
+                            <div class="value">30%</div>
+                            <div class="trend down">▼ 대비 -20%</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="dashboard-container" id="research" style="padding: 2rem 0;">
+                    <h2 class="section-title fade-in" style="text-align: left;">심층 리서치 문서</h2>
+                    <div class="research-tabs fade-in" style="justify-content: flex-start;">
+                        <button class="tab-btn active" data-target="all">전체</button>
+                        <button class="tab-btn" data-target="market">시장</button>
+                        <button class="tab-btn" data-target="game">게임</button>
+                    </div>
+                    <div class="research-grid">
+                        <!-- 기존 카드 데이터... -->
+                        <!-- Card 1: 글로벌 시장 리포트 -->
+                        <article class="research-card fade-in" data-category="market">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">시장 분석</span>
+                                    <span class="date">2025년 2월</span>
+                                    <span class="read-time">15분 소요</span>
+                                </div>
+                                <h3>2025 글로벌 게임 시장 심층 분석</h3>
+                                <p>26개국 콘텐츠 시장 규모, 지역별 성장률 및 미래 전망을 담은 통합 리포트입니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: KOCCA, PwC</span>
+                                    <a href="research/global-report-2025-ko.html" class="read-more">리포트 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: Block Blast 분석 -->
+                        <article class="research-card fade-in" data-category="game">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">게임 분석</span>
+                                    <span class="date">2025년 2월</span>
+                                    <span class="read-time">8분 소요</span>
+                                </div>
+                                <h3>Block Blast: UX 및 성장 전략 분석</h3>
+                                <p>Hungry Studio의 1억 다운로드 신화와 중독적인 'Juicy' 피드백 루프의 비밀을 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: Market Data</span>
+                                    <a href="research/block-blast-analysis-ko.html" class="read-more">분석 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3: 하이퍼캐주얼 -->
+                        <article class="research-card fade-in" data-category="market">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">시장 분석</span>
+                                    <span class="date">2025년 1월</span>
+                                    <span class="read-time">12분 소요</span>
+                                </div>
+                                <h3>2026 하이퍼캐주얼 시장 전망</h3>
+                                <p>지속 가능한 수익 모델을 위한 하이퍼캐주얼의 하이브리드화 전략과 트렌드 분석입니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: Sensor Tower</span>
+                                    <a href="research/2026-hypercasual-ko.html" class="read-more">자세히 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4: Hyper-casual Guide (Appier) -->
+                        <article class="research-card fade-in" data-category="market">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">가이드</span>
+                                    <span class="date">2025년 2월</span>
+                                    <span class="read-time">5분 소요</span>
+                                </div>
+                                <h3>하이퍼캐주얼 성공을 위한 전략 가이드</h3>
+                                <p>Appier 리포트를 기반으로 한 정의, 시장 흐름 및 비즈니스 성장 전략 핵심 요약입니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: Appier</span>
+                                    <a href="research/hypercasual-guide-ko.html" class="read-more">가이드 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5: Survivor!.io -->
+                        <article class="research-card fade-in" data-category="game">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">케이스 스터디</span>
+                                    <span class="date">2024년 12월</span>
+                                    <span class="read-time">10분 소요</span>
+                                </div>
+                                <h3>탕탕특공대: 하이브리드화 성공 사례</h3>
+                                <p>가장 성공적인 하이브리드 캐주얼 타이틀의 수익 구조와 리텐션 메커니즘을 심층 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: AppMagic</span>
+                                    <a href="research/survivor-case-study-ko.html" class="read-more">자세히 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6: Pizza Ready -->
+                        <article class="research-card fade-in" data-category="game">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">게임 분석</span>
+                                    <span class="date">2026년 2월</span>
+                                    <span class="read-time">12분 소요</span>
+                                </div>
+                                <h3>Pizza Ready: 성공 전략 분석</h3>
+                                <p>Supercent의 글로벌 히트작 'Pizza Ready'의 핵심 루프와 수익화 전략을 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: Internal Research</span>
+                                    <a href="research/pizze-ready-analysis-ko.html" class="read-more">분석 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 7: Arcade Idle -->
+                        <article class="research-card fade-in" data-category="market">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline">장르 분석</span>
+                                    <span class="date">2026년 2월</span>
+                                    <span class="read-time">15분 소요</span>
+                                </div>
+                                <h3>Arcade Idle: 하이브리드 캐주얼의 진화</h3>
+                                <p>HC의 조작감과 Idle의 성장 메커니즘이 결합된 '아케이드 아이들' 장르의 성공 공식을 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">Source: Medium Research</span>
+                                    <a href="research/arcade-idle-analysis-ko.html" class="read-more">분석 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
             </div>
 
-            <div style="text-align: center; margin: 1rem 0 5rem;">
-                <a href="research/global-report-2025-ko.html" class="btn-primary fade-in"
-                    style="animation-delay: 0.9s;">2025 글로벌 시장 리포트 보기 &rarr;</a>
-            </div>
-
-            <h2 class="section-title fade-in" style="animation-delay: 1.0s;">장르별 핵심 지표</h2>
-            <div class="stats-grid">
-                <div class="stat-card slide-left" style="animation-delay: 0.2s;">
-                    <span class="card-tag-inline" style="margin-bottom: 1rem;">하이퍼캐주얼 벤치마크</span>
-                    <h4>평균 익일 재접속률 (D1 Retention)</h4>
-                    <p class="stat-desc">유저들이 게임 설치 후 다음 날 얼마나 다시 돌아오는지 보여주는 핵심 유지 지표입니다.</p>
-                    <div class="value">&lt;25%</div>
-                    <div class="trend down">▼ 업계 벤치마크</div>
-                    <div class="data-source">출처: Gamesforum ⓘ</div>
+            <aside class="ranking-sidebar fade-in" style="animation-delay: 0.8s; padding-top: 2rem;">
+                <div class="ranking-dashboard">
+                    <div class="ranking-header">
+                        <h3>실시간 인기 게임</h3>
+                        <span class="ranking-update-tag" id="updateTime">Loading...</span>
+                    </div>
+                    <div class="ranking-list" id="rankingList">
+                        <!-- Shimmer Loading effect or Placeholder -->
+                        <div style="padding: 20px; text-align: center; color: #94a3b8; font-size: 0.8rem;">
+                            데이터를 동기화 중입니다...
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card fade-in" style="animation-delay: 0.4s;">
-                    <span class="card-tag-inline" style="margin-bottom: 1rem;">시장 트렌드 보고서</span>
-                    <h4>시장 내 설치 비중 (Install Share)</h4>
-                    <p class="stat-desc">전체 모바일 게임 다운로드 중 하이퍼캐주얼 장르가 차지하는 점유율을 나타냅니다.</p>
-                    <div class="value">30%</div>
-                    <div class="trend down">▼ 2021년 대비 -20%</div>
-                    <div class="data-source">출처: GamesBeat ⓘ</div>
+
+                <div class="summary-card"
+                    style="padding: 1.5rem; text-align: left; background: var(--accent-gradient); color: white;">
+                    <h4 style="margin-bottom: 0.5rem; font-size: 1rem;">오늘의 인사이트</h4>
+                    <p style="font-size: 0.8rem; opacity: 0.9; line-height: 1.5;">현재 한국 마켓에서는 'Block Blast'와 같은 퍼즐 장르가
+                        AD-Monetization 순위 상위권을 장기 집권 중입니다.</p>
                 </div>
-                <div class="stat-card slide-right" style="animation-delay: 0.6s;">
-                    <span class="card-tag-inline" style="margin-bottom: 1rem;">하이브리드 캐주얼 성장</span>
-                    <h4>인앱 결제 매출 성장 (IAP Growth)</h4>
-                    <p class="stat-desc">아이템 구매 등 게임 내 직접 결제를 통한 매출 규모가 하이브리드 장르에서 확대되고 있습니다.</p>
-                    <div class="value">$2.1B</div>
-                    <div class="trend up">▲ 250%+ 증가</div>
-                    <div class="data-source">출처: Sensor Tower ⓘ</div>
-                </div>
-            </div>
-        </section>
-
-        </section>
-        <section class="dashboard-container" id="research">
-            <h2 class="section-title fade-in">심층 리서치 문서</h2>
-
-            <div class="research-tabs fade-in">
-                <button class="tab-btn active" data-target="all">전체 보기</button>
-                <button class="tab-btn" data-target="market">시장 분석</button>
-                <button class="tab-btn" data-target="game">게임 분석</button>
-            </div>
-
-            <div class="research-grid">
-                <!-- Card 1: 글로벌 시장 리포트 -->
-                <article class="research-card fade-in" data-category="market">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">시장 분석</span>
-                            <span class="date">2025년 2월</span>
-                            <span class="read-time">15분 소요</span>
-                        </div>
-                        <h3>2025 글로벌 게임 시장 심층 분석</h3>
-                        <p>26개국 콘텐츠 시장 규모, 지역별 성장률 및 미래 전망을 담은 통합 리포트입니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: KOCCA, PwC</span>
-                            <a href="research/global-report-2025-ko.html" class="read-more">리포트 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 2: Block Blast 분석 -->
-                <article class="research-card fade-in" data-category="game">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">게임 분석</span>
-                            <span class="date">2025년 2월</span>
-                            <span class="read-time">8분 소요</span>
-                        </div>
-                        <h3>Block Blast: UX 및 성장 전략 분석</h3>
-                        <p>Hungry Studio의 1억 다운로드 신화와 중독적인 'Juicy' 피드백 루프의 비밀을 분석합니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: Market Data</span>
-                            <a href="research/block-blast-analysis-ko.html" class="read-more">분석 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 3: 하이퍼캐주얼 -->
-                <article class="research-card fade-in" data-category="market">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">시장 분석</span>
-                            <span class="date">2025년 1월</span>
-                            <span class="read-time">12분 소요</span>
-                        </div>
-                        <h3>2026 하이퍼캐주얼 시장 전망</h3>
-                        <p>지속 가능한 수익 모델을 위한 하이퍼캐주얼의 하이브리드화 전략과 트렌드 분석입니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: Sensor Tower</span>
-                            <a href="research/2026-hypercasual-ko.html" class="read-more">자세히 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 4: Hyper-casual Guide (Appier) -->
-                <article class="research-card fade-in" data-category="market">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">가이드</span>
-                            <span class="date">2025년 2월</span>
-                            <span class="read-time">5분 소요</span>
-                        </div>
-                        <h3>하이퍼캐주얼 성공을 위한 전략 가이드</h3>
-                        <p>Appier 리포트를 기반으로 한 정의, 시장 흐름 및 비즈니스 성장 전략 핵심 요약입니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: Appier</span>
-                            <a href="research/hypercasual-guide-ko.html" class="read-more">가이드 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 5: Survivor!.io -->
-                <article class="research-card fade-in" data-category="game">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">케이스 스터디</span>
-                            <span class="date">2024년 12월</span>
-                            <span class="read-time">10분 소요</span>
-                        </div>
-                        <h3>탕탕특공대: 하이브리드화 성공 사례</h3>
-                        <p>가장 성공적인 하이브리드 캐주얼 타이틀의 수익 구조와 리텐션 메커니즘을 심층 분석합니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: AppMagic</span>
-                            <a href="research/survivor-case-study-ko.html" class="read-more">자세히 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 6: Pizza Ready -->
-                <article class="research-card fade-in" data-category="game">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">게임 분석</span>
-                            <span class="date">2026년 2월</span>
-                            <span class="read-time">12분 소요</span>
-                        </div>
-                        <h3>Pizza Ready: 성공 전략 분석</h3>
-                        <p>Supercent의 글로벌 히트작 'Pizza Ready'의 핵심 루프와 수익화 전략을 분석합니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: Internal Research</span>
-                            <a href="research/pizze-ready-analysis-ko.html" class="read-more">분석 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 7: Arcade Idle -->
-                <article class="research-card fade-in" data-category="market">
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="card-tag-inline">장르 분석</span>
-                            <span class="date">2026년 2월</span>
-                            <span class="read-time">15분 소요</span>
-                        </div>
-                        <h3>Arcade Idle: 하이브리드 캐주얼의 진화</h3>
-                        <p>HC의 조작감과 Idle의 성장 메커니즘이 결합된 '아케이드 아이들' 장르의 성공 공식을 분석합니다.</p>
-                        <div class="card-footer">
-                            <span class="source">Source: Medium Research</span>
-                            <a href="research/arcade-idle-analysis-ko.html" class="read-more">분석 보기 →</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+            </aside>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
     </footer>
 
+    <script src="data/rankings.js"></script>
+    <script>
+        // Ranking Render Function
+        function renderRankingData(data) {
+            const rankingList = document.getElementById('rankingList');
+            const updateTime = document.getElementById('updateTime');
+
+            rankingList.innerHTML = '';
+            updateTime.textContent = data.lastUpdated;
+
+            data.rankings.forEach((app, index) => {
+                const item = document.createElement('div');
+                item.className = 'ranking-item' + (index < 3 ? ' rank-item-top3' : '');
+
+                const trendIcon = app.trend || '-';
+                const trendClass = trendIcon === '▲' ? 'trend-up' : (trendIcon === '▼' ? 'trend-down' : (trendIcon === 'NEW' ? 'trend-up' : 'trend-stay'));
+
+                item.innerHTML = `
+                    <span class="rank-number">${index + 1}</span>
+                    <img src="${app.artworkUrl}" class="rank-icon" alt="${app.name}">
+                    <div class="rank-info">
+                        <div class="rank-name">${app.name}</div>
+                        <div class="rank-genre">${app.genre}</div>
+                    </div>
+                    <span class="rank-trend ${trendClass}">${trendIcon}</span>
+                `;
+                rankingList.appendChild(item);
+            });
+        }
+
+        async function fetchRankings() {
+            try {
+                // 1. JSON fetch 시도 (서버 환경)
+                const response = await fetch('data/rankings.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    renderRankingData(data);
+                    return;
+                }
+                throw new Error('Fetch failed');
+            } catch (error) {
+                // 2. 실패 시 (로컬 파일 실행 등) 미리 로드된 JS 변수 사용
+                console.log('Using JS Fallback');
+                if (typeof G_RANKING_DATA !== 'undefined') {
+                    renderRankingData(G_RANKING_DATA);
+                } else {
+                    document.getElementById('rankingList').innerHTML = '<div style="padding: 20px; text-align: center; color: #ef4444; font-size: 0.8rem;">데이터를 불러올 수 없습니다.</div>';
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchRankings();
+        });
+    </script>
     <script src="js/main.js"></script>
 </body>
 

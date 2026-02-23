@@ -1,0 +1,125 @@
+{
+    "lastUpdated": "2026-02-23 17:00",
+    "rankings": [
+        {
+            "name": "Google Gemini",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6a/38/34/6a38349f-c454-7abe-427b-822af16c459d/AppIcon-0-1x_U007epad-0-0-0-1-0-0-0-0-85-220-0.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "한투-한국투자증권,MTS,투자,증권,해외주식,주식어플",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/29/8f/cd298f83-71a6-6b74-84c4-35995b08d204/AppIcon-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "네이버플러스 스토어",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b5/44/8d/b5448d43-066b-2a46-138f-7061c8c7e4b0/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "미래에셋증권 M-STOCK",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7c/ca/2a/7cca2af2-9daa-3991-903f-68e09cc041bb/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "CGV",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/da/a8/9fdaa8e0-26f1-b082-5b52-fa9956ff8ed6/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "듀오링고(Duolingo): 언어 학습",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/99/5d/18995d23-afff-97ab-05f1-21153f852a78/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "삼성증권 mPOP",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/43/dc/6243dc4a-f696-444c-d02d-f33f6b1c3ed2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "대한민국 모바일 신분증",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dd/d4/f6/ddd4f604-b14a-487c-7fb3-c9bb367c1aab/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "복똑방 (동행복권 공식 앱)",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/2d/1f/6e2d1f12-c988-4e4a-0257-db57f3d1b750/AppIcon-1x_U007ephone-0-11-0-85-220-0.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "ChatGPT",
+            "genre": "기타",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e4/1a/2d/e41a2d45-a488-19db-f05c-8c5ccec48e7f/AppIcon-0-0-1x_U007epad-0-0-0-1-0-P3-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "치지직",
+            "genre": "엔터테인먼트",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/a1/73/00a17378-d518-34c5-fba7-2a5ef4f8819a/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "캐치테이블",
+            "genre": "음식 및 음료",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/73/3c/ca733c4f-b190-28b7-413e-32274471c6eb/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "Waitcle: 운세 프롬프트 생성기",
+            "genre": "엔터테인먼트",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/c6/e6/96c6e617-a4b8-5384-06a5-aed58b9264f5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "하이클래스: 똑똑한 학급소통앱",
+            "genre": "교육",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/df/23/dddf231d-d1d8-23a4-59a0-e955d8f79df5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "롯데월드 어드벤처",
+            "genre": "엔터테인먼트",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f0/89/58/f0895880-8203-47bd-cf88-16773f28ca1f/AppIcon-0-0-1x_U007emarketing-0-7-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "모바일티머니",
+            "genre": "금융",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/85/3f/c2/853fc25e-1e5b-05f8-df8a-a22a758e24f7/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "DramaBox - 영화와 숏폼 드라마",
+            "genre": "엔터테인먼트",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/58/bd/9758bd0a-e1dc-4134-4075-1f493772f33a/AppIcon-0-0-1x_U007ephone-0-1-0-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "다이소몰",
+            "genre": "라이프스타일",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/7a/53/bf7a53fc-5482-7abb-7ff4-12f0c86faa90/AppIcon-0-0-1x_U007ephone-0-1-85-220.jpeg/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "Disney+",
+            "genre": "엔터테인먼트",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bc/b6/a2/bcb6a29c-66f8-2bba-d437-5e395d88860f/AppIcon-0-0-1x_U007emarketing-0-8-0-0-0-85-220.png/100x100bb.png",
+            "trend": "-"
+        },
+        {
+            "name": "네이버페이",
+            "genre": "금융",
+            "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/da/40/dada4029-e43b-e53e-130e-ba3b75fa9671/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/100x100bb.png",
+            "trend": "-"
+        }
+    ]
+}
