@@ -155,9 +155,21 @@
 
         .strategy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin: 2rem 0;
+        }
+
+        @media (max-width: 850px) {
+            .strategy-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .strategy-card {
@@ -228,115 +240,212 @@
 
     <main class="content-section">
         <article class="article-body">
-            <h2 class="fade-in">1. 장르 정의: 단순함 위에 얹은 메타</h2>
-            <p class="fade-in">Arcade-Idle(아케이드 아이들)은 하이퍼캐주얼 수준의 단순한 조작과 규칙 위에, 수치적 경제와 영역 확장이라는 Idle의 메타 루프를 결합한 장르입니다.
-                이를 통해 하이퍼캐주얼의 낮은 진입장벽과 Idle의 높은 LTV(평생 가치)를 동시에 확보합니다.</p>
+            <h2 class="fade-in">1. 아케이드 아이들(Arcade Idle)이란 무엇인가?</h2>
+            <p class="fade-in">지하철에서 누군가 한 손으로 캐릭터를 조종해 자원을 모으고 건물을 짓는 게임을 본 적이 있나요? 그것이 바로 <b>아케이드 아이들</b>입니다.
+                이 장르는 '단순한 조작(Arcade)'과 '내버려 둬도 자라는 재미(Idle)'를 절묘하게 섞은 하이브리드 캐주얼의 대표 주자입니다.</p>
 
             <div class="highlight-box fade-in">
-                <h4>핵심 합성 포인트:</h4>
+                <h4>쉽게 풀어보는 성공 공식:</h4>
                 <ul>
-                    <li><b>HC로부터</b>: 단순 조작(조이스틱), 낮은 실패 스트레스, 빠른 온보딩</li>
-                    <li><b>Idle로부터</b>: 경제 기반 진행, 업그레이드/해금, 자동화 욕구, 스노우볼 성장</li>
+                    <li><b>아케이드(Action)</b>: 조이스틱 하나로 캐릭터를 움직이는 직관적인 조작감</li>
+                    <li><b>아이들(Idle)</b>: 돈을 벌어 건물을 세우고, 일꾼을 고용해 자동으로 성장하는 시스템</li>
+                    <li><b>결과</b>: "시작하기는 쉽지만, 자꾸만 다음 단계가 궁금해져서 멈출 수 없는 게임"</li>
                 </ul>
             </div>
 
-            <h2 class="fade-in">2. 플레이어 동기: Discovery · Power · Fantasy</h2>
-            <p class="fade-in">쿼스틱 파운드리(Quantic Foundry)의 동기 모델에 따르면, 이 장르는 크게 세 가지 심리적 요인을 자극합니다.</p>
+            <h2 class="fade-in">2. 왜 우리의 뇌는 이 게임에 열광할까? (심리학)</h2>
+            <p class="fade-in">단순해 보이는 이 게임 뒤에는 치밀한 심리 설계가 숨어 있습니다. 리서치에 따르면 유저는 다음 세 가지 감정을 통해 몰입을 경험합니다.</p>
 
             <div class="strategy-grid fade-in">
                 <div class="strategy-card">
-                    <h4>탐험 (Discovery)</h4>
-                    <p>안개 속에 가려진 구역을 해금하며 "다음에 무엇이 있을까?"라는 호기심을 자극합니다.</p>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🔍</div>
+                    <h4>"다음에 뭐가 있지?" (탐험)</h4>
+                    <p>안개에 가려진 구역을 돈을 써서 해금할 때, 마치 숨겨진 보물을 찾는 듯한 호기심을 유발합니다.</p>
                 </div>
                 <div class="strategy-card">
-                    <h4>성장 (Power)</h4>
-                    <p>숫자가 비약적으로 커지는 인플레이션 구조와 업그레이드를 통해 강력해지는 지배력을 체감하게 합니다.</p>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">💪</div>
+                    <h4>"점점 강해진다!" (성장)</h4>
+                    <p>처음에는 느릿느릿하던 캐릭터가 업그레이드를 통해 수십 개의 짐을 한 번에 나를 때 강력한 성취감을 느낍니다.</p>
                 </div>
                 <div class="strategy-card">
-                    <h4>역할 (Fantasy)</h4>
-                    <p>농장주, 요리사, 호텔리어 등 친숙한 테마를 통해 즉각적인 몰입감을 제공합니다.</p>
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🏰</div>
+                    <h4>"꿈꾸던 역할극" (판타지)</h4>
+                    <p>농장주, 요리사, 던전 탐험가 등 친숙한 테마 속에서 내가 주인공이 되어 세상을 확장하는 즐거움을 줍니다.</p>
                 </div>
             </div>
 
-            <h2 class="fade-in">3. 핵심 엔진: 표준 루프 설계</h2>
-            <p class="fade-in">아케이드 아이들의 게임플레이는 초 단위의 코어 루프와 분 단위의 메타 루프가 톱니바퀴처럼 맞물려 돌아갑니다.</p>
+            <h2 class="fade-in">3. 게임의 뼈대: 멈추지 않는 '순환 고리'</h2>
+            <p class="fade-in">아케이드 아이들은 유저가 지루할 틈이 없도록 초 단위와 분 단위의 목표를 계속 던져줍니다.</p>
 
-            <h3 class="fade-in">코어 루프 (Core Loop)</h3>
             <div class="mermaid-container fade-in">
                 <div class="mermaid">
-                    graph LR
-                    A["🕹️ 이동 (조이스틱)"] --> B["📦 채집/작업"]
-                    B --> C["🚛 운반/적재"]
-                    C --> D["💰 납품/판매"]
-                    D --> E["🎁 즉시 보상"]
+                    graph TD
+                    A["🏃 이동 (조이스틱 조작)"] --> B["⛏️ 자원 채집 (자동)"]
+                    B --> C["📦 운반 및 적재"]
+                    C --> D["💰 판매 및 재화 획득"]
+                    D --> E["✨ 업그레이드 / 구역 해금"]
                     E --> A
 
                     style A fill:#10b981,stroke:#059669,color:#fff
                     style E fill:#fbbf24,stroke:#d97706,color:#fff
                 </div>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 1rem;">이 반복적인 동작들이 모여 '성장'이라는 커다란 보상으로 이어집니다.
+                </p>
             </div>
 
-            <h2 class="fade-in">4. 시스템 기획: 복잡도 제거와 깊이의 실현</h2>
-            <p class="fade-in">성공적인 아케이드 아이들 기획의 핵심은 <b>"복잡도 제거(Simplify)"</b>와 <b>"깊이 미리보기(Expose Depth)"</b>의 조화입니다.
-            </p>
+            <h2 class="fade-in">4. 기획자의 비밀: '초크포인트'와 '가속'</h2>
+            <p class="fade-in">게임이 너무 술술 풀리면 금방 질리고, 너무 막히면 포기하게 됩니다. 기획자는 이 간격을 <b>'초크포인트(Choke-point)'</b>로 조절합니다.</p>
 
             <div class="table-wrap fade-in">
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 30%;">기획 영역</th>
-                            <th>상세 설계 포인트</th>
+                            <th style="width: 30%;">핵심 장치</th>
+                            <th>일반인이 이해하는 느낌</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><b>조작/UX</b></td>
-                            <td>1스틱(이동) + 자동 상호작용(오토 픽업) 위주. UX는 "지금 할 일 1개"에만 집중하도록 극도로 단순화합니다.</td>
+                            <td><b>초크포인트</b></td>
+                            <td>"다음 구역이 눈앞에 보이는데, 돈이 조금 부족하네? 조금만 더 하면 될 것 같아!" 라는 절묘한 결핍의 지점.</td>
                         </tr>
                         <tr>
-                            <td><b>경제(Economy)</b></td>
-                            <td>해금 비용을 기하급수적으로 높이되 수익도 함께 키우는 인플레이션 구조. <b>비선형 싱크(Sink)</b>를 통해 결제/광고를 유도하는 초크포인트를
-                                형성합니다.</td>
+                            <td><b>가속(Speed-up)</b></td>
+                            <td>답답함을 느낄 때쯤 나타나는 '광고 시청'이나 '아이템 구매'. 유저는 이를 방해가 아닌 '구원'으로 느끼게 됩니다.</td>
                         </tr>
                         <tr>
-                            <td><b>프로그레션</b></td>
-                            <td>맵을 구역(Zone)별로 패키징하여, 유저가 초기에 '오래 할 거리'가 있음을 시각적으로 믿게 하는 것이 중요합니다.</td>
+                            <td><b>타이머 체인</b></td>
+                            <td>[재료 공급 → 요리 → 서빙 → 결제] 처럼 단계별로 시간이 걸리게 설계하여, 유저가 동선을 최적화하는 고민을 하게 만듭니다.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2 class="fade-in">5. 콘텐츠 확장: 수직적 vs 수평적 전략</h2>
-            <p class="fade-in">콘텐츠를 확장할 때는 유저의 학습 부담과 신선도 사이의 균형을 맞춰야 합니다.</p>
+            <h2 class="fade-in">5. 지루함을 깨는 방법: 수직 vs 수평 확장</h2>
+            <p class="fade-in">똑같은 행동만 반복하면 금방 질리겠죠? 개발자들은 두 가지 방법으로 새로운 재미를 처방합니다.</p>
 
             <div class="strategy-grid fade-in">
-                <div class="strategy-card" style="border-top: 5px solid #10b981;">
-                    <h4>Vertical (수직 추가)</h4>
-                    <p>단계는 유지하되 종류를 늘리는 방식 (예: 버거 팔다가 피자 메뉴 추가). 리스크가 낮고 볼륨을 빠르게 채우기 유리합니다.</p>
+                <!-- 수직적 확장 카드 -->
+                <div class="strategy-card"
+                    style="border-top: 5px solid #10b981; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="background: #ecfdf5; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem;">
+                            🍎</div>
+                        <h4>수직적 확장 (Vertical)</h4>
+                        <p style="font-size: 0.9rem; color: #64748b;">"같은 일을 더 다양하게!"</p>
+                        <p style="margin-top: 1rem;">기존의 게임 방식은 그대로 유지하면서 종류를 늘리는 방식입니다.</p>
+                    </div>
+                    <div
+                        style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 12px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <span style="font-size: 1.2rem;">🍔</span>
+                            <span style="color: #cbd5e1;">➔</span>
+                            <span style="font-size: 1.2rem;">🍕</span>
+                            <span style="color: #cbd5e1;">➔</span>
+                            <span style="font-size: 1.2rem;">🍣</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 5px;">메뉴판만 바꾸는 전략</div>
+                    </div>
                 </div>
-                <div class="strategy-card" style="border-top: 5px solid #06b6d4;">
-                    <h4>Horizontal (수평 추가)</h4>
-                    <p>프로세스 단계 자체를 추가 (예: 요리 후 '포장' 단계 삽입). 체감 깊이는 크지만 플로우를 해칠 리스크가 있으므로 변곡점에만 사용합니다.</p>
+
+                <!-- 수평적 확장 카드 -->
+                <div class="strategy-card"
+                    style="border-top: 5px solid #06b6d4; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="background: #e0f7fa; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem;">
+                            ⚙️</div>
+                        <h4>수평적 확장 (Horizontal)</h4>
+                        <p style="font-size: 0.9rem; color: #64748b;">"더 깊고 복잡한 과정을!"</p>
+                        <p style="margin-top: 1rem;">일하는 과정(프로세스) 단계 자체를 새로 추가하는 방식입니다.</p>
+                    </div>
+                    <div
+                        style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 12px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <span title="수확" style="font-size: 1.1rem;">🚜</span>
+                            <span style="color: #06b6d4;">➔</span>
+                            <span title="요리" style="font-size: 1.1rem;">🍳</span>
+                            <span style="color: #ef4444; font-weight: bold;">+</span>
+                            <span title="포장"
+                                style="font-size: 1.1rem; border: 2px solid #06b6d4; border-radius: 50%; padding: 2px;">🎁</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 5px;">신규 단계(포장)를 추가해 깊이 형성</div>
+                    </div>
+                </div>
+
+                <!-- 환경적 확장 카드 -->
+                <div class="strategy-card"
+                    style="border-top: 5px solid #8b5cf6; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="background: #f5f3ff; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem;">
+                            🌍</div>
+                        <h4>환경적 확장 (Zone)</h4>
+                        <p style="font-size: 0.9rem; color: #64748b;">"새로운 세상으로의 탐험!"</p>
+                        <p style="margin-top: 1rem;">새로운 맵과 테마(바이옴)를 열어 시각적 신선함을 줍니다.</p>
+                    </div>
+                    <div
+                        style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 12px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                            <span style="font-size: 1.2rem;">🏝️</span>
+                            <span style="color: #cbd5e1;">➔</span>
+                            <span style="font-size: 1.2rem;">❄️</span>
+                            <span style="color: #cbd5e1;">➔</span>
+                            <span style="font-size: 1.2rem;">🌋</span>
+                        </div>
+                        <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 5px;">테마 자체를 리셋해 호기심 자극</div>
+                    </div>
                 </div>
             </div>
 
-            <h2 class="fade-in">6. 수익화 모델: 가속(Speed-up)의 미학</h2>
-            <p class="fade-in">아케이드 아이들은 유저의 진행 욕구가 강하기 때문에 모든 BM이 '성능 가속'에 초점이 맞춰져 있습니다.</p>
+            <h2 class="fade-in">6. 돈은 어떻게 벌까? (수익화 전략)</h2>
+            <p class="fade-in">이 장르는 유저의 <b>'시간을 아끼고 싶은 욕구'</b>를 수익으로 전환합니다.</p>
 
             <div class="highlight-box fade-in" style="background: #f8fafc; border-left-color: #64748b;">
                 <ul>
-                    <li><b>광고(IAA)</b>: "Watch to go faster". 보상형 광고를 유저의 고통 지점(Pain Point) 해결 수단으로 제안.</li>
-                    <li><b>인앱 결제(IAP)</b>: "Permanent Boost". 광고 보급형의 영구 버전(광고 제거, 골든 툴 등)을 판매.</li>
-                    <li><b>구독</b>: 독점 콘텐츠 + 패시브 보너스. 매출의 30% 이상을 차지하기도 함.</li>
+                    <li><b>보상형 광고</b>: "30초만 투자하면 일꾼 속도가 2배!" 같은 제안. 유저는 보상을 위해 즐겁게 광고를 클릭합니다.</li>
+                    <li><b>광고 제거 패키지</b>: "매번 광고 보기 귀찮으시죠? 한 번만 결제하면 영구적으로 쾌적해집니다."</li>
+                    <li><b>구독 모델</b>: 매일 보너스 재화와 특별한 스킨을 제공해 유저가 매일 접속하게 만드는 강력한 도구입니다.</li>
                 </ul>
             </div>
 
-            <h2 class="fade-in">7. 요약: 성공을 위한 실전 체크리스트</h2>
-            <ul class="fade-in">
-                <li><b>초반 3분</b>: 잠겨진 구역과 파워업 결과물을 미리 보여주어 기대감을 조성했는가?</li>
-                <li><b>경제 균형</b>: 수익 인플레이션과 지출 초크포인트가 적절히 맞물려 광고 시청 욕구를 자극하는가?</li>
-                <li><b>콘텐츠 호흡</b>: 수직적 변주로 안정성을 잡고, 새로운 구역 진입 시 수평적 변주로 흥미를 상기시키는가?</li>
-            </ul>
+            <h2 class="fade-in">7. 한 줄 요약: 아케이드 아이들이 성공하는 이유</h2>
+            <div class="strategy-card fade-in" style="background: #f0fdf4; margin-bottom: 4rem;">
+                <p style="font-size: 1.1rem; color: #065f46; font-weight: 600; text-align: center;">
+                    "복잡한 경제 시스템을 쉬운 액션으로 포장하고, <br>유저의 눈앞에 명확한 성장 목표를 계속해서 전시하기 때문입니다."
+                </p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,140); margin: 4rem 0;">
+
+            <div class="references fade-in" style="margin-bottom: 4rem;">
+                <h4 style="margin-bottom: 1.5rem; color: #64748b;">참고 문헌 및 출처 (References)</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #64748b; line-height: 1.8;">
+                    <li style="margin-bottom: 0.8rem;">• <a
+                            href="https://medium.com/ironsource-levelup/arcade-idle-creating-the-new-hybridcasual-genre-10d7f9dac21f"
+                            target="_blank" style="color: #10b981;">Arcade Idle: Creating the new Hybridcasual genre</a>
+                        - Unity LevelUp (Medium)</li>
+                    <li style="margin-bottom: 0.8rem;">• <a
+                            href="https://www.homagames.com/blog/arcade-idle-key-highlights-of-the-hybridcasual-genre-in-2022"
+                            target="_blank" style="color: #10b981;">Key highlights of the Hybridcasual genre in 2022</a>
+                        - Homa Games</li>
+                    <li style="margin-bottom: 0.8rem;">• <a
+                            href="https://sunday.gg/an-analysis-of-the-arcade-idle-genre/" target="_blank"
+                            style="color: #10b981;">An analysis of the Arcade-Idle-Genre!</a> - Sunday.gg</li>
+                    <li style="margin-bottom: 0.8rem;">• <a
+                            href="https://www.gameanalytics.com/blog/hybrid-casual-higher-retention-better-engagement"
+                            target="_blank" style="color: #10b981;">Hybrid-casual: better engagement</a> - GameAnalytics
+                    </li>
+                    <li style="margin-bottom: 0.8rem;">• <a
+                            href="https://rakibjahan.com/how-arcade-idle-games-in-hypercasual-are-looking-like/"
+                            target="_blank" style="color: #10b981;">How Arcade Idle games are looking like</a> - Rakib
+                        Jahan</li>
+                    <li style="margin-bottom: 0.8rem;">• <a href="https://maf.ad/en/blog/arcade-idle-genre/"
+                            target="_blank" style="color: #10b981;">Arcade Idle Explained: Why so Popular?</a> - MAF
+                    </li>
+                </ul>
+            </div>
         </article>
     </main>
 
