@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Idle: The Evolution of Hybrid-casual | Game Research</title>
+    <meta name="description"
+        content="Genre definition, core loops, system design, and monetization strategies for the Arcade-Idle genre.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#10b981',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#059669',
+                lineColor: '#6ee7b7',
+                secondaryColor: '#ecfdf5',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter',
+                fontSize: '18px'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 40,
+                useMaxWidth: true
+            }
+        });
+    </script>
+    <style>
+        .analysis-hero {
+            background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #ecfdf5;
+            border-left: 5px solid #10b981;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .mermaid-container {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mermaid {
+            width: 100% !important;
+            max-width: 1000px;
+        }
+
+        .table-wrap {
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.6;
+        }
+
+        th {
+            background: #f0fdf4;
+            color: #059669;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .strategy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .strategy-card h4 {
+            color: #059669;
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
+                <li><a href="../glossary.html">Glossary</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="arcade-idle-analysis.html" class="active">EN</a>
+                <a href="arcade-idle-analysis-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <span class="card-tag-inline"
+                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Genre Deep Dive</span>
+            <h1>Arcade Idle: <br>The New Leader of Hybrid-casual</h1>
+            <p class="subtitle">System and content design formulas where <br>Hyper-casual's instant fun meets Idle's
+                deep growth</p>
+        </div>
+
+        <div class="metric-grid container">
+            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
+                <span class="value">25 min</span>
+                <span class="label">Initial D0 Playtime</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
+                <span class="value">$0.40</span>
+                <span class="label">Avg. CPI (Initial Phase)</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
+                <span class="value">35~52%</span>
+                <span class="label">D1 Retention</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.8s;">
+                <span class="value">2050%</span>
+                <span class="label">Download Growth since 2020</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            <h2 class="fade-in">1. Genre Definition: Meta on top of Simplicity</h2>
+            <p class="fade-in">Arcade-Idle is a genre that combines hyper-casual level simple controls and rules with
+                Idle's meta loop of numerical economy and territory expansion. This achieves both the low entry barrier
+                of hyper-casual and the high LTV (Lifetime Value) of Idle.</p>
+
+            <div class="highlight-box fade-in">
+                <h4>Core Hybrid Points:</h4>
+                <ul>
+                    <li><b>From HC:</b> Simple controls (joystick), low failure stress, fast onboarding</li>
+                    <li><b>From Idle:</b> Economy-based progression, upgrades/unlocks, automation desire, snowball
+                        growth</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">2. Player Motivation: Discovery · Power · Fantasy</h2>
+            <p class="fade-in">According to the Quantic Foundry motivation model, this genre mainly stimulates three
+                psychological factors.</p>
+
+            <div class="strategy-grid fade-in">
+                <div class="strategy-card">
+                    <h4>Discovery</h4>
+                    <p>Unlocking zones hidden in the fog stimulates the curiosity of "What's next?"</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Power</h4>
+                    <p>Experiencing dominant power through an inflationary structure where numbers grow exponentially
+                        and upgrades.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Fantasy</h4>
+                    <p>Providing instant immersion through familiar themes such as farmer, chef, hotelier, etc.</p>
+                </div>
+            </div>
+
+            <h2 class="fade-in">3. Core Engine: Standard Loop Design</h2>
+            <p class="fade-in">Arcade Idle gameplay is composed of a second-by-second core loop and a minute-by-minute
+                meta loop working together like cogs.</p>
+
+            <h3 class="fade-in">Core Loop</h3>
+            <div class="mermaid-container fade-in">
+                <div class="mermaid">
+                    graph LR
+                    A["🕹️ Move (Joystick)"] --> B["📦 Collect/Work"]
+                    B --> C["🚛 Carry/Stack"]
+                    C --> D["💰 Delivery/Sell"]
+                    D --> E["🎁 Instant Reward"]
+                    E --> A
+
+                    style A fill:#10b981,stroke:#059669,color:#fff
+                    style E fill:#fbbf24,stroke:#d97706,color:#fff
+                </div>
+            </div>
+
+            <h2 class="fade-in">4. System Design: Simplify and Expose Depth</h2>
+            <p class="fade-in">The key to successful Arcade Idle planning is the harmony between <b>"Simplify"</b> and
+                <b>"Expose Depth"</b>.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Design Pillar</th>
+                            <th>Detailed Design Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Controls/UX</b></td>
+                            <td>Focused on 1-stick (move) + automatic interaction (auto-pickup). UX is extremely
+                                simplified to focus on "one task at a time."</td>
+                        </tr>
+                        <tr>
+                            <td><b>Economy</b></td>
+                            <td>An inflationary structure where unlock costs increase exponentially while earnings also
+                                grow. Creating choke points to induce payment/ads through <b>non-linear sinks</b>.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Progression</b></td>
+                            <td>Packaging the map by Zone is important to make users believe "there is a long-term goal"
+                                early on.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">5. Content Extension: Vertical vs Horizontal Strategy</h2>
+            <p class="fade-in">When extending content, you must balance user learning burden and freshness.</p>
+
+            <div class="strategy-grid fade-in">
+                <div class="strategy-card" style="border-top: 5px solid #10b981;">
+                    <h4>Vertical (Addition)</h4>
+                    <p>Increasing variations within the same step (e.g., adding pizza menu while selling burgers). Low
+                        risk and useful for filling volume quickly.</p>
+                </div>
+                <div class="strategy-card" style="border-top: 5px solid #06b6d4;">
+                    <h4>Horizontal (Addition)</h4>
+                    <p>Adding new process steps (e.g., inserting 'packaging' step after cooking). High perceived depth
+                        but used only at major inflection points as it may disrupt flow.</p>
+                </div>
+            </div>
+
+            <h2 class="fade-in">6. Monetization: The Art of Speed-up</h2>
+            <p class="fade-in">Because Arcade Idle users have a strong desire for progression, all BM is focused on
+                "Acceleration."</p>
+
+            <div class="highlight-box fade-in" style="background: #f8fafc; border-left-color: #64748b;">
+                <ul>
+                    <li><b>Ads (IAA)</b>: "Watch to go faster". Proposing rewarded ads as a solution to user pain
+                        points.</li>
+                    <li><b>In-app Purchases (IAP)</b>: "Permanent Boost". Selling permanent versions of ad-based rewards
+                        (Ad-free, Golden Tool, etc.).</li>
+                    <li><b>Subscription</b>: Exclusive content + passive bonuses. Sometimes accounts for over 30% of IAP
+                        revenue.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">7. Summary: Action Items for Success</h2>
+            <ul class="fade-in">
+                <li><b>Early 3 minutes</b>: Did you show locked zones and power-up results in advance to build
+                    anticipation?</li>
+                <li><b>Economic Balance</b>: Do revenue inflation and spending choke points work together to stimulate
+                    the desire to watch ads?</li>
+                <li><b>Content Pacing</b>: Does it maintain stability with vertical variations and refresh interest with
+                    horizontal variations in new zones?</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. Arcade-Idle Research Report.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

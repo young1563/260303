@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Idle: 하이브리드 캐주얼의 진화 | 게임 리서치</title>
+    <meta name="description" content="Arcade-Idle 장르의 정의, 핵심 루프, 시스템 설계 및 수익화 전략 분석 보고서.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#10b981',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#059669',
+                lineColor: '#6ee7b7',
+                secondaryColor: '#ecfdf5',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter',
+                fontSize: '18px'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 40,
+                useMaxWidth: true
+            }
+        });
+    </script>
+    <style>
+        .analysis-hero {
+            background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #ecfdf5;
+            border-left: 5px solid #10b981;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .mermaid-container {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mermaid {
+            width: 100% !important;
+            max-width: 1000px;
+        }
+
+        .table-wrap {
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.6;
+        }
+
+        th {
+            background: #f0fdf4;
+            color: #059669;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .strategy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .strategy-card h4 {
+            color: #059669;
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index-ko.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index-ko.html">시장 분석</a></li>
+                <li><a href="../index-ko.html#research" class="active">리서치</a></li>
+                <li><a href="../glossary-ko.html">용어 사전</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="arcade-idle-analysis.html">EN</a>
+                <a href="arcade-idle-analysis-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <span class="card-tag-inline"
+                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Genre Deep Dive</span>
+            <h1>Arcade Idle: <br>하이브리드 캐주얼의 신흥 강자</h1>
+            <p class="subtitle">하이퍼캐주얼의 즉각적인 재미와 Idle의 깊이 있는 성장이 만난 <br>'아케이드 아이들' 장르의 시스템 및 콘텐츠 설계 공식</p>
+        </div>
+
+        <div class="metric-grid container">
+            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
+                <span class="value">25분</span>
+                <span class="label">초기 D0 플레이타임</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
+                <span class="value">$0.40</span>
+                <span class="label">평균 CPI (초기 테스트)</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
+                <span class="value">35~52%</span>
+                <span class="label">D1 리텐션</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.8s;">
+                <span class="value">2050%</span>
+                <span class="label">2020년 이후 다운로드 성장</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            <h2 class="fade-in">1. 장르 정의: 단순함 위에 얹은 메타</h2>
+            <p class="fade-in">Arcade-Idle(아케이드 아이들)은 하이퍼캐주얼 수준의 단순한 조작과 규칙 위에, 수치적 경제와 영역 확장이라는 Idle의 메타 루프를 결합한 장르입니다.
+                이를 통해 하이퍼캐주얼의 낮은 진입장벽과 Idle의 높은 LTV(평생 가치)를 동시에 확보합니다.</p>
+
+            <div class="highlight-box fade-in">
+                <h4>핵심 합성 포인트:</h4>
+                <ul>
+                    <li><b>HC로부터</b>: 단순 조작(조이스틱), 낮은 실패 스트레스, 빠른 온보딩</li>
+                    <li><b>Idle로부터</b>: 경제 기반 진행, 업그레이드/해금, 자동화 욕구, 스노우볼 성장</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">2. 플레이어 동기: Discovery · Power · Fantasy</h2>
+            <p class="fade-in">쿼스틱 파운드리(Quantic Foundry)의 동기 모델에 따르면, 이 장르는 크게 세 가지 심리적 요인을 자극합니다.</p>
+
+            <div class="strategy-grid fade-in">
+                <div class="strategy-card">
+                    <h4>탐험 (Discovery)</h4>
+                    <p>안개 속에 가려진 구역을 해금하며 "다음에 무엇이 있을까?"라는 호기심을 자극합니다.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>성장 (Power)</h4>
+                    <p>숫자가 비약적으로 커지는 인플레이션 구조와 업그레이드를 통해 강력해지는 지배력을 체감하게 합니다.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>역할 (Fantasy)</h4>
+                    <p>농장주, 요리사, 호텔리어 등 친숙한 테마를 통해 즉각적인 몰입감을 제공합니다.</p>
+                </div>
+            </div>
+
+            <h2 class="fade-in">3. 핵심 엔진: 표준 루프 설계</h2>
+            <p class="fade-in">아케이드 아이들의 게임플레이는 초 단위의 코어 루프와 분 단위의 메타 루프가 톱니바퀴처럼 맞물려 돌아갑니다.</p>
+
+            <h3 class="fade-in">코어 루프 (Core Loop)</h3>
+            <div class="mermaid-container fade-in">
+                <div class="mermaid">
+                    graph LR
+                    A["🕹️ 이동 (조이스틱)"] --> B["📦 채집/작업"]
+                    B --> C["🚛 운반/적재"]
+                    C --> D["💰 납품/판매"]
+                    D --> E["🎁 즉시 보상"]
+                    E --> A
+
+                    style A fill:#10b981,stroke:#059669,color:#fff
+                    style E fill:#fbbf24,stroke:#d97706,color:#fff
+                </div>
+            </div>
+
+            <h2 class="fade-in">4. 시스템 기획: 복잡도 제거와 깊이의 실현</h2>
+            <p class="fade-in">성공적인 아케이드 아이들 기획의 핵심은 <b>"복잡도 제거(Simplify)"</b>와 <b>"깊이 미리보기(Expose Depth)"</b>의 조화입니다.
+            </p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">기획 영역</th>
+                            <th>상세 설계 포인트</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>조작/UX</b></td>
+                            <td>1스틱(이동) + 자동 상호작용(오토 픽업) 위주. UX는 "지금 할 일 1개"에만 집중하도록 극도로 단순화합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>경제(Economy)</b></td>
+                            <td>해금 비용을 기하급수적으로 높이되 수익도 함께 키우는 인플레이션 구조. <b>비선형 싱크(Sink)</b>를 통해 결제/광고를 유도하는 초크포인트를
+                                형성합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>프로그레션</b></td>
+                            <td>맵을 구역(Zone)별로 패키징하여, 유저가 초기에 '오래 할 거리'가 있음을 시각적으로 믿게 하는 것이 중요합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">5. 콘텐츠 확장: 수직적 vs 수평적 전략</h2>
+            <p class="fade-in">콘텐츠를 확장할 때는 유저의 학습 부담과 신선도 사이의 균형을 맞춰야 합니다.</p>
+
+            <div class="strategy-grid fade-in">
+                <div class="strategy-card" style="border-top: 5px solid #10b981;">
+                    <h4>Vertical (수직 추가)</h4>
+                    <p>단계는 유지하되 종류를 늘리는 방식 (예: 버거 팔다가 피자 메뉴 추가). 리스크가 낮고 볼륨을 빠르게 채우기 유리합니다.</p>
+                </div>
+                <div class="strategy-card" style="border-top: 5px solid #06b6d4;">
+                    <h4>Horizontal (수평 추가)</h4>
+                    <p>프로세스 단계 자체를 추가 (예: 요리 후 '포장' 단계 삽입). 체감 깊이는 크지만 플로우를 해칠 리포트가 있으므로 변곡점에만 사용합니다.</p>
+                </div>
+            </div>
+
+            <h2 class="fade-in">6. 수익화 모델: 가속(Speed-up)의 미학</h2>
+            <p class="fade-in">아케이드 아이들은 유저의 진행 욕구가 강하기 때문에 모든 BM이 '성능 가속'에 초점이 맞춰져 있습니다.</p>
+
+            <div class="highlight-box fade-in" style="background: #f8fafc; border-left-color: #64748b;">
+                <ul>
+                    <li><b>광고(IAA)</b>: "Watch to go faster". 보상형 광고를 유저의 고통 지점(Pain Point) 해결 수단으로 제안.</li>
+                    <li><b>인앱 결제(IAP)</b>: "Permanent Boost". 광고 보급형의 영구 버전(광고 제거, 골든 툴 등)을 판매.</li>
+                    <li><b>구독</b>: 독점 콘텐츠 + 패시브 보너스. 매출의 30% 이상을 차지하기도 함.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">7. 요약: 성공을 위한 실전 체크리스트</h2>
+            <ul class="fade-in">
+                <li><b>초반 3분</b>: 잠겨진 구역과 파워업 결과물을 미리 보여주어 기대감을 조성했는가?</li>
+                <li><b>경제 균형</b>: 수익 인플레이션과 지출 초크포인트가 적절히 맞물려 광고 시청 욕구를 자극하는가?</li>
+                <li><b>콘텐츠 호흡</b>: 수직적 변주로 안정성을 잡고, 새로운 구역 진입 시 수평적 변주로 흥미를 상기시키는가?</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. Arcade-Idle Research Report.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
