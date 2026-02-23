@@ -13,10 +13,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
-    </script>
     <style>
         .analysis-hero {
             background: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%);
@@ -121,6 +117,27 @@
             text-align: left;
         }
     </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#f97316',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#ea580c',
+                lineColor: '#fdba74',
+                secondaryColor: '#fff7ed',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -142,7 +159,7 @@
                 <li><a href="../glossary-ko.html">용어 사전</a></li>
             </ul>
             <div class="lang-switch">
-                <a href="../index.html">EN</a>
+                <a href="pizze-ready-analysis.html">EN</a>
                 <a href="pizze-ready-analysis-ko.html" class="active">KO</a>
             </div>
         </nav>
@@ -185,49 +202,146 @@
             </div>
 
             <h2 class="fade-in">1. 코어 매커닉과 게임 루프</h2>
-            <p class="fade-in">Pizza Ready는 '생산-운반-서빙-정산'이라는 짧은 작업 단위를 반복하게 하여 즉각적인 성취감을 제공합니다. 특히 직원 고용을 통한 자동화 시스템은
-                플레이어의 피로도를 낮추며 장기 세션을으로 유인합니다.</p>
+            <p class="fade-in">Pizza Ready는 <b>'마이크로 매니지먼트(Micro-management)'</b>와 <b>'자동화 성장(Automation)'</b>의 완벽한 조화로
+                설계되었습니다.</p>
 
-            <div class="mermaid-container fade-in">
+            <div class="mermaid-container fade-in" style="margin: 2rem 0;">
                 <div class="mermaid">
-                    flowchart TD
-                    A[매장 진입] --> B[고객 주문 대기열 생성]
-                    B --> C[피자 생산 및 운반\n(직원 자동화 가능)]
-                    C --> D[서빙\n(카운터 / 드라이브 스루)]
-                    D --> E[결제 및 재화 획득]
-                    E --> F[매장 업그레이드 및 확장\n(병목 해소)]
-                    F --> G[체인점 확장 및 지점 관리]
-                    G --> B
+                    flowchart LR
+                    A["🏪 매장 진입"] --> B["📝 주문 생성"]
+                    B --> C["🍕 생산 & 운반"]
+                    C --> D["🥡 서빙"]
+                    D --> E["💰 재화 획득"]
+                    E --> F["🚀 확장 & 자동화"]
+                    F --> B
+
+                    style A fill:#f97316,stroke:#ea580c,color:#fff
+                    style F fill:#f97316,stroke:#ea580c,color:#fff
                 </div>
             </div>
-
-            <h2 class="fade-in">2. [Case Study] FTUE 재설계와 결과</h2>
-            <p class="fade-in">Supercent는 내부 분석을 통해 초기 튜토리얼 구간의 치명적인 문제점들을 발견하고 이를 A/B 테스트를 통해 개선했습니다.</p>
 
             <div class="table-wrap fade-in">
                 <table>
                     <thead>
                         <tr>
-                            <th>기존 문제점 (Pain Points)</th>
+                            <th>단계</th>
+                            <th>핵심 액션 및 매커닉 디테일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>생산 (Production)</b></td>
+                            <td>도우 준비 → 토핑 → 굽기 단계가 자동화 설비에서 진행됩니다. 플레이어는 이 <b>설비의 조리 속도</b>를 업그레이드하여 초기 병목을 관리합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>적재 (Stacking)</b></td>
+                            <td>플레이어 캐릭터는 피자를 수직으로 쌓아 운반합니다. <b>Stack Size(최대 적재량)</b> 업그레이드는 한 번의 동선으로 처리 가능한 주문량을 결정하는
+                                핵심 효율 지표입니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>서빙 (Serving)</b></td>
+                            <td>일반 카운터(홀 고객)와 드라이브 스루(차량 고객)로 고객군이 나뉩니다. 두 채널 간의 <b>대기열 균형(Queue Balancing)</b>을 맞추는 것이
+                                중반부 운영의 핵심입니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>정산 (Settlement)</b></td>
+                            <td>식사를 마친 테이블을 정리하고 떨어진 현금을 수거합니다. 현금을 수거해야만 새로운 고객이 입장하므로, <b>청소 속도</b> 역시 전체
+                                처리량(Throughput)에 직접적인 영향을 줍니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">2. 시스템 설계: 스태츠 밸런싱과 처리량(Throughput) 관리</h2>
+            <p class="fade-in">Pizza Ready의 시스템 기획 핵심은 플레이어의 성장을 <b>숫자로 체감</b>하게 만드는 스태츠 밸런싱에 있습니다.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>업그레이드 스태츠</th>
+                            <th>기획 의도 (KPI)</th>
+                            <th>게임플레이 영향</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Movement Speed</b></td>
+                            <td>동선 효율화 및 속도감</td>
+                            <td>캐릭터의 이동 속도를 높여 물리적 거리에서 발생하는 시간 로스를 최소화합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Capacity</b></td>
+                            <td>배류당 처리 용량 확장</td>
+                            <td>한 번에 들 수 있는 피자의 양을 늘려 왕복 횟수를 줄이고, 대규모 주문 대응력을 높입니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Staff Hire / Speed</b></td>
+                            <td>수동 노동의 자동화 전환</td>
+                            <td>플레이어의 개입 없이도 매장이 돌아가는 'Idle' 상태를 구축하여 장기 리텐션을 확보합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h4 style="color: #f97316; margin-top: 0;">💡 시스템 핵심 기획 포인트</h4>
+                <p>Pizza Ready는 <b>'카운터'와 '드라이브 스루'의 이중 창구</b>를 통해 병목을 의도적으로 복잡하게 꼬아놓습니다. 유저는 한쪽 대기열이 길어지면 다른 쪽 직원을
+                    보강하거나 본인이 직접 투입되는 결정을 내려야 하며, 이 과정에서 <b>순간적인 판단(Management)의 재미</b>가 발생합니다.</p>
+            </div>
+
+            <h2 class="fade-in">3. 콘텐츠 기획: 무한 확장의 판타지</h2>
+            <p class="fade-in">단순한 매장 운영을 넘어, '글로벌 프랜차이즈 거물'이 되는 과정을 콘텐츠 단계별로 배치했습니다.</p>
+
+            <div class="highlight-box fade-in">
+                <ul>
+                    <li><b>점진적 구역 해금</b>: 매장 내 새로운 테이블, 드라이브 스루 입구, 창고 등을 순차적으로 열어 끊임없는 목표를 제시합니다.</li>
+                    <li><b>주(State) 단위 체인 경영</b>: 특정 매장을 완성하면 다른 주로 이동하여 새로운 테마와 난이도의 매장을 처음부터 다시 키우는 '프레스티지(Prestige)'
+                        구조를 취합니다.</li>
+                    <li><b>시즌성 라이브 이벤트</b>: 크리스마스, 할로윈 등 테마 이벤트를 통해 한정 코스튬이나 특수 가구를 제공하며 재방문율을 높입니다.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">4. [Case Study] FTUE 재설계와 분석 방법론</h2>
+            <p class="fade-in">Supercent는 단순한 '감'이 아닌, <b>철저한 데이터 로깅과 정성적 관찰</b>을 결합하여 초기 이탈 구간(FTUE)을 혁신적으로 개선했습니다. 분석
+                방식의 핵심은 다음과 같습니다.</p>
+
+            <div class="highlight-box fade-in" style="background: #f0f7ff; border-left-color: #007bff;">
+                <h4 style="color: #007bff; margin-top: 0;">🔍 어떻게 분석했는가? (Methodology)</h4>
+                <ul style="margin-bottom: 0;">
+                    <li><b>퍼널 이벤트 2배 세분화 (Granular Logging)</b>: 단순히 "튜토리얼 시작/종료"만 본 것이 아니라, "피자 집기", "카운터 이동", "결제 대기"
+                        등 유저의 모든 작은 행동 단위를 쪼개서 로깅했습니다. 이를 통해 <b>정확히 어느 지점에서 1초 이상 머뭇거리는지</b>를 데이터로 포착했습니다.</li>
+                    <li><b>행동 매핑 (Behavior Mapping)</b>: 기획자가 의도한 '최단 경로'와 실제 유저가 움직인 '복잡한 경로'를 대조했습니다. 이 과정에서 유저가 방향을
+                        잃고 엉뚱한 곳에서 헤매는 병목 현상을 발견했습니다.</li>
+                    <li><b>세션 리플레이 (Session Replays)</b>: 실제 유저의 플레이 화면을 녹화본으로 돌려보며, 유저가 특정 UI 버튼을 왜 못 보고 지나치는지, 어떤 연출에서
+                        당황하는지를 **눈으로 직접 확인**하며 가설을 세웠습니다.</li>
+                </ul>
+            </div>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>발견된 데이터 신호 (Insights)</th>
                             <th>개선 솔루션 (Solution)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>시야 밖에서 나타나는 방향 화살표</td>
-                            <td>카메라 포커싱 및 시각적 가이드 명확화</td>
+                            <td>유저가 가이드 화살표를 못 보고 제자리 회전함</td>
+                            <td><b>카메라 포커싱</b>: 중요 오브젝트 등장 시 카메라가 강제로 해당 지점을 비추도록 수정</td>
                         </tr>
                         <tr>
-                            <td>고객 식사 시간 동안의 유휴 구간 (8~9초)</td>
-                            <td>유휴 구간 내 가이드 보강 및 행동 유도</td>
+                            <td>고객이 먹는 동안 유저가 9초간 가만히 서 있음</td>
+                            <td><b>동적 가이드</b>: 유휴 시간 동안 다음에 해야 할 일을 자막이나 강조 효과로 제시</td>
                         </tr>
                         <tr>
-                            <td>재화 부족 시에도 결제를 유도하는 UI</td>
-                            <td>불가능한 상태에서는 버튼 비활성화/제거</td>
+                            <td>돈이 없는데 결제창을 열어보다가 좌절함</td>
+                            <td><b>조건부 UI</b>: 구매 불가능한 상태에서는 버튼을 완전히 숨겨 유저의 실수를 원천 차단</td>
                         </tr>
                         <tr>
-                            <td>오동작 시 피드백 부족</td>
-                            <td>화면 흔들림(Shake) + 네거티브 사운드 추가</td>
+                            <td>잘못된 행동 후에도 변화가 없어 당황함</td>
+                            <td><b>햅틱 & 사운드 피드백</b>: 오동작 시 화면 흔들림과 경고음을 넣어 "여기가 아니다"를 명확히 인지시킴</td>
                         </tr>
                     </tbody>
                 </table>
@@ -236,9 +350,11 @@
             <h3 class="fade-in">A/B 테스트 개선 지표</h3>
             <div class="chart-container fade-in">
                 <canvas id="abTestMetrics"></canvas>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem; text-align: center;">* 위 지표는 Supercent 공식
+                    블로그에서 발표한 FTUE 개선 성과 데이터입니다.</p>
             </div>
 
-            <h2 class="fade-in">3. 수익화 전략: 하이브리드 모델</h2>
+            <h2 class="fade-in">5. 수익화 전략: 하이브리드 모델</h2>
             <p class="fade-in">산업 리포트에 따르면 Pizza Ready는 광고 수익 70%, 인앱 결제 30%의 전형적인 하이브리드 구조를 보입니다. 특히 <b>'No Ads'</b>
                 상품(약 $3.99)은 유저의 광고 스트레스를 결제로 전환하는 핵심 레버로 활용됩니다.</p>
 
@@ -246,7 +362,7 @@
                 <canvas id="revenueMix"></canvas>
             </div>
 
-            <h2 class="fade-in">4. 시사점: 데이터가 이끄는 성장</h2>
+            <h2 class="fade-in">6. 시사점: 데이터가 이끄는 성장</h2>
             <p class="fade-in">Pizza Ready는 하이퍼캐주얼의 '빠른 실험' 문화를 유지하면서도, 정밀한 데이터 분석을 통해 '하이브리드 캐주얼'로의 성공적인 전환을 보여준 사례입니다.
                 특히 ATT 등 개인정보 보호 강화 환경에서도 플레이어블 광고와 명확한 보상 체계로 UA 효율을 방어하고 있습니다.</p>
 

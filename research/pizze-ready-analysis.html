@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Ready: Success Strategy Analysis | Game Research</title>
+    <meta name="description"
+        content="In-depth analysis report on the core mechanics and monetization strategy of the global hit 'Pizza Ready'.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .analysis-hero {
+            background: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 2rem 0;
+        }
+
+        .mermaid-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin: 2rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--card-border);
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            text-align: left;
+        }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#f97316',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#ea580c',
+                lineColor: '#fdba74',
+                secondaryColor: '#fff7ed',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="puzzle-container">
+            <div class="puzzle-piece piece-1"></div>
+            <div class="puzzle-piece piece-2"></div>
+            <div class="puzzle-piece piece-3"></div>
+        </div>
+        <div class="loader-text">Assembling the puzzle...</div>
+    </div>
+
+    <header>
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Market Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
+                <li><a href="../glossary.html">Glossary</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="pizze-ready-analysis.html" class="active">EN</a>
+                <a href="pizze-ready-analysis-ko.html">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <span class="card-tag-inline"
+                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Deep Research</span>
+            <h1>Pizza Ready: <br>The Pinnacle of Hybrid-casual</h1>
+            <p class="subtitle">An in-depth analysis of the 400M+ global download milestone <br>driven by dual-counter
+                mechanics and data-driven FTUE optimization.</p>
+        </div>
+
+        <div class="metric-grid container">
+            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
+                <span class="value">400M+</span>
+                <span class="label">Total Global Downloads (2025.12)</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
+                <span class="value">$8.3M+</span>
+                <span class="label">Cumulative IAP Revenue</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
+                <span class="value">Arcade Idle</span>
+                <span class="label">Core Genre Classification</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            <div class="highlight-box fade-in">
+                <h3 style="color: #f97316; margin-top: 0;">🚀 Key Success Summary</h3>
+                <p>Pizza Ready's success is not just luck but the result of <b>meticulous data-driven UX
+                        improvements</b> and an <b>effective ad-IAP hybrid monetization model</b>.</p>
+                <ul>
+                    <li><b>FTUE Redesign</b>: Analyzed and improved early churn by doubling the granularity of funnel
+                        event logging.</li>
+                    <li><b>Dual-Counter Mechanics</b>: Managed throughput bottlenecks through the harmony of Counter and
+                        Drive-thrus.</li>
+                    <li><b>Efficient UA</b>: Optimized UA with over 70% of paid channel traffic coming from playable
+                        ads.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">1. Core Mechanics & Game Loop</h2>
+            <p class="fade-in">Pizza Ready is designed with a perfect balance of <b>'Micro-management'</b> and
+                <b>'Automation Growth'</b>.</p>
+
+            <div class="mermaid-container fade-in" style="margin: 2rem 0;">
+                <div class="mermaid">
+                    flowchart LR
+                    A["🏪 Store Entry"] --> B["📝 Order Creation"]
+                    B --> C["🍕 Production & Transport"]
+                    C --> D["🥡 Serving"]
+                    D --> E["💰 Revenue Collection"]
+                    E --> F["🚀 Expansion & Automation"]
+                    F --> B
+
+                    style A fill:#f97316,stroke:#ea580c,color:#fff
+                    style F fill:#f97316,stroke:#ea580c,color:#fff
+                </div>
+            </div>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Phase</th>
+                            <th>Key Actions & Mechanic Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Production</b></td>
+                            <td>Dough prep → Topping → Baking stages are fully automated. Players manage early-game
+                                bottlenecks by upgrading <b>Cooking Speed</b>.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Stacking</b></td>
+                            <td>Characters stack pizzas vertically. <b>Stack Size</b> upgrades are a key efficiency
+                                metric determining how many orders can be fulfilled in one trip.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Serving</b></td>
+                            <td>Customer segments are split into Counter (In-store) and Drive-thru (Vehicles). <b>Queue
+                                    Balancing</b> between these two channels is critical for mid-game operations.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Settlement</b></td>
+                            <td>Clearing tables and collecting cash is a manual step. Since new customers only enter
+                                when tables are clear, <b>Cleaning Speed</b> directly impacts overall throughput.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">2. System Design: Stats Balancing & Throughput Management</h2>
+            <p class="fade-in">The core of Pizza Ready's system design lies in stats balancing that lets players <b>feel
+                    their growth numerically</b>.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Upgrade Stats</th>
+                            <th>Design Intent (KPI)</th>
+                            <th>Gameplay Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Movement Speed</b></td>
+                            <td>Routine efficiency & sense of speed</td>
+                            <td>Increases character speed to minimize time loss from physical distances.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Capacity</b></td>
+                            <td>Increasing throughput per batch</td>
+                            <td>Increases the number of pizzas carried, reducing round trips and enhancing response to
+                                large orders.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Staff Hire / Speed</b></td>
+                            <td>Transitioning from manual labor to automation</td>
+                            <td>Builds an 'Idle' state where the store operates independently, securing long-term
+                                retention.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box fade-in">
+                <h4 style="color: #f97316; margin-top: 0;">💡 Key System Design Points</h4>
+                <p>Pizza Ready intentionally complicates bottlenecks through the <b>Dual-Channel (Counter &
+                        Drive-thru)</b> system. Players must decide whether to reinforce stats or hire staff when one
+                    queue gets too long, creating <b>instant management tension and fun</b>.</p>
+            </div>
+
+            <h2 class="fade-in">3. Content Planning: The Fantasy of Infinite Expansion</h2>
+            <p class="fade-in">Beyond simple store management, the game is paced to provide the experience of becoming a
+                'Global Franchise Tycoon'.</p>
+
+            <div class="highlight-box fade-in">
+                <ul>
+                    <li><b>Incremental Area Unlocks</b>: Sequentially unlocks new tables, drive-thru entrances, and
+                        warehouses within a store to provide constant goals.</li>
+                    <li><b>State-wide Chain Management</b>: Once a store is fully developed, players move to different
+                        States with new themes and higher difficulty, adopting a <b>Prestige</b> structure.</li>
+                    <li><b>Seasonal Live Events</b>: Increases re-engagement via themed events (Christmas, Halloween)
+                        offering limited costumes or special furniture.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">4. [Case Study] FTUE Redesign & Analytical Methodology</h2>
+            <p class="fade-in">Supercent revolutionized early session retention (FTUE) by combining <b>rigorous data
+                    logging with qualitative observation</b>. The core of their approach was:</p>
+
+            <div class="highlight-box fade-in" style="background: #f0f7ff; border-left-color: #007bff;">
+                <h4 style="color: #007bff; margin-top: 0;">🔍 How was it analyzed? (Methodology)</h4>
+                <ul style="margin-bottom: 0;">
+                    <li><b>Granular Logging (2x Event Detail)</b>: They didn't just track "Start/End Tutorial." They
+                        logged micro-actions like "Picking up pizza," "Moving to counter," and "Waiting for payment."
+                        This allowed them to capture <b>exactly where users hesitated for more than 1 second</b>.</li>
+                    <li><b>Behavior Mapping</b>: They contrasted the designer's intended 'Shortest Path' with the
+                        'Complex Actual Path' taken by users, identifying friction points where users got lost.</li>
+                    <li><b>Session Replays</b>: By watching recorded gameplay, they <b>visually confirmed</b> why users
+                        missed certain buttons or where они were confused by specific effects.</li>
+                </ul>
+            </div>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Insights Identified</th>
+                            <th>Improvement Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Users missed guide arrows and rotated in place</td>
+                            <td><b>Camera Focusing</b>: Forced the camera to focus on critical objects as they appeared.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Users stood idle for 9 seconds while customers ate</td>
+                            <td><b>Dynamic Guides</b>: Provided on-screen hints or highlights during idle intervals to
+                                guide next actions.</td>
+                        </tr>
+                        <tr>
+                            <td>Users got frustrated trying to buy things they couldn't afford</td>
+                            <td><b>Conditional UI</b>: Completely hid buy buttons when funds were insufficient to
+                                prevent user error.</td>
+                        </tr>
+                        <tr>
+                            <td>Confusion due to lack of feedback after wrong actions</td>
+                            <td><b>Haptic & Sound Feedback</b>: Added screen shake and negative sound effects to clearly
+                                indicate incorrect actions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="fade-in">A/B Test Improvement Metrics</h3>
+            <div class="chart-container fade-in">
+                <canvas id="abTestMetrics"></canvas>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem; text-align: center;">* Source: Supercent
+                    Official Blog performance data from FTUE improvements.</p>
+            </div>
+
+            <h2 class="fade-in">5. Monetization Strategy: Hybrid Model</h2>
+            <p class="fade-in">According to industry reports, Pizza Ready shows a classic hybrid structure: 70% Ad
+                revenue vs 30% IAP. The <b>'No Ads'</b> product ($3.99) is the key lever for converting ad stress into
+                revenue.</p>
+
+            <div class="chart-container fade-in" style="max-width: 500px; margin: 2rem auto;">
+                <canvas id="revenueMix"></canvas>
+            </div>
+
+            <h2 class="fade-in">6. Implications: Data-Driven Growth</h2>
+            <p class="fade-in">Pizza Ready is a prime example of successfully transitioning from hyper-casual to
+                'Hybrid-casual' by maintaining a 'Fail Fast' experimental culture while applying precision data
+                analytics. It defends UA efficiency in ATT environments with playable ads and clear rewarding systems.
+            </p>
+
+            <section class="references fade-in"
+                style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border); font-size: 0.8rem; opacity: 0.7;">
+                <h3>References & Sources</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>[1] Supercent Blog, "Redesigning the FTUE of Pizza Ready"</li>
+                    <li>[2] Sensor Tower, "Top mobile game downloads and revenue analysis (2024-2025)"</li>
+                    <li>[3] AppBrain / AppMagic Industry Reports, "Hybrid-casual Trends"</li>
+                    <li>[4] Pizza Ready Game System Analysis Research Report (Internal Data)</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // A/B Test Metrics Chart
+        const testCtx = document.getElementById('abTestMetrics').getContext('2d');
+        new Chart(testCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Tutorial Completion', '1st Session Playtime', 'D1 Retention'],
+                datasets: [{
+                    label: 'Before',
+                    data: [85, 8.5, 32.5],
+                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                }, {
+                    label: 'After',
+                    data: [93, 10.4, 37.0],
+                    backgroundColor: '#f97316',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'Metric Changes After FTUE Improvements (A/B Test)' }
+                },
+                scales: {
+                    y: { beginAtZero: false, min: 0 }
+                }
+            }
+        });
+
+        // Revenue Mix Chart
+        const revCtx = document.getElementById('revenueMix').getContext('2d');
+        new Chart(revCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ads (IAA)', 'In-App Purchase (IAP)'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#f97316', '#ffedd5'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'Estimated Revenue Mix' }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
