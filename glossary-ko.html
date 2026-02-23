@@ -152,6 +152,8 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            cursor: pointer;
+            overflow: hidden;
         }
 
         .term-card:hover {
@@ -197,11 +199,43 @@
             color: #dc2626;
         }
 
+        .tag-ux {
+            background: #ecfdf5;
+            color: #065f46;
+        }
+
         .term-desc {
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.6;
             margin: 0;
+        }
+
+        .term-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, margin-top 0.3s ease;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid transparent;
+            padding-top: 0;
+        }
+
+        .term-card.expanded .term-details {
+            max-height: 2000px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top-color: #f1f5f9;
+        }
+
+        .heuristic-item {
+            margin-bottom: 1rem;
+        }
+
+        .heuristic-item strong {
+            color: #334155;
+            display: block;
+            margin-bottom: 0.2rem;
         }
 
         .term-meta {
@@ -257,13 +291,15 @@
             <a href="#market" class="nav-item active">📊 시장 및 지표</a>
             <a href="#system" class="nav-item">⚙️ 시스템 기획</a>
             <a href="#content" class="nav-item">🧩 콘텐츠 기획</a>
+            <a href="#ux" class="nav-item">🎨 UX 및 아키텍처</a>
             <a href="#etc" class="nav-item">💡 기타 핵심 개념</a>
         </aside>
 
         <main class="glossary-main">
             <div class="search-container">
                 <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="용어를 검색해 보세요 (예: CPI, DDA...)" id="glossarySearch">
+                <input type="text" class="search-input" placeholder="용어를 검색해 보세요 (예: CPI, DDA, 휴리스틱...)"
+                    id="glossarySearch">
             </div>
 
             <!-- Market & Metrics Section -->
@@ -398,6 +434,45 @@
                 </article>
             </div>
 
+            <!-- UX & Architecture Section -->
+            <div class="section-header" id="ux">
+                <h2>UX 및 아키텍처</h2>
+                <span class="section-count">1</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="10 usability heuristics 휴리스틱">
+                    <div class="term-header">
+                        <h3 class="term-name">10 Usability Heuristics</h3>
+                        <span class="term-tag tag-ux">UX Strategy</span>
+                    </div>
+                    <p class="term-desc">야곱 닐슨(Jakob Nielsen)의 10가지 인터페이스 디자인 원칙입니다. 사용자가 시스템을 쉽고 효율적으로 사용할 수 있도록 돕는 '경험
+                        법칙'입니다. <br><strong>(클릭하여 10법칙 상세보기)</strong></p>
+                    <div class="term-details">
+                        <div class="heuristic-item"><strong>1. 시스템 상태의 가시성 (Visibility of System Status)</strong> 시스템은
+                            적절한 피드백을 통해 사용자에게 진행 상황을 항상 알려야 합니다. (예: 로딩 바, 진행률)</div>
+                        <div class="heuristic-item"><strong>2. 시스템과 실제 세계의 일치 (Match Between System and Real
+                                World)</strong> 실제 세상에서 익숙한 단어와 개념을 사용해야 합니다. (예: 쓰레기통 아이콘)</div>
+                        <div class="heuristic-item"><strong>3. 사용자 제어 및 자유 (User Control and Freedom)</strong> 실수를 되돌릴 수
+                            있는 '비상구'가 필요합니다. (예: 실행 취소, 취소 버튼)</div>
+                        <div class="heuristic-item"><strong>4. 일관성 및 표준 (Consistency and Standards)</strong> 업게 표준과 플랫폼
+                            관례를 따라야 혼란을 줄입니다. (예: 체크박스와 라디오 버튼의 구분)</div>
+                        <div class="heuristic-item"><strong>5. 오류 방지 (Error Prevention)</strong> 오류 메시지를 잘 만드는 것보다 오류가
+                            발생하지 않도록 설계하는 것이 더 중요합니다. (예: 삭제 전 확인창)</div>
+                        <div class="heuristic-item"><strong>6. 기억보다 인식 (Recognition Rather Than Recall)</strong> 사용자가
+                            기억해내야 하는 정보를 최소화하고 눈에 보이게 해야 합니다.</div>
+                        <div class="heuristic-item"><strong>7. 유연성과 효율성 (Flexibility and Efficiency of Use)</strong>
+                            초보자부터 전문가까지 모두 만족시키는 단축키 등의 장치가 필요합니다.</div>
+                        <div class="heuristic-item"><strong>8. 미학적이고 미니멀한 디자인 (Aesthetic and Minimalist Design)</strong>
+                            불필요한 정보는 중요한 정보의 가시성을 방해하므로 정제해야 합니다.</div>
+                        <div class="heuristic-item"><strong>9. 오류 진단 및 복구 (Help Users Recognize, Diagnose, Recover from
+                                Errors)</strong> 오류 발생 시 해결 방법을 쉬운 언어로 제시해야 합니다.</div>
+                        <div class="heuristic-item"><strong>10. 도움말 및 문서화 (Help and Documentation)</strong> 설명 없이도 사용
+                            가능한 것이 최고지만, 필요한 경우 쉽게 찾을 수 있는 도움말이 있어야 합니다.</div>
+                    </div>
+                    <div class="term-meta">Source: Nielsen Norman Group</div>
+                </article>
+            </div>
+
             <!-- Core Concept Section -->
             <div class="section-header" id="etc">
                 <h2>기타 핵심 개념</h2>
@@ -439,6 +514,13 @@
                     } else {
                         card.style.display = 'none';
                     }
+                });
+            });
+
+            // Card Expansion Functionality
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('expanded');
                 });
             });
 
