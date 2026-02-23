@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Ready: 성공 전략 분석 | Game Research</title>
+    <meta name="description" content="글로벌 히트작 'Pizza Ready'의 핵심 메커닉과 수익화 전략에 대한 심층 분석 리포트입니다.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <style>
+        .analysis-hero {
+            background: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 2rem 0;
+        }
+
+        .mermaid-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin: 2rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--card-border);
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="puzzle-container">
+            <div class="puzzle-piece piece-1"></div>
+            <div class="puzzle-piece piece-2"></div>
+            <div class="puzzle-piece piece-3"></div>
+        </div>
+        <div class="loader-text">퍼즐 조각 맞추는 중...</div>
+    </div>
+
+    <header>
+        <a href="../index-ko.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index-ko.html">시장 분석</a></li>
+                <li><a href="../index-ko.html#research" class="active">리서치</a></li>
+                <li><a href="../glossary-ko.html">용어 사전</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="../index.html">EN</a>
+                <a href="pizze-ready-analysis-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <span class="card-tag-inline"
+                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Deep Research</span>
+            <h1>Pizza Ready: <br>하이브리드 캐주얼의 정점</h1>
+            <p class="subtitle">이중 판매 창구 매커닉과 데이터 기반 FTUE 최적화가 만든 <br>글로벌 4억 다운로드 기록을 심층 분석합니다.</p>
+        </div>
+
+        <div class="metric-grid container">
+            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
+                <span class="value">400M+</span>
+                <span class="label">글로벌 누적 다운로드 (2025.12)</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
+                <span class="value">$8.3M+</span>
+                <span class="label">누적 인앱 결제(IAP) 매출</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
+                <span class="value">Arcade Idle</span>
+                <span class="label">핵심 장르 분류</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            <div class="highlight-box fade-in">
+                <h3 style="color: #f97316; margin-top: 0;">🚀 주요 성공 요약</h3>
+                <p>Pizza Ready의 성공은 단순한 운이 아닌 <b>철저한 데이터 기반의 사용자 경험(UX) 개선</b>과 <b>효과적인 광고-인앱결제 하이브리드 모델</b>의 결과입니다.</p>
+                <ul>
+                    <li><b>FTUE 재설계</b>: 초기 이탈 구간 이벤트를 2배 세분화하여 분석 및 개선.</li>
+                    <li><b>이중 매커닉</b>: 카운터 및 드라이브 스루의 조화로 처리량 병목 관리.</li>
+                    <li><b>효율적 UA</b>: 70% 이상의 유료 채널 유입을 플레이어블 광고로 최적화.</li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">1. 코어 매커닉과 게임 루프</h2>
+            <p class="fade-in">Pizza Ready는 '생산-운반-서빙-정산'이라는 짧은 작업 단위를 반복하게 하여 즉각적인 성취감을 제공합니다. 특히 직원 고용을 통한 자동화 시스템은
+                플레이어의 피로도를 낮추며 장기 세션을으로 유인합니다.</p>
+
+            <div class="mermaid-container fade-in">
+                <div class="mermaid">
+                    flowchart TD
+                    A[매장 진입] --> B[고객 주문 대기열 생성]
+                    B --> C[피자 생산 및 운반\n(직원 자동화 가능)]
+                    C --> D[서빙\n(카운터 / 드라이브 스루)]
+                    D --> E[결제 및 재화 획득]
+                    E --> F[매장 업그레이드 및 확장\n(병목 해소)]
+                    F --> G[체인점 확장 및 지점 관리]
+                    G --> B
+                </div>
+            </div>
+
+            <h2 class="fade-in">2. [Case Study] FTUE 재설계와 결과</h2>
+            <p class="fade-in">Supercent는 내부 분석을 통해 초기 튜토리얼 구간의 치명적인 문제점들을 발견하고 이를 A/B 테스트를 통해 개선했습니다.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>기존 문제점 (Pain Points)</th>
+                            <th>개선 솔루션 (Solution)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>시야 밖에서 나타나는 방향 화살표</td>
+                            <td>카메라 포커싱 및 시각적 가이드 명확화</td>
+                        </tr>
+                        <tr>
+                            <td>고객 식사 시간 동안의 유휴 구간 (8~9초)</td>
+                            <td>유휴 구간 내 가이드 보강 및 행동 유도</td>
+                        </tr>
+                        <tr>
+                            <td>재화 부족 시에도 결제를 유도하는 UI</td>
+                            <td>불가능한 상태에서는 버튼 비활성화/제거</td>
+                        </tr>
+                        <tr>
+                            <td>오동작 시 피드백 부족</td>
+                            <td>화면 흔들림(Shake) + 네거티브 사운드 추가</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="fade-in">A/B 테스트 개선 지표</h3>
+            <div class="chart-container fade-in">
+                <canvas id="abTestMetrics"></canvas>
+            </div>
+
+            <h2 class="fade-in">3. 수익화 전략: 하이브리드 모델</h2>
+            <p class="fade-in">산업 리포트에 따르면 Pizza Ready는 광고 수익 70%, 인앱 결제 30%의 전형적인 하이브리드 구조를 보입니다. 특히 <b>'No Ads'</b>
+                상품(약 $3.99)은 유저의 광고 스트레스를 결제로 전환하는 핵심 레버로 활용됩니다.</p>
+
+            <div class="chart-container fade-in" style="max-width: 500px; margin: 2rem auto;">
+                <canvas id="revenueMix"></canvas>
+            </div>
+
+            <h2 class="fade-in">4. 시사점: 데이터가 이끄는 성장</h2>
+            <p class="fade-in">Pizza Ready는 하이퍼캐주얼의 '빠른 실험' 문화를 유지하면서도, 정밀한 데이터 분석을 통해 '하이브리드 캐주얼'로의 성공적인 전환을 보여준 사례입니다.
+                특히 ATT 등 개인정보 보호 강화 환경에서도 플레이어블 광고와 명확한 보상 체계로 UA 효율을 방어하고 있습니다.</p>
+
+            <section class="references fade-in"
+                style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border); font-size: 0.8rem; opacity: 0.7;">
+                <h3>참고 자료 및 출처</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>[1] Supercent Blog, "Redesigning the FTUE of Pizza Ready"</li>
+                    <li>[2] Sensor Tower, "Top mobile game downloads and revenue analysis (2024-2025)"</li>
+                    <li>[3] AppBrain / AppMagic Industry Reports, "Hybrid-casual Trends"</li>
+                    <li>[4] Pizza Ready 게임 시스템 분석 리서치 보고서 (Internal Data)</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // A/B Test Metrics Chart
+        const testCtx = document.getElementById('abTestMetrics').getContext('2d');
+        new Chart(testCtx, {
+            type: 'bar',
+            data: {
+                labels: ['튜토리얼 완료율', '첫 세션 플레이 타임', 'D1 리텐션'],
+                datasets: [{
+                    label: '개선 전',
+                    data: [85, 8.5, 32.5], // 가색 데이터 기반 비례
+                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                }, {
+                    label: '개선 후',
+                    data: [93, 10.4, 37.0], // +8%, +1.9m, +4.5% 적용
+                    backgroundColor: '#f97316',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: 'FTUE 개선 후 지표 변화 (A/B Test)' }
+                },
+                scales: {
+                    y: { beginAtZero: false, min: 0 }
+                }
+            }
+        });
+
+        // Revenue Mix Chart
+        const revCtx = document.getElementById('revenueMix').getContext('2d');
+        new Chart(revCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['광고 (IAA)', '인앱 결제 (IAP)'],
+                datasets: [{
+                    data: [70, 30],
+                    backgroundColor: ['#f97316', '#ffedd5'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: { display: true, text: '추정 매출 구성비' }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
