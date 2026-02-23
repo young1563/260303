@@ -15,7 +15,26 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#7c4dff',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#651fff',
+                lineColor: '#b39ddb',
+                secondaryColor: '#f0f7ff',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter',
+                fontSize: '18px' /* Increased font size */
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 40,
+                useMaxWidth: true
+            }
+        });
     </script>
     <style>
         .analysis-hero {
@@ -88,10 +107,20 @@
 
         .mermaid-container {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 24px;
             margin: 2rem 0;
             overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mermaid {
+            width: 100% !important;
+            max-width: 1000px;
         }
 
         .case-study-card {
@@ -105,6 +134,49 @@
         .case-study-card h3 {
             color: #7c4dff;
             margin-bottom: 1rem;
+        }
+
+        /* Removed duplicate mermaid container styles */
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th,
+        td {
+            padding: 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.6;
+        }
+
+        th {
+            background: #f8f9ff;
+            color: #7c4dff;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: #444;
+            vertical-align: middle;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td b {
+            color: #7c4dff;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
         }
 
         footer {
@@ -172,30 +244,84 @@
                 </ul>
             </div>
 
-            <h2 class="fade-in">2. 성장 엔진: 실험의 산물</h2>
-            <p class="fade-in">Hungry Studio의 성공은 직관이 아닌 <b>실험</b>에서 나왔습니다. 제이슨 왕 부사장은 "Block Blast는 보이지 않는 방대한 A/B 테스트
-                프레임워크로 구동된다"고 밝혔습니다.</p>
+            <h2 class="fade-in">2. 시스템 설계: 인프라가 만드는 확률의 재미</h2>
+            <p class="fade-in">Block Blast는 단순한 퍼즐이 아니라, 매 피스마다 수천 개의 가상 연산을 수행하는 <b>알고리즘 집약적</b> 시스템입니다. 겉으로 드러나지 않는 이
+                기획의 정수가 높은 리텐션을 유지하는 비결입니다.</p>
 
-            <div class="chart-container fade-in">
-                <canvas id="abTestChart"></canvas>
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">핵심 시스템</th>
+                            <th>기획 의도 및 매커닉 디테일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Block AI<br>시뮬레이션</b></td>
+                            <td>신규 업데이트 적용 전, 수백만 번의 가상 플레이를 수행하여 <b>'부정적 경험(Frustration Point)'</b>을 50% 이상 사전에 탐지하고
+                                최적의 난이도 밸런스를 검증합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>중첩 서브<br>알고리즘</b></td>
+                            <td>약 100여 개의 미세 알고리즘이 상호작용하며 유저의 실시간 콤보, 점수 추이, 최근 세션 길이를 분석해 <b>다음 블록의 생성 확률을 동적으로
+                                    튜닝</b>합니다.</td>
+                        </tr>
+                        <tr>
+                            <td><b>DDA<br>(실시간 난이도)</b></td>
+                            <td>플레이어가 '몰입(Flow)' 상태를 벗어나지 않도록 실력에 맞춰 보드 막힘 가능성을 제어하며, <b>광고 노출 시점과의 정합성</b>을 고려해 세션 길이를
+                                전략적으로 조절합니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <p class="fade-in">특히 자체 개발한 <b>'Block AI'</b> 시뮬레이션 플랫폼은 실제 유저가 플레이하기 전, 수백만 번의 가상 플레이를 통해 난이도와 UX 결함을 사전에
-                탐지합니다. 이를 통해 출시 후 발생하는 경험 저해 요소를 50% 이상 줄였습니다.</p>
+            <h3 class="fade-in">데이터 기반 성장 인프라</h3>
+            <div class="chart-container fade-in">
+                <canvas id="abTestChart"></canvas>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem; text-align: center;">* 연간 1만 건 이상의 A/B
+                    테스트를 처리하는 자동화 파이프라인으로 운영됩니다.</p>
+            </div>
 
-            <h2 class="fade-in">3. UX 전략: 감정적 피드백 루프</h2>
-            <p class="fade-in">Block Blast가 중독적인 이유는 작은 행동에도 큰 보상을 주는 <b>'Juicy'한 UX 설계</b>에 있습니다. 대표적인 사례가 <b>'레인보우
-                    이펙트(Rainbow Effect)'</b>입니다.</p>
+            <div class="mermaid-container fade-in">
+                <div class="mermaid">
+                    flowchart LR
+                    A["💡 아이디어"] --> B["🤖 Block AI 시뮬레이션"]
+                    B --> C["🧪 300+ 병렬 A/B 테스트"]
+                    C --> D["📊 분석 및 결정"]
+                    D --> E["🌍 글로벌 롤아웃"]
+
+                    style B fill:#7c4dff,stroke:#651fff,color:#fff
+                    style C fill:#7c4dff,stroke:#651fff,color:#fff
+                    style E fill:#00e5ff,stroke:#00b8d4,color:#000
+                </div>
+            </div>
+
+            <h2 class="fade-in">3. UX 전략: 감정적 피드백 루프와 'Stage Presence'</h2>
+            <p class="fade-in">Block Blast가 중독적인 이유는 작은 행동에도 폭발적인 보상을 주는 <b>'Juicy'한 UX 설계</b>에 있습니다. 특히 '레인보우 이펙트'는 단순한
+                시각 효과를 넘어 유저의 뇌에 도파민을 전달하는 5단계의 <b>화학 반응(Chemical Reactions)</b>으로 설계되었습니다.</p>
+
+            <div class="highlight-box fade-in" style="background: #fdf2f2; border-left-color: #ff4d4d;">
+                <h4 style="color: #ff4d4d; margin-top: 0;">🌈 레인보우 이펙트의 5단계 설계 (Chemical Reactions)</h4>
+                <ol>
+                    <li><b>시청각 정합 (Audio-Visual Sync)</b>: 브릭이 깨지는 파편 효과와 전용 폭발음을 정교하게 맞물려 타격감을 극대화합니다.</li>
+                    <li><b>수평적 확장 (Horizontal Expansion)</b>: 라인별 순차 제거가 아닌, <b>전체 보드 동시 클리어</b> 연출로 시각적 쾌감을 증폭시킵니다.
+                    </li>
+                    <li><b>속도 및 가독성 (Speed & Clarity)</b>: 제거 방향을 측면으로 이동시키고 그라데이션 충돌 로직을 적용해 난잡함을 방지합니다.</li>
+                    <li><b>기대감 설계 (Anticipation)</b>: 블록을 배치하기 전, 가이드라인(Pre-clear)에서 미리 무지개 빛을 보여주어 보상을 예고합니다.</li>
+                    <li><b>경험의 평등 (Experience Equality)</b>: 저사양 기기에서도 핵심적인 '피드백 루프'를 느낄 수 있도록 최적화된 미니멀 버전을 함께 운영합니다.
+                    </li>
+                </ol>
+            </div>
 
             <div class="case-study-card fade-in">
-                <h3>Case Study: Rainbow Effect</h3>
-                <p>단순한 라인 제거를 넘어서, 유저의 감정을 자극하는 5단계 보상 시스템:</p>
-                <ol>
-                    <li><b>시각적 전조</b>: 콤보가 이어질 때 무지개 빛으로 예고.</li>
-                    <li><b>타격감 극대화</b>: 전용 사운드와 브릭 파편 효과.</li>
-                    <li><b>전체 보드 클리어</b>: 한 번에 모든 블록을 밀어내는 쾌감.</li>
-                </ol>
-                <p>결과: 세션 시간 증가 및 라운드당 리텐션 지표 개선.</p>
+                <h3>심화 기획: 발동 조건(Trigger)의 정밀함</h3>
+                <p>무지개 효과는 <b>'희소성'</b>을 가질 때 가장 강력합니다. 시스템은 이를 위해 두 가지 트리거를 사용합니다.</p>
+                <ul>
+                    <li><b>콤보 트리거</b>: 연속 5콤보 이상일 때만 발동하여 '실력에 대한 보상'임을 인지시킵니다.</li>
+                    <li><b>동시 제거 트리거</b>: 한 번에 3줄 이상을 제거하는 'High-risk High-return' 플레이 시 즉각적인 보상을 제공합니다.</li>
+                </ul>
+                <p><b>결과</b>: 이 정교한 피드백 루프 도입 후, 라운드당 평균 세션 시간이 유의미하게 상승했으며 리텐션 지표가 개선되었습니다.</p>
             </div>
 
             <h2 class="fade-in">4. 수익 모델: 하이브리드 캐주얼의 정석</h2>
@@ -204,14 +330,18 @@
 
             <div class="mermaid-container fade-in">
                 <div class="mermaid">
-                    graph TD
-                    A[유저 유입] --> B{플레이 흐름}
-                    B --> C[광고 노출 - 보상형/전면]
-                    B --> D[인앱 결제 - 구독/아이템]
-                    C --> E[수익 창출]
+                    flowchart TD
+                    A["🚀 유저 유입 (UA)"] --> B{"🕹️ 플레이 루프"}
+                    B --> C["📺 보상형 광고 (IAA)"]
+                    B --> D["💎 구독 모델 (iOS)"]
+                    C --> E["💰 수익 창출"]
                     D --> E
-                    E --> F[재투자: UA & 실험]
+                    E --> F["🔄 재투자: R&D 및 실험"]
                     F --> A
+
+                    style A fill:#7c4dff,stroke:#651fff,color:#fff
+                    style E fill:#00e5ff,stroke:#00b8d4,color:#000
+                    style F fill:#f97316,stroke:#ea580c,color:#fff
                 </div>
             </div>
 
