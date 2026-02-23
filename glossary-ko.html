@@ -4,107 +4,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>용어 사전 | 캐주얼 & 퍼즐 인사이트</title>
-    <meta name="description" content="모바일 게임 시장의 주요 용어와 정의를 정리합니다.">
+    <title>용어 사전 | 게임 기획 가이드</title>
+    <meta name="description" content="퍼즐 및 하이퍼캐주얼 게임 기획 핵심 용어 대사전.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
-        .glossary-item {
-            background: var(--bg-secondary);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--card-border);
-            box-shadow: var(--card-shadow);
+        :root {
+            --sidebar-width: 250px;
         }
 
-        .term-title {
+        body {
+            background-color: #f8f9ff;
+        }
+
+        .glossary-wrapper {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* Sidebar Navigation */
+        .glossary-sidebar {
+            width: var(--sidebar-width);
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 140px);
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sidebar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-item {
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+            color: var(--accent-primary);
+        }
+
+        .nav-item.active {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(124, 77, 255, 0.3);
+        }
+
+        /* Content Area */
+        .glossary-main {
+            flex: 1;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.5rem 1.2rem 3.5rem;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 4px 25px rgba(124, 77, 255, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 1.2rem;
+        }
+
+        .term-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            grid-column: 1 / -1;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
         }
 
-        .term-title h2 {
-            font-size: 2.2rem;
-            margin-bottom: 0;
-            color: var(--accent-primary);
+        .section-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: #1e293b;
         }
 
-        .term-badge {
-            background: var(--accent-gradient);
-            color: white;
-            padding: 4px 12px;
+        .section-count {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 2px 10px;
             border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .source-box {
-            margin-top: 3rem;
-            padding: 1.5rem;
-            background: rgba(124, 77, 255, 0.05);
-            border-radius: var(--radius-md);
-            border-left: 4px solid var(--accent-primary);
-        }
-
-        .source-box p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-
-        .source-box a {
-            color: var(--accent-primary);
+            font-size: 0.85rem;
             font-weight: 600;
-            text-decoration: underline;
         }
 
-        .content-section {
-            margin-top: 2rem;
+        .term-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .content-section h3 {
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 77, 255, 0.08);
+            border-color: rgba(124, 77, 255, 0.1);
+        }
+
+        .term-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .term-name {
             font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            border-left: 4px solid var(--accent-secondary);
-            padding-left: 1rem;
-        }
-
-        .content-section ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .content-section li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .content-section li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
+            font-weight: 800;
             color: var(--accent-primary);
-            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
         }
 
-        .term-link {
-            color: var(--accent-primary);
-            text-decoration: underline;
-            font-weight: 600;
+        .term-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        .tag-market {
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        .tag-system {
+            background: #f5f3ff;
+            color: #6d28d9;
+        }
+
+        .tag-content {
+            background: #fdf2f2;
+            color: #dc2626;
+        }
+
+        .term-desc {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .term-meta {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .glossary-wrapper {
+                flex-direction: column;
+            }
+
+            .glossary-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+                overflow-x: auto;
+                flex-direction: row;
+            }
+
+            .sidebar-title {
+                display: none;
+            }
+
+            .nav-item {
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <header>
         <a href="index-ko.html" class="logo">Game Research</a>
         <nav>
@@ -113,103 +248,186 @@
                 <li><a href="index-ko.html#research">리서치</a></li>
                 <li><a href="glossary-ko.html" class="active">용어 사전</a></li>
             </ul>
-            <div class="lang-switch">
-                <a href="#">EN</a>
-                <a href="glossary-ko.html" class="active">KO</a>
-            </div>
         </nav>
     </header>
 
-    <main class="article-container">
-        <div class="article-header fade-in">
-            <h1>Game Glossary</h1>
-            <p class="article-meta">산업 핵심 용어의 정의와 인사이트를 정리합니다.</p>
-        </div>
+    <div class="glossary-wrapper">
+        <aside class="glossary-sidebar">
+            <div class="sidebar-title">Categories</div>
+            <a href="#market" class="nav-item active">📊 시장 및 지표</a>
+            <a href="#system" class="nav-item">⚙️ 시스템 기획</a>
+            <a href="#content" class="nav-item">🧩 콘텐츠 기획</a>
+            <a href="#etc" class="nav-item">💡 기타 핵심 개념</a>
+        </aside>
 
-        <div class="glossary-item fade-in" style="animation-delay: 0.2s;">
-            <div class="term-title">
-                <h2>FTUE</h2>
-                <span class="term-badge">Core Concept</span>
+        <main class="glossary-main">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="용어를 검색해 보세요 (예: CPI, DDA...)" id="glossarySearch">
             </div>
 
-            <div class="article-body">
-                <p>
-                    <a href="https://www.google.com/search?q=FTUE&oq=FTUE" target="_blank" class="term-link">FTUE</a>
-                    (First-Time User Experience)는 <strong>사용자가 제품이나 게임을 처음 접하고 사용하는 초기 단계</strong>를 의미합니다. 첫인상, 튜토리얼, 가입
-                    절차 등을 포함하여 핵심 재미를 느끼게 하는 중요한 과정입니다.
-                </p>
-                <p>
-                    이는 사용자의 잔존율(Retention)과 서비스 지속 이용 여부를 결정짓는 핵심 요소로, 쉽고 명확한 내비게이션, 빠른 핵심 가치 전달, 긍정적인 첫 경험 제공이 개선의
-                    목표입니다.
-                </p>
-
-                <div class="content-section">
-                    <h3>FTUE의 핵심 요소 및 중요성</h3>
-                    <ul>
-                        <li><strong>첫인상 및 경험:</strong> 사용자가 서비스를 접하는 첫 몇 분, 로딩 화면, UI, 튜토리얼을 포함한 포괄적인 경험.</li>
-                        <li><strong>잔존율(Retention) 영향:</strong> 잘 설계된 FTUE는 초기 사용자 이탈을 막고, 긍정적인 감정을 유발하여 지속적인 플레이를 유도함.
-                        </li>
-                        <li><strong>핵심 재미 전달:</strong> 게임의 핵심 가치를 빠르게 체험하도록 하여, 사용자가 다음 단계로 넘어갈 동기를 부여.</li>
-                    </ul>
-                </div>
-
-                <div class="content-section">
-                    <h3>FTUE 개선 방안</h3>
-                    <ul>
-                        <li><strong>쉽고 빠른 시작:</strong> 복잡한 로그인이나 긴 튜토리얼을 줄이고, 바로 게임플레이에 진입하도록 설정.</li>
-                        <li><strong>직관적인 학습:</strong> 튜토리얼을 통해 게임 규칙을 쉽게 익히게 하되, 너무 많은 정보를 한 번에 전달하지 않도록 함.</li>
-                        <li><strong>보상과 성취감:</strong> 초기 플레이에서 명확한 목표와 보상을 제공하여 성취감을 느낄 수 있도록 설계.</li>
-                    </ul>
-                </div>
-
-                <div class="content-section">
-                    <h3>FTUE 분석 및 측정</h3>
-                    <ul>
-                        <li><strong>데이터 기반 분석:</strong> 튜토리얼 단계별 이탈률, 첫 세션 데이터를 분석하여 병목 지점을 찾음.</li>
-                        <li><strong>잔존율 지표:</strong> 1일 차 잔존율(Day 1 Retention)을 통해 FTUE의 효과를 평가.</li>
-                    </ul>
-                </div>
-
-                <p style="margin-top: 2rem; font-style: italic; color: var(--text-secondary);">
-                    결론적으로 FTUE는 단순히 튜토리얼이 아니라 사용자가 제품을 이해하고 사랑하게 만드는 첫 번째 단계이므로, 개발 및 디자인 과정에서 매우 중요하게 다루어져야 합니다.
-                </p>
-
-                <div class="source-box">
-                    <p>출처: <a href="https://brunch.co.kr/@sentience-tech/4" target="_blank">센티언스 테크 브런치 - 게임 유저의 첫 경험,
-                            FTUE가 중요한 이유</a></p>
-                </div>
+            <!-- Market & Metrics Section -->
+            <div class="section-header" id="market">
+                <h2>시장 및 지표</h2>
+                <span class="section-count">4</span>
             </div>
-        </div>
+            <div class="term-section">
+                <article class="term-card" data-name="cpi">
+                    <div class="term-header">
+                        <h3 class="term-name">CPI</h3>
+                        <span class="term-tag tag-market">Market</span>
+                    </div>
+                    <p class="term-desc">Cost Per Install. 유저 1명을 획득하는 데 투자한 마케팅 비용입니다. 하이퍼캐주얼 성패의 가장 첫 번째 관문입니다.</p>
+                    <div class="term-meta">Goal: 보통 $0.20 ~ $0.50 미만 추천</div>
+                </article>
 
-        <div style="text-align: center; margin-top: 4rem;">
-            <a href="index-ko.html" class="read-more">← 홈으로 돌아가기</a>
-        </div>
-    </main>
+                <article class="term-card" data-name="ltv">
+                    <div class="term-header">
+                        <h3 class="term-name">LTV</h3>
+                        <span class="term-tag tag-market">Market</span>
+                    </div>
+                    <p class="term-desc">Lifetime Value. 1명의 유저가 게임 이탈 전까지 발생시키는 총 매출입니다. 하이브리드 캐주얼의 주요 목표 중 하나입니다.</p>
+                    <div class="term-meta">Formula: ARPU * Retention Days</div>
+                </article>
+
+                <article class="term-card" data-name="retention">
+                    <div class="term-header">
+                        <h3 class="term-name">Retention</h3>
+                        <span class="term-tag tag-market">Market</span>
+                    </div>
+                    <p class="term-desc">잔존율. 특정 시점에 재방문한 유저 비중입니다. D1(1일차) 리텐션은 게임의 초기 재미를 판단하는 가장 강력한 지표입니다.</p>
+                    <div class="term-meta">Target: D1 40% 이상 (권장)</div>
+                </article>
+
+                <article class="term-card" data-name="roas">
+                    <div class="term-header">
+                        <h3 class="term-name">ROAS</h3>
+                        <span class="term-tag tag-market">Market</span>
+                    </div>
+                    <p class="term-desc">Return on Ad Spend. 투입한 광고비 대비 회수된 매출액의 비율입니다. 마케팅 캠페인의 효율을 나타냅니다.</p>
+                    <div class="term-meta">Bench: 100% 이상 시 마케팅 확장 가능</div>
+                </article>
+            </div>
+
+            <!-- System Design Section -->
+            <div class="section-header" id="system">
+                <h2>시스템 기획</h2>
+                <span class="section-count">3</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="dda">
+                    <div class="term-header">
+                        <h3 class="term-name">DDA</h3>
+                        <span class="term-tag tag-system">System</span>
+                    </div>
+                    <p class="term-desc">Dynamic Difficulty Adjustment. 유저의 실력을 실시간 분석하여 난이도를 조절, 이탈을 방지하고 게임의 플로우를 유지하게
+                        합니다.</p>
+                    <div class="term-meta">Focus: Frustration 지점 탐지 및 보정</div>
+                </article>
+
+                <article class="term-card" data-name="core loop">
+                    <div class="term-header">
+                        <h3 class="term-name">Core Loop</h3>
+                        <span class="term-tag tag-system">System</span>
+                    </div>
+                    <p class="term-desc">게임 내에서 유저가 가장 반복적으로 수행하는 행위의 핵심 순환 구조입니다. 재미의 '본질'을 정의합니다.</p>
+                    <div class="term-meta">Example: 배치 -> 제거 -> 보상 -> 생성</div>
+                </article>
+
+                <article class="term-card" data-name="hybridization">
+                    <div class="term-header">
+                        <h3 class="term-name">Hybridization</h3>
+                        <span class="term-tag tag-system">System</span>
+                    </div>
+                    <p class="term-desc">단순한 하이퍼캐주얼 코어에 미드코어의 성장 시스템이나 서사를 결합하여 수명을 늘리는 전략을 의미합니다.</p>
+                    <div class="term-meta">Trend: HC Core + Casual Meta</div>
+                </article>
+            </div>
+
+            <!-- Content Design Section -->
+            <div class="section-header" id="content">
+                <h2>콘텐츠 기획</h2>
+                <span class="section-count">3</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="aha moment">
+                    <div class="term-header">
+                        <h3 class="term-name">Aha Moment</h3>
+                        <span class="term-tag tag-content">Content</span>
+                    </div>
+                    <p class="term-desc">유저가 퍼즐의 해결책을 깨닫는 쾌감의 순간입니다. 이 순간이 얼마나 자주, 강력하게 오느냐가 퍼즐의 퀄리티를 결정합니다.</p>
+                    <div class="term-meta">Design: 인지 편향을 활용한 해결 유도</div>
+                </article>
+
+                <article class="term-card" data-name="juiciness">
+                    <div class="term-header">
+                        <h3 class="term-name">Juiciness</h3>
+                        <span class="term-tag tag-content">Content</span>
+                    </div>
+                    <p class="term-desc">작은 행동에도 폭발적인 시청각적 피드백을 주는 설계입니다. 유저의 도파민을 자극하는 퍼즐의 필수 요소입니다.</p>
+                    <div class="term-meta">Key: Particle, Sound, Shake Effect</div>
+                </article>
+
+                <article class="term-card" data-name="difficulty curve">
+                    <div class="term-header">
+                        <h3 class="term-name">Difficulty Curve</h3>
+                        <span class="term-tag tag-content">Content</span>
+                    </div>
+                    <p class="term-desc">레벨 진행에 따른 난이도 변화 그래프입니다. 완만한 상승과 의도적인 '이지 레벨' 배치를 통한 완급 조절이 핵심입니다.</p>
+                    <div class="term-meta">Structure: Staircase vs Sawtooth pattern</div>
+                </article>
+            </div>
+
+            <!-- Core Concept Section -->
+            <div class="section-header" id="etc">
+                <h2>기타 핵심 개념</h2>
+                <span class="section-count">1</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="ftue">
+                    <div class="term-header">
+                        <h3 class="term-name">FTUE</h3>
+                        <span class="term-tag tag-system">Core</span>
+                    </div>
+                    <p class="term-desc">First-Time User Experience. 유저가 게임을 처음 접하는 몇 초에서 몇 분간의 경험입니다. 첫인상과 잔존율을 직접
+                        결정합니다.</p>
+                    <div class="term-meta">Goal: 3분 내 'Aha Moment' 제공</div>
+                </article>
+            </div>
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+        <p>&copy; 2026 Antigravity Portfolio. Designed for Advanced Game Design.</p>
     </footer>
 
     <script src="js/main.js"></script>
     <script>
-        // Simple scroll animation trigger
         document.addEventListener('DOMContentLoaded', () => {
-            const faders = document.querySelectorAll('.fade-in');
-            const appearOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            };
+            const searchInput = document.querySelector('#glossarySearch');
+            const cards = document.querySelectorAll('.term-card');
+            const navItems = document.querySelectorAll('.nav-item');
 
-            const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
+            // Search Functionality
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                cards.forEach(card => {
+                    const name = card.getAttribute('data-name').toLowerCase();
+                    const desc = card.querySelector('.term-desc').textContent.toLowerCase();
+                    if (name.includes(term) || desc.includes(term)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
-            }, appearOptions);
+            });
 
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
+            // Smooth Scroll & Active State
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    item.classList.add('active');
+                });
             });
         });
     </script>
