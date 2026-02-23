@@ -1,4 +1,4 @@
-{
+const G_RANKING_DATA = {
     "lastUpdated": "2026-02-23 17:21",
     "rankings": {
         "all": [
@@ -550,4 +550,4 @@
             }
         ]
     }
-}
+};

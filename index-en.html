@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Creative Developer</title>
+  <meta name="description" content="Personal portfolio of a creative developer and researcher.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="preloader">
+    <div class="puzzle-container">
+      <div class="puzzle-piece piece-1"></div>
+      <div class="puzzle-piece piece-2"></div>
+      <div class="puzzle-piece piece-3"></div>
+    </div>
+    <div class="loader-text">Loading puzzle pieces...</div>
+  </div>
+
+  <header>
+    <a href="index.html" class="logo">Game Research</a>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Analysis</a></li>
+        <li><a href="index.html#research">Research</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="index-en.html" class="active">EN</a>
+        <a href="index.html">KO</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg-visual">
+        <div class="hero-blob blob-1" data-speed="-1"></div>
+        <div class="hero-blob blob-2" data-speed="1"></div>
+
+        <!-- Floating Puzzle Icons (Expanded) -->
+        <svg class="floating-icon" data-speed="2" style="top: 10%; left: 5%; width: 45px; height: 45px;"
+          viewBox="0 0 24 24" fill="var(--accent-primary)">
+          <path
+            d="M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="-1.5"
+          style="top: 20%; right: 10%; width: 35px; height: 35px; animation-delay: -2s;" viewBox="0 0 24 24"
+          fill="var(--accent-secondary)">
+          <path
+            d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="3"
+          style="bottom: 15%; left: 15%; width: 40px; height: 40px; animation-delay: -5s;" viewBox="0 0 24 24"
+          fill="var(--accent-tertiary)">
+          <path
+            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="1.2"
+          style="top: 50%; right: 5%; width: 25px; height: 25px; animation-delay: -3s;" viewBox="0 0 24 24"
+          fill="var(--accent-primary)">
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+        <svg class="floating-icon" data-speed="-2.5"
+          style="bottom: 30%; right: 20%; width: 30px; height: 30px; animation-delay: -7s;" viewBox="0 0 24 24"
+          fill="var(--accent-secondary)">
+          <rect x="3" y="3" width="18" height="18" rx="4" />
+        </svg>
+        <svg class="floating-icon" data-speed="1.8"
+          style="top: 40%; left: 25%; width: 20px; height: 20px; animation-delay: -1s;" viewBox="0 0 24 24"
+          fill="var(--accent-tertiary)">
+          <path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="-1"
+          style="top: 15%; left: 45%; width: 20px; height: 20px; animation-delay: -4s;" viewBox="0 0 24 24"
+          fill="var(--accent-secondary)">
+          <path d="M12,2L1,21H23L12,2Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="2.2"
+          style="bottom: 10%; right: 40%; width: 35px; height: 35px; animation-delay: -8s;" viewBox="0 0 24 24"
+          fill="var(--accent-primary)">
+          <path d="M12,2L15.09,8.26L22,9.27L17,14.14L18.18,21.02L12,17.77L5.82,21.02L7,14.14L2,9.27L8.91,8.26L12,2Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="-2"
+          style="top: 60%; left: 10%; width: 30px; height: 30px; animation-delay: -6s;" viewBox="0 0 24 24"
+          fill="var(--accent-tertiary)">
+          <path
+            d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20Z" />
+        </svg>
+        <svg class="floating-icon" data-speed="1.5"
+          style="bottom: 50%; left: 35%; width: 20px; height: 20px; animation-delay: -2.5s;" viewBox="0 0 24 24"
+          fill="var(--accent-secondary)">
+          <path d="M12,2L15.09,8.26L22,9.27L17,14.14L18.18,21.02L12,17.77L5.82,21.02L7,14.14L2,9.27L8.91,8.26L12,2Z"
+            opacity="0.5" />
+        </svg>
+      </div>
+      <div class="hero-content">
+        <h1 class="fade-in" style="animation-delay: 0.2s;">Unveiling the Core of Casual Games</h1>
+        <p class="fade-in" style="animation-delay: 0.4s;">Analyzing the success formulas of global casual games through
+          data-driven
+          research.<br>
+          A game designer's logs on crafting sustainable growth beyond simple fun.
+        </p>
+      </div>
+    </section>
+
+    <section class="dashboard-container">
+      <h2 class="section-title fade-in" style="animation-delay: 0.5s;">Global Market Insights 2025</h2>
+      <div class="global-summary-grid">
+        <div class="summary-card slide-left" style="animation-delay: 0.1s;">
+          <div class="icon">🌍</div>
+          <h3>$2.17 Trillion</h3>
+          <p>Total Global Content Market Size in 2025</p>
+        </div>
+        <div class="summary-card fade-in" style="animation-delay: 0.3s;">
+          <div class="icon">🎮</div>
+          <h3>$211.8 Billion</h3>
+          <p>Game Industry Value (8.5% of Content Market)</p>
+        </div>
+        <div class="summary-card slide-right" style="animation-delay: 0.5s;">
+          <div class="icon">📈</div>
+          <h3>+5.65% CAGR</h3>
+          <p>Projected Game Market Growth to $278.8B by 2029</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin: 1rem 0 5rem;">
+        <a href="research/global-report-2025.html" class="btn-primary fade-in" style="animation-delay: 0.9s;">Explore
+          2025 Global Market Report &rarr;</a>
+      </div>
+
+      <h2 class="section-title fade-in" style="animation-delay: 1.0s;">Key Genre Benchmarks</h2>
+      <div class="stats-grid">
+        <div class="stat-card slide-left" style="animation-delay: 0.2s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Hyper-casual Benchmark</span>
+          <h4>Next-Day Return Rate (D1 Retention)</h4>
+          <p class="stat-desc">The percentage of players who return to the game one day after installation.</p>
+          <div class="value">&lt;25%</div>
+          <div class="trend down">▼ Benchmark</div>
+          <div class="data-source">Source: Gamesforum ⓘ</div>
+        </div>
+        <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Market Trend Report</span>
+          <h4>Market Install Share</h4>
+          <p class="stat-desc">The portion of total mobile game downloads belonging to the hyper-casual genre.</p>
+          <div class="value">30%</div>
+          <div class="trend down">▼ -20% since 2021</div>
+          <div class="data-source">Source: GamesBeat ⓘ</div>
+        </div>
+        <div class="stat-card slide-right" style="animation-delay: 0.6s;">
+          <span class="card-tag-inline" style="margin-bottom: 1rem;">Hybrid-casual Growth</span>
+          <h4>In-Game Purchase Growth (IAP)</h4>
+          <p class="stat-desc">Revenue increase from direct in-app item purchases, showing trend toward hybridization.
+          </p>
+          <div class="value">$2.1B</div>
+          <div class="trend up">▲ 250%+ increase</div>
+          <div class="data-source">Source: Sensor Tower ⓘ</div>
+        </div>
+      </div>
+    </section>
+    <section class="dashboard-container" id="research">
+      <h2 class="section-title fade-in">Deep Dive Research</h2>
+
+      <div class="research-tabs fade-in">
+        <button class="tab-btn active" data-target="all">All Research</button>
+        <button class="tab-btn" data-target="market">Market Analysis</button>
+        <button class="tab-btn" data-target="game">Game Analysis</button>
+      </div>
+
+      <div class="research-grid">
+        <!-- Card 1: Global Market Report -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Market Analysis</span>
+              <span class="date">Feb 2025</span>
+              <span class="read-time">15 min read</span>
+            </div>
+            <h3>2025 Global Game Market Deep Dive</h3>
+            <p>Comprehensive analysis of revenue trends, regional growth, and future forecasts across 26 countries.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: KOCCA, PwC</span>
+              <a href="research/global-report-2025.html" class="read-more">View Report →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Block Blast Analysis -->
+        <article class="research-card fade-in" data-category="game">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Game Analysis</span>
+              <span class="date">Feb 2025</span>
+              <span class="read-time">8 min read</span>
+            </div>
+            <h3>Block Blast: UX & Growth Strategy</h3>
+            <p>Deconstructing the secret behind Hungry Studio's 100M+ downloads and its unique 'Juicy' feedback loop.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: Market Data</span>
+              <a href="research/block-blast-analysis.html" class="read-more">View Analysis →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Hyper-casual -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Market Analysis</span>
+              <span class="date">Jan 2025</span>
+              <span class="read-time">12 min read</span>
+            </div>
+            <h3>2026 Hyper-Casual Market Trends</h3>
+            <p>How hyper-casual games are evolving into hybrid-casual to sustain long-term revenue.</p>
+            <div class="card-footer">
+              <span class="source">Source: Sensor Tower</span>
+              <a href="research/2026-hypercasual.html" class="read-more">Read More →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Hyper-casual Guide (Appier) -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Guide</span>
+              <span class="date">Feb 2025</span>
+              <span class="read-time">5 min read</span>
+            </div>
+            <h3>Hyper-Casual Strategy Guide for Success</h3>
+            <p>Summary of definitions, market trends, and business growth strategies based on Appier insights.</p>
+            <div class="card-footer">
+              <span class="source">Source: Appier</span>
+              <a href="research/hypercasual-guide.html" class="read-more">View Guide →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Survivor!.io -->
+        <article class="research-card fade-in" data-category="game">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Case Study</span>
+              <span class="date">Dec 2024</span>
+              <span class="read-time">10 min read</span>
+            </div>
+            <h3>Survivor!.io: Hybridization Success</h3>
+            <p>A deep dive into the monetization and retention mechanics of the most successful hybrid-casual title.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: AppMagic</span>
+              <a href="research/survivor-case-study.html" class="read-more">Read More →</a>
+            </div>
+          </div>
+        </article>
+        <!-- Card 6: Pizza Ready -->
+        <article class="research-card fade-in" data-category="game">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Game Analysis</span>
+              <span class="date">Feb 2026</span>
+              <span class="read-time">12 min read</span>
+            </div>
+            <h3>Pizza Ready: Success Strategy Analysis</h3>
+            <p>Analyzing the core loop and monetization strategy of Supercent's global hit 'Pizza Ready'.</p>
+            <div class="card-footer">
+              <span class="source">Source: Internal Research</span>
+              <a href="research/pizze-ready-analysis.html" class="read-more">View Analysis →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7: Arcade Idle -->
+        <article class="research-card fade-in" data-category="market">
+          <div class="card-content">
+            <div class="card-meta">
+              <span class="card-tag-inline">Genre Analysis</span>
+              <span class="date">Feb 2026</span>
+              <span class="read-time">15 min read</span>
+            </div>
+            <h3>Arcade Idle: The Evolution of Hybrid-casual</h3>
+            <p>Analyzing the success formula of the 'Arcade Idle' genre, combining HC controls with Idle progression.
+            </p>
+            <div class="card-footer">
+              <span class="source">Source: Medium Research</span>
+              <a href="research/arcade-idle-analysis.html" class="read-more">View Analysis →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

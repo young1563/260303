@@ -757,6 +757,45 @@ nav a.active {
     color: var(--accent-primary);
 }
 
+/* Genre Tabs for Rankings */
+.ranking-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.ranking-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.ranking-tabs button {
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 1px solid #f1f5f9;
+    background: #f8fafc;
+    font-size: 0.75rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ranking-tabs button.active {
+    background: var(--accent-gradient);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.ranking-tabs button:hover:not(.active) {
+    background: #f1f5f9;
+    color: var(--text-primary);
+}
+
 .rank-icon {
     width: 44px;
     height: 44px;
