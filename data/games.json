@@ -1,0 +1,1361 @@
+{
+    "lastUpdated": "2026-02-23 17:21",
+    "platform": "App Store KR",
+    "metric": "Top Free - All Genres",
+    "totalCount": 50,
+    "rankings": [
+        {
+            "id": "block-blast",
+            "rank": 1,
+            "name": "블록 블라스트",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Block Placement",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Grid Placement",
+                "pressure": [
+                    "Space"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "very-high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "order-crazy",
+            "rank": 2,
+            "name": "Order Crazy",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Sort Puzzle",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Sorting",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "s2rd",
+            "rank": 3,
+            "name": "스투 랜덤 디펜스",
+            "genrePrimary": "Strategy",
+            "subGenre": "Tower Defense",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Random Spawn TD",
+                "pressure": [
+                    "RNG",
+                    "Time"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "dukun-town",
+            "rank": 4,
+            "name": "두근두근타운",
+            "genrePrimary": "Match3Meta",
+            "subGenre": "Social Decor",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Decor + Social",
+                "pressure": [
+                    "Social"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 3,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "kingshot",
+            "rank": 5,
+            "name": "킹샷",
+            "genrePrimary": "SLG",
+            "subGenre": "4X Strategy",
+            "sessionType": "long",
+            "system": {
+                "coreType": "Base Build",
+                "pressure": [
+                    "PvP",
+                    "Time"
+                ],
+                "metaDepth": 4,
+                "monetizationDepth": 4
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "very-high",
+                "ltv": "very-long"
+            },
+            "score": {
+                "complexity": 4,
+                "contentDensity": 4,
+                "liveOps": 4,
+                "monetization": 4
+            }
+        },
+        {
+            "id": "disney-solitaire",
+            "rank": 6,
+            "name": "Disney Solitaire",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Card Solitaire",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Card Sorting",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "driver-3d",
+            "rank": 7,
+            "name": "3D운전교실",
+            "genrePrimary": "Simulation",
+            "subGenre": "Driving",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Driving Sim",
+                "pressure": [
+                    "Traffic"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "worm-defense",
+            "rank": 8,
+            "name": "꿈틀 수비대",
+            "genrePrimary": "Strategy",
+            "subGenre": "Tower Defense",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Merge TD",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "block-crush",
+            "rank": 9,
+            "name": "블록 크러시",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Block Puzzle",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Block Placement",
+                "pressure": [
+                    "Space"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "solitaire-card",
+            "rank": 10,
+            "name": "솔리테어 카드",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Card Game",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Sorting",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "hunter",
+            "rank": 11,
+            "name": "HUNTER×HUNTER",
+            "genrePrimary": "RPG",
+            "subGenre": "Action RPG",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Hero Growth",
+                "pressure": [
+                    "Gear"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "high",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "pubg",
+            "rank": 12,
+            "name": "배틀그라운드",
+            "genrePrimary": "Shooter",
+            "subGenre": "Battle Royale",
+            "sessionType": "long",
+            "system": {
+                "coreType": "PvP Shooter",
+                "pressure": [
+                    "PvP"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "high",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "tasty-travel",
+            "rank": 13,
+            "name": "테이스티 트레블",
+            "genrePrimary": "Match3Meta",
+            "subGenre": "Merge Decor",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Merge-2",
+                "pressure": [
+                    "Energy"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "cell-defense",
+            "rank": 14,
+            "name": "세포 특공대",
+            "genrePrimary": "Strategy",
+            "subGenre": "Action TD",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Roguelike Skill",
+                "pressure": [
+                    "Horde"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "mid",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "goose-duck",
+            "rank": 15,
+            "name": "Goose Goose Duck",
+            "genrePrimary": "Social",
+            "subGenre": "Party Deduction",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Social Deduction",
+                "pressure": [
+                    "Social"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "brain-puzzle-3",
+            "rank": 16,
+            "name": "Brain Puzzle 3",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Brain Teaser",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Logic Puzzle",
+                "pressure": [
+                    "Trick"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "roblox",
+            "rank": 17,
+            "name": "로블록스",
+            "genrePrimary": "Platform",
+            "subGenre": "UGC",
+            "sessionType": "long",
+            "system": {
+                "coreType": "User Worlds",
+                "pressure": [
+                    "Social"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "very-high",
+                "arpu": "mid",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 4,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "gossip-harbor",
+            "rank": 18,
+            "name": "가십하버",
+            "genrePrimary": "Merge",
+            "subGenre": "Story Merge",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Merge-2",
+                "pressure": [
+                    "Energy"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "high",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "whiteout-survival",
+            "rank": 19,
+            "name": "화이트아웃 서바이벌",
+            "genrePrimary": "SLG",
+            "subGenre": "Survival 4X",
+            "sessionType": "long",
+            "system": {
+                "coreType": "Resource + War",
+                "pressure": [
+                    "PvP"
+                ],
+                "metaDepth": 4,
+                "monetizationDepth": 4
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "very-high",
+                "ltv": "very-long"
+            },
+            "score": {
+                "complexity": 4,
+                "contentDensity": 4,
+                "liveOps": 4,
+                "monetization": 4
+            }
+        },
+        {
+            "id": "brain-quest",
+            "rank": 20,
+            "name": "Brain Puzzle: Tricky Quest",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Logic Puzzle",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Quiz",
+                "pressure": [
+                    "Logic"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "maple-idle",
+            "rank": 21,
+            "name": "메이플 키우기",
+            "genrePrimary": "IdleRPG",
+            "subGenre": "Idle Growth",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Idle Loop",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "last-war",
+            "rank": 22,
+            "name": "라스트 워",
+            "genrePrimary": "SLGHybrid",
+            "subGenre": "4X + Casual Hook",
+            "sessionType": "long",
+            "system": {
+                "coreType": "Hybrid Funnel",
+                "pressure": [
+                    "PvP",
+                    "Time"
+                ],
+                "metaDepth": 4,
+                "monetizationDepth": 4
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "very-high",
+                "ltv": "very-long"
+            },
+            "score": {
+                "complexity": 4,
+                "contentDensity": 4,
+                "liveOps": 4,
+                "monetization": 4
+            }
+        },
+        {
+            "id": "pixel-flow",
+            "rank": 23,
+            "name": "Pixel Flow",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Color Match",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Color Match",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "queenzle",
+            "rank": 24,
+            "name": "Queenzle",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Logic Placement",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Logic Grid",
+                "pressure": [
+                    "Rules"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "infinite-stairs",
+            "rank": 25,
+            "name": "무한의 계단",
+            "genrePrimary": "Casual",
+            "subGenre": "Highscore",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Precision Tap",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 2,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "screwdom",
+            "rank": 26,
+            "name": "Screwdom",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Physics Puzzle",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Unscrew Mechanics",
+                "pressure": [
+                    "Order"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "crazy-tower",
+            "rank": 27,
+            "name": "미친 타워가 되었다",
+            "genrePrimary": "Strategy",
+            "subGenre": "Incremental TD",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Idle Defense",
+                "pressure": [
+                    "Upgrade"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "sudoku-logic",
+            "rank": 28,
+            "name": "스도쿠",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Classic Logic",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Logic Puzzle",
+                "pressure": [
+                    "Rules"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "merge-cooking",
+            "rank": 29,
+            "name": "머지 쿠킹",
+            "genrePrimary": "Merge",
+            "subGenre": "Cooking",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Merge-2",
+                "pressure": [
+                    "Energy"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 2,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "among-us",
+            "rank": 30,
+            "name": "Among Us!",
+            "genrePrimary": "Social",
+            "subGenre": "Deduction",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Social Interaction",
+                "pressure": [
+                    "Social"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "arrows-escape",
+            "rank": 31,
+            "name": "Arrows - Escape",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Escape",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Directional",
+                "pressure": [
+                    "Rules"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "royal-match",
+            "rank": 32,
+            "name": "로얄 매치",
+            "genrePrimary": "Match3Meta",
+            "subGenre": "Decor Puzzle",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Match-3",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "high",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "township",
+            "rank": 33,
+            "name": "꿈의 마을",
+            "genrePrimary": "Simulation",
+            "subGenre": "City Builder",
+            "sessionType": "long",
+            "system": {
+                "coreType": "Economy Loop",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 2
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "mid",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 2
+            }
+        },
+        {
+            "id": "bus-escape",
+            "rank": 34,
+            "name": "Bus Escape",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Traffic Jam",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Sorting",
+                "pressure": [
+                    "Space"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "royal-kingdom",
+            "rank": 35,
+            "name": "로얄 킹덤",
+            "genrePrimary": "Match3Meta",
+            "subGenre": "Decor Puzzle",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Match-3",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "high",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 3,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "sand-loop",
+            "rank": 36,
+            "name": "Sand Loop",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Sand Sort",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Physics Sort",
+                "pressure": [
+                    "Vessel"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "color-block-jam",
+            "rank": 37,
+            "name": "Color Block Jam",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Match Grid",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Sorting",
+                "pressure": [
+                    "Space"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "hero-clash",
+            "rank": 38,
+            "name": "히어로 클래시",
+            "genrePrimary": "Casual",
+            "subGenre": "Hybrid Funnel",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Minigame + RPG",
+                "pressure": [
+                    "Level"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 4
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "high",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 3,
+                "liveOps": 2,
+                "monetization": 4
+            }
+        },
+        {
+            "id": "luck-tower",
+            "rank": 39,
+            "name": "운빨존많겜",
+            "genrePrimary": "Casual",
+            "subGenre": "RNG Defense",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Risk-Reward",
+                "pressure": [
+                    "RNG"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "mid",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 3,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "magic-tiles-3",
+            "rank": 40,
+            "name": "매직 타일 3",
+            "genrePrimary": "Casual",
+            "subGenre": "Rhythm",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Sync Tap",
+                "pressure": [
+                    "Speed"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 2,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "brawl-stars",
+            "rank": 41,
+            "name": "브롤스타즈",
+            "genrePrimary": "Action",
+            "subGenre": "MOBA",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Team PvP",
+                "pressure": [
+                    "PvP"
+                ],
+                "metaDepth": 3,
+                "monetizationDepth": 3
+            },
+            "kpi": {
+                "dau": "very-high",
+                "arpu": "high",
+                "ltv": "very-long"
+            },
+            "score": {
+                "complexity": 3,
+                "contentDensity": 4,
+                "liveOps": 4,
+                "monetization": 3
+            }
+        },
+        {
+            "id": "cat-life",
+            "rank": 42,
+            "name": "고양이 라이프",
+            "genrePrimary": "Casual",
+            "subGenre": "Sim Decor",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Clicker Decor",
+                "pressure": [
+                    "Social"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 2,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "word-screw",
+            "rank": 43,
+            "name": "Word Screw",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Word Sort",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Spelling Sort",
+                "pressure": [
+                    "Logic"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "low",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "cryptogram-logic",
+            "rank": 44,
+            "name": "Cryptogram",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Discovery",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Code Breaking",
+                "pressure": [
+                    "Logic"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "low",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "crossword-challenge",
+            "rank": 45,
+            "name": "Crossword Challenge",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Classical",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Vocabulary",
+                "pressure": [
+                    "Clues"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "low",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "zen-word",
+            "rank": 46,
+            "name": "Zen Word",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Relaxing",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Word Connect",
+                "pressure": [
+                    "None"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "word-tower",
+            "rank": 47,
+            "name": "워드타워",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Building",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Word Scramble",
+                "pressure": [
+                    "Moves"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 2,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "brain-who",
+            "rank": 48,
+            "name": "Brain Who?",
+            "genrePrimary": "WordLogic",
+            "subGenre": "Deduction Quiz",
+            "sessionType": "short",
+            "system": {
+                "coreType": "Riddle",
+                "pressure": [
+                    "Trick"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "mid",
+                "arpu": "low",
+                "ltv": "short"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "netflix-puzzle",
+            "rank": 49,
+            "name": "넷플릭스 퍼즐 모음",
+            "genrePrimary": "Puzzle",
+            "subGenre": "Collection",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Bundle",
+                "pressure": [
+                    "Subscription"
+                ],
+                "metaDepth": 2,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "low",
+                "arpu": "low",
+                "ltv": "long"
+            },
+            "score": {
+                "complexity": 1,
+                "contentDensity": 4,
+                "liveOps": 2,
+                "monetization": 1
+            }
+        },
+        {
+            "id": "gartic-io",
+            "rank": 50,
+            "name": "Gartic.io",
+            "genrePrimary": "Social",
+            "subGenre": "Drawing Party",
+            "sessionType": "mid",
+            "system": {
+                "coreType": "Drawing Quiz",
+                "pressure": [
+                    "Time"
+                ],
+                "metaDepth": 1,
+                "monetizationDepth": 1
+            },
+            "kpi": {
+                "dau": "high",
+                "arpu": "low",
+                "ltv": "mid"
+            },
+            "score": {
+                "complexity": 2,
+                "contentDensity": 1,
+                "liveOps": 1,
+                "monetization": 1
+            }
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+[
+    {
+        "id": "puzzle-casual",
+        "name": "Puzzle / Casual",
+        "definition": "즉각적 조작과 짧은 세션 중심의 단순 반복 구조 장르.",
+        "coreLoop": [
+            "User Input",
+            "Immediate Clear",
+            "Score/Feedback",
+            "Replay"
+        ],
+        "metaSystem": [
+            "Leaderboard",
+            "Daily Challenges",
+            "Cosmetic Themes"
+        ],
+        "contentPortfolio": {
+            "pve": true,
+            "pvp": false,
+            "guild": false,
+            "decor": false,
+            "events": true
+        },
+        "liveOps": "Light",
+        "economyType": "Ad-Based",
+        "kpiPosition": {
+            "dau": "very-high",
+            "arpu": "low",
+            "ltv": "short"
+        },
+        "systemScore": {
+            "complexity": 1,
+            "contentDensity": 1,
+            "liveOpsIntensity": 1,
+            "monetizationDepth": 1
+        }
+    },
+    {
+        "id": "match3-meta",
+        "name": "Match-3 Meta",
+        "definition": "퍼즐 플레이와 꾸미기/성장 메타가 결합된 중장기 잔존 구조.",
+        "coreLoop": [
+            "Match-3 Level",
+            "Earn Stars",
+            "Meta Renovation",
+            "Unlock Next Stage"
+        ],
+        "metaSystem": [
+            "Room Decoration",
+            "Saga Map",
+            "Season Pass"
+        ],
+        "contentPortfolio": {
+            "pve": true,
+            "pvp": false,
+            "guild": true,
+            "decor": true,
+            "events": true
+        },
+        "liveOps": "Medium",
+        "economyType": "Hybrid IAP",
+        "kpiPosition": {
+            "dau": "high",
+            "arpu": "high",
+            "ltv": "long"
+        },
+        "systemScore": {
+            "complexity": 2,
+            "contentDensity": 3,
+            "liveOpsIntensity": 3,
+            "monetizationDepth": 3
+        }
+    },
+    {
+        "id": "slg-hybrid",
+        "name": "SLG / Hybrid",
+        "definition": "전략 기반 위에 캐주얼 미니게임을 결합한 고ARPU 구조.",
+        "coreLoop": [
+            "Casual Hook",
+            "Base Build",
+            "Resource Growth",
+            "Alliance War"
+        ],
+        "metaSystem": [
+            "Tech Tree",
+            "Hero Growth",
+            "Alliance System"
+        ],
+        "contentPortfolio": {
+            "pve": true,
+            "pvp": true,
+            "guild": true,
+            "decor": false,
+            "events": true
+        },
+        "liveOps": "Heavy",
+        "economyType": "Whale Focus",
+        "kpiPosition": {
+            "dau": "high",
+            "arpu": "very-high",
+            "ltv": "very-long"
+        },
+        "systemScore": {
+            "complexity": 4,
+            "contentDensity": 4,
+            "liveOpsIntensity": 4,
+            "monetizationDepth": 4
+        }
+    }
+]

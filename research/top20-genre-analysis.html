@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 TOP 50 장르 및 시스템 분석 리포트</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/analysis.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="analysis-body">
+
+    <!-- Scroll Navigation -->
+    <div class="scroll-nav">
+        <a href="#overview" class="scroll-dot active" title="Overview"></a>
+        <a href="#genres" class="scroll-dot" title="Genres"></a>
+        <a href="#top20" class="scroll-dot" title="Top 50 Cards"></a>
+        <a href="#compare" class="scroll-dot" title="Compare"></a>
+        <a href="#insights" class="scroll-dot" title="Insights"></a>
+    </div>
+
+    <header style="background: rgba(15, 23, 42, 0.8); border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <a href="../index.html" class="logo">Game Research</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">홈으로</a></li>
+                <li><a href="#overview" class="active">분석 리포트</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#">EN</a>
+                <a href="#" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="analysis-header">
+            <div class="meta-info">2026-02-26 / KR / STORE / RANKING BASED</div>
+            <h1>모바일 TOP 50 장르 분석</h1>
+            <p style="max-width: 800px; margin: 0 auto; opacity: 0.8; font-size: 1.1rem;">
+                상위 50개 게임을 장르별로 재구성하고, 시스템·콘텐츠·수익구조를 '아키텍처' 관점에서 비교 분석했습니다.
+                차트와 카드를 통해 각 장르의 성공 전략을 한눈에 확인하세요.
+            </p>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+                <span class="badge">시스템 분석</span>
+                <span class="badge">수익 모델</span>
+                <span class="badge">라이브 옵스</span>
+            </div>
+        </section>
+
+        <!-- Section 1: Overview Dashboard -->
+        <section id="overview" class="analysis-section">
+            <span class="section-label">01. Overview Dashboard</span>
+            <div class="section-header">
+                <h2>시장 한 장 요약</h2>
+                <p>TOP 50 게임의 장르 분포와 세션 타입 비중을 시각화했습니다.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <h3>장르별 비중</h3>
+                    <div class="chart-container">
+                        <canvas id="genreDistributionChart"></canvas>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <h3>DAU vs ARPU 포지셔닝</h3>
+                    <div class="chart-container">
+                        <canvas id="positioningChart"></canvas>
+                    </div>
+                </div>
+                <div class="glass-card">
+                    <h3>수익 모델(BM) 믹스</h3>
+                    <div class="chart-container">
+                        <canvas id="bmMixChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Genre Explorer -->
+        <section id="genres" class="analysis-section">
+            <span class="section-label">02. Genre Explorer</span>
+            <div class="section-header">
+                <h2>장르별 시스템 아키텍처</h2>
+                <p>각 장르의 핵심 루프와 레이어별 시스템 구조를 분석합니다.</p>
+            </div>
+
+            <div id="genreTabs" class="genre-tabs">
+                <!-- Loaded via JS -->
+            </div>
+
+            <div id="genreContent" class="glass-card genre-content">
+                <!-- Loaded via JS -->
+                <div style="text-align: center; grid-column: 1 / -1; padding: 40px; color: #94a3b8;">
+                    장르를 선택하면 상세 분석 데이터가 표시됩니다.
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: TOP 50 Game Cards -->
+        <section id="top20" class="analysis-section">
+            <span class="section-label">03. Game Cards</span>
+            <div class="section-header">
+                <h2>TOP 50 게임 상세 분석</h2>
+                <p>대표 게임들의 코어 루프와 실패/압박 설계, BM 포인트를 정리했습니다.</p>
+            </div>
+
+            <div class="search-sort-bar" style="margin-bottom: 2rem; display: flex; gap: 1rem;">
+                <input type="text" id="gameSearch" placeholder="게임명 검색..."
+                    style="flex: 1; padding: 12px 20px; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: #fff;">
+                <select id="genreFilter"
+                    style="padding: 12px 20px; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: #94a3b8;">
+                    <option value="all">모든 장르</option>
+                </select>
+            </div>
+
+            <div id="top20Grid" class="top20-grid">
+                <!-- Loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Section 4: Comparative Lab -->
+        <section id="compare" class="analysis-section">
+            <span class="section-label">04. Comparative Lab</span>
+            <div class="section-header">
+                <h2>시스템 레이어 비교</h2>
+                <p>서로 다른 장르/게임의 설계 차이를 한눈에 비교합니다.</p>
+            </div>
+
+            <div class="compare-selector" id="compareSelector">
+                <!-- Loaded via JS -->
+            </div>
+
+            <div class="glass-card compare-table-wrapper">
+                <table class="compare-table" id="compareTable">
+                    <thead>
+                        <tr id="compareHeader">
+                            <th>비교 항목</th>
+                            <!-- Column headers load via JS -->
+                        </tr>
+                    </thead>
+                    <tbody id="compareBody">
+                        <!-- Comparison data loads via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 5: Insights -->
+        <section id="insights" class="analysis-section">
+            <span class="section-label">05. Final Insights</span>
+            <div class="section-header">
+                <h2>분석 결론 및 고찰</h2>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="glass-card">
+                    <h4 style="color: var(--analysis-accent); margin-bottom: 1rem;">랭킹 구조 가설</h4>
+                    <p style="opacity: 0.8;">현재 마켓은 '초고빈도 접속 - 저ARPU(Puzzle)' 그룹과 '저빈도 접속 - 초고ARPU(SLG)' 그룹이 명확히 양분되어
+                        상위권을 장악 중입니다.</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--analysis-emerald); margin-bottom: 1rem;">하이브리드 증가 이유</h4>
+                    <p style="opacity: 0.8;">치솟는 UA 비용(CPI)에 대응하기 위해, 캐주얼한 '낚시' 콘텐츠로 획득 단가를 낮추고 하드코어한 메타 시스템으로 LTV를
+                        극대화하는 전략이 필수화되었습니다.</p>
+                </div>
+                <div class="glass-card">
+                    <h4 style="color: var(--analysis-rose); margin-bottom: 1rem;">설계 제안 (Takeaway)</h4>
+                    <ul style="opacity: 0.8; padding-left: 1.2rem; font-size: 0.9rem;">
+                        <li>접속 직후 30초 내에 'Clear' 경험 제공</li>
+                        <li>실패 직후 'Just-one-more' BM 팝업 최적화</li>
+                        <li>솔로 플레이 유저를 위한 '비동기적 경쟁' 요소 삽입</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-section"
+            style="border-top: 1px solid var(--glass-border); padding: 40px 2rem; color: #64748b; font-size: 0.8rem;">
+            <p>Appendix: 데이터 출처 (SensorTower, AppMagic, KOCCA 2025 리포트) / 본 분석은 기획자 개인의 관점에서 작성되었습니다.</p>
+        </section>
+    </main>
+
+    <script src="../js/analysis.js"></script>
+</body>
+
+</html>
