@@ -192,17 +192,24 @@ function initGameCards(games) {
             card.className = 'glass-card game-card';
             card.innerHTML = `
                 <div class="summary">
-                    <div>
-                        <div class="game-rank">#${g.rank || idx + 1}</div>
-                        <h3 style="margin: 5px 0;">${g.name || g.title}</h3>
-                        <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 5px;">
-                            <span class="badge" style="background:rgba(56,189,248,0.1); border:none; color:var(--analysis-accent)">${g.genre || g.genrePrimary}</span>
-                            ${(g.subGenre ? `<span class="badge" style="font-size:0.6rem;">${g.subGenre}</span>` : '')}
+                    <div style="display: flex; gap: 1.2rem; align-items: center;">
+                        <div class="game-icon-wrapper">
+                            <img src="${g.iconUrl || '../data/default-icon.png'}" 
+                                 loading="lazy" 
+                                 alt="${g.name}" 
+                                 class="game-icon">
                         </div>
-                        <p style="font-size: 0.8rem; margin: 0; opacity: 0.7;">${g.developer || 'Unknown Developer'}</p>
+                        <div>
+                            <div class="game-rank">#${g.rank || idx + 1}</div>
+                            <h3 style="margin: 2px 0; font-size: 1.2rem;">${g.name || g.title}</h3>
+                            <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px;">
+                                <span class="badge-mini" style="background:rgba(56,189,248,0.1); color:var(--analysis-accent); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight:700;">${g.genrePrimary}</span>
+                                ${(g.subGenre ? `<span class="badge-mini" style="background:rgba(255,255,255,0.05); color:#94a3b8; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem;">${g.subGenre}</span>` : '')}
+                            </div>
+                        </div>
                     </div>
                     <div style="text-align: right;">
-                        <span class="badge" style="color: var(--analysis-accent);">${g.sessionType || 'Short'}</span>
+                        <span class="badge-mini" style="background: var(--analysis-accent); color: var(--analysis-bg); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight:800;">${(g.sessionType || 'Short').toUpperCase()}</span>
                     </div>
                 </div>
                 <div class="game-details">
