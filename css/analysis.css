@@ -104,6 +104,30 @@
     position: relative;
 }
 
+.chart-info {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chart-guide-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--analysis-accent);
+    font-size: 0.7rem;
+    font-weight: 800;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.chart-desc {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
 /* Genre Explorer */
 .genre-tabs {
     display: flex;
@@ -202,8 +226,15 @@
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .analysis-grid {

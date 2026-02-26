@@ -190,7 +190,7 @@ function initGameCards(games) {
         }).forEach((g, idx) => {
             const card = document.createElement('div');
             card.className = 'glass-card game-card';
-            
+
             // Extract analysis data
             const sys = g.system || {};
             const coreLoop = sys.coreLoop || g.system?.coreType || 'Core Loop 분석 예정';
