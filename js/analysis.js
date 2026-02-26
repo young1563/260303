@@ -190,6 +190,13 @@ function initGameCards(games) {
         }).forEach((g, idx) => {
             const card = document.createElement('div');
             card.className = 'glass-card game-card';
+            
+            // Extract analysis data
+            const sys = g.system || {};
+            const coreLoop = sys.coreLoop || g.system?.coreType || 'Core Loop 분석 예정';
+            const rules = sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
+            const uiPoints = sys.uiPoints || 'UX 최적화 설계';
+
             card.innerHTML = `
                 <div class="summary">
                     <div style="display: flex; gap: 1.2rem; align-items: center;">
@@ -213,27 +220,34 @@ function initGameCards(games) {
                     </div>
                 </div>
                 <div class="game-details">
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="color: var(--analysis-accent); font-size: 0.9rem;">Core Mechanism</h4>
-                        <p style="font-size: 0.85rem;">${g.system?.coreType || 'N/A'}</p>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                        <div>
-                            <h4 style="color: #fb7185; font-size: 0.9rem;">Pressure Points</h4>
-                            <ul style="font-size: 0.8rem; padding-left: 1rem;">
-                                ${(g.system?.pressure || []).map(p => `<li>${p}</li>`).join('')}
-                            </ul>
+                    <div class="analysis-grid">
+                        <div class="analysis-item full">
+                            <h4 class="item-label"><span class="icon">🔄</span> 전체 시스템 (Core & Meta)</h4>
+                            <p class="item-text">${coreLoop}</p>
                         </div>
-                        <div>
-                            <h4 style="color: #34d399; font-size: 0.9rem;">Monetization</h4>
-                            <ul style="font-size: 0.8rem; padding-left: 1rem;">
-                                <li>Depth: ${g.system?.monetizationDepth || 1}/4</li>
-                                <li>Type: ${g.score?.monetization || 1}/4</li>
-                            </ul>
+                        <div class="analysis-item">
+                            <h4 class="item-label"><span class="icon">⚖️</span> 규칙 및 제약</h4>
+                            <p class="item-text">${rules}</p>
+                        </div>
+                        <div class="analysis-item">
+                            <h4 class="item-label"><span class="icon">📱</span> UI 설계 포인트</h4>
+                            <p class="item-text">${uiPoints}</p>
                         </div>
                     </div>
-                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dotted rgba(255,255,255,0.1);">
-                        <p style="font-size: 0.8rem; font-style: italic;"><strong>Key Metric:</strong> LTV - ${g.kpi?.ltv || 'N/A'}</p>
+                    
+                    <div class="metrics-row">
+                        <div class="metric-tag">
+                            <span class="label">Pressure</span>
+                            <span class="value">${(sys.pressure || []).join('/') || 'Basic'}</span>
+                        </div>
+                        <div class="metric-tag">
+                            <span class="label">BM Depth</span>
+                            <span class="value">${sys.monetizationDepth || 1}/4</span>
+                        </div>
+                        <div class="metric-tag">
+                            <span class="label">LTV</span>
+                            <span class="value">${g.kpi?.ltv || 'Mid'}</span>
+                        </div>
                     </div>
                 </div>
             `;
