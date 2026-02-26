@@ -701,12 +701,16 @@ function updateCompareTable(games) {
 function initScrollEffects() {
     const dots = document.querySelectorAll('.scroll-dot');
     const sections = document.querySelectorAll('.analysis-section, .analysis-header');
+    const topBtn = document.getElementById('scrollTop');
 
     window.addEventListener('scroll', () => {
         let current = '';
+        const scrollY = window.pageYOffset;
+
+        // Header/Section active state logic
         sections.forEach(section => {
             const top = section.offsetTop;
-            if (pageYOffset >= top - 200) {
+            if (scrollY >= top - 200) {
                 current = section.getAttribute('id') || 'overview';
             }
         });
@@ -717,5 +721,20 @@ function initScrollEffects() {
                 dot.classList.add('active');
             }
         });
+
+        // TOP Button visibility
+        if (scrollY > 400) {
+            topBtn.classList.add('show');
+        } else {
+            topBtn.classList.remove('show');
+        }
     });
+
+    // Smooth Scroll to Top
+    topBtn.onclick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 }
