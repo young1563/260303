@@ -342,6 +342,29 @@ const GENRE_BLUEPRINTS = {
     }
 };
 
+const GENRE_JOURNEYS = {
+    'Puzzle': [
+        { day: 'D-0', title: 'The Hook', goal: '조작의 명확성 & 도파민 피드백', focus: '콤보 연출, 직관적 규칙' },
+        { day: 'D-7', title: 'The Habit', goal: '매일 도전하는 성취감', focus: '일일 미션, 마일스톤 보상' },
+        { day: 'D-30', title: 'The Hobby', goal: '마스터의 자부심', focus: '글로벌 리그, 최고난도 클리어' }
+    ],
+    'Arcade Idle': [
+        { day: 'D-0', title: 'Fast Growth', goal: '기하급수적 성장 쾌감', focus: '자원 채집 속도, 용량 확장' },
+        { day: 'D-7', title: 'Automation', goal: '시스템 효율 최적화', focus: '일꾼 고용, 생산 자동화' },
+        { day: 'D-30', title: 'Expansion', goal: '월드맵 확장과 탐험', focus: '새로운 시스템 해금, 거대 함대' }
+    ],
+    'RPG': [
+        { day: 'D-0', title: 'Fantasy Start', goal: '대리 만족 & 강력한 비주얼', focus: '화려한 스킬, 시네마틱' },
+        { day: 'D-7', title: 'Power-up Loop', goal: '성장의 벽(Wall) 돌파', focus: '장비 강화, 재화 파밍' },
+        { day: 'D-30', title: 'End Game', goal: '희귀 수집 & 덱 최적화', focus: '가챠, 고난도 레이드/PVP' }
+    ],
+    'SLG': [
+        { day: 'D-0', title: 'Build & Wait', goal: '나만의 기지 건설 시작', focus: '건물 건설, 기초 자원 수급' },
+        { day: 'D-7', title: 'Social Entry', goal: '소속감과 보호막 해제', focus: '연맹 가입, 영토 확장' },
+        { day: 'D-30', title: 'Great War', goal: '권력 쟁취 & 대규모 협력', focus: '연맹 공성전, 정치적 결사' }
+    ]
+};
+
 function initGameCards(games) {
     const grid = document.getElementById('top20Grid');
     const search = document.getElementById('gameSearch');
@@ -490,8 +513,36 @@ function initGameCards(games) {
                     <!-- Mermaid chart will be rendered here -->
                 </div>
                 <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem; line-height: 1.6; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 1rem;">
-                    <strong>설력 방향:</strong> ${GENRE_BLUEPRINTS[g.genrePrimary]?.description || '장르 표준 아키텍처를 따르는 시스템입니다.'}
+                    <strong>설계 방향:</strong> ${GENRE_BLUEPRINTS[g.genrePrimary]?.description || '장르 표준 아키텍처를 따르는 시스템입니다.'}
                 </p>
+            </div>
+
+            <div class="journey-section" style="margin-top: 2rem;">
+                <h4 style="color: var(--analysis-emerald); margin-bottom: 1.5rem; font-size: 1.1rem;">⏳ Player Journey Timeline</h4>
+                <div class="timeline-container">
+                    ${(() => {
+                const getJourney = (genre) => {
+                    if (GENRE_JOURNEYS[genre]) return GENRE_JOURNEYS[genre];
+                    if (genre?.includes('Strategy') || genre?.includes('SLG')) return GENRE_JOURNEYS['SLG'];
+                    if (genre?.includes('Puzzle') || genre?.includes('Match')) return GENRE_JOURNEYS['Puzzle'];
+                    if (genre?.includes('RPG')) return GENRE_JOURNEYS['RPG'];
+                    if (genre?.includes('Arcade') || genre?.includes('Simulation') || genre?.includes('Idle')) return GENRE_JOURNEYS['Arcade Idle'];
+                    return GENRE_JOURNEYS['Puzzle'];
+                };
+                const steps = getJourney(g.genrePrimary);
+                return steps.map(step => `
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-day">${step.day}</div>
+                                <div class="step-content">
+                                    <div class="step-title">${step.title}</div>
+                                    <div class="step-goal">${step.goal}</div>
+                                    <div class="step-focus">핵심포인트: ${step.focus}</div>
+                                </div>
+                            </div>
+                        `).join('');
+            })()}
+                </div>
             </div>
         `;
 
