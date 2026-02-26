@@ -18,7 +18,11 @@
                     "Space"
                 ],
                 "metaDepth": 1,
-                "monetizationDepth": 1
+                "monetizationDepth": 1,
+                "controlType": "전략/빌드",
+                "progressionBarrier": "컨트롤(지능)",
+                "monetizationMix": "Ad Only",
+                "liveIntensity": "Low"
             },
             "kpi": {
                 "dau": "very-high",
@@ -75,7 +79,11 @@
                     "Time"
                 ],
                 "metaDepth": 2,
-                "monetizationDepth": 2
+                "monetizationDepth": 2,
+                "controlType": "수동/타이밍",
+                "progressionBarrier": "장비(P2W)",
+                "monetizationMix": "Hard IAP",
+                "liveIntensity": "Mid"
             },
             "kpi": {
                 "dau": "mid",
@@ -100,10 +108,14 @@
             "system": {
                 "coreType": "Decor + Social",
                 "pressure": [
-                    "Social"
+                    "Collection"
                 ],
                 "metaDepth": 3,
-                "monetizationDepth": 2
+                "monetizationDepth": 2,
+                "controlType": "전략/빌드",
+                "progressionBarrier": "시간(방치)",
+                "monetizationMix": "Hybrid",
+                "liveIntensity": "High"
             },
             "kpi": {
                 "dau": "mid",

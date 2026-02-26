@@ -582,10 +582,13 @@ function initGameCards(games) {
 
 function initCompareLab(games) {
     const selector = document.getElementById('compareSelector');
-    games.slice(0, 4).forEach(g => {
+    selector.innerHTML = ''; // Clear before init
+
+    // Show top 10 games, but only first 3 are active
+    games.slice(0, 10).forEach((g, idx) => {
         const btn = document.createElement('div');
-        btn.className = 'pill-check active';
-        btn.textContent = g.title;
+        btn.className = idx < 3 ? 'pill-check active' : 'pill-check';
+        btn.textContent = (g.name || g.title).substring(0, 12); // Truncate if too long
         btn.dataset.id = g.id;
         btn.onclick = () => {
             btn.classList.toggle('active');
@@ -603,21 +606,27 @@ function updateCompareTable(games) {
     const head = document.getElementById('compareHeader');
     const body = document.getElementById('compareBody');
 
-    head.innerHTML = '<th>비교 항목</th>' + selectedGames.map(g => `<th>${g.title}</th>`).join('');
+    head.innerHTML = '<th>비교 항목</th>' + selectedGames.map(g => `<th>${g.name || g.title}</th>`).join('');
 
     const items = [
         { label: '🔷 Core Layer', isHeader: true },
+        { label: '조작 체계 (Control)', key: 'system', sub: 'controlType' },
         { label: 'Core Loop Depth', key: 'systemScore', sub: 'complexity' },
         { label: 'Session Length', key: 'sessionType' },
         { label: 'Pressure Type', key: 'pressure', join: true },
-        { label: '🔷 Meta Layer', isHeader: true },
+
+        { label: '🔷 Meta & Live Layer', isHeader: true },
+        { label: '성장 장벽 (Barrier)', key: 'system', sub: 'progressionBarrier' },
+        { label: '라이브 밀도 (Live)', key: 'system', sub: 'liveIntensity' },
         { label: 'Meta System Depth', key: 'systemScore', sub: 'complexity' },
         { label: 'Content Density', key: 'systemScore', sub: 'contentDensity' },
-        { label: 'LiveOps Intensity', key: 'systemScore', sub: 'liveOpsIntensity' },
+
         { label: '🔷 Monetization Layer', isHeader: true },
+        { label: '수익 모델 (BM Mix)', key: 'system', sub: 'monetizationMix' },
         { label: 'Monetization Depth', key: 'systemScore', sub: 'monetizationDepth' },
         { label: 'Whale Dependency', key: 'monetization', sub: 'whale' },
         { label: 'Ad Dependency', key: 'monetization', sub: 'ads' },
+
         { label: '🔷 KPI Layer', isHeader: true },
         { label: 'DAU Position', key: 'kpi', sub: 'dau' },
         { label: 'ARPU Position', key: 'kpi', sub: 'arpu' },
@@ -637,16 +646,52 @@ function updateCompareTable(games) {
             const kpi = g.kpi || g.kpiPosition || {};
 
             let val = '-';
+
+            // Try to get value from expected place
             if (item.key === 'system' || item.key === 'systemScore') val = system[item.sub];
             else if (item.key === 'monetization') val = monetization[item.sub];
             else if (item.key === 'kpi' || item.key === 'kpiPosition') val = kpi[item.sub];
             else if (item.key === 'pressure') val = g.pressure || (g.system ? g.system.pressure : null);
             else val = g[item.key];
 
+            // Fallback for missing new indicators based on genre
+            if (!val || val === '-') {
+                const genre = g.genrePrimary;
+                if (item.sub === 'controlType') {
+                    if (genre === 'Puzzle') val = '전략/빌드';
+                    else if (genre === 'Arcade Idle') val = '수동/타이밍';
+                    else if (genre === 'SLG' || genre === 'Strategy') val = '전략/빌드';
+                    else val = '전략/빌드';
+                } else if (item.sub === 'progressionBarrier') {
+                    if (genre === 'Puzzle') val = '컨트롤(지능)';
+                    else if (genre === 'Arcade Idle') val = '시간(방치)';
+                    else if (genre === 'SLG' || genre === 'Strategy') val = '장비(P2W)';
+                    else val = '장비(P2W)';
+                } else if (item.sub === 'monetizationMix') {
+                    if (genre === 'Puzzle') val = 'Ad Only';
+                    else if (genre === 'Arcade Idle') val = 'Hybrid';
+                    else if (genre === 'SLG' || genre === 'Strategy') val = 'Hard IAP';
+                    else val = 'Hybrid';
+                } else if (item.sub === 'liveIntensity') {
+                    if (genre === 'Puzzle') val = 'Low';
+                    else if (genre === 'Arcade Idle') val = 'Mid';
+                    else if (genre === 'SLG' || genre === 'Strategy') val = 'High';
+                    else val = 'Mid';
+                }
+            }
+
             if (val === true) val = 'Enabled';
             if (val === false) val = 'Disabled';
             if (item.join && Array.isArray(val)) val = val.join(', ');
-            return `<td>${val ?? '-'}</td>`;
+
+            // Apply style classes
+            let cls = '';
+            const lowerV = String(val).toLowerCase();
+            if (lowerV.includes('high') || lowerV.includes('hard') || lowerV.includes('p2w')) cls = 'val-high';
+            else if (lowerV.includes('mid') || lowerV.includes('hybrid')) cls = 'val-mid';
+            else if (lowerV.includes('low') || lowerV.includes('short') || lowerV.includes('ad only')) cls = 'val-low';
+
+            return `<td class="${cls}">${val ?? '-'}</td>`;
         }).join('')}
             </tr>
         `;
