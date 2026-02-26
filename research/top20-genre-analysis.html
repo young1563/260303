@@ -7,12 +7,14 @@
     <title>모바일 TOP 50 장르 및 시스템 분석 리포트</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/analysis.css">
+    <link rel="stylesheet" href="../css/analysis-modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
 
 <body class="analysis-body">
@@ -210,6 +212,17 @@
             <p>Appendix: 데이터 출처 (SensorTower, AppMagic, KOCCA 2025 리포트) / 본 분석은 기획자 개인의 관점에서 작성되었습니다.</p>
         </section>
     </main>
+
+    <!-- Game Detail Modal -->
+    <div id="gameModal" class="analysis-modal">
+        <div class="modal-overlay" onclick="closeGameModal()"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closeGameModal()">&times;</button>
+            <div id="modalBody">
+                <!-- Data injected via JS -->
+            </div>
+        </div>
+    </div>
 
     <script src="../js/analysis.js"></script>
 </body>

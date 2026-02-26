@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // 0. Initialize Mermaid
+    if (window.mermaid) {
+        mermaid.initialize({ startOnLoad: false, theme: 'dark', securityLevel: 'loose' });
+    }
+
     let G_DATA = null;
 
     // 1. Data Loading (Expects the new unified structure)
@@ -274,6 +279,69 @@ function initGenreExplorer(games) {
     renderGenreDNA('Puzzle');
 }
 
+const GENRE_BLUEPRINTS = {
+    'Arcade Idle': {
+        title: '리소스 순환 및 자동화 모델',
+        chart: (g) => `graph LR
+            A[주인공 조작] --> B[자원 채집/생산]
+            B --> C{적재 공간?}
+            C -- 부족 --> D[속도/용량 강화]
+            C -- 여유 --> E[판매/서빙]
+            E --> F[캐시 획득]
+            F --> G[구역 해금/일꾼 고용]
+            G --> A
+            style B fill:#38bdf8,stroke:#0ea5e9,color:#000
+            style D fill:#fbbf24,stroke:#d97706,color:#000
+            style G fill:#34d399,stroke:#059669,color:#000`,
+        description: '공간 제약과 생산 속도의 병목(Choke-point)을 해결하며 확장하는 순환 구조입니다.'
+    },
+    'Puzzle': {
+        title: '보드 매칭 및 피드백 모델',
+        chart: (g) => `graph TD
+            A[보드 상황 스캔] --> B[유저 액션/매칭]
+            B --> C[콤보/이펙트 발생]
+            C --> D{목표 달성?}
+            D -- No --> E[남은 횟수 차감]
+            E --> A
+            D -- Yes --> F[스테이지 클리어]
+            F --> G[난이도 상승/신규 기믹]
+            G --> A
+            style B fill:#38bdf8,stroke:#0ea5e9,color:#000
+            style C fill:#fb7185,stroke:#e11d48,color:#000
+            style G fill:#a855f7,stroke:#9333ea,color:#000`,
+        description: '한정된 횟수 내에서 최적의 수를 찾는 전략성과 시각적 타격감이 핵심입니다.'
+    },
+    'RPG': {
+        title: '성장 스파이럴 모델',
+        chart: (g) => `graph TD
+            A[전투/스테이지 진입] --> B[재화/경험치 파밍]
+            B --> C[능력치/장비 강화]
+            C --> D{전투력 체크}
+            D -- 부족 --> B
+            D -- 충분 --> E[상위 보스/게이트]
+            E --> F[신규 구역 오픈]
+            F --> A
+            style C fill:#fbbf24,stroke:#d97706,color:#000
+            style E fill:#fb7185,stroke:#e11d48,color:#000
+            style F fill:#34d399,stroke:#059669,color:#000`,
+        description: '성장 정체기(Wall)를 극복하기 위한 파밍과 강화의 반복적 수직 확장 구조입니다.'
+    },
+    'SLG': {
+        title: '베이스 빌딩 & 소셜 확장 모델',
+        chart: (g) => `graph LR
+            A[자원 생산] --> B[건물 건설/업그레이드]
+            B --> C[병력 생산/연구]
+            C --> D[월드 맵 진출]
+            D --> E{전쟁/경쟁}
+            E --> F[영토 확장/연맹]
+            F --> A
+            style B fill:#38bdf8,stroke:#0ea5e9,color:#000
+            style E fill:#fb7185,stroke:#e11d48,color:#000
+            style F fill:#a855f7,stroke:#9333ea,color:#000`,
+        description: '시간 기반의 건설과 집단 간의 경쟁이 얽힌 장기적 자원 관리 모델입니다.'
+    }
+};
+
 function initGameCards(games) {
     const grid = document.getElementById('top20Grid');
     const search = document.getElementById('gameSearch');
@@ -303,12 +371,7 @@ function initGameCards(games) {
             const card = document.createElement('div');
             card.className = 'glass-card game-card';
 
-            // Extract analysis data
-            const sys = g.system || {};
-            const coreLoop = sys.coreLoop || g.system?.coreType || 'Core Loop 분석 예정';
-            const rules = sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
-            const uiPoints = sys.uiPoints || 'UX 최적화 설계';
-
+            // Render only summary on the grid
             card.innerHTML = `
                 <div class="summary">
                     <div style="display: flex; gap: 1.2rem; align-items: center;">
@@ -320,7 +383,7 @@ function initGameCards(games) {
                         </div>
                         <div>
                             <div class="game-rank">#${g.rank || idx + 1}</div>
-                            <h3 style="margin: 2px 0; font-size: 1.2rem;">${g.name || g.title}</h3>
+                            <h3 style="margin: 2px 0; font-size: 1.15rem; line-height: 1.3;">${g.name || g.title}</h3>
                             <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px;">
                                 <span class="badge-mini" style="background:rgba(56,189,248,0.1); color:var(--analysis-accent); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight:700;">${g.genrePrimary}</span>
                                 ${(g.subGenre ? `<span class="badge-mini" style="background:rgba(255,255,255,0.05); color:#94a3b8; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem;">${g.subGenre}</span>` : '')}
@@ -331,45 +394,134 @@ function initGameCards(games) {
                         <span class="badge-mini" style="background: var(--analysis-accent); color: var(--analysis-bg); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight:800;">${(g.sessionType || 'Short').toUpperCase()}</span>
                     </div>
                 </div>
-                <div class="game-details">
-                    <div class="analysis-grid">
-                        <div class="analysis-item full">
-                            <h4 class="item-label"><span class="icon">🔄</span> 전체 시스템 (Core & Meta)</h4>
-                            <p class="item-text">${coreLoop}</p>
-                        </div>
-                        <div class="analysis-item">
-                            <h4 class="item-label"><span class="icon">⚖️</span> 규칙 및 제약</h4>
-                            <p class="item-text">${rules}</p>
-                        </div>
-                        <div class="analysis-item">
-                            <h4 class="item-label"><span class="icon">📱</span> UI 설계 포인트</h4>
-                            <p class="item-text">${uiPoints}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="metrics-row">
-                        <div class="metric-tag">
-                            <span class="label">Pressure</span>
-                            <span class="value">${(sys.pressure || []).join('/') || 'Basic'}</span>
-                        </div>
-                        <div class="metric-tag">
-                            <span class="label">BM Depth</span>
-                            <span class="value">${sys.monetizationDepth || 1}/4</span>
-                        </div>
-                        <div class="metric-tag">
-                            <span class="label">LTV</span>
-                            <span class="value">${g.kpi?.ltv || 'Mid'}</span>
-                        </div>
-                    </div>
-                </div>
             `;
-            card.onclick = () => {
-                const isActive = card.classList.contains('active');
-                document.querySelectorAll('.game-card').forEach(c => c.classList.remove('active'));
-                if (!isActive) card.classList.add('active');
-            };
+            card.onclick = () => openGameModal(g, idx);
             grid.appendChild(card);
         });
+    };
+
+    // Modal Handling
+    window.openGameModal = async (g, idx) => {
+        const modal = document.getElementById('gameModal');
+        const body = document.getElementById('modalBody');
+        const content = modal.querySelector('.modal-content');
+
+        // Reset scroll position
+        if (content) content.scrollTop = 0;
+
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('show'), 10);
+
+        const sys = g.system || {};
+        const coreMap = {
+            'Grid Placement': '그리드 블록 배치 및 라인 클리어',
+            'Sorting': '아이템 정렬 및 매칭',
+            'Random Spawn TD': '랜덤 유닛 소환 및 구역 방어',
+            'Decor + Social': '공간 꾸미기 및 소셜 상호작용',
+            'Base Build': '기지 건설 및 자원 생산 루프',
+            'Card Sorting': '카드 순서 정렬 및 덱 관리',
+            'Driving Sim': '실사 기반 운전 시뮬레이션',
+            'Physics Puzzle': '물리 엔진 기반 기믹 해결',
+            'Arcade Idle': '자원 채집 및 매장 자동화 확장'
+        };
+        const coreLoop = coreMap[sys.coreType] || sys.coreType || '시스템 분석 예정';
+        const metaInfo = sys.metaDepth > 2 ? ' + 심화 메타 시스템' : ' + 기본 성장 루프';
+        const fullSystemDesc = `${coreLoop}${metaInfo}`;
+        const rules = sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
+
+        let uiPoints = 'UX 최적화 설계';
+        if (g.genrePrimary === 'Puzzle') uiPoints = '블록 배치의 시각적 가이드 및 콤보 팡파르 연출';
+        else if (g.genrePrimary === 'Arcade Idle') uiPoints = '한 손 조작 조이스틱 및 자원 스태킹 시각화';
+        else if (g.genrePrimary === 'SLG' || g.genrePrimary === 'Strategy') uiPoints = '정보 집약적 인터페이스 및 직관적인 업그레이드 알림';
+        else if (g.genrePrimary === 'Simulation') uiPoints = '실제 조작계 모사 및 몰입감 높은 1인칭 시점 UI';
+        else if (sys.coreType?.includes('Sorting')) uiPoints = '아이템 이동 시의 부드러운 애니메이션 및 명확한 타겟팅';
+
+        body.innerHTML = `
+            <div class="summary">
+                <div class="game-icon-wrapper">
+                    <img src="${g.iconUrl || '../data/default-icon.png'}" class="game-icon">
+                </div>
+                <div style="text-align: left;">
+                    <div class="game-rank">#${g.rank || idx + 1}</div>
+                    <h2 style="font-size: 2rem; margin: 0.5rem 0;">${g.name || g.title}</h2>
+                    <div style="display: flex; gap: 8px;">
+                        <span class="badge" style="background:rgba(56,189,248,0.1); color:var(--analysis-accent);">${g.genrePrimary}</span>
+                        <span class="badge" style="background:rgba(255,255,255,0.05);">${g.subGenre || 'General'}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-item full">
+                    <h4 class="item-label"><span class="icon">🔄</span> 전체 시스템 (Core & Meta)</h4>
+                    <p class="item-text" style="font-size: 1rem; padding: 15px;">${fullSystemDesc}</p>
+                </div>
+                <div class="analysis-item">
+                    <h4 class="item-label"><span class="icon">⚖️</span> 규칙 및 제약</h4>
+                    <p class="item-text">${rules}</p>
+                </div>
+                <div class="analysis-item">
+                    <h4 class="item-label"><span class="icon">📱</span> UI 설계 포인트</h4>
+                    <p class="item-text">${uiPoints}</p>
+                </div>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric-tag">
+                    <span class="label">Pressure</span>
+                    <span class="value">${(sys.pressure || []).join('/') || 'Basic'}</span>
+                </div>
+                <div class="metric-tag">
+                    <span class="label">BM Depth</span>
+                    <span class="value">${sys.monetizationDepth || 1}/4</span>
+                </div>
+                <div class="metric-tag">
+                    <span class="label">LTV</span>
+                    <span class="value">${g.kpi?.ltv || 'Mid'}</span>
+                </div>
+            </div>
+
+            <div class="blueprint-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h4 style="color: var(--analysis-accent); margin: 0; font-size: 1.1rem;">📐 System Blueprint</h4>
+                    <span style="font-size: 0.8rem; color: #64748b;">Archetype: ${g.genrePrimary}</span>
+                </div>
+                <div class="mermaid-container" id="modal-blueprint" style="background: transparent; min-height: 200px;">
+                    <!-- Mermaid chart will be rendered here -->
+                </div>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem; line-height: 1.6; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 1rem;">
+                    <strong>설력 방향:</strong> ${GENRE_BLUEPRINTS[g.genrePrimary]?.description || '장르 표준 아키텍처를 따르는 시스템입니다.'}
+                </p>
+            </div>
+        `;
+
+        // Improved Genre Mapping
+        const getBlueprint = (genre) => {
+            if (GENRE_BLUEPRINTS[genre]) return GENRE_BLUEPRINTS[genre];
+            if (genre?.includes('Strategy') || genre?.includes('SLG')) return GENRE_BLUEPRINTS['SLG'];
+            if (genre?.includes('Puzzle') || genre?.includes('Match')) return GENRE_BLUEPRINTS['Puzzle'];
+            if (genre?.includes('RPG')) return GENRE_BLUEPRINTS['RPG'];
+            if (genre?.includes('Arcade') || genre?.includes('Simulation') || genre?.includes('Idle')) return GENRE_BLUEPRINTS['Arcade Idle'];
+            return GENRE_BLUEPRINTS['Arcade Idle']; // Fallback
+        };
+        const blueprintData = getBlueprint(g.genrePrimary);
+        const container = document.getElementById('modal-blueprint');
+
+        try {
+            // Need a unique ID for each render
+            const renderId = `mermaid-${Date.now()}`;
+            const { svg } = await mermaid.render(renderId, blueprintData.chart(g));
+            container.innerHTML = svg;
+        } catch (err) {
+            console.error("Mermaid render failed", err);
+            container.innerHTML = '<p style="color:#ef4444; font-size:0.85rem;">차트 렌더링에 실패했습니다. (문법 오류 혹은 라이브러리 미로딩)</p>';
+        }
+    };
+
+    window.closeGameModal = () => {
+        const modal = document.getElementById('gameModal');
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 300);
     };
 
     search.oninput = render;
