@@ -216,7 +216,7 @@ function initGenreExplorer(games) {
                         <div style="margin-bottom: 1.2rem; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 10px; border-left: 3px solid var(--analysis-accent);">
                             <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                                 <strong style="color: #fff; font-size: 0.9rem;">${ev.label}</strong>
-                                <span style="font-size: 0.7rem; color: var(--analysis-accent); font-weight: 700;">SOURCE: ${ev.source}</span>
+                                <span style="font-size: 0.7rem; color: var(--analysis-accent); font-weight: 700;">출처: ${ev.source}</span>
                             </div>
                             <p style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">${ev.reason}</p>
                         </div>
