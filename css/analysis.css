@@ -197,20 +197,165 @@
 }
 
 .game-card {
-    cursor: pointer;
+    padding: 0 !important;
+    overflow: hidden;
 }
 
-.game-card .summary {
+.game-card-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1.5rem;
+    position: relative;
+    height: 100%;
 }
 
-.game-rank {
-    font-size: 2rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.1);
+.card-rank-flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom-right-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
     font-family: var(--font-heading);
+    z-index: 1;
+}
+
+.card-main-info {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    z-index: 2;
+}
+
+.game-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.game-title {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    color: #fff;
+    font-weight: 700;
+}
+
+.game-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag-primary {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--analysis-accent);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tag-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+.card-meta-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    text-align: right;
+    z-index: 2;
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.meta-label {
+    font-size: 0.6rem;
+    color: #64748b;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.session-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+}
+
+.session-badge.type-short {
+    background: #fb7185;
+    color: #fff;
+}
+
+.session-badge.type-mid {
+    background: #fbbf24;
+    color: #0f172a;
+}
+
+.session-badge.type-long {
+    background: #34d399;
+    color: #0f172a;
+}
+
+.card-action-hint {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+}
+
+.game-card:hover .card-action-hint {
+    opacity: 1;
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+}
+
+.hint-text {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.game-card:hover .hint-text {
+    color: var(--analysis-accent);
+}
+
+.hint-icon {
+    width: 14px;
+    height: 14px;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+.game-card:hover .hint-icon {
+    color: var(--analysis-accent);
+    transform: translate(1px, -1px);
 }
 
 .game-details {

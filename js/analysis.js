@@ -394,27 +394,36 @@ function initGameCards(games) {
             const card = document.createElement('div');
             card.className = 'glass-card game-card';
 
-            // Render only summary on the grid
             card.innerHTML = `
-                <div class="summary">
-                    <div style="display: flex; gap: 1.2rem; align-items: center;">
+                <div class="game-card-inner">
+                    <div class="card-rank-flag">#${g.rank || idx + 1}</div>
+                    <div class="card-main-info">
                         <div class="game-icon-wrapper">
                             <img src="${g.iconUrl || '../data/default-icon.png'}" 
                                  loading="lazy" 
                                  alt="${g.name}" 
                                  class="game-icon">
                         </div>
-                        <div>
-                            <div class="game-rank">#${g.rank || idx + 1}</div>
-                            <h3 style="margin: 2px 0; font-size: 1.15rem; line-height: 1.3;">${g.name || g.title}</h3>
-                            <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px;">
-                                <span class="badge-mini" style="background:rgba(56,189,248,0.1); color:var(--analysis-accent); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight:700;">${g.genrePrimary}</span>
-                                ${(g.subGenre ? `<span class="badge-mini" style="background:rgba(255,255,255,0.05); color:#94a3b8; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem;">${g.subGenre}</span>` : '')}
+                        <div class="game-title-group">
+                            <h3 class="game-title">${g.name || g.title}</h3>
+                            <div class="game-tags">
+                                <span class="tag-primary">${g.genrePrimary}</span>
+                                ${(g.subGenre ? `<span class="tag-secondary">${g.subGenre}</span>` : '')}
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: right;">
-                        <span class="badge-mini" style="background: var(--analysis-accent); color: var(--analysis-bg); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight:800;">${(g.sessionType || 'Short').toUpperCase()}</span>
+                    
+                    <div class="card-meta-info">
+                        <div class="session-info">
+                            <span class="meta-label">세션 길이</span>
+                            <span class="session-badge type-${(g.sessionType || 'short').toLowerCase()}">${(g.sessionType || 'Short').toUpperCase()}</span>
+                        </div>
+                        <div class="card-action-hint">
+                            <span class="hint-text">상세 분석</span>
+                            <svg class="hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             `;
