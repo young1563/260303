@@ -34,6 +34,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "8x8 그리드에 무작위 블록을 배치하여 가로/세로 줄을 제거하는 완성형 퍼즐",
+                "ui": "네온 컬러 애니메이션 및 블록 제거 시의 타격감 있는 시각 효과",
+                "rules": "3개 블록 모두 배치 시 갱신, 콤보 배수 시스템"
             }
         },
         {
@@ -62,6 +67,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "액체 분류(Water Sort)에 배달 주문(Ordering) 컨셉을 결합한 매칭 퍼즐",
+                "ui": "다양한 모양의 유리잔과 선명한 액체 색상 대비",
+                "rules": "동일 색상만 이동 가능, 주문서에 따른 순차적 분류 성공 조건"
             }
         },
         {
@@ -95,6 +105,11 @@
                 "contentDensity": 2,
                 "liveOps": 2,
                 "monetization": 2
+            },
+            "analysis": {
+                "core": "무작위 유닛 소환 및 머지(Merge) 기반의 웨이브 방어 전략",
+                "ui": "원작 감상을 살린 고유 유닛 디자인 및 직관적 합성 버튼 배치",
+                "rules": "RNG 기반 소환 확률, 특정 유닛 조합법(히든/엘리트) 숙지 필요"
             }
         },
         {
@@ -127,6 +142,11 @@
                 "contentDensity": 3,
                 "liveOps": 2,
                 "monetization": 2
+            },
+            "analysis": {
+                "core": "채집, 꾸미기, 소셜 상호작용 중심의 힐링 라이프 시뮬레이션",
+                "ui": "파스텔 톤 3D 그래픽 및 편안한 배경음악과 어우러진 감성 인터페이스",
+                "rules": "자율적 탐험, 계절/시간대별 특수 생물 수집 제약"
             }
         },
         {
@@ -156,6 +176,11 @@
                 "contentDensity": 4,
                 "liveOps": 4,
                 "monetization": 4
+            },
+            "analysis": {
+                "core": "SLG 확장과 RPG 영웅 육성, 슬롯/가챠가 결합된 하이브리드 전략",
+                "ui": "대시보드형 글로벌 월드 맵 및 영웅 스킬 카드 디자인",
+                "rules": "영웅 티어 시너지, 자원 수집 속도 및 건물 업그레이드 대기 시간"
             }
         },
         {
@@ -184,6 +209,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "클래식 솔리테어 룰에 디즈니 IP 캐릭터 카드 수집 요소를 도입",
+                "ui": "디즈니 애니메이션 테마 카드 및 배경, 마법 가루 특수 효과",
+                "rules": "스테이지별 제한 횟수, 특정 골드 카드 제거 미션"
             }
         },
         {
@@ -212,6 +242,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "실제 도로 주행 및 면허 시험 코스를 모사한 정밀 드라이빙 시뮬레이션",
+                "ui": "핸들, 페달, 계기판 등 실제 차량 대시보드 조작계 그대로 구현",
+                "rules": "교통 법규 준수, 차선 이탈 및 신호 위반 시 점수 차감/실격"
             }
         },
         {
@@ -240,6 +275,11 @@
                 "contentDensity": 2,
                 "liveOps": 2,
                 "monetization": 2
+            },
+            "analysis": {
+                "core": "로그라이트 기반 타워 디펜스로 스테이지마다 랜덤 스킬 선택",
+                "ui": "아기자기한 캐릭터 및 그리드 기반 전략 배치 가이드",
+                "rules": "진행 중 무작위 보상 선택(RNG), 적 경로 차단 및 거점 방어"
             }
         },
         {
@@ -324,6 +364,11 @@
                 "contentDensity": 3,
                 "liveOps": 3,
                 "monetization": 3
+            },
+            "analysis": {
+                "core": "원작의 '넨' 능력을 조합하여 몰려오는 적을 처치하는 로그라이크 서바이벌 액션",
+                "ui": "고품격 도트 아트 스타일과 한 손 조작에 최적화된 세로형 스킬 선택 인터페이스",
+                "rules": "스킬 간 시너지 조합이 생존 핵심, 시간 경과에 따른 급격한 난이도 상승"
             }
         },
         {
@@ -352,6 +397,11 @@
                 "contentDensity": 3,
                 "liveOps": 3,
                 "monetization": 3
+            },
+            "analysis": {
+                "core": "100인 배틀로얄 서바이벌로 아이템 파밍과 자기장(블루존) 전략이 핵심",
+                "ui": "이동/사격 버튼 커스텀 지원 및 모바일 특화 '사운드 시각화' 미니맵 시스템",
+                "rules": "배낭 용량 제한, 무기별 정밀 물리 엔진(반동/탄낙차) 적용"
             }
         },
         {
@@ -380,6 +430,11 @@
                 "contentDensity": 2,
                 "liveOps": 2,
                 "monetization": 2
+            },
+            "analysis": {
+                "core": "식재료 합성(Merge)으로 요리를 완성해 전 세계 레시피를 해금하는 성장형 퍼즐",
+                "ui": "밝고 선명한 캐주얼 그래픽과 퍼즐 보드/스토리 연출의 이분할 화면 구성",
+                "rules": "아이템 생산 에너지 제한 및 한정된 보드 내 인벤토리 최적화 관리"
             }
         },
         {
@@ -408,6 +463,11 @@
                 "contentDensity": 3,
                 "liveOps": 3,
                 "monetization": 3
+            },
+            "analysis": {
+                "core": "로그라이크 생존 게임으로 수천 마리의 적 처치 및 무기 진화(EVO)",
+                "ui": "카툰풍 캐릭터 및 화면을 가득 채우는 적 물리 효과, 한 손 조작 최적화",
+                "rules": "15분 생존 타이머, 고유 무기+보조 템 조합을 통한 궁극 무기 진화"
             }
         },
         {
@@ -436,6 +496,11 @@
                 "contentDensity": 2,
                 "liveOps": 2,
                 "monetization": 2
+            },
+            "analysis": {
+                "core": "다양한 특수 직업과 제3진영이 포함된 고도화된 사회적 추론(마피아) 게임",
+                "ui": "위치 기반 근접 음성 채팅 시스템 통합 및 직관적인 미션 수행 UI",
+                "rules": "직업별 고유 승리 조건 및 회의를 통한 투표 퇴출 매커니즘"
             }
         },
         {
@@ -464,6 +529,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "고정관념을 깨는 넌센스 퀴즈와 논리 퍼즐로 구성된 두뇌 자극 게임",
+                "ui": "불필요한 요소를 배제한 미니멀 터치 인터페이스 및 직관적 퀴즈 연출",
+                "rules": "언어 유희나 상식 밖의 해답 요구, 오답 시 광고 기반 힌트 시스템"
             }
         },
         {
@@ -492,6 +562,11 @@
                 "contentDensity": 4,
                 "liveOps": 3,
                 "monetization": 3
+            },
+            "analysis": {
+                "core": "유저가 직접 생성한 수만 개의 다양한 메타버스 콘텐츠를 즐기는 샌드박스 플랫폼",
+                "ui": "통합 아바타 커스터마이징 및 각 개별 게임(경험)마다 다른 유니크한 조작 UI",
+                "rules": "플랫폼 공통 커뮤니티 가이드라인 및 로벅스(Robux) 기반의 경제 생태계"
             }
         },
         {
@@ -520,6 +595,11 @@
                 "contentDensity": 3,
                 "liveOps": 3,
                 "monetization": 3
+            },
+            "analysis": {
+                "core": "Merge-2 방식의 아이템 합성을 통해 스토리를 진행하는 미스터리 경영 퍼즐",
+                "ui": "세련된 내러티브 연출과 캐릭터 일러스트 기반의 드라마틱한 연출 방식",
+                "rules": "주문 처리를 위한 효율적인 보드 관리 및 아이템 조합 트리 숙지"
             }
         },
         {
@@ -548,6 +628,11 @@
                 "contentDensity": 4,
                 "liveOps": 4,
                 "monetization": 4
+            },
+            "analysis": {
+                "core": "도시 건설 및 혹한기 생존 전략으로 용광로 온도 관리가 핵심",
+                "ui": "눈 덮인 배경과 용광로의 온도차 시각화, 생존자 상태 게이지",
+                "rules": "주기적 블리자드 내습, 식량/석탄 등 자원 부족 시 생존자 이탈 리스크"
             }
         },
         {
@@ -576,6 +661,11 @@
                 "contentDensity": 1,
                 "liveOps": 1,
                 "monetization": 1
+            },
+            "analysis": {
+                "core": "기발하고 엉뚱한 방식으로 문제를 해결하는 넌센스 탐색 퍼즐",
+                "ui": "친근한 카툰 풍 2D 그래픽과 간결한 텍스트 지시문 중심의 UI",
+                "rules": "논리적 함정 회피 및 장치(흔들기, 지우기 등)를 활용한 상식 밖의 해결법"
             }
         },
         {
@@ -587,23 +677,28 @@
             "sessionType": "short",
             "iconUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/74/bc/08/74bc0825-642c-dca4-9514-bcbf300bd9cd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
             "system": {
-                "coreType": "Idle Loop",
+                "coreType": "Active Idle RPG",
                 "pressure": [
-                    "Time"
+                    "RNG",
+                    "Active"
                 ],
-                "metaDepth": 2,
-                "monetizationDepth": 3
+                "metaDepth": 4,
+                "monetizationDepth": 5,
+                "controlType": "수동/타이밍",
+                "progressionBarrier": "장비(P2W)",
+                "monetizationMix": "Hard IAP",
+                "liveIntensity": "High"
             },
             "kpi": {
-                "dau": "mid",
-                "arpu": "mid",
-                "ltv": "mid"
+                "dau": "high",
+                "arpu": "very-high",
+                "ltv": "long"
             },
             "score": {
-                "complexity": 2,
-                "contentDensity": 2,
-                "liveOps": 2,
-                "monetization": 3
+                "complexity": 4,
+                "contentDensity": 4,
+                "liveOps": 4,
+                "monetization": 5
             }
         },
         {

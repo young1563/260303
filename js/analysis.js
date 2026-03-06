@@ -54,11 +54,11 @@ const GENRE_DNA = {
     },
     'RPG': {
         labels: ['전략성', '조작성', '성장 깊이', '보상 빈도', '과금 압박'],
-        scores: [65, 75, 95, 55, 80],
-        insights: "RPG는 캐릭터의 성장(Progression)에 가장 큰 가치를 둡니다. 장기 잔존을 위해 만렙까지의 콘텐츠 설계를 매우 깊게 가져가며, 이에 따른 과금 압박이 높은 편입니다.",
+        scores: [70, 75, 98, 60, 95],
+        insights: "RPG는 캐릭터의 성장(Progression)과 수집의 가치를 극대화합니다. 특히 '메이플 키우기'와 같은 최신 흥행작은 방치형의 외형에 하드코어한 다층 강화 시스템과 강력한 가챠 BM을 결합하여 매우 높은 ARPU를 기록하고 있습니다.",
         evidence: [
-            { label: '성장 깊이', reason: '메인 스트림 완료까지 평균 250시간 이상의 콘텐츠 분량 확보', source: 'Global Game Insights 2025' },
-            { label: '과금 압박', reason: 'ARPPU가 타 장르 대비 3.5배 높으며 장기 LTV 지표에 의존', source: 'AppMagic Market Report' }
+            { label: '성장 깊이', reason: '스타포스 강화, 잠재 옵션(큐브), 동료 시스템 등 중첩된 메타 레이어 보유', source: 'NamuWiki (Systems)' },
+            { label: '과금 압박', reason: '가챠 천장 시스템 및 하드코어 IAP 비중이 매출의 90% 이상 점유', source: 'SensorTower/AppMagic 2026' }
         ]
     },
     'SLG': {
@@ -445,6 +445,7 @@ function initGameCards(games) {
         setTimeout(() => modal.classList.add('show'), 10);
 
         const sys = g.system || {};
+        const analysis = g.analysis || {};
         const coreMap = {
             'Grid Placement': '그리드 블록 배치 및 라인 클리어',
             'Sorting': '아이템 정렬 및 매칭',
@@ -456,17 +457,25 @@ function initGameCards(games) {
             'Physics Puzzle': '물리 엔진 기반 기믹 해결',
             'Arcade Idle': '자원 채집 및 매장 자동화 확장'
         };
-        const coreLoop = coreMap[sys.coreType] || sys.coreType || '시스템 분석 예정';
-        const metaInfo = sys.metaDepth > 2 ? ' + 심화 메타 시스템' : ' + 기본 성장 루프';
-        const fullSystemDesc = `${coreLoop}${metaInfo}`;
-        const rules = sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
 
-        let uiPoints = 'UX 최적화 설계';
-        if (g.genrePrimary === 'Puzzle') uiPoints = '블록 배치의 시각적 가이드 및 콤보 팡파르 연출';
-        else if (g.genrePrimary === 'Arcade Idle') uiPoints = '한 손 조작 조이스틱 및 자원 스태킹 시각화';
-        else if (g.genrePrimary === 'SLG' || g.genrePrimary === 'Strategy') uiPoints = '정보 집약적 인터페이스 및 직관적인 업그레이드 알림';
-        else if (g.genrePrimary === 'Simulation') uiPoints = '실제 조작계 모사 및 몰입감 높은 1인칭 시점 UI';
-        else if (sys.coreType?.includes('Sorting')) uiPoints = '아이템 이동 시의 부드러운 애니메이션 및 명확한 타겟팅';
+        let fullSystemDesc = analysis.core;
+        if (!fullSystemDesc) {
+            const coreLoop = coreMap[sys.coreType] || sys.coreType || '시스템 분석 예정';
+            const metaInfo = sys.metaDepth > 2 ? ' + 심화 메타 시스템' : ' + 기본 성장 루프';
+            fullSystemDesc = `${coreLoop}${metaInfo}`;
+        }
+
+        const rules = analysis.rules || sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
+
+        let uiPoints = analysis.ui;
+        if (!uiPoints) {
+            uiPoints = 'UX 최적화 설계';
+            if (g.genrePrimary === 'Puzzle') uiPoints = '블록 배치의 시각적 가이드 및 콤보 팡파르 연출';
+            else if (g.genrePrimary === 'Arcade Idle') uiPoints = '한 손 조작 조이스틱 및 자원 스태킹 시각화';
+            else if (g.genrePrimary === 'SLG' || g.genrePrimary === 'Strategy') uiPoints = '정보 집약적 인터페이스 및 직관적인 업그레이드 알림';
+            else if (g.genrePrimary === 'Simulation') uiPoints = '실제 조작계 모사 및 몰입감 높은 1인칭 시점 UI';
+            else if (sys.coreType?.includes('Sorting')) uiPoints = '아이템 이동 시의 부드러운 애니메이션 및 명확한 타겟팅';
+        }
 
         body.innerHTML = `
             <div class="summary">
