@@ -509,23 +509,23 @@ function initGameCards(games) {
 
             <div class="metrics-row">
                 <div class="metric-tag">
-                    <span class="label">Pressure</span>
+                    <span class="label">심리적 압박 (Pressure)</span>
                     <span class="value">${(sys.pressure || []).join('/') || 'Basic'}</span>
                 </div>
                 <div class="metric-tag">
-                    <span class="label">BM Depth</span>
+                    <span class="label">과금 심도 (BM Depth)</span>
                     <span class="value">${sys.monetizationDepth || 1}/4</span>
                 </div>
                 <div class="metric-tag">
-                    <span class="label">LTV</span>
+                    <span class="label">생애 가치 (LTV)</span>
                     <span class="value">${g.kpi?.ltv || 'Mid'}</span>
                 </div>
             </div>
 
             <div class="blueprint-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--analysis-accent); margin: 0; font-size: 1.1rem;">📐 System Blueprint</h4>
-                    <span style="font-size: 0.8rem; color: #64748b;">Archetype: ${g.genrePrimary}</span>
+                    <h4 style="color: var(--analysis-accent); margin: 0; font-size: 1.1rem;">📐 시스템 설계도 (System Blueprint)</h4>
+                    <span style="font-size: 0.8rem; color: #64748b;">장르 원형 (Archetype): ${g.genrePrimary}</span>
                 </div>
                 <div class="mermaid-container" id="modal-blueprint" style="background: transparent; min-height: 200px;">
                     <!-- Mermaid chart will be rendered here -->
@@ -627,28 +627,28 @@ function updateCompareTable(games) {
     head.innerHTML = '<th>비교 항목</th>' + selectedGames.map(g => `<th>${g.name || g.title}</th>`).join('');
 
     const items = [
-        { label: '🔷 Core Layer', isHeader: true },
-        { label: '조작 체계 (Control)', key: 'system', sub: 'controlType' },
-        { label: 'Core Loop Depth', key: 'systemScore', sub: 'complexity' },
-        { label: 'Session Length', key: 'sessionType' },
-        { label: 'Pressure Type', key: 'pressure', join: true },
+        { label: '🔷 코어 레이어 (핵심 게임플레이)', isHeader: true },
+        { label: '조작 체계 (Control Type)', key: 'system', sub: 'controlType' },
+        { label: '핵심 루프 깊이 (Core Loop Depth)', key: 'systemScore', sub: 'complexity' },
+        { label: '평균 세션 시간 (Session Length)', key: 'sessionType' },
+        { label: '심리적 압박 유형 (Pressure Type)', key: 'pressure', join: true },
 
-        { label: '🔷 Meta & Live Layer', isHeader: true },
-        { label: '성장 장벽 (Barrier)', key: 'system', sub: 'progressionBarrier' },
-        { label: '라이브 밀도 (Live)', key: 'system', sub: 'liveIntensity' },
-        { label: 'Meta System Depth', key: 'systemScore', sub: 'complexity' },
-        { label: 'Content Density', key: 'systemScore', sub: 'contentDensity' },
+        { label: '🔷 메타 & 라이브 레이어 (성장 및 운영)', isHeader: true },
+        { label: '성장 장벽 (Progression Barrier)', key: 'system', sub: 'progressionBarrier' },
+        { label: '라이브 운영 강도 (Live Intensity)', key: 'system', sub: 'liveIntensity' },
+        { label: '메타 시스템 깊이 (Meta System Depth)', key: 'systemScore', sub: 'complexity' },
+        { label: '콘텐츠 밀집도 (Content Density)', key: 'systemScore', sub: 'contentDensity' },
 
-        { label: '🔷 Monetization Layer', isHeader: true },
-        { label: '수익 모델 (BM Mix)', key: 'system', sub: 'monetizationMix' },
-        { label: 'Monetization Depth', key: 'systemScore', sub: 'monetizationDepth' },
-        { label: 'Whale Dependency', key: 'monetization', sub: 'whale' },
-        { label: 'Ad Dependency', key: 'monetization', sub: 'ads' },
+        { label: '🔷 수익화 레이어 (비즈니스 모델)', isHeader: true },
+        { label: '수익 모델 구성 (Monetization Mix)', key: 'system', sub: 'monetizationMix' },
+        { label: '과금 심도 (Monetization Depth)', key: 'systemScore', sub: 'monetizationDepth' },
+        { label: '고과금 유저 의존도 (Whale Dependency)', key: 'monetization', sub: 'whale' },
+        { label: '광고 수익 의존도 (Ad Dependency)', key: 'monetization', sub: 'ads' },
 
-        { label: '🔷 KPI Layer', isHeader: true },
-        { label: 'DAU Position', key: 'kpi', sub: 'dau' },
-        { label: 'ARPU Position', key: 'kpi', sub: 'arpu' },
-        { label: 'LTV Length', key: 'kpi', sub: 'ltv' }
+        { label: '🔷 KPI 지표 레이어 (핵심 성과)', isHeader: true },
+        { label: '유저 규모 (DAU Position)', key: 'kpi', sub: 'dau' },
+        { label: '수익성 수준 (ARPU Position)', key: 'kpi', sub: 'arpu' },
+        { label: '생애 가치 기간 (LTV Length)', key: 'kpi', sub: 'ltv' }
     ];
 
     body.innerHTML = items.map(item => {
