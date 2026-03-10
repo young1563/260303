@@ -185,25 +185,71 @@
             background: white;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
+
+        /* Top Button Styles */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(124, 77, 255, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        #scrollTopBtn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #scrollTopBtn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(124, 77, 255, 0.5);
+        }
+
+        #scrollTopBtn svg {
+            width: 24px;
+            height: 24px;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
-                <li><a href="../index.html">시장 분석</a></li>
-                <li><a href="../index.html#research" class="active">리서치</a></li>
-                <li><a href="../glossary-ko.html">용어 사전</a></li>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../index.html#research" class="active">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">용어집</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="analysis-hero">
         <div class="fade-in">
-            <span class="card-tag-inline"
-                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Deep Analysis</span>
+            <div class="game-brand fade-in"
+                style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
+                <img src="../img/blockblast/3.webp" alt="Block Blast Icon"
+                    style="width: 80px; height: 80px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">
+                <span class="card-tag-inline" style="background: rgba(255,255,255,0.2); color: white;">Deep
+                    Analysis</span>
+            </div>
             <h1>Block Blast: <br>데이터와 AI가 만든 퍼즐 제국</h1>
             <p class="subtitle">Hungry Studio의 1억 다운로드 신화와 중독적인 'Juicy' 피드백 루프, <br>그리고 연간 1만 건의 A/B 테스트가 만든 성장 방정식을
                 분석합니다. (ATT: 앱 추적 투명성 정책)</p>
@@ -232,7 +278,13 @@
     <main class="content-section">
         <article class="article-body">
             <h2 class="fade-in">1. Executive Summary: 단순함을 넘어서는 기술</h2>
-            <p class="fade-in">Block Blast는 겉보기에는 평범한 8x8 블록 퍼즐 게임처럼 보입니다. 하지만 그 이면에는 <b>초고밀도 알고리즘</b>과 <b>산업화된 실험
+            <div class="chart-container fade-in"
+                style="padding: 0; overflow: hidden; background: none; box-shadow: none; display: flex; justify-content: center; margin-bottom: 2rem;">
+                <img src="../img/blockblast/1.png" alt="Block Blast Main Visual"
+                    style="max-width: 450px; width: 100%; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+            </div>
+            <p class="fade-in" style="margin-top: 2rem;">Block Blast는 겉보기에는 평범한 8x8 블록 퍼즐 게임처럼 보입니다. 하지만 그 이면에는 <b>초고밀도
+                    알고리즘</b>과 <b>산업화된 실험
                     인프라</b>가 존재합니다. 2021년 출시 이후, Hungry Studio는 단순한 재미를 넘어 '성장 엔진' 자체를 설계하며 퍼즐 장르의 판도를 바꿨습니다.</p>
 
             <div class="highlight-box fade-in">
@@ -298,6 +350,12 @@
             </div>
 
             <h2 class="fade-in">3. UX 전략: 감정적 피드백 루프와 'Stage Presence'</h2>
+            <div class="chart-container fade-in" style="background: transparent; box-shadow: none; padding: 1rem 0;">
+                <img src="../img/blockblast/2.webp" alt="Block Blast Gameplay Mockup"
+                    style="max-width: 600px; display: block; margin: 0 auto; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.5rem; text-align: center;">기존 블록 퍼즐의 틀을 유지하면서도
+                    극대화된 시각적 연출을 제공합니다.</p>
+            </div>
             <p class="fade-in">Block Blast가 중독적인 이유는 작은 행동에도 폭발적인 보상을 주는 <b>'Juicy'한 UX 설계</b>에 있습니다. 특히 '레인보우 이펙트'는 단순한
                 시각 효과를 넘어 유저의 뇌에 도파민을 전달하는 5단계의 <b>화학 반응(Chemical Reactions)</b>으로 설계되었습니다.</p>
 
@@ -351,8 +409,23 @@
         </article>
     </main>
 
+    <button id="scrollTopBtn" aria-label="Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
     <footer>
-        <p>&copy; 2026 Antigravity Portfolio. Block Blast Analysis Report.</p>
+        <div style="margin-bottom: 2rem; font-size: 0.85rem; color: #666; line-height: 1.8;">
+            <b>출처 및 참고문헌:</b><br>
+            - AppMagic: Daily Active Users and Revenue Trends (2024-2025)<br>
+            - Hungry Studio: Official GDC Sessions & Technical Blogs<br>
+            - Sensor Tower: Hybrid-Casual Market Insight Report<br>
+            - Gamesforum: Game Design Analysis & UX Case Studies
+        </div>
+        <p>&copy; 2026 Antigravity Portfolio. Block Blast Analysis Report. ⓘ All data points are based on industry
+            research.</p>
     </footer>
 
     <script src="../js/main.js"></script>
@@ -381,6 +454,19 @@
                     }
                 }
             }
+        });
+
+        // Top Button Logic
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        };
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
