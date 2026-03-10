@@ -129,13 +129,28 @@ header {
 }
 
 .logo {
-    font-size: 1.4rem;
-    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
     background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: var(--font-heading);
+    border-radius: 14px;
+    color: white;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.2);
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 24px rgba(124, 77, 255, 0.4);
+}
+
+.logo svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    stroke-width: 2.5;
 }
 
 nav {
