@@ -81,6 +81,54 @@
             flex: 1;
         }
 
+        .glossary-intro {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+            border-left: 6px solid var(--accent-primary);
+        }
+
+        .glossary-intro h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .glossary-intro p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-goals {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .goal-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .goal-item .icon {
+            font-size: 1.5rem;
+        }
+
+        .goal-item h4 {
+            margin-bottom: 0.3rem;
+            color: #1e293b;
+        }
+
+        .goal-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
         .search-container {
             margin-bottom: 2rem;
             position: relative;
@@ -125,6 +173,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding-top: 1rem;
         }
 
         .section-header h2 {
@@ -204,38 +253,21 @@
             color: #065f46;
         }
 
+        .tag-art {
+            background: #fffbeb;
+            color: #b45309;
+        }
+
+        .tag-sound {
+            background: #f0fdf4;
+            color: #15803d;
+        }
+
         .term-desc {
             font-size: 0.95rem;
             color: #475569;
             line-height: 1.6;
             margin: 0;
-        }
-
-        .term-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, margin-top 0.3s ease;
-            font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px solid transparent;
-            padding-top: 0;
-        }
-
-        .term-card.expanded .term-details {
-            max-height: 2000px;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top-color: #f1f5f9;
-        }
-
-        .heuristic-item {
-            margin-bottom: 1rem;
-        }
-
-        .heuristic-item strong {
-            color: #334155;
-            display: block;
-            margin-bottom: 0.2rem;
         }
 
         .term-meta {
@@ -275,7 +307,11 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+        <a href="index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
                 <li><a href="index.html">시장 분석</a></li>
@@ -288,205 +324,551 @@
     <div class="glossary-wrapper">
         <aside class="glossary-sidebar">
             <div class="sidebar-title">Categories</div>
-            <a href="#market" class="nav-item active">📊 시장 및 지표</a>
-            <a href="#system" class="nav-item">⚙️ 시스템 기획</a>
-            <a href="#content" class="nav-item">🧩 콘텐츠 기획</a>
-            <a href="#ux" class="nav-item">🎨 UX 및 아키텍처</a>
-            <a href="#etc" class="nav-item">💡 기타 핵심 개념</a>
+            <a href="#market" class="nav-item">📊 비즈니스 지표</a>
+            <a href="#planning" class="nav-item">⚙️ 기획 및 게임성</a>
+            <a href="#marketing" class="nav-item">📈 마케팅 및 운영</a>
+            <a href="#graphic" class="nav-item">🎨 그래픽 및 UI/UX</a>
+            <a href="#sound" class="nav-item">🎵 사운드 및 영상</a>
         </aside>
 
         <main class="glossary-main">
+            <div class="glossary-intro">
+                <h1>용어 사전 설계 배경 및 목표</h1>
+                <p>게임 산업은 데이터, 기술, 예술이 융합된 복합적인 분야입니다. 이 페이지는 실무 현장에서 사용되는 핵심 언어들을 정리하여 빠르고 정확한 커뮤니케이션을 돕기 위해 설계되었습니다.
+                </p>
+                <div class="intro-goals">
+                    <div class="goal-item">
+                        <span class="icon">🎯</span>
+                        <div>
+                            <h4>커뮤니케이션 최적화</h4>
+                            <p>공통된 용어 정의를 통해 오해를 줄이고 업무 효율성을 극대화합니다.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <span class="icon">📈</span>
+                        <div>
+                            <h4>지표 중심의 기획</h4>
+                            <p>단순한 재미를 넘어 데이터에 근거한 의사결정 역량을 기릅니다.</p>
+                        </div>
+                    </div>
+                    <div class="goal-item">
+                        <span class="icon">🚀</span>
+                        <div>
+                            <h4>실무 프로세스 이해</h4>
+                            <p>기획부터 라이브 운영까지 전체 제작 파이프라인의 언어를 익힙니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="search-container">
                 <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="용어를 검색해 보세요 (예: CPI, DDA, 휴리스틱...)"
+                <input type="text" class="search-input" placeholder="용어를 검색해 보세요 (예: CPI, DAU, ROAS...)"
                     id="glossarySearch">
             </div>
 
-            <!-- Market & Metrics Section -->
+            <!-- Business Metrics Section -->
             <div class="section-header" id="market">
-                <h2>시장 및 지표</h2>
-                <span class="section-count">6</span>
+                <h2>비즈니스 및 분석 지표</h2>
+                <span class="section-count">11</span>
             </div>
             <div class="term-section">
-                <article class="term-card" data-name="cpi">
-                    <div class="term-header">
-                        <h3 class="term-name">CPI</h3>
-                        <span class="term-tag tag-market">Market</span>
-                    </div>
-                    <p class="term-desc">Cost Per Install. 유저 1명을 획득하는 데 투자한 마케팅 비용입니다. 하이퍼캐주얼 성패의 가장 첫 번째 관문입니다.</p>
-                    <div class="term-meta">Goal: 보통 $0.20 ~ $0.50 미만 추천</div>
-                </article>
-
-                <article class="term-card" data-name="ltv">
-                    <div class="term-header">
-                        <h3 class="term-name">LTV</h3>
-                        <span class="term-tag tag-market">Market</span>
-                    </div>
-                    <p class="term-desc">Lifetime Value. 1명의 유저가 게임 이탈 전까지 발생시키는 총 매출입니다. 하이브리드 캐주얼의 주요 목표 중 하나입니다.</p>
-                    <div class="term-meta">Formula: ARPU * Retention Days</div>
-                </article>
-
-                <article class="term-card" data-name="retention">
-                    <div class="term-header">
-                        <h3 class="term-name">Retention</h3>
-                        <span class="term-tag tag-market">Market</span>
-                    </div>
-                    <p class="term-desc">잔존율. 특정 시점에 재방문한 유저 비중입니다. D1(1일차) 리텐션은 게임의 초기 재미를 판단하는 가장 강력한 지표입니다.</p>
-                    <div class="term-meta">Target: D1 40% 이상 (권장)</div>
-                </article>
-
-                <article class="term-card" data-name="roas">
-                    <div class="term-header">
-                        <h3 class="term-name">ROAS</h3>
-                        <span class="term-tag tag-market">Market</span>
-                    </div>
-                    <p class="term-desc">Return on Ad Spend. 투입한 광고비 대비 회수된 매출액의 비율입니다. 마켓팅 캠페인의 효율을 나타냅니다.</p>
-                    <div class="term-meta">Bench: 100% 이상 시 마케팅 확장 가능</div>
-                </article>
-
                 <article class="term-card" data-name="dau">
                     <div class="term-header">
                         <h3 class="term-name">DAU</h3>
-                        <span class="term-tag tag-market">Market</span>
+                        <span class="term-tag tag-market">User</span>
                     </div>
-                    <p class="term-desc">Daily Active Users. 일간 활성 사용자 수. 하루 동안 게임에 최소 한 번 이상 접속한 중복되지 않는 유저의 총합입니다.
-                        서비스의 규모를 나타내는 핵심 지표입니다.</p>
-                    <div class="term-meta">Focus: 서비스 규모 및 활성도 측정</div>
+                    <p class="term-desc">Daily Active User. 일간 활성 사용자 수. 하루 동안 게임에 접속한 유저의 총합입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
                 </article>
-
-                <article class="term-card" data-name="arpu">
+                <article class="term-card" data-name="nru">
                     <div class="term-header">
-                        <h3 class="term-name">ARPU</h3>
-                        <span class="term-tag tag-market">Market</span>
+                        <h3 class="term-name">NRU</h3>
+                        <span class="term-tag tag-market">User</span>
                     </div>
-                    <p class="term-desc">Average Revenue Per User. 유저 1인당 평균 매출액입니다. 특정 기간 동안 발생한 총 매출을 해당 기간의 총 유저 수로
-                        나누어 산출합니다.</p>
-                    <div class="term-meta">Formula: Total Revenue / Total Users</div>
+                    <p class="term-desc">Newly Registered User. 신규 가입 사용자 수.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="retention">
+                    <div class="term-header">
+                        <h3 class="term-name">Retention</h3>
+                        <span class="term-tag tag-market">User</span>
+                    </div>
+                    <p class="term-desc">잔존율. 특정 일자에 앱을 설치한 유저 중 다시 방문한 유저의 비율입니다. (D-1 리텐션 등)</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="iap">
+                    <div class="term-header">
+                        <h3 class="term-name">IAP</h3>
+                        <span class="term-tag tag-market">Revenue</span>
+                    </div>
+                    <p class="term-desc">In-App Purchase. 인앱 결제. 유저가 앱 내에서 유료 결제를 통해 추가 콘텐츠를 구매하는 행위입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="arpdau">
+                    <div class="term-header">
+                        <h3 class="term-name">ARPDAU</h3>
+                        <span class="term-tag tag-market">Revenue</span>
+                    </div>
+                    <p class="term-desc">Average Revenue Per Daily Active User. 활성 유저 1명당 평균 결제 금액입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="arppu">
+                    <div class="term-header">
+                        <h3 class="term-name">ARPPU</h3>
+                        <span class="term-tag tag-market">Revenue</span>
+                    </div>
+                    <p class="term-desc">Average Revenue Per Paying User. 유료 결제 유저 1명당 평균 결제 금액입니다. 가격 밸런스를 볼 때 중요합니다.
+                    </p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="ltv">
+                    <div class="term-header">
+                        <h3 class="term-name">LTV</h3>
+                        <span class="term-tag tag-market">Revenue</span>
+                    </div>
+                    <p class="term-desc">Lifetime Value. 유저가 게임 시작부터 이탈까지 지출하는 총 기대 금액을 뜻합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="app events">
+                    <div class="term-header">
+                        <h3 class="term-name">App Events</h3>
+                        <span class="term-tag tag-market">Data</span>
+                    </div>
+                    <p class="term-desc">앱 내에서 발생하는 특정 행위(클리어, 구매 등)를 서버로 전송하여 통계에 반영하는 이벤트입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ab test">
+                    <div class="term-header">
+                        <h3 class="term-name">A/B Test</h3>
+                        <span class="term-tag tag-market">Data</span>
+                    </div>
+                    <p class="term-desc">유저를 두 그룹으로 나누어 기존 버전과 테스트하고자 하는 변경안을 비교하여 효율을 확인하는 기법입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="roas">
+                    <div class="term-header">
+                        <h3 class="term-name">ROAS</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">Return on Ad Spending. 광고비 대비 매출 수익률입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="viral">
+                    <div class="term-header">
+                        <h3 class="term-name">Viral</h3>
+                        <span class="term-tag tag-market">User</span>
+                    </div>
+                    <p class="term-desc">유저의 자발적인 포스팅이나 친구 초대 등을 통한 자연스러운 전파 행위입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
                 </article>
             </div>
 
-            <!-- System Design Section -->
-            <div class="section-header" id="system">
-                <h2>시스템 기획</h2>
-                <span class="section-count">3</span>
-            </div>
-            <div class="term-section">
-                <article class="term-card" data-name="dda">
-                    <div class="term-header">
-                        <h3 class="term-name">DDA</h3>
-                        <span class="term-tag tag-system">System</span>
-                    </div>
-                    <p class="term-desc">Dynamic Difficulty Adjustment. 유저의 실력을 실시간 분석하여 난이도를 조절, 이탈을 방지하고 게임의 플로우를 유지하게
-                        합니다.</p>
-                    <div class="term-meta">Focus: Frustration 지점 탐지 및 보정</div>
-                </article>
-
-                <article class="term-card" data-name="core loop">
-                    <div class="term-header">
-                        <h3 class="term-name">Core Loop</h3>
-                        <span class="term-tag tag-system">System</span>
-                    </div>
-                    <p class="term-desc">게임 내에서 유저가 가장 반복적으로 수행하는 행위의 핵심 순환 구조입니다. 재미의 '본질'을 정의합니다.</p>
-                    <div class="term-meta">Example: 배치 -> 제거 -> 보상 -> 생성</div>
-                </article>
-
-                <article class="term-card" data-name="hybridization">
-                    <div class="term-header">
-                        <h3 class="term-name">Hybridization</h3>
-                        <span class="term-tag tag-system">System</span>
-                    </div>
-                    <p class="term-desc">단순한 하이퍼캐주얼 코어에 미드코어의 성장 시스템이나 서사를 결합하여 수명을 늘리는 전략을 의미합니다.</p>
-                    <div class="term-meta">Trend: HC Core + Casual Meta</div>
-                </article>
-            </div>
-
-            <!-- Content Design Section -->
-            <div class="section-header" id="content">
-                <h2>콘텐츠 기획</h2>
-                <span class="section-count">3</span>
-            </div>
-            <div class="term-section">
-                <article class="term-card" data-name="aha moment">
-                    <div class="term-header">
-                        <h3 class="term-name">Aha Moment</h3>
-                        <span class="term-tag tag-content">Content</span>
-                    </div>
-                    <p class="term-desc">유저가 퍼즐의 해결책을 깨닫는 쾌감의 순간입니다. 이 순간이 얼마나 자주, 강력하게 오느냐가 퍼즐의 퀄리티를 결정합니다.</p>
-                    <div class="term-meta">Design: 인지 편향을 활용한 해결 유도</div>
-                </article>
-
-                <article class="term-card" data-name="juiciness">
-                    <div class="term-header">
-                        <h3 class="term-name">Juiciness</h3>
-                        <span class="term-tag tag-content">Content</span>
-                    </div>
-                    <p class="term-desc">작은 행동에도 폭발적인 시청각적 피드백을 주는 설계입니다. 유저의 도파민을 자극하는 퍼즐의 필수 요소입니다.</p>
-                    <div class="term-meta">Key: Particle, Sound, Shake Effect</div>
-                </article>
-
-                <article class="term-card" data-name="difficulty curve">
-                    <div class="term-header">
-                        <h3 class="term-name">Difficulty Curve</h3>
-                        <span class="term-tag tag-content">Content</span>
-                    </div>
-                    <p class="term-desc">레벨 진행에 따른 난이도 변화 그래프입니다. 완만한 상승과 의도적인 '이지 레벨' 배치를 통한 완급 조절이 핵심입니다.</p>
-                    <div class="term-meta">Structure: Staircase vs Sawtooth pattern</div>
-                </article>
-            </div>
-
-            <!-- UX & Architecture Section -->
-            <div class="section-header" id="ux">
-                <h2>UX 및 아키텍처</h2>
-                <span class="section-count">1</span>
-            </div>
-            <div class="term-section">
-                <article class="term-card" data-name="10 usability heuristics 휴리스틱">
-                    <div class="term-header">
-                        <h3 class="term-name">10 Usability Heuristics</h3>
-                        <span class="term-tag tag-ux">UX Strategy</span>
-                    </div>
-                    <p class="term-desc">야곱 닐슨(Jakob Nielsen)의 10가지 인터페이스 디자인 원칙입니다. 사용자가 시스템을 쉽고 효율적으로 사용할 수 있도록 돕는 '경험
-                        법칙'입니다. <br><strong>(클릭하여 10법칙 상세보기)</strong></p>
-                    <div class="term-details">
-                        <div class="heuristic-item"><strong>1. 시스템 상태의 가시성 (Visibility of System Status)</strong> 시스템은
-                            적절한 피드백을 통해 사용자에게 진행 상황을 항상 알려야 합니다. (예: 로딩 바, 진행률)</div>
-                        <div class="heuristic-item"><strong>2. 시스템과 실제 세계의 일치 (Match Between System and Real
-                                World)</strong> 실제 세상에서 익숙한 단어와 개념을 사용해야 합니다. (예: 쓰레기통 아이콘)</div>
-                        <div class="heuristic-item"><strong>3. 사용자 제어 및 자유 (User Control and Freedom)</strong> 실수를 되돌릴 수
-                            있는 '비상구'가 필요합니다. (예: 실행 취소, 취소 버튼)</div>
-                        <div class="heuristic-item"><strong>4. 일관성 및 표준 (Consistency and Standards)</strong> 업게 표준과 플랫폼
-                            관례를 따라야 혼란을 줄입니다. (예: 체크박스와 라디오 버튼의 구분)</div>
-                        <div class="heuristic-item"><strong>5. 오류 방지 (Error Prevention)</strong> 오류 메시지를 잘 만드는 것보다 오류가
-                            발생하지 않도록 설계하는 것이 더 중요합니다. (예: 삭제 전 확인창)</div>
-                        <div class="heuristic-item"><strong>6. 기억보다 인식 (Recognition Rather Than Recall)</strong> 사용자가
-                            기억해내야 하는 정보를 최소화하고 눈에 보이게 해야 합니다.</div>
-                        <div class="heuristic-item"><strong>7. 유연성과 효율성 (Flexibility and Efficiency of Use)</strong>
-                            초보자부터 전문가까지 모두 만족시키는 단축키 등의 장치가 필요합니다.</div>
-                        <div class="heuristic-item"><strong>8. 미학적이고 미니멀한 디자인 (Aesthetic and Minimalist Design)</strong>
-                            불필요한 정보는 중요한 정보의 가시성을 방해하므로 정제해야 합니다.</div>
-                        <div class="heuristic-item"><strong>9. 오류 진단 및 복구 (Help Users Recognize, Diagnose, Recover from
-                                Errors)</strong> 오류 발생 시 해결 방법을 쉬운 언어로 제시해야 합니다.</div>
-                        <div class="heuristic-item"><strong>10. 도움말 및 문서화 (Help and Documentation)</strong> 설명 없이도 사용
-                            가능한 것이 최고지만, 필요한 경우 쉽게 찾을 수 있는 도움말이 있어야 합니다.</div>
-                    </div>
-                    <div class="term-meta">Source: Nielsen Norman Group</div>
-                </article>
-            </div>
-
-            <!-- Core Concept Section -->
-            <div class="section-header" id="etc">
-                <h2>기타 핵심 개념</h2>
-                <span class="section-count">1</span>
+            <!-- Marketing & Operation Section -->
+            <div class="section-header" id="marketing">
+                <h2>마케팅 및 운영</h2>
+                <span class="section-count">13</span>
             </div>
             <div class="term-section">
-                <article class="term-card" data-name="ftue">
+                <article class="term-card" data-name="organic user">
                     <div class="term-header">
-                        <h3 class="term-name">FTUE</h3>
-                        <span class="term-tag tag-system">Core</span>
+                        <h3 class="term-name">Organic User</h3>
+                        <span class="term-tag tag-market">Marketing</span>
                     </div>
-                    <p class="term-desc">First-Time User Experience. 유저가 게임을 처음 접하는 몇 초에서 몇 분간의 경험입니다. 첫인상과 잔존율을 직접
-                        결정합니다.</p>
-                    <div class="term-meta">Goal: 3분 내 'Aha Moment' 제공</div>
+                    <p class="term-desc">자연 유입 유저. 광고를 통하지 않고 스스로 검색이나 차트를 통해 들어온 유저를 뜻합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ad network">
+                    <div class="term-header">
+                        <h3 class="term-name">Ad Network</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">광고주와 매체를 연결해 주는 플랫폼 회사입니다. (AdMob, AppLovin 등)</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="cross promotion">
+                    <div class="term-header">
+                        <h3 class="term-name">Cross Promotion</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">이미 운영 중인 자사 게임끼리 유저를 교차 홍보하여 공유하는 마케팅 방식입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="mediation">
+                    <div class="term-header">
+                        <h3 class="term-name">Mediation</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">여러 광고 매체의 효율을 비교 분석하여 가장 수익이 높은 쪽의 광고를 우선 노출해 주는 시스템입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="cpi">
+                    <div class="term-header">
+                        <h3 class="term-name">CPI</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">Cost per Install. 앱 설치 1건당 광고주가 지불하는 단가입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="cpa">
+                    <div class="term-header">
+                        <h3 class="term-name">CPA</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">Cost per Action. 특정 액션(IAP 등)을 취한 유저에 대해 지불하는 단가입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="ecpm">
+                    <div class="term-header">
+                        <h3 class="term-name">eCPM</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">Effective Cost per Mille. 유료 광고 노출 1,000회당 광고 수익 효율을 의미합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ctr">
+                    <div class="term-header">
+                        <h3 class="term-name">CTR</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">Click Through Ratio. 광고 노출 대비 클릭되는 비율입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="aso">
+                    <div class="term-header">
+                        <h3 class="term-name">ASO</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">App Store Optimization. 앱 스토어 내 검색 결과에서 노출 순위를 높이기 위한 최적화 작업입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="localization">
+                    <div class="term-header">
+                        <h3 class="term-name">Localization</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">현지화. 특정 국가의 언어, 문화, 환경에 맞게 제품을 맞추는 과정입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="re-engagement">
+                    <div class="term-header">
+                        <h3 class="term-name">Re-Engagement</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">접속하지 않는 휴면 유저를 다시 게임으로 불러오기 위해 진행하는 마케팅 활동입니다.</p>
+                    <div class="term-meta">중요도: ★</div>
+                </article>
+                <article class="term-card" data-name="influencer marketing">
+                    <div class="term-header">
+                        <h3 class="term-name">Influencer Marketing</h3>
+                        <span class="term-tag tag-market">Marketing</span>
+                    </div>
+                    <p class="term-desc">소셜 플랫폼의 영향력 있는 크리에이터를 활용하여 진행하는 광고입니다.</p>
+                    <div class="term-meta">중요도: ★</div>
+                </article>
+                <article class="term-card" data-name="cs">
+                    <div class="term-header">
+                        <h3 class="term-name">CS</h3>
+                        <span class="term-tag tag-market">Operation</span>
+                    </div>
+                    <p class="term-desc">Customer Service. 고객 관리 서비스. 불만 처리나 스토어 평점 관리 등의 업무를 포함합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+            </div>
+
+            <!-- Planning Section -->
+            <div class="section-header" id="planning">
+                <h2>게임 기획 및 메커닉</h2>
+                <span class="section-count">13</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="match-3">
+                    <div class="term-header">
+                        <h3 class="term-name">Match-3</h3>
+                        <span class="term-tag tag-content">Genre</span>
+                    </div>
+                    <p class="term-desc">같은 블록을 3개 이상 매칭 시켜 제거하는 장르의 게임입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="collapse">
+                    <div class="term-header">
+                        <h3 class="term-name">Collapse</h3>
+                        <span class="term-tag tag-content">Genre</span>
+                    </div>
+                    <p class="term-desc">인접한 같은 색상의 블록을 클릭하여 제거하는 장르의 게임입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="line-matching">
+                    <div class="term-header">
+                        <h3 class="term-name">Line-matching</h3>
+                        <span class="term-tag tag-content">Genre</span>
+                    </div>
+                    <p class="term-desc">블록을 드래그하여 연결해 매칭 및 제거하는 방식의 게임입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="stage">
+                    <div class="term-header">
+                        <h3 class="term-name">Stage</h3>
+                        <span class="term-tag tag-content">Structure</span>
+                    </div>
+                    <p class="term-desc">레벨들의 묶음 단위입니다. 보통 한 스테이지에 10~15개의 레벨이 포함됩니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="lobby">
+                    <div class="term-header">
+                        <h3 class="term-name">Lobby</h3>
+                        <span class="term-tag tag-content">System</span>
+                    </div>
+                    <p class="term-desc">게임 진입 전의 대기 화면. 보통 월드맵, 상점, 옵션 UI 등이 배치됩니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="in-game">
+                    <div class="term-header">
+                        <h3 class="term-name">In-Game</h3>
+                        <span class="term-tag tag-content">System</span>
+                    </div>
+                    <p class="term-desc">실제 유저가 게임 플레이를 즐기는 물리적 게임 영역을 뜻합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="out-game">
+                    <div class="term-header">
+                        <h3 class="term-name">Out-Game</h3>
+                        <span class="term-tag tag-content">System</span>
+                    </div>
+                    <p class="term-desc">인게임 외의 모든 시스템(퀘스트, 상점, 공지 등)을 아우르는 명칭입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="level update">
+                    <div class="term-header">
+                        <h3 class="term-name">Level Update</h3>
+                        <span class="term-tag tag-content">Ops</span>
+                    </div>
+                    <p class="term-desc">이미 서비스 중인 게임에 주기적으로 신규 레벨들을 추가하는 업데이트 행위입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="build update">
+                    <div class="term-header">
+                        <h3 class="term-name">Build Update</h3>
+                        <span class="term-tag tag-content">Ops</span>
+                    </div>
+                    <p class="term-desc">기능 수정이나 에셋 변경 등을 포함한 새 버전을 스토어에 배포하는 행위입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="push notification">
+                    <div class="term-header">
+                        <h3 class="term-name">Push Notification</h3>
+                        <span class="term-tag tag-content">System</span>
+                    </div>
+                    <p class="term-desc">스마트폰 상에서 유저의 접속을 유도하기 위해 보내는 알림 기능(로컬/서버 푸시)입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="invite">
+                    <div class="term-header">
+                        <h3 class="term-name">Invite</h3>
+                        <span class="term-tag tag-content">System</span>
+                    </div>
+                    <p class="term-desc">유저가 자신의 친구에게 우리 게임으로의 초대를 보내는 행위입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="casual game">
+                    <div class="term-header">
+                        <h3 class="term-name">Casual Game</h3>
+                        <span class="term-tag tag-content">Genre</span>
+                    </div>
+                    <p class="term-desc">간단한 조작으로 짧은 시간 동안 쉽게 즐길 수 있는 가벼운 게임 타입입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="store rating">
+                    <div class="term-header">
+                        <h3 class="term-name">Store Rating</h3>
+                        <span class="term-tag tag-content">Feedback</span>
+                    </div>
+                    <p class="term-desc">스토어에 남겨진 유저들의 평점과 리뷰입니다. 앱 스토어 최적화에 중요한 영향을 미칩니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+            </div>
+
+            <!-- Graphic & UI/UX Section -->
+            <div class="section-header" id="graphic">
+                <h2>그래픽 및 UI/UX</h2>
+                <span class="section-count">14</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="modeling">
+                    <div class="term-header">
+                        <h3 class="term-name">Modeling</h3>
+                        <span class="term-tag tag-art">Graphic</span>
+                    </div>
+                    <p class="term-desc">3D 툴을 사용하여 오브젝트를 제작하는 과정입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="vector/bitmap">
+                    <div class="term-header">
+                        <h3 class="term-name">Vector / Bitmap</h3>
+                        <span class="term-tag tag-art">Graphic</span>
+                    </div>
+                    <p class="term-desc">점과 선으로 이루어진 벡터와 픽셀 단위의 비트맵 이미지 차이입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="spine">
+                    <div class="term-header">
+                        <h3 class="term-name">Spine</h3>
+                        <span class="term-tag tag-art">Animation</span>
+                    </div>
+                    <p class="term-desc">2D 본 애니메이션 툴로, 자연스러운 메쉬 움직임을 구현할 때 사용합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="particle system">
+                    <div class="term-header">
+                        <h3 class="term-name">Particle System</h3>
+                        <span class="term-tag tag-art">Effect</span>
+                    </div>
+                    <p class="term-desc">불꽃, 연기 등 수많은 작은 입자를 제어하여 특수 효과를 만드는 시스템입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="optimization">
+                    <div class="term-header">
+                        <h3 class="term-name">Optimization</h3>
+                        <span class="term-tag tag-art">Tech</span>
+                    </div>
+                    <p class="term-desc">최적화. 리소스 용량 최소화 등을 통해 원활한 실행 환경을 만드는 작업입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ui/ux">
+                    <div class="term-header">
+                        <h3 class="term-name">UI / UX</h3>
+                        <span class="term-tag tag-ux">Design</span>
+                    </div>
+                    <p class="term-desc">조작 화면 구성(UI)과 더불어 유저가 느끼는 경험 전반(UX)을 의미합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ugui">
+                    <div class="term-header">
+                        <h3 class="term-name">UGUI</h3>
+                        <span class="term-tag tag-art">Unity</span>
+                    </div>
+                    <p class="term-desc">유니티에서 UI 리소스를 제작하기 위해 보편적으로 사용하는 엔진 내 GUI 툴입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="9 slice">
+                    <div class="term-header">
+                        <h3 class="term-name">9 Slice</h3>
+                        <span class="term-tag tag-art">Design</span>
+                    </div>
+                    <p class="term-desc">이미지 리소스를 9조각으로 나누어 모서리는 유지하고 중앙만 늘려 최적화하는 기법입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="dummy image">
+                    <div class="term-header">
+                        <h3 class="term-name">Dummy Image</h3>
+                        <span class="term-tag tag-art">Dev</span>
+                    </div>
+                    <p class="term-desc">제작 완료 전 가체결 상태로 배치하는 임시 테스트용 이미지입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="layout">
+                    <div class="term-header">
+                        <h3 class="term-name">Layout</h3>
+                        <span class="term-tag tag-ux">Design</span>
+                    </div>
+                    <p class="term-desc">제한된 공간 안에 각 그래픽 요소를 효율적으로 배치하고 디자인하는 작업입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="creative">
+                    <div class="term-header">
+                        <h3 class="term-name">Creative</h3>
+                        <span class="term-tag tag-art">Marketing</span>
+                    </div>
+                    <p class="term-desc">광고 모델링이나 배너, 영상 등 마케팅 전략에 사용되는 모든 시각 에셋을 뜻합니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="blur effect">
+                    <div class="term-header">
+                        <h3 class="term-name">Blur Effect</h3>
+                        <span class="term-tag tag-art">Tech</span>
+                    </div>
+                    <p class="term-desc">이미지를 뿌옇게 처리하여 시각적인 집중도나 심도를 조절하는 효과입니다.</p>
+                    <div class="term-meta">중요도: ★</div>
+                </article>
+                <article class="term-card" data-name="typography">
+                    <div class="term-header">
+                        <h3 class="term-name">Typography</h3>
+                        <span class="term-tag tag-art">Design</span>
+                    </div>
+                    <p class="term-desc">폰트의 서체, 배치, 구조를 통해 텍스트의 정보를 시각적으로 전달하는 행위입니다.</p>
+                    <div class="term-meta">중요도: ★</div>
+                </article>
+                <article class="term-card" data-name="loader image">
+                    <div class="term-header">
+                        <h3 class="term-name">Loader Image</h3>
+                        <span class="term-tag tag-ux">UI</span>
+                    </div>
+                    <p class="term-desc">앱 로딩이나 데이터 통신 시 유저에게 첫 노출되는 메인 로더 이미지입니다.</p>
+                    <div class="term-meta">중요도: ★</div>
+                </article>
+            </div>
+
+            <!-- Sound & Video Section -->
+            <div class="section-header" id="sound">
+                <h2>사운드 및 영상</h2>
+                <span class="section-count">7</span>
+            </div>
+            <div class="term-section">
+                <article class="term-card" data-name="bgm">
+                    <div class="term-header">
+                        <h3 class="term-name">BGM</h3>
+                        <span class="term-tag tag-sound">Sound</span>
+                    </div>
+                    <p class="term-desc">Back Ground Music. 게임의 무드와 감정을 결정하는 배경음악입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="sfx">
+                    <div class="term-header">
+                        <h3 class="term-name">SFX</h3>
+                        <span class="term-tag tag-sound">Sound</span>
+                    </div>
+                    <p class="term-desc">Sound Effect. 버튼 클릭이나 폭발 등 특정 행동에 반응하는 효과음입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="jingle">
+                    <div class="term-header">
+                        <h3 class="term-name">Jingle</h3>
+                        <span class="term-tag tag-sound">Sound</span>
+                    </div>
+                    <p class="term-desc">짧은 멜로디성 효과음으로, 레벨 클리어나 패배 시 사용됩니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="loop">
+                    <div class="term-header">
+                        <h3 class="term-name">Loop</h3>
+                        <span class="term-tag tag-sound">Sound</span>
+                    </div>
+                    <p class="term-desc">음악의 처음과 끝 지점을 연결하여 끊김 없이 반복 재생하는 기법입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="normalize">
+                    <div class="term-header">
+                        <h3 class="term-name">Normalize</h3>
+                        <span class="term-tag tag-sound">Sound</span>
+                    </div>
+                    <p class="term-desc">들쭉날쭉한 사운드 리소스의 음량을 일정하게 맞추는 공정입니다.</p>
+                    <div class="term-meta">중요도: ★★</div>
+                </article>
+                <article class="term-card" data-name="store preview">
+                    <div class="term-header">
+                        <h3 class="term-name">Store Preview</h3>
+                        <span class="term-tag tag-sound">Video</span>
+                    </div>
+                    <p class="term-desc">앱 스토어 페이지에서 게임 플레이를 미리 볼 수 있도록 구성한 영상입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
+                </article>
+                <article class="term-card" data-name="ua video">
+                    <div class="term-header">
+                        <h3 class="term-name">UA Video</h3>
+                        <span class="term-tag tag-sound">Video</span>
+                    </div>
+                    <p class="term-desc">User Acquisition Video. 신규 유저 모객을 위해 제작되는 광고 홍보 영상입니다.</p>
+                    <div class="term-meta">중요도: ★★★</div>
                 </article>
             </div>
         </main>
@@ -517,18 +899,22 @@
                 });
             });
 
-            // Card Expansion Functionality
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('expanded');
+            // Active State on Scroll (Optional Improvement)
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const sections = document.querySelectorAll('.section-header');
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
                 });
-            });
 
-            // Smooth Scroll & Active State
-            navItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    navItems.forEach(n => n.classList.remove('active'));
-                    item.classList.add('active');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').substring(1) === current) {
+                        item.classList.add('active');
+                    }
                 });
             });
         });
