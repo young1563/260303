@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리서치 | 게임 장르별 초반 유저 이탈 방지 전략</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-glow: rgba(124, 77, 255, 0.15);
+            --secondary-glow: rgba(0, 229, 255, 0.15);
+        }
+
+        .article-hero {
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(circle at top right, var(--primary-glow), transparent),
+                radial-gradient(circle at bottom left, var(--secondary-glow), transparent);
+            text-align: center;
+        }
+
+        .tag-cloud {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: white;
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+
+        .badge.active {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+        }
+
+        .viz-container {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .genre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .genre-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .genre-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--card-shadow);
+        }
+
+        .genre-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-primary);
+        }
+
+        .genre-card .metric-highlight {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #ff3d00;
+            margin: 1rem 0;
+            display: block;
+        }
+
+        .timeline-viz {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .timeline-viz::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-gradient);
+            opacity: 0.2;
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .step-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            flex: 1;
+        }
+
+        .step-time {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .pro-tip {
+            background: linear-gradient(to right, #7c4dff10, #00e5ff10);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent-primary);
+            margin: 2rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .chart-wrapper {
+            height: 400px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .layout-wrapper {
+                flex-direction: column;
+            }
+
+            .viz-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../index.html#research">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">기획 용어집</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <section class="article-header fade-in visible">
+            <div class="tag-cloud">
+                <span class="badge active">Retention Strategy</span>
+                <span class="badge">UX Design</span>
+                <span class="badge">Data Analysis</span>
+            </div>
+            <h1>게임 장르별 초반 유저 이탈 방지 전략</h1>
+            <p class="article-meta">2026. 03. 11 • Deep Research Report</p>
+        </section>
+
+        <section class="article-body">
+            <div class="pro-tip fade-in visible">
+                <strong>💡 핵심 가설:</strong> "마찰(Friction)은 줄이고, 가치 인지(Value Perception)는 앞당겨라."
+                <br>초반 1시간의 경험이 LTV(생애 가치)의 80%를 결정합니다.
+            </div>
+
+            <h2>1. 리텐션 벤치마크 및 목표 (D1 Retention)</h2>
+            <p>장르별로 유저가 기대하는 '재미의 호흡'이 다릅니다. 우리 게임의 위치를 파악하는 것이 첫 번째 단계입니다.</p>
+
+            <div class="viz-container fade-in visible">
+                <div class="chart-wrapper">
+                    <canvas id="retentionChart"></canvas>
+                </div>
+            </div>
+
+            <h2>2. 장르별 핵심 이탈 방지 필살기</h2>
+            <div class="genre-grid">
+                <div class="genre-card fade-in visible" style="animation-delay: 0.1s;">
+                    <h3><span>🎮</span> 모바일 캐주얼</h3>
+                    <span class="metric-highlight">"첫 60초 내 승리 경험"</span>
+                    <p>초반 10스테이지까지는 실패 스트레스를 제거하고, 힌트를 무제한 제공하여 유저에게 '할만하다'는 자신감을 심어주어야 합니다.</p>
+                </div>
+                <div class="genre-card fade-in visible" style="animation-delay: 0.2s;">
+                    <h3><span>⚡</span> 하이퍼 캐주얼</h3>
+                    <span class="metric-highlight">"TTFF 5초 미만"</span>
+                    <p>텍스트 가이드를 과감히 삭제하고 '손가락 하나'로 즉시 플레이하게 하세요. D1 38% 미만이라면 코어 루프부터 재검토해야 합니다.</p>
+                </div>
+                <div class="genre-card fade-in visible" style="animation-delay: 0.3s;">
+                    <h3><span>💎</span> RPG / 가챠</h3>
+                    <span class="metric-highlight">"신뢰 기반의 성장 루프"</span>
+                    <p>첫 30분 내에 뽑기의 재미를 체험시키되, 확률 정보를 투명하게 노출하여 '공정한 게임'이라는 인식을 주어야 합니다.</p>
+                </div>
+                <div class="genre-card fade-in visible" style="animation-delay: 0.4s;">
+                    <h3><span>🤝</span> MMO / 소셜</h3>
+                    <span class="metric-highlight">"7일 내 관계 형성"</span>
+                    <p>최소 1명의 친구 또는 길드 가입을 유도하세요. 혼자 하는 게임이 아니라는 것을 인지하는 순간 잔존율이 비약적으로 상승합니다.</p>
+                </div>
+            </div>
+
+            <h2>3. 골든 타임 체크포인트 (Retention Timeline)</h2>
+            <div class="timeline-viz">
+                <div class="timeline-step fade-in visible">
+                    <div class="step-content">
+                        <span class="step-time">Phase 1: 첫 1시간 (Value Perception)</span>
+                        <p><strong>유저 심리:</strong> "이 게임, 시간 쓸 만한가?"</p>
+                        <ul>
+                            <li>TTFR(첫 보상 시간) 1분 이내 단축</li>
+                            <li>인지 부하(텍스트 폭탄) 50% 제거</li>
+                            <li>실패 안전장치(Fail-safe) 가동</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in visible">
+                    <div class="step-content">
+                        <span class="step-time">Phase 2: 첫 1일 (Return Trigger)</span>
+                        <p><strong>유저 심리:</strong> "내일 다시 올 이유가 있나?"</p>
+                        <ul>
+                            <li>명확한 '내일의 보상' 예고</li>
+                            <li>푸시 알림 명분(성장 완료 등) 확보</li>
+                            <li>계정 연동 가이드 최적화</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-step fade-in visible">
+                    <div class="step-content">
+                        <span class="step-time">Phase 3: 첫 7일 (Habituation)</span>
+                        <p><strong>유저 심리:</strong> "일상의 일부가 될 것인가?"</p>
+                        <ul>
+                            <li>주간 미션/콘텐츠 사이클 안착</li>
+                            <li>소셜 고정 장치(길드/랭킹) 연결</li>
+                            <li>중기 성장 목표(레벨/장비) 제시</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>4. 실전 실행 체크리스트</h2>
+            <div class="viz-container fade-in visible" style="background: #f8f9ff;">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <label style="display: flex; gap: 10px; cursor: pointer;"><input type="checkbox" checked> 튜토리얼이
+                        '설명'이 아닌 '경험'으로 구성되었나?</label>
+                    <label style="display: flex; gap: 10px; cursor: pointer;"><input type="checkbox" checked> 첫 보상이 설치 후
+                        60초 이내에 발생하는가?</label>
+                    <label style="display: flex; gap: 10px; cursor: pointer;"><input type="checkbox"> 화면에 CTA(지금 해야 할
+                        행동)가 1개만 명확히 보이는가?</label>
+                    <label style="display: flex; gap: 10px; cursor: pointer;"><input type="checkbox"> 기술적 최적화(로딩 5초 미만,
+                        발열 제어)가 검증되었나?</label>
+                    <label style="display: flex; gap: 10px; cursor: pointer;"><input type="checkbox"> 확률 및 보상 체계가 투명하게
+                        공개되어 있는가?</label>
+                </div>
+            </div>
+
+            <div class="pro-tip fade-in visible" style="border-left-color: var(--accent-secondary); margin-top: 4rem;">
+                <strong>⚠️ 주의:</strong> 화려한 기획보다 중요한 것은 **기술 품질**입니다. 크래시나 발열이 발생하면 유저는 기획적 재미를 느끼기도 전에 떠납니다.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. 본 리포트는 실무 데이터 분석을 기반으로 제작되었습니다.</p>
+    </footer>
+
+    <script>
+        // Chart Initialization
+        const ctx = document.getElementById('retentionChart').getContext('2d');
+        const retentionChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'],
+                datasets: [{
+                    label: '하이퍼캐주얼 (벤치마크)',
+                    data: [100, 40, 26, 18, 14, 12, 11, 10],
+                    borderColor: '#7c4dff',
+                    backgroundColor: 'rgba(124, 77, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'RPG / 가챠',
+                    data: [100, 35, 28, 24, 22, 20, 19, 18],
+                    borderColor: '#00e5ff',
+                    backgroundColor: 'rgba(0, 229, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: 'MMO / 소셜',
+                    data: [100, 30, 26, 24, 23, 22, 21, 20],
+                    borderColor: '#ffd600',
+                    backgroundColor: 'rgba(255, 214, 0, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { family: 'Outfit', size: 12, weight: 'bold' }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Retention (%)', font: { weight: 'bold' } }
+                    }
+                }
+            }
+        });
+
+        // Simple Fade-in Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
