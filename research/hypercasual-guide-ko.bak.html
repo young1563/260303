@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼캐주얼 게임 가이드 | Research</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(124, 77, 255, 0.05) 100%);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--card-border);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .section-card h2 {
+            color: var(--accent-primary);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .strategy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strategy-list li {
+            padding: 1.2rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .strategy-list strong {
+            color: var(--accent-primary);
+            min-width: 120px;
+        }
+
+        .source-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .source-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Analysis</a></li>
+                <li><a href="../index.html#research" class="active">Research</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="hypercasual-guide.html">EN</a>
+                <a href="hypercasual-guide-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <article>
+            <div class="guide-hero">
+                <h1>하이퍼캐주얼 게임: 시장 인사이트 및 성공 전략</h1>
+                <p>Appier 리포트를 바탕으로 분석한 하이퍼캐주얼 게임의 핵심 정의와 변화하는 시장 트렌드를 정리합니다.</p>
+            </div>
+
+            <div class="section-card">
+                <h2>🎯 하이퍼캐주얼 게임의 정의</h2>
+                <p>하이퍼캐주얼 게임은 별도의 튜토리얼 없이 누구나 즉각적으로 즐길 수 있는 '극도의 단순함'을 지향합니다. 대중교통 이용 시간 등 짧은 자투리 시간에 즐길 수 있는
+                    '스낵커블(Snackable)'한 콘텐츠가 핵심입니다.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="feature-title">미니멀 UI</span>
+                        <span class="feature-desc">군더더기 없는 깔끔한 인터페이스</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">단순 메커닉</span>
+                        <span class="feature-desc">탭, 스와이프 등 단일 조작 중심</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">낮은 진입장벽</span>
+                        <span class="feature-desc">무료 플레이 및 작은 설치 용량</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>📈 시장 트렌드: 하이퍼에서 하이브리드로</h2>
+                <p>현재 하이퍼캐주얼 시장은 단순한 다운로드 수 경쟁을 넘어 지속 가능성을 모색하는 과도기에 있습니다.</p>
+                <ul class="strategy-list">
+                    <li><strong>저유지율의 한계</strong> 보통 1일 차 이후 잔존율이 급격히 하락하는 특성을 보입니다.</li>
+                    <li><strong>하이브리드화</strong> 리텐션을 높이기 위해 RPG 요소나 성장 메타 시스템을 결합하고 있습니다.</li>
+                    <li><strong>UA 경쟁 심화</strong> 제작이 쉬운 만큼 시장 포화도가 높아 정교한 마케팅 전략이 필수가 되었습니다.</li>
+                </ul>
+            </div>
+
+            <div class="section-card">
+                <h2>🚀 성공을 위한 4가지 핵심 전략</h2>
+                <p>Appier는 하이퍼캐주얼 게임의 수익 극대화를 위해 다음과 같은 솔루션을 제시합니다.</p>
+                <ul class="strategy-list">
+                    <li><strong>UA 최적화</strong> AI를 활용하여 광고 수용도가 높은 고가치 유저를 정밀 타겟팅합니다.</li>
+                    <li><strong>크로스 프로모션</strong> 자사 게임 포트폴리오를 활용하여 유저를 순환시키고 LTV를 높입니다.</li>
+                    <li><strong>크리에이티브 테스트</strong> 플레이 가능 광고(Playable Ads) 등 몰입감 높은 광고 소재를 검증합니다.</li>
+                    <li><strong>리타겟팅</strong> 이탈한 유저를 적절한 시점에 다시 불러들여 광고 노출 기회를 확장합니다.</li>
+                </ul>
+            </div>
+
+            <div class="source-footer">
+                <h3>🔗 출처 리포트</h3>
+                <a href="https://www.appier.com/ko-kr/blog/hyper-casual-game" target="_blank" class="source-link">
+                    Appier - 하이퍼캐주얼 게임: 정의, 특징 및 성공 전략 원문 보기 ➔
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

@@ -4,115 +4,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>하이퍼캐주얼 게임 가이드 | Research</title>
+    <title>하이퍼캐주얼 게임 가이드 | Research Archive</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
         rel="stylesheet">
     <style>
         .guide-hero {
-            background: linear-gradient(135deg, rgba(0, 229, 255, 0.05) 0%, rgba(124, 77, 255, 0.05) 100%);
-            padding: 4rem 2rem;
+            position: relative;
+            background: url('../img/hybridcasual.avif') no-repeat center center;
+            background-size: cover;
+            padding: 8rem 2rem 6rem;
             border-radius: var(--radius-lg);
             border: 1px solid var(--card-border);
             margin-bottom: 3rem;
             text-align: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .guide-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(81, 45, 168, 0.8) 0%, rgba(0, 151, 167, 0.8) 100%);
+            z-index: 0;
+            opacity: 0.9;
+        }
+
+        .guide-hero h1 {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-hero p {
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            opacity: 1 !important;
+            font-weight: 500;
+        }
+
+        .guide-hero * {
+            position: relative;
+            z-index: 1;
         }
 
         .section-card {
             background: var(--bg-secondary);
             border: 1px solid var(--card-border);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
             box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
         }
 
         .section-card h2 {
             color: var(--accent-primary);
             margin-top: 0;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
+            border-bottom: 2px solid rgba(124, 77, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benchmark-item {
+            background: #fff;
+            padding: 2rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .benchmark-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit';
+        }
+
+        .benchmark-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
             margin-top: 1.5rem;
         }
 
-        .feature-item {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-            text-align: center;
+        @media (max-width: 992px) {
+
+            .benchmark-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benchmark-label {
+                white-space: normal;
+            }
         }
 
-        .feature-item i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
+        .feature-item {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s ease;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent-primary);
+            background: #fdfcff;
         }
 
         .feature-title {
-            font-weight: 700;
+            font-weight: 800;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--text-primary);
+            font-size: 1.1rem;
         }
 
         .feature-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .strategy-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .strategy-list li {
-            padding: 1.2rem;
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .strategy-list strong {
-            color: var(--accent-primary);
-            min-width: 120px;
-        }
-
-        .source-footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--card-border);
-        }
-
-        .source-link {
-            display: inline-flex;
+        .source-tag {
+            background: #f8f9ff;
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            border: 1px solid var(--card-border);
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
+            gap: 8px;
+            transition: all 0.2s ease;
         }
 
-        .source-link:hover {
-            opacity: 0.7;
+        .source-tag:hover {
+            background: white;
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .pro-tip {
+            background: linear-gradient(to right, #7c4dff08, #00e5ff08);
+            border-left: 4px solid var(--accent-primary);
+            padding: 1.5rem 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -120,72 +199,103 @@
 <body>
 
     <header>
-        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></a>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
                 <li><a href="../index.html">Analysis</a></li>
                 <li><a href="../index.html#research" class="active">Research</a></li>
             </ul>
-            <div class="lang-switch">
-                <a href="hypercasual-guide.html">EN</a>
-                <a href="hypercasual-guide-ko.html" class="active">KO</a>
-            </div>
         </nav>
     </header>
 
     <main class="article-container">
         <article>
             <div class="guide-hero">
-                <h1>하이퍼캐주얼 게임: 시장 인사이트 및 성공 전략</h1>
-                <p>Appier 리포트를 바탕으로 분석한 하이퍼캐주얼 게임의 핵심 정의와 변화하는 시장 트렌드를 정리합니다.</p>
+                <span class="card-tag-inline"
+                    style="background: var(--accent-gradient); color: white; margin-bottom: 1.5rem;">Cross-Industry
+                    Research</span>
+                <h1>하이퍼캐주얼 게임 성공 전략 및 데이터 벤치마크</h1>
+                <p>Appier, Unity, GameAnalytics 등 글로벌 선두 기관들의 리포트를 통합 분석하여 <br>하이퍼캐주얼의 코어 메커닉과 최신 시장 지표를 정리합니다.</p>
             </div>
 
             <div class="section-card">
-                <h2>🎯 하이퍼캐주얼 게임의 정의</h2>
-                <p>하이퍼캐주얼 게임은 별도의 튜토리얼 없이 누구나 즉각적으로 즐길 수 있는 '극도의 단순함'을 지향합니다. 대중교통 이용 시간 등 짧은 자투리 시간에 즐길 수 있는
-                    '스낵커블(Snackable)'한 콘텐츠가 핵심입니다.</p>
+                <h2>📊 핵심 성과 지표 (Benchmark Data)</h2>
+                <p>글로벌 상위권 하이퍼캐주얼 게임들이 도달해야 하는 필수 목표 수치입니다.</p>
+                <div class="benchmark-grid">
+                    <div class="benchmark-item">
+                        <span class="benchmark-val">38% +</span>
+                        <span class="benchmark-label">D1 Retention (Top 25%)</span>
+                    </div>
+                    <div class="benchmark-item">
+                        <span class="benchmark-val">12% +</span>
+                        <span class="benchmark-label">D7 Retention (Top 25%)</span>
+                    </div>
+                    <div class="benchmark-item">
+                        <span class="benchmark-val">$0.30 - 0.50</span>
+                        <span class="benchmark-label">Average CPI (T1 Countries)</span>
+                    </div>
+                </div>
+                <div class="pro-tip">
+                    <strong>💡 Insight:</strong> GameAnalytics 데이터에 따르면, 상위 2% 게임들은 D1 리텐션 50% 이상을 기록하며 초기 10분 내에 코어 루프를
+                    평균 3회 이상 노출시킵니다.
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>🎯 하이퍼캐주얼의 3대 핵심 기둥</h2>
+                <p>Unity와 Appier 리포트에서 공통적으로 강조하는 '극도의 단순함'을 구현하는 방법입니다.</p>
                 <div class="feature-grid">
                     <div class="feature-item">
-                        <span class="feature-title">미니멀 UI</span>
-                        <span class="feature-desc">군더더기 없는 깔끔한 인터페이스</span>
+                        <span class="feature-title">즉각적 가치 (Instant Gratification)</span>
+                        <span class="feature-desc">설치 후 첫 보상까지의 시간(TTFR)을 30초 이내로 단축하여 유저의 도파민을 즉시 자극합니다.</span>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-title">단순 메커닉</span>
-                        <span class="feature-desc">탭, 스와이프 등 단일 조작 중심</span>
+                        <span class="feature-title">비언어적 튜토리얼 (Invisible UX)</span>
+                        <span class="feature-desc">텍스트 설명 없이 직관적인 비주얼 가이드와 손가락 아이콘만으로 학습 마찰을 제로화합니다.</span>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-title">낮은 진입장벽</span>
-                        <span class="feature-desc">무료 플레이 및 작은 설치 용량</span>
+                        <span class="feature-title">하이브리드 확장성 (Hybrid Evolution)</span>
+                        <span class="feature-desc">단순 루프 위에 RPG식 성장 요소나 컬렉션 시스템을 얹어 LTV를 극대화하는 추세입니다.</span>
                     </div>
                 </div>
             </div>
 
             <div class="section-card">
-                <h2>📈 시장 트렌드: 하이퍼에서 하이브리드로</h2>
-                <p>현재 하이퍼캐주얼 시장은 단순한 다운로드 수 경쟁을 넘어 지속 가능성을 모색하는 과도기에 있습니다.</p>
-                <ul class="strategy-list">
-                    <li><strong>저유지율의 한계</strong> 보통 1일 차 이후 잔존율이 급격히 하락하는 특성을 보입니다.</li>
-                    <li><strong>하이브리드화</strong> 리텐션을 높이기 위해 RPG 요소나 성장 메타 시스템을 결합하고 있습니다.</li>
-                    <li><strong>UA 경쟁 심화</strong> 제작이 쉬운 만큼 시장 포화도가 높아 정교한 마케팅 전략이 필수가 되었습니다.</li>
-                </ul>
+                <h2>🚀 전문가 유저 확보(UA) 전략</h2>
+                <p>성공적인 스케일업을 위해 권장되는 AppsFlyer 중심의 마케팅 믹스입니다.</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="feature-title">플레이어블 광고 (Playable Ads)</span>
+                        <span class="feature-desc">게임의 핵심 재미를 15초 내에 직접 경험하게 하여 설치 후 잔존율을 25% 이상 높입니다.</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">크로스 프로모션 (Cross-Promo)</span>
+                        <span class="feature-desc">자사 포트폴리오 유저 풀을 활용하여 UA 비용 없이 신규 유저를 순환시킵니다.</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-title">고가치 유저 타겟팅 (ROAS-based)</span>
+                        <span class="feature-desc">AI 알고리즘을 활용해 단순히 설치만 하는 유저가 아닌, 광고 시청률이 높은 유저를 선별합니다.</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="section-card">
-                <h2>🚀 성공을 위한 4가지 핵심 전략</h2>
-                <p>Appier는 하이퍼캐주얼 게임의 수익 극대화를 위해 다음과 같은 솔루션을 제시합니다.</p>
-                <ul class="strategy-list">
-                    <li><strong>UA 최적화</strong> AI를 활용하여 광고 수용도가 높은 고가치 유저를 정밀 타겟팅합니다.</li>
-                    <li><strong>크로스 프로모션</strong> 자사 게임 포트폴리오를 활용하여 유저를 순환시키고 LTV를 높입니다.</li>
-                    <li><strong>크리에이티브 테스트</strong> 플레이 가능 광고(Playable Ads) 등 몰입감 높은 광고 소재를 검증합니다.</li>
-                    <li><strong>리타겟팅</strong> 이탈한 유저를 적절한 시점에 다시 불러들여 광고 노출 기회를 확장합니다.</li>
-                </ul>
-            </div>
-
-            <div class="source-footer">
-                <h3>🔗 출처 리포트</h3>
-                <a href="https://www.appier.com/ko-kr/blog/hyper-casual-game" target="_blank" class="source-link">
-                    Appier - 하이퍼캐주얼 게임: 정의, 특징 및 성공 전략 원문 보기 ➔
-                </a>
+            <div class="section-card" style="background: #fdfcff; border-color: rgba(124, 77, 255, 0.2);">
+                <h2>🔗 참조된 리서치 기관 (Data Sources)</h2>
+                <p>본 가이드는 하단의 신뢰할 수 있는 산업 리포트들을 종합하여 작성되었습니다.</p>
+                <div class="source-grid">
+                    <a href="https://www.appier.com/ko-kr/blog/hyper-casual-game" target="_blank" class="source-tag">🌐
+                        Appier Industry Blog</a>
+                    <a href="https://unity.com/resources/growing-hyper-casual-games" target="_blank"
+                        class="source-tag">🛠️ Unity Growing HC Report</a>
+                    <a href="https://www.gameanalytics.com/reports/2025-mobile-gaming-benchmarks" target="_blank"
+                        class="source-tag">📉 GameAnalytics Benchmarks</a>
+                    <a href="https://www.appsflyer.com/company/newsroom/pr/gaming-app-report/" target="_blank"
+                        class="source-tag">📱 AppsFlyer Marketing Report</a>
+                </div>
             </div>
         </article>
     </main>
