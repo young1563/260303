@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재미에 대한 고찰 & 디자인 공식</title>
+    <!-- 폰트 적용 -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- 기존 CSS 상속 -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/analysis.css">
+    <style>
+        body {
+            background-color: #0f1015;
+            color: #d1d5db;
+            font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: rgba(15, 16, 21, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .nav-logo:hover {
+            color: #00f0ff;
+        }
+
+        .tab-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #00f0ff, #ff00ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: rgba(255,255,255,0.03);
+            color: #9ca3af;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 12px 12px 0 0;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            background: rgba(25, 26, 35, 0.9);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00f0ff, #ff00ea);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(20, 21, 28, 0.6);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 50px;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Markdown Text Styling */
+        .tab-content h1 {
+            color: #fff;
+            font-size: 2.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .tab-content h2 {
+            color: #00f0ff;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tab-content h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background: #00f0ff;
+            border-radius: 4px;
+        }
+
+        .tab-content h3 {
+            color: #ff8a00;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .tab-content p {
+            margin-bottom: 20px;
+            color: #cbd5e1;
+            letter-spacing: -0.02em;
+        }
+
+        .tab-content ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+            list-style: none;
+        }
+
+        .tab-content ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tab-content ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ff00ea;
+            font-weight: bold;
+        }
+
+        .tab-content blockquote {
+            border-left: 4px solid #ff00ea;
+            background: rgba(255, 0, 234, 0.05);
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #e2e8f0;
+            font-size: 1.15rem;
+        }
+        
+        .tab-content blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tab-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tab-content th, .tab-content td {
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 16px;
+            text-align: left;
+        }
+
+        .tab-content th {
+            background-color: rgba(255,255,255,0.05);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .tab-content img {
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .tab-content hr {
+            border: 0;
+            border-top: 1px dashed rgba(255,255,255,0.15);
+            margin: 50px 0;
+        }
+
+        .tab-content strong {
+            color: #fff;
+            font-weight: 700;
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">← 돌아가기</a>
+        </div>
+    </header>
+
+    <main class="tab-container">
+        <div class="page-title">재미에 대한 고찰 및 디자인 공식</div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'tab1')">인간이 느끼는 재미 (기능적 정의)</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab2')">게임 디자인 속 재미 공식 (설계 관점)</button>
+        </div>
+
+        <!-- Content 1: 인간이 느끼는 재미에 대한 고찰 -->
+        <div id="tab1" class="tab-content active">
+            <h1>인간이 느끼는 재미에 대한 고찰</h1>
+            
+            <h2>1. 재미란 무엇인가 — 기능적 정의</h2>
+            <p><strong>재미(Fun)</strong>는 단순한 쾌락이 아니라,</p>
+            <blockquote>
+                <p>인간이 환경과 상호작용하는 과정에서 <strong>“인지적 보상”</strong>을 받았다고 느끼는 상태로 정의할 수 있다.</p>
+            </blockquote>
+            <p>즉, 재미는 결과가 아니라 <strong>과정에 대한 보상 신호</strong>다.</p>
+            <ul>
+                <li>생존에 직접 필요하지 않아도</li>
+                <li>반복하게 만들고</li>
+                <li>학습과 탐색을 지속시키는</li>
+            </ul>
+            <p>일종의 <strong>행동 강화 메커니즘</strong>이다.</p>
+            
+            <hr>
+            
+            <h2>2. 재미의 핵심 구성 요소 (4요소 모델)</h2>
+            
+            <h3>① 예측과 어긋남 (Prediction Error)</h3>
+            <p>인간의 뇌는 항상 미래를 예측한다.<br>재미는 이 예측이 <strong>살짝 빗나갈 때</strong> 발생한다.</p>
+            <ul>
+                <li>너무 맞으면 → 지루함</li>
+                <li>너무 틀리면 → 혼란·불안</li>
+                <li><strong>조금 틀리면 → 재미</strong></li>
+            </ul>
+            <p>예시:</p>
+            <ul>
+                <li>개그의 타이밍</li>
+                <li>반전 있는 스토리</li>
+                <li>예상 못 한 게임 기믹</li>
+            </ul>
+            <p>👉 재미 = <em>통제 가능한 예측 실패</em></p>
+            
+            <h3>② 이해 가능성 (Comprehensibility)</h3>
+            <p>아무리 새로워도 <strong>이해가 불가능하면 재미가 아니다.</strong></p>
+            <ul>
+                <li>규칙이 파악 가능해야 하고</li>
+                <li>원인–결과가 연결되어야 하며</li>
+                <li>“아, 그래서 그랬구나”라는 순간이 필요하다</li>
+            </ul>
+            <p>그래서 인간은:</p>
+            <ul>
+                <li>완전 무작위보다</li>
+                <li><strong>패턴이 숨어 있는 혼돈</strong>을 더 재미있어한다.</li>
+            </ul>
+            
+            <h3>③ 주체성 (Agency)</h3>
+            <p>재미는 <strong>내가 뭔가를 했다는 감각</strong>에서 증폭된다.</p>
+            <ul>
+                <li>선택</li>
+                <li>개입</li>
+                <li>영향력</li>
+            </ul>
+            <p>이 없는 재미는 오래가지 않는다.</p>
+            <p>예시:</p>
+            <ul>
+                <li>관람 &lt; 참여</li>
+                <li>자동 재생 &lt; 직접 조작</li>
+                <li>컷신 &lt; 플레이</li>
+            </ul>
+            <p>👉 재미는 “내 행동이 의미 있었다”는 감각과 강하게 연결된다.</p>
+            
+            <h3>④ 성장 감각 (Progress / Mastery)</h3>
+            <p>재미는 <strong>능숙해지고 있다는 느낌</strong>과 함께 지속된다.</p>
+            <ul>
+                <li>처음엔 어렵지만</li>
+                <li>점점 쉬워지고</li>
+                <li>내가 변했다는 증거가 남는다</li>
+            </ul>
+            <p>그래서 재미는 종종 고통과 함께 온다.</p>
+            <ul>
+                <li>연습</li>
+                <li>실패</li>
+                <li>반복</li>
+            </ul>
+            <p>👉 재미는 즉각적 쾌락보다 <strong>성취 예측</strong>에 가깝다.</p>
+            
+            <hr>
+            
+            <h2>3. 재미와 쾌락의 차이</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>재미</th>
+                        <th>쾌락</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>지속성</td>
+                        <td>누적됨</td>
+                        <td>빠르게 소모</td>
+                    </tr>
+                    <tr>
+                        <td>필요 요소</td>
+                        <td>이해, 선택, 노력</td>
+                        <td>자극</td>
+                    </tr>
+                    <tr>
+                        <td>반복 시</td>
+                        <td>더 깊어짐</td>
+                        <td>둔감해짐</td>
+                    </tr>
+                    <tr>
+                        <td>예시</td>
+                        <td>게임, 퍼즐, 학습</td>
+                        <td>당분, 도파민 쇼츠</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>현대 사회에서 “재미를 잃었다”고 느끼는 이유는<br><strong>쾌락의 과잉 소비</strong>로 재미 회로가 작동할 기회를 잃었기 때문이다.</p>
+            
+            <hr>
+            
+            <h2>4. 재미는 왜 중독을 만들까</h2>
+            <p>재미는 단순한 보상이 아니라</p>
+            <blockquote>
+                <p>“다음에 더 잘할 수 있을 것”이라는 예측 보상을 준다.</p>
+            </blockquote>
+            <p>그래서 인간은:</p>
+            <ul>
+                <li>끝났는데도 다시 하고</li>
+                <li>이미 알면서도 반복한다</li>
+            </ul>
+            <p>이는 뇌가 <strong>미래 성취를 선지급 보상</strong>으로 계산하기 때문이다.</p>
+            
+            <hr>
+            
+            <h2>5. 인간은 왜 재미를 추구하는가</h2>
+            <p>철학적으로 보면,</p>
+            <blockquote>
+                <p>인간은 생존을 넘어<br><strong>“이 세계를 이해하고 통제하고 싶어하는 존재”</strong>다.</p>
+            </blockquote>
+            <p>재미는 그 욕망이 충족될 때 발생하는 신호다.</p>
+            <ul>
+                <li>이해했을 때</li>
+                <li>바꿀 수 있다고 느낄 때</li>
+                <li>내가 성장하고 있다고 믿을 때</li>
+            </ul>
+            <p>그래서 인간은 재미를 통해:</p>
+            <ul>
+                <li>학습하고</li>
+                <li>문화를 만들고</li>
+                <li>예술과 게임과 이야기를 만들어왔다.</li>
+            </ul>
+            
+            <hr>
+            
+            <h2>6. 요약 문장</h2>
+            <ul>
+                <li>재미는 쾌락이 아니라 <strong>인지적 보상</strong>이다</li>
+                <li>재미는 예측의 어긋남 + 이해 가능성 + 주체성 + 성장 감각에서 발생한다</li>
+                <li>재미는 인간을 학습과 탐색으로 이끄는 <strong>진화적 장치</strong>다</li>
+            </ul>
+        </div>
+
+        <!-- Content 2: 게임 디자인에서 재미 공식 -->
+        <div id="tab2" class="tab-content">
+            <h1>게임 디자인에서 재미 공식</h1>
+            
+            <h2>1. 게임에서 재미를 공식화할 수 있는 이유</h2>
+            <p>게임은 다른 매체와 달리 다음을 모두 통제한다.</p>
+            <ul>
+                <li>규칙 (Rules)</li>
+                <li>입력 (Input)</li>
+                <li>피드백 (Feedback)</li>
+                <li>난이도 (Difficulty)</li>
+                <li>보상 (Reward)</li>
+            </ul>
+            <p>즉, <strong>재미를 구성하는 조건을 수치·구조로 설계할 수 있는 매체</strong>다.</p>
+            <p>그래서 “재미의 공식”은 은유가 아니라 <strong>디자인 도구</strong>다.</p>
+            
+            <hr>
+            
+            <h2>2. 핵심 공식 (설계 관점)</h2>
+            <h3>📐 게임 재미의 기본 공식</h3>
+            <blockquote>
+                <p>재미 = (의미 있는 선택 × 예측 가능한 규칙) + 통제된 불확실성 + 명확한 피드백</p>
+            </blockquote>
+            <p>이를 실무적으로 풀면 다음 4요소로 귀결된다.</p>
+            
+            <hr>
+            
+            <h2>3. 재미를 만드는 4대 설계 요소</h2>
+            
+            <h3>① Meaningful Choice (의미 있는 선택)</h3>
+            <p>선택이 재미가 되려면 반드시 조건을 만족해야 한다.</p>
+            <ul>
+                <li>선택지가 <strong>서로 다를 것</strong></li>
+                <li>결과가 <strong>즉시 또는 지연되어 드러날 것</strong></li>
+                <li>플레이어가 결과를 <strong>자기 책임으로 인식</strong>할 것</li>
+            </ul>
+            <p>❌ 잘못된 예</p>
+            <ul>
+                <li>버튼은 많지만 결과는 동일</li>
+                <li>최적해가 하나뿐인 구조</li>
+            </ul>
+            <p>⭕ 좋은 예</p>
+            <ul>
+                <li>위험 vs 안전</li>
+                <li>빠름 vs 정확함</li>
+                <li>지금 이득 vs 미래 이득</li>
+            </ul>
+            <p>👉 <strong>선택이 곧 자기 표현이 되는 순간</strong>, 재미가 발생한다.</p>
+            
+            <h3>② Predictable Rule + Unpredictable Outcome</h3>
+            <p>게임 규칙은 <strong>항상 명확해야</strong> 한다.<br>하지만 결과는 <strong>완전히 예측 가능하면 안 된다.</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>상태</th>
+                        <th>플레이어 감정</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>규칙 불명확</td>
+                        <td>혼란</td>
+                    </tr>
+                    <tr>
+                        <td>규칙 명확 + 결과 확정</td>
+                        <td>지루</td>
+                    </tr>
+                    <tr>
+                        <td>규칙 명확 + 결과 변동</td>
+                        <td>재미</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>이 구조가 만들어내는 것이 바로:</p>
+            <ul>
+                <li>“이번엔 될 것 같은데?”</li>
+                <li>“다음엔 더 잘할 수 있을 것 같은데?”</li>
+            </ul>
+            <p>👉 재미는 <strong>확률이 아니라 기대감</strong>에서 발생한다.</p>
+            
+            <h3>③ Feedback Loop (피드백 루프)</h3>
+            <p>재미는 결과 그 자체보다 <strong>피드백의 질</strong>에 좌우된다.<br>좋은 피드백의 조건:</p>
+            <ul>
+                <li>즉각적 (Immediate)</li>
+                <li>감각적 (Visual / Audio / Haptic)</li>
+                <li>해석 가능 (왜 성공/실패했는지 알 수 있음)</li>
+            </ul>
+            
+            <img src="https://gamedevgems.com/wp-content/uploads/2023/01/gdg-feedbackloops-5-1024x576.png" alt="Feedback Loop Example 1">
+            <img src="https://sdlccorp-web-prod.blr1.digitaloceanspaces.com/wp-content/uploads/2024/09/26151334/Untitled-design-15.png" alt="Feedback Loop Example 2">
+            <img src="https://miro.medium.com/1%2AWRvhYicr-rlWcMOsltuCvw.gif" alt="Feedback Loop GIF">
+            
+            <p>그래서:</p>
+            <ul>
+                <li>작은 성공에도 이펙트가 필요하고</li>
+                <li>실패에도 정보가 남아야 한다</li>
+            </ul>
+            <p>👉 피드백은 <strong>보상</strong>이 아니라 <strong>학습 가속기</strong>다.</p>
+            
+            <h3>④ Flow Control (난이도 곡선)</h3>
+            <p>재미는 <strong>실력 대비 과제 난이도</strong>가 맞을 때 극대화된다.</p>
+            
+            <img src="https://i2.wp.com/gamedevelopertips.com/wp-content/uploads/2016/06/flow-channel1.png?resize=687%2C337" alt="Flow Channel Diagram">
+            <img src="https://www.davetech.co.uk/pages/difficultycurves/i/dfifficulty-saw.gif" alt="Difficulty Sawtooth Curve">
+            <img src="https://eyi2a29pdc4.exactdn.com/wp-content/uploads/2013/09/graphtwo-1.png?strip=all" alt="Difficulty Graph">
+            
+            <p>실무 공식으로 정리하면:</p>
+            <ul>
+                <li>너무 쉬움 → 지루</li>
+                <li>너무 어려움 → 좌절</li>
+                <li><strong>조금 어려움 → 몰입</strong></li>
+            </ul>
+            <p>그래서 좋은 게임은:</p>
+            <ul>
+                <li>실패를 허용하고</li>
+                <li>재도전을 빠르게 하며</li>
+                <li>실력이 오르면 난이도도 같이 오른다</li>
+            </ul>
+            <p>👉 재미는 <strong>성공이 아니라 도전이 관리될 때</strong> 유지된다.</p>
+            
+            <hr>
+            
+            <h2>4. 재미를 지속시키는 보조 공식</h2>
+            
+            <h3>🔁 재미의 반복 공식</h3>
+            <blockquote>
+                <p>반복 가능한 재미 = 변주된 동일성</p>
+            </blockquote>
+            <ul>
+                <li>핵심 규칙은 유지</li>
+                <li>상황, 조합, 맥락만 변화</li>
+            </ul>
+            <p>예:</p>
+            <ul>
+                <li>같은 공격 → 다른 적</li>
+                <li>같은 점프 → 다른 지형</li>
+                <li>같은 규칙 → 다른 목표</li>
+            </ul>
+            
+            <h3>🎯 재미의 중독 공식</h3>
+            <blockquote>
+                <p>중독성 = 짧은 루프 + 장기 목표</p>
+            </blockquote>
+            <ul>
+                <li>즉각적 보상: 이펙트, 점수, 타격감</li>
+                <li>장기 보상: 해금, 성장, 숙련</li>
+            </ul>
+            <p>이 두 개가 겹칠 때 플레이는 멈추기 어려워진다.</p>
+            
+            <hr>
+            
+            <h2>5. 재미를 망치는 대표적 설계 오류</h2>
+            <ul>
+                <li>선택은 많은데 결과 차이가 없음</li>
+                <li>피드백이 늦거나 불분명함</li>
+                <li>실패 비용이 너무 큼</li>
+                <li>숙련이 쌓여도 플레이가 변하지 않음</li>
+            </ul>
+            <p>👉 <strong>“열심히 해도 달라지는 게 없다”는 순간</strong>, 재미는 즉시 붕괴된다.</p>
+            
+            <hr>
+            
+            <h2>6. 한 줄 요약 공식</h2>
+            <blockquote>
+                <p>게임의 재미란<br>플레이어의 선택이 예측 가능한 규칙 속에서 불확실한 결과를 만들고<br>그 결과가 즉시 이해 가능하게 피드백되며<br>점점 더 잘할 수 있을 것이라는 확신을 주는 구조다.</p>
+            </blockquote>
+        </div>
+    </main>
+
+    <script>
+        function openTab(evt, tabName) {
+            // 모든 탭 콘텐츠 숨기기 및 클래스 제거
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // 모든 탭 버튼 비활성화
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // 선택된 탭 표시 및 버튼 활성화
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
