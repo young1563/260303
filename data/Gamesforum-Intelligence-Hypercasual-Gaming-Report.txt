@@ -1,0 +1,844 @@
+--- Page 1 ---
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+A Marketing and Monetization Report INTELLIGENCE
+
+
+--- Page 2 ---
+TABLE OF CONTENTS: 
+Introduction 3
+Hypercasual Genre Report Overview 4
+Top Hypercasual Publishers 4
+Top Hypercasual Apps in Numbers (2019–2025 Forecast) 9
+Why Hypercasual Matters in 2025 12
+The Shift to Hybrid-Casual 16
+Case Studies: From Hypercasual to Hybrid-Casual 17
+ Voodoo’s Mob Control 17
+  Monetization Strategy  18
+  UA and Creative Testing 19
+  Market Timing and Gameplay Evolution 20
+ Rollic’s Color Block Jam 21
+  UA Strategy and Design 22
+  Three-Stage Monetization Funnel 23
+  Puzzle Genre Timing 24
+ Supercent’s Pizza Ready  25
+  Ad and IAP Strategy 26
+  Audience Breakdown and Global Reach 26
+  Data-Driven Optimisation 27
+Final Takeaways and Industry Trends for 2025 272 
+All data is powered by
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 3 ---
+INTRODUCTION 
+The hypercasual genre is far from disappearing, instead, it 
+is transforming. While perceptions of decline persist, our 
+exploration of the current data shows strong performance in 
+both user acquisition and monetization. In H1 2025, the top 100 
+hypercasual games recorded 2.4 billion downloads and $345 
+million in IAP revenue, setting the stage for the genre’s most 
+lucrative year to date. As developers adapt to higher UA costs 
+and shifting player expectations, many are evolving their titles 
+into hybrid-casual formats - retaining accessible gameplay while 
+layering in deeper progression and monetization.
+This report explores how leading studios are navigating that shift, 
+supported by case studies, market breakdowns, and forward-
+looking analysis.
+What’s Inside the Report 
+•   A breakdown of the top hypercasual publishers and titles from 
+2019 to 2025
+•   Case studies on hybrid-casual success stories including Mob 
+Control, Color Block Jam, and Pizza Ready
+•   Insights into monetization models, creative testing strategies, 
+and global market trends
+Together, these insights present a clear view of how hypercasual 
+continues to drive scale, experimentation, and innovation in 
+mobile gaming.3 3 
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 4 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+Top Hypercasual Publishers
+In the first six months of 2025, the top 100 hypercasual titles have amassed 5.484 
+billion global downloads across both the Google Play Store and iOS AppStore. 
+Following a growing trend of revenue diversification to reduce reliance on one 
+stream, 2025 so far has also seen 379 million USD generated in IAP revenue 
+from the top 100 hypercasual publishers. H1 of 2025 has far surpassed previous 
+annual IAP revenue for hypercasual titles. 
+In the table below you can view the top ten hypercasual publishers in H1 of 2025 
+by downloads across their hypercasual tagged titles.
+MOBILE GAMING BY 
+GENRE: HYPERCASUALTop Free Downloads4
+
+--- Page 5 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+AZUR GAMES ranks first with an impressive 609 million downloads in the first six 
+months of 2025, achieving 237 million more downloads than Super Sonic Studios 
+LTD, which is in second place with 372 million downloads.
+Voodoo places third with 362 million downloads and SayGames Ltd in fourth with 
+335 million downloads before Supercent, Inc. in fifth, with 242 million downloads.
+As covered in our Cyprus industry report , the small island is a powerhouse of mobile 
+publishing success, hosting numerous top hypercasual, casual and midcore mobile 
+game publishers.
+Other countries are also highlighted in our top ten hypercasual publishers for  
+2025 so far. France, Israel and Vietnam all host two of the most successful 
+hypercasual publishers.
+Looking further down the list of the top 100 hypercasual publishers of 2025, you can 
+see incredible success coming out of APAC - Vietnam in particular is home to one 
+fifth of the top hypercasual publishers.
+Of the top 100 hypercasual publishers in H1 of 2025, they are headquartered in:
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL5
+ 
+United States:  
+7
+ 
+China:  
+11
+ 
+Japan:  
+5
+ 
+Hong Kong:  
+12
+ 
+Vietnam:  
+20
+ 
+Pakistan:  
+8
+ 
+Israel:  
+3
+ 
+France:  
+5
+ 
+Cyprus:  
+3
+ 
+Turkey:  
+9
+
+--- Page 6 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+The Hypercasual Publisher Portfolios 
+Below you can find a deeper look at our top ten hypercasual publishers of H1 
+2025, including their hypercasual game portfolio size, primary audiences, and 
+the countries they operate in.
+All data is collected via AppMagic, looking at each publisher’s catalogue games 
+tagged as hypercasual, this includes both live and sunset games. 
+AZUR GAMES
+Of the 554 apps listed on AppMagic, AZUR GAMES has taken 
+ownership over 273 hypercasual titles, with the first launching 
+in February 2016 and three launching so far in 2025.
+Closing in on 12 billion lifetime downloads, 16% of AZUR GAMES downloads are 
+from India with a further 10% from the United States, 8% from Brazil and 7% 
+from Russia.
+31 of the publisher’s games have received over one-million downloads in the 
+last 30 days with the most successful title Worms Zone.io, and Hungry Snake 
+achieving 6.9-million in the last 30 days with over 550-million in lifetime 
+downloads.
+As is usually the case with hypercasual publishers, a majority of revenue comes 
+from ads, however AZUR GAMES’ IAP revenue peaked in May 2025 at 5.6 million 
+USD. For the first time in the publisher’s history, IAP revenue has averaged 
+above 5 million USD per month through 2025 so far, compared to an average of 
+2.5 million USD per month through 2022 and 2023.
+In its lifetime, AZUR GAMES has amassed 308 million USD in IAP revenue. More 
+than a third of lifetime IAP revenue comes from the United States at 112 million 
+USD, with Russia, Germany, UK, Japan and South Korea each contributing 4% to 
+lifetime IAP revenue.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+6
+
+--- Page 7 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+Supersonic Studios Ltd.
+Placing second as the greatest hypercasual publisher in 
+terms of downloads, Supersonic Studios Ltd has 372 million 
+downloads in the first six months of 2025. 
+Like AZUR GAMES, a majority of its lifetime downloads come from India, with 
+19%, or 966 million downloads, followed by the United States at 530 million 
+downloads. Supersonic Studios Ltd. has amassed a lifetime download total of 5.2 
+billion with a portfolio of 122 hypercasual titles, the first launching in 2019 with 
+three more released in 2025 so far.
+Supersonic Studios Ltd. has also seen an uptick in IAP revenue generated 
+through 2024 and 2025, achieving over 1 million USD in September 2024 and 
+January 2025. With a lifetime IAP revenue of 25 million USD, a total of 34% 
+comes from the United States.
+Voodoo
+With 8.4 billion lifetime downloads and 362 million in 2025  
+so far, French publisher Voodoo placed third in our top  
+hypercasual publishers of H1 2025. 
+Breaking the trend of core geos, 19% of Voodoo’s lifetime downloads come from 
+the United States at 1.6 billion total, with a further 938 million from India. 
+With a portfolio of 280 hypercasual titles, Hole.io and Paper.io 2 have amassed 
+over 10.5 million downloads in the last 30 days, with a further 11 titles achieving 
+more than a million downloads in the last month.
+Voodoo has been open about its embracing of hybrid monetization and its  
+increasing focus on IAP revenue alongside its long successful ad revenue.  
+In March 2023, Voodoo reported a 2.7x increase in its IAP revenue and a 10x  
+increase in its IAP ARPDAU since January 2022. 
+Since this announcement in March 2023, Voodoo’s IAP revenue has continued 
+to grow, averaging 9.85 million USD monthly in Q4 of 2024, with a lifetime IAP 
+revenue of 258 million USD. 
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+7
+
+--- Page 8 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+SayGames Ltd.
+The second Cyprus-based publisher, placing fourth with 335 
+million downloads in 2025 H1, is SayGames Ltd. 
+With a portfolio of 119 hypercasual titles, SayGames Ltd. has achieved over 6 
+billion lifetime downloads, with 16% from India and 11% from the United States. 
+Releasing its first title in 2017, the company has released two new titles in 2025 
+so far. 
+Looking at the IAP revenue, SayGames has also seen an uplift in spend-
+ers, with its hypercasual titles consistently achieving over 5 million USD in 
+monthly IAP revenue since June 2024. There has been a concentrated effort 
+on its top performing titles with Tower War - Tactical Conquest, My Perfect 
+Hotel and Squad Alpha - Action Shooting, with each achieving over 20 mil-
+lion USD in lifetime IAP revenue.
+Supercent Inc.
+South Korean publisher Supercent Inc ranked fifth in down-
+loads for H1 of 2025, with 242 million downloads. 
+With 119 titles listed on AppMagic under Supercent Inc, the company’s hyper -
+casual portfolio has achieved over 1 billion lifetime downloads. 15% of its down-
+loads are attributed to India, with a further 9% from the United States and 7% 
+from Brazil.
+Having released its first title in 2021, Supercent Inc has continued to launch titles 
+through 2025, with four new games between January and May. Its most suc -
+cessful title, Pizza Ready! has received 263 million lifetime downloads and over 
+14.5 million downloads in the last 30 days.
+Taking a look at revenue, Supercent, Inc has maintained a focus on ad revenue, 
+with IAP revenue at 16 million USD during the publisher’s lifetime. 
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+8
+
+--- Page 9 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+Top Hypercasual Apps in Numbers
+In the table and graphs below you can see how the top 100 hypercasual games 
+have performed year-on-year from 2019 to 2024, including a forecast for 2025.
+The above table depicts in real numbers download trends in hypercasual games 
+from the height of 2019 and 2020 through to the low of 2023 and its gradual re -
+turn to an upward trajectory through 2024, as well as an estimation for 2025. 
+2022 and 2023 saw the introduction of the phrase hybrid-casual, with more hy -
+percasual publishers focusing on revenue diversification in a turbulent UA land-
+scape, which saw CPIs rising and privacy depreciation alongside the end of the 
+pandemic changing an era of player behaviour.
+In terms of revenue, the trends from 2019 to 2024, and a forecast for 2025, fur -
+ther show a wider embrace of IAP revenue in hypercasual games, further mix -
+ing the monetization models and increasing the players’ opportunity to spend 
+alongside the traditional ad revenue.*FC is a forecast for 2025 annual numbers based on the current hypercasual download and IAP revenue 
+for H1 of 2025 multiplied by two to reflect an identical performance in H2. This does not factor in the 
+expected uptick in both IAP revenue and downloads for Q4 of 2025, so estimates are conservative.YearAnnual Hypercasual 
+DownloadsAnnual Hypercasual IAP 
+Revenue
+2019 5,446,523,668 130,995,496
+2020 7,064,752,300 107,177,496
+2021 5,948,747,293 110,604,150
+2022 4,960,890,658 111,137,497
+2023 4,443,195,477 192,723,934
+2024 4,734,015,371 403,833,377
+2025 (FC)* 4,818,721,844 690,012,732
+2025 (H1) 2,409,360,922 345,006,366
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL9
+
+--- Page 10 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+Hypercasual Downloads Year-on-Year
+The below figure further demonstrates download trends from 2019 to 2024, in-
+cluding a forecast for 2025. 
+As shown, the 2020 peak saw annual downloads for the top 100 most download-
+ed hypercasual games reach over 7 billion, followed by a year-on-year decline of 
+1 billion downloads through 2021 and 2022, before reaching a low of 4.4 billion 
+downloads in 2023. 
+This can be attributed to player behaviour post-pandemic, with people return-
+ing to work and having less free time to play mobile games, coupled with the 
+depreciation of privacy, with Apple’s IDFA, and the impact on CPI’s, UA budgets 
+and ad revenue value. A true concoction of challenges that ultimately made it 
+harder to release and market games. 
+In 2024, the number of annual downloads across the top performing titles in-
+creased by just short of 300 million, with a conservative estimate of an increase 
+again in 2025 by 85 million downloads to 4.8 billion annual downloads across 
+the top performing games.
+Figure 2: The annual combined IAP revenue of the top 100 performing mobile games from 2019 to 2024, 
+with an estimate for 2025.8000000000
+6000000000
+2000000000
+04000000000
+2019 2020 2022 2021 2023 2024 2025 (FC)
+Year
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL10
+
+--- Page 11 ---
+HYPERCASUAL GENRE REPORT OVERVIEW
+Hypercasual IAP Revenue Year-on-Year
+Graph two contains the annual combined IAP revenue of the top 100 perform-
+ing mobile games from 2019 through 2024, with an estimate for 2025. The esti-
+mate does not account for the normative Q4 uptick in IAP revenue.
+In the graph, you can see a slight decline in 2019 to 2020, with IAP revenue mov -
+ing from 130 million USD to 107 million USD between the two years, before re -
+maining stable at 110 million USD in 2021, and 111 million USD in 2022. 
+As commented above, 2022 marked a turning point with more hypercasual 
+publishers focusing on diversifying their revenue and welcoming more oppor -
+tunities for players to pay in their titles. This can clearly be seen in 2023 with IAP 
+revenue across the top performing hypercasual titles increasing by 80 million, to 
+192 million USD in 2023.
+Figure 3 shows a projected $690 million in IAP revenue for 2025 across the top 100 hypercasual titles. 
+This is based on H1 performance of $345 million, doubled to estimate full-year results. This marks a 
+significant surge in in-app purchasing within the genre.6000000000
+5000000000
+100000000020000000003000000000
+04000000000
+2019 2020 2022 2021 2023 2024 2025 (FC)
+MOBILE GAMING BY 
+GENRE: HYPERCASUALThis upward trend continues in 2024, with a further 220 million USD being add-
+ed across the top performing hypercasual games totaling 403 million USD in 
+IAP revenue for 2024.
+The 2025 estimate, as mentioned, is based on H1 performance for the top 100 
+titles being doubled to reflect an identical performance in H2. The H1 perfor -
+mance signals a huge year for IAP revenue in hypercasual titles, with 345 million 
+USD generated across the top 100 games.
+When doubled, this provides an estimated forecast of 690 million USD for the 
+year 2025 across the top 100 hypercasual games by IAP revenue, in what would 
+be an incredible bolstering of in-app purchasing amongst players. 11
+
+--- Page 12 ---
+WHY HYPERCASUAL MATTERS IN 202512
+Hypercasual games are undergoing a shift, with the evolution now often tilting 
+towards hybrid-casual, which introduces deeper monetization strategies 
+and increased complexity. As the data before this section shows, however, 
+hypercasual’s ultra-light builds and rapid development cycles allow studios to 
+quickly test new gameplay concepts and advertising strategies, an increasingly 
+important advantage in today’s fast-paced market.
+In the next section of this report, we analyse how leading publishers are 
+transitioning toward hybrid-casual models in 2025, identify the key factors 
+still driving success in hypercasual,  present case studies of some of the top-
+performing hybrid-casual games, and what we can learn from them.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 13 ---
+WHAT ACTUALLY MAKES A  
+HYPERCASUAL GAME SUCCESSFUL?4 
+Hypercasual games succeed by distilling gameplay to one ultra-simple 
+mechanic and loop. There is almost no tutorial or complexity – just a single 
+addictive gesture (tap, swipe, drag, stack, etc.) that anyone can learn instantly. 
+The genre’s breakthrough hit Flappy Bird (2013) epitomised this philosophy – 
+simple one-touch gameplay, endless times to retry, and mass appeal. In practice 
+this means very short play sessions (often 30–60 seconds per attempt) and no 
+complex meta-systems. The core loop must be immediately fun and intuitive, so 
+players “click in” and feel compelled to play again seconds later.
+Rapid development and iteration are key to hypercasual success. 
+Top publishers often prototype games in a matter of days or weeks. 
+The development cycle remains remarkably fast compared to other 
+genres: a basic game concept is built and immediately tested in the 
+market. If metrics look promising, the team quickly polishes and scales 
+it; if not, they kill it and move to the next idea. This rapid prototype-to-
+publish timeline (sometimes just 4–8 weeks from concept to launch) 
+allows hypercasual portfolios to stay fresh and chase the latest trends 
+or meme-inspired concepts.
+Data-driven iteration and testing underpin this process. Critical KPIs 
+that determine a hypercasual game’s fate include: Cost Per Install, Day-1 
+and Day-7 retention, and Lifetime Value per user. Success in hypercasual 
+is often a simple equation – can you acquire users cheaply enough 
+(low CPI) and keep them engaged long enough (decent retention) to 
+earn more from them in ad revenue than you spent? CPI is arguably 
+the king metric. These games operate on razor-thin margins with ad 
+monetization, so user acquisition cost must be extraordinarily low.
+Retention is the counterbalance: even ultra-casual players should stick 
+around for a few days if the game is good. A Day-1 retention around 
+40% or higher is a common benchmark for a promising game, whereas 
+anything below ~30% on Day 1 likely indicates weak appeal. By Day 7, 
+retention often drops to single digits in this genre – top performers might 
+hit ~15% D7, but many hypercasual games see   <10% by Day 7.
+This steep drop-off is expected; the key is having enough volume  
+of downloads and ad impressions before players churn out.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 14 ---
+5 
+25303540
+20
+15
+5
+010
+Day 1 Day 7Retention (%)Day 1 Vs Day 7 Retention in Hypercasual GamesThis steep drop-off is expected; the key is having enough volume  
+of downloads and ad impressions before players churn out.
+SolarEngine’s data-driven guide notes that average Day 1 retention for hypercasual games is under 25%, 
+with Day 7 retention dropping below 8%.
+Because individual user LTV is so low (often only a few cents or a 
+few ad views), scale and volume are everything. Hypercasual is a 
+hits-driven, mass-market business model – it’s about getting tens of 
+millions of downloads and monetizing each through ads. For context, 
+one of the biggest hypercasual hits, Voodoo’s Helix Jump, generated 
+over 500 million downloads yet made only about $2.8 million from in-
+app purchases. The vast majority of its revenue came from ads shown 
+to that huge player base. This means LTV per user is almost entirely 
+ad-driven, and often well under $1. Thus, to be profitable, CPI must 
+be lower than LTV, which in practice means targeting CPIs of a few 
+dimes or less in key markets. In short, a successful hypercasual title 
+needs to acquire users extremely cheaply, hook them for just long 
+enough, and show enough ads per user to recoup and profit.WHAT ACTUALLY MAKES A  
+HYPERCASUAL GAME SUCCESSFUL?
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 15 ---
+15
+CPI vs. LTV Threshold for Hypercasual Games (2025)
+This figure compares average CPI ($1.50 Android, $2.50 iOS) with an estimated LTV of $2.80, 
+underscoring the thin margins in hypercasual UA. Maintaining CPI below LTV is essential for 
+profitability and scale. Data: Mapendo, Exscape.
+Creative testing via ads has become a cornerstone of finding “the 
+next big hit.” Rather than building a full game and hoping it clicks, 
+hypercasual studios invert the process: they test the market first with 
+advertising. This often involves making a short gameplay video or 
+playable ad of the concept (even before the game is fully functional) 
+and running it on platforms like Facebook, Instagram, or TikTok to 
+gauge interest. The metrics from these campaigns – especially the 
+click-through rate (CTR) and cost per click – act as early indicators 
+of CPI. If an ad for the idea attracts a high CTR (meaning users are 
+intrigued and clicking), it usually foreshadows a low CPI and strong 
+demand. If the CTR or install rate is poor, the concept is likely scrapped. WHAT ACTUALLY MAKES A  
+HYPERCASUAL GAME SUCCESSFUL?
+2.02.5
+1.5
+1.0
+0.5
+0
+CPI (Android)USD ValueCPI vs LTV Threshold (Hypercasual, 2025)
+CPI (Android) CPI (Android)
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 16 ---
+16
+Finally, user acquisition strategy and creative optimisation are make-
+or-break factors tied to success. Hypercasual UA teams are relentless 
+in optimising ad creatives – trying different videos, playables, angles, 
+and trends to find an ad that yields the lowest CPI. Often, the 
+gameplay itself is tweaked to better fit high-performing ad concepts 
+(a peculiar inversion where the ad creative feedback influences the 
+game design!). The importance of creative is huge: a well-crafted 
+playable ad can achieve extremely high engagement and CTR – In 
+essence, hypercasual success isn’t just about a fun core mechanic – 
+it’s about packaging that mechanic in a way that grabs attention in a 
+15-second ad and converts scrollers into downloaders.WHAT ACTUALLY MAKES A  
+HYPERCASUAL GAME SUCCESSFUL?
+THE SHIFT TO HYBRID-CASUAL
+The boundary between hypercasual and hybrid-casual games is fading. Leading 
+hypercasual titles are increasingly incorporating light meta-progression - such 
+as levels, upgrades, or cosmetic customisation, to extend retention beyond short 
+sessions. Hybrid-casual games still rely on simple, accessible core mechanics 
+but add engagement layers to keep users for weeks instead of minutes.
+As Unity notes, hybrid-casual design aims to retain players for  
+60–90 days, boosting both retention and LTV. Some studios convert successful 
+hypercasual prototypes into hybrid variants by adding meta features once Day-7 
+retention reaches 5–10%.
+In other words, the evolution is additive. All of the ultra-simple, fast-moving 
+strategies above still apply, but developers might introduce mild progression 
+(daily tasks, hero skins, light IAP) to eke out more revenue per user. This hybrid 
+approach can raise average retention into the teens of percent by Day 7, making 
+the game more sustainable with slightly higher UA budgets. As one report 
+notes, the industry is seeing “a shift from hyper-casual to hybrid-casual games” 
+where ad-based models are supplemented by IAP.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 17 ---
+17CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+Several studios have navigated the transition from hypercasual to hybrid 
+casual by leveraging existing user acquisition channels while introducing 
+deeper gameplay loops and monetization models. 
+These pivots succeeded by aligning design, monetization, and UA strategies 
+around longer player engagement cycles without abandoning the low-CPI 
+discovery model of hypercasual.
+We explore some of the most popular examples in our case studies below.
+CASE STUDY 1:  
+VOODOO’S MOB CONTROL 
+Voodoo long built its reputation on simple  
+hyper-casual games, but in recent years the  
+company strategically pivoted to deeper,  
+hybrid-casual titles. One prime example is  
+Mob Control (released in 2021), which combines  
+a minimalist tower-defense loop with long-term  
+meta-progression. As Voodoo’s internal case study  
+notes, “after years of pioneering hyper-casual,  
+the company…set its sights on making casual  
+mobile games with deeper metas”, and this shift  
+paid off: Mob Control has already surpassed a  
+$200M annual run-rate.
+In industry terms, Mob Control blends a hyper-casual core (easy to pick up) with 
+addictive meta-elements, making it a textbook hybrid-casual success.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 18 ---
+18CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+At Voodoo, we made the progressive strategic shift from hypercasual toward 
+hybrid-casual games in 2021/2022. This decision was influenced by key 
+market signals, including rapidly rising user acquisition costs and declining 
+monetization efficiency within the traditional hypercasual segment.
+Simultaneously, we observed a notable trend: hybrid casual games, with their 
+richer gameplay mechanics, retained users longer and significantly boosted 
+lifetime value. This allowed us to better offset higher acquisition costs and 
+maximize our return on ad spend. Essentially, hybrid-casual games presented 
+a sustainable pathway by combining the engagement depth of mid-core 
+gameplay with the accessibility and monetization agility of hypercasual models.
+Our most effective monetization strategies for hybrid-casual games at  
+Voodoo revolve around a carefully balanced mix of rewarded video ads, targeted 
+in-app purchases, and strategically placed interstitial ads. Rewarded videos 
+have proven particularly successful, offering players clear in-game advantages 
+like power-ups, currency boosts, or progression aids in exchange for voluntary 
+engagement with ads. This approach seamlessly integrates monetization into 
+the gameplay loop, enhancing rather than disrupting player experience and 
+thus driving higher retention and LTV.
+However, we also maintain selective use of interstitial ads, strategically placed at 
+natural break points within the game to generate incremental revenue without 
+negatively impacting the overall user experience. By continuously analysing  
+user behavior and engagement data, we optimize the frequency and  
+placement of these interstitials, ensuring minimal disruption  
+while maximising monetization efficiency.
+On the in-app purchase side, we carefully identify player  
+segments inclined towards premium experiences and  
+strategically present them with meaningful purchase  
+opportunities. Overall, by conducting constant A/B testing  
+across all monetization methods, our target is to ensure that  
+each player segment receives an optimal balance of  
+monetization methods.A VOODOO MONETIZATION LESSON IN PIVOTING  
+TO HYBRID-CASUAL WITH BAPTISTE DURIF
+HEAD OF AD MONETIZATION, VOODOO
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 19 ---
+19CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+UA Strategy
+Mob Control’s UA approach was highly data-driven. Voodoo set ambitious ROI 
+goals – for example, a 4-month target of 150% ROAS – and Mob Control quickly 
+exceeded it (reaching ~160%). The team deliberately balanced scale with profit: 
+they kept ad campaigns optimised for profitability rather than just installs. 
+In practice this meant continuous A/B tests and tuning of the ad funnel. For 
+example, Voodoo increased rewarded video slots and cut back on interstitial 
+ads, which led to higher overall playtime and retention. They also fine-tuned by 
+region: in India (Mob Control’s #2 market by DAU) “skip” ads proved ineffective, 
+so they leaned more on direct currency IAP offers for those users.
+Mob Control’s UA was about constant iteration – dozens of ad variants tested 
+weekly, and aligning ad strategy with both global KPI targets and local user 
+behaviour.
+Creative (Ads and Marketing)
+Voodoo supported Mob Control’s UA with a massive creative output. The team 
+reported producing 300–500 distinct ad creatives per week for Mob Control. 
+These included gameplay videos, cartoon animations, and even user-generated-
+style clips, tailored to each platform. Recent analytics show over 500 unique 
+Facebook/Meta ads and more than 100 on AppLovin running simultaneously.
+They varied formats – short 15-30s videos on Meta, longer clips on YouTube, to 
+match channel norms. This data-driven creative testing kept the user feed fresh 
+and allowed the team to quickly learn which hooks worked (e.g. showing army 
+multipliers vs. champion characters). In short, Mob Control’s marketing leaned 
+on quantity and variety of ads, with each creative A/B-tested across networks, 
+ensuring broad reach and continual optimisation.WHAT MAKES MOB CONTROL SUCCESSFUL?
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 20 ---
+20CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+Marketing & Timing: Voodoo leveraged high-visibility campaigns 
+and IP tie-ins to broaden appeal. For example, in 2023 Mob Control 
+ran a Transformers crossover event (featuring Bumblebee) tied 
+to the brand’s 40th anniversary. This tapped into nostalgia and 
+brought in new players, even though branded creatives came 
+with higher CPI. Timing such events with cultural moments (movie releases, 
+anniversaries, holidays) kept the game in the spotlight. At the same time, 
+Voodoo never sacrificed ROI: its lead UA manager explicitly targets profitability, 
+not just installs.
+Innovative Mechanics: The team kept evolving the game itself. 
+Early on they revamped the core tower-building mechanic to 
+reduce monotony – a change that boosted lifetime value by about 
+20% . Social and competitive layers were added as well: Voodoo 
+rolled out clan features and PvP base-defense modes (with ~50 
+active clans even before official launch) to encourage community play. These 
+hybrid elements: layering strategy and progression on top of the simple core 
+loop, turned Mob Control into an engaging live service.
+Why it Succeeded: Mob Control perfectly embodies a hybrid-
+casual model: a simple, addictive core loop supplemented by 
+deeper meta gameplay. It achieved strong retention (reported 
+~15% D7) by giving players both quick battles and long-term goals 
+(upgrades, events, clans). It surpassed the $200M annual run-rate 
+barrier and is still climbing. 
+Crucially, Voodoo’s culture of “prototype fast, kill fast, then scale what works” 
+meant they kept polishing Mob Control over years instead of treating it as a one-
+off hyper-casual title.WHAT CAN WE LEARN?
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 21 ---
+21
+DID YOU KNOW?
+Color Block Jam’s most effective ad campaign used a psychological trick 
+called the Zeigarnik effect. By cutting off gameplay videos just before the 
+final puzzle move, viewers felt compelled to download the game just to 
+finish the level themselves. This tactic helped drive over 17.5 million down-
+loads in just three months.CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+FINAL TAKEAWAYS
+The Mob Control case highlights the power of adaptive strategy in mobile 
+games. Voodoo recognised market shifts (e.g. rising ad costs after Apple’s IDFA 
+changes) and pivoted from pure hypercasual to hybrid-casual titles.
+The lessons for developers are clear: invest in UX (so new players onboard easily), 
+build meta-progression (to retain players long-term), and support your game 
+with relentless data-driven UA and creative testing. And critically, balance 
+growth with profitability – Mob Control’s team always emphasised sustainable 
+ROAS over reckless scaling.
+By combining strong UX, continuous innovation, and savvy marketing,  
+Mob Control became a breakout success in the hybrid-casual space.
+CASE STUDY 2:  
+COLOR BLOCK JAM 
+In Q1 2025 alone, Color Block Jam saw about 18.9  
+million downloads globally reflecting its rapid  
+rise. This wide reach across iOS and Android  
+propelled it into the Top Free charts (e.g. #4 Free  
+Puzzle on Google Play as of mid-2025). Such massive  
+adoption laid the foundation for its blockbuster  
+revenue performance, making it one  
+of Rollic’s fastest-scaling hits.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 22 ---
+22
+WHAT MAKES COLOR BLOCK JAM SUCCESSFUL?
+UX/UI design: Color Block Jam’s user experience is crafted for 
+accessibility and satisfaction. Visually, it employs a clean, colorful 
+layout with block pieces that resemble LEGO bricks, leveraging 
+their universal familiarity to make the game instantly relatable. 
+Indeed, engaged players were clocking exceptionally high play times (e.g. nearly 
+167 minutes by Day 7 on average), reflecting how the polished UX/UI keeps 
+people hooked.
+UA strategy and creative:  Color Block Jam’s global success 
+was driven by a deliberate, high-budget UA strategy. Rollic ran 
+aggressive campaigns across social media and ad networks, but it 
+was their creative execution that delivered impact.
+They addressed user fatigue with mobile ads by marketing the game as a “no 
+ads” experience, using on-screen text and voice overs. Though only partially 
+accurate, this messaging resonated and increased conversion.
+By combining incomplete but compelling gameplay clips, ASMR-like audio, 
+clean visuals, and relatable hooks, Rollic’s ads generated over 17.5 million installs 
+and more than $23 million in revenue within three months, propelling Color 
+Block Jam to the top of global charts.CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 23 ---
+23
+WHAT CAN WE LEARN?
+Color Block Jam uses a three-stage monetization funnel to maximise revenue 
+without harming player experience.
+Stage 1 – No Ads:  New players enjoy a long ad-free “honeymoon” period, building 
+engagement. Early monetization comes from gentle IAP offers like the “Failed 
+Level Pack” after tough levels.
+Stage 2 – Light Ads: Banner ads begin to appear, and IAP prompts become 
+more frequent. These serve as soft nudges toward spending or tolerating minor 
+ad interruptions.
+Stage 3 – Full Ads: Deeply engaged non-payers see interstitials after every level, 
+while rewarded videos offer optional value (e.g. double coins). Ads are delayed 
+until level ~15 to avoid early churn.
+On the IAP side, the game sells boosters, extra time, and premium tools like the 
+Color Vacuum, designed to address real in-game pain points. Packs are priced 
+for accessibility, encouraging impulse buys.
+This model helped drive peak revenues of over $250,000/day, showing how timed 
+ad introduction + meaningful IAPs can power hybrid monetization at scale.
+ Market timing and appeal: Color Block Jam launched at the 
+perfect moment - late 2024, just as block puzzle games surged, 
+contributing 71% of puzzle game revenue in early 2025. Players 
+were seeking games deeper than hypercasuals but with easy 
+onboarding. Rollic hit this hybrid-casual sweet spot.
+With few direct competitors blending timed puzzles and monetization depth, 
+Color Block Jam quickly stood out. By January 2025, it generated nearly 4× the 
+revenue of its next closest puzzle rival, establishing dominance in the hybrid-
+puzzle category.
+CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 24 ---
+24
+ Innovative mechanics: Color Block Jam stood out by adding a 
+timer to every puzzle, turning calm gameplay into a fast-paced, 
+arcade-style challenge. This time pressure, combined with rising 
+complexity, created a unique and monetizable tension, players 
+often used boosters or retries to beat the clock.
+A signature power-up, the “Color Vacuum”, clears all blocks of one color in a 
+dramatic burst. It adds strategy and visual flair, offering a satisfying board-
+clearing moment that’s rare in block games.
+The game also introduced fresh puzzle elements over time, like teleporters, 
+moving barriers, and “Moving Crates”, keeping the experience dynamic. Levels 
+were carefully designed to feel just solvable, rewarding pattern recognition and 
+near-miss retries.
+FINAL TAKEAWAYS
+Critically, CBJ’s success owes to its hybrid- casual design. It starts like a simple 
+hyper -casual block slider but gradually layers in depth: players enjoy an initial 
+ad-free “honeymoon” and light tutorial, then face tougher puzzles with targeted 
+ads and IAP offers along the way.
+Rollic built in boosters (e.g. extra time, bombs, “fail-level” packs) and optional 
+ads-for-coins, plus seasonal events and a battle pass, to reward longer play. 
+This mix of mechanics drives strong retention (industry observers report CBJ 
+hitting ~20% Day -7 and ~10% Day -30 retention – far above typical hyper-casual 
+levels) and higher per -user revenue. As one analysis noted, CBJ “blends ads + 
+in-apps” while keeping the UI minimal and puzzles satisfying. The line between 
+hyper -casual and “full” casual is indeed blurring – CBJ’s hybrid approach has 
+earned $43M+ lifetime (33M downloads) – and it now rivals big puzzle titles in 
+sustained earnings.
+But with its rapid growth, rich live -ops content and smart monetization design, 
+Color Block Jam demonstrates how a hyper -casual puzzle can successfully pivot 
+into a long-lived hybrid hit.
+CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 25 ---
+25CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+CASE STUDY 3:  
+SUPERCENT’S PIZZA READY
+Pizza Ready’s success exemplifies the mobile  
+industry’s shift to hybrid-casual games – titles  
+that combine the mass appeal and accessible  
+mechanics of hyper-casual games with deeper  
+gameplay loops and balanced economies.  
+Supercent initially built simple hyper-casual  
+hits but pivoted to hybrid-casual development;  
+its games Pizza Ready and Outlets Rush are  
+now called “hybrid-casual gold,” with roughly  
+70% of revenue from ads and 30% from in-app  
+purchases. This mixed monetization approach  
+aligns with the hybrid-casual model and helped  
+Pizza Ready gain rapid traction after launch.
+UA strategy and creative: Supercent clearly invested in aggressive 
+user acquisition to propel Pizza Ready. Industry analyses (and 
+Supercent’s own statements) suggest the team constantly 
+monitors competitor ads and iterates their own creatives. For 
+example, Supercent mixes quick video ads and playable ads 
+in marketing, letting videos grab attention immediately while playables let 
+prospects try a mini-challenge. They also emphasise strong first impressions 
+– focusing on the first few seconds of an ad – to hook viewers, as noted 
+by Supercent’s blog. The results were immediate: Pizza Ready shot up the 
+download charts worldwide right after launch. Chart trackers show it hit as high 
+as #2 globally among all games (not just simulations).
+Behind the scenes, Supercent refined campaigns at the “sub-source” level: 
+adjusting spend and creatives for each ad network and country for optimal CPI 
+and retention. They even tap smaller networks and influencers to broaden reach 
+cost-effectively. In short, Pizza Ready’s UA blended high-volume marketing (top 
+chart ranks) with data-driven fine-tuning: sourcing inspiration from competitors 
+and tweaking each ad channel for maximum ROI.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 26 ---
+26
+•   Frequent rewarded videos: Almost every boost or critical upgrade can be 
+obtained by watching a video. This keeps the in-game economy fast-paced 
+(tasks would otherwise take much longer) and maximises ad impressions.
+•   Bundled IAPs: New updates added premium bundles and passes (think  
+“extra everything” pizza packs) built right into gameplay. Despite heavy ad use, 
+dedicated players spent significantly on these extras – Pizza Ready  
+earned about $345K from IAPs in 30 days in one analysis.
+•   Hybrid revenue mix: Roughly 70% of the game’s revenue comes from ads  
+and 30% from purchases. In practice, Pizza Ready emphasises rewarded  
+videos and incentivised offers rather than intrusive banners, aligning with  
+the hybrid-casual trend.MONETIZATION:  
+ADS AND PURCHASES
+MARKET TIMING  
+AND APPEALCASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+Pizza Ready’s theme and timing helped it reach a massive audience. Cooking 
+and restaurant games have universal appeal, and pizza is especially familiar. 
+Notably, 23% of the game’s installs came from India and about 7% from the U.S.– 
+reflecting a common mobile pattern where one region supplies volume and 
+another supplies spend. The design also skewed strongly female: about 63%  of 
+players are women.
+Crucially, Pizza Ready launched when idle-arcade simulators were trending but 
+offered a fresh twist. Supercent’s aggressive user acquisition (testing diverse 
+creatives and playable ads) propelled it up the charts immediately after launch. 
+By mid-2025 the game was still averaging 11–12 million downloads per month, 
+keeping it in the global top-10 charts. The hybrid-casual formula delivered both 
+a huge initial wave and sustained popularity.
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+
+--- Page 27 ---
+MOBILE GAMING BY 
+GENRE: HYPERCASUAL
+27
+WHAT CAN WE LEARN?
+•   Balance simplicity with depth:  Keep the interface and visuals uncluttered,  
+but layer in progression mechanics (multi-queues, upgrades, staff) to engage 
+players long-term.
+•   Leverage broad themes:  A universal, non-violent theme (like cooking/pizza) 
+can attract diverse players. Inclusive, creative settings proved especially sticky 
+(Pizza Ready’s audience was ~63% female.
+•   Add ads seamlessly: A design analysis highlights a unique twist - instead  
+of generic “rewarded ad” popups, Pizza Ready frames its video rewards as  
+part of the pizza delivery process. The result is a more seamless monetization 
+loop: players feel the ads belong to the gameplay, which can mitigate some of 
+the intrusion. For developers, the lesson is that even if you must run frequent 
+ads, integrating them into the theme (rather than as an ugly paywall) can 
+improve engagement.
+•   Hybrid monetization works: A ~70/30 mix of ads to IAP maximised revenue. 
+Offering compelling purchases (bundles/passes) alongside an ad-driven 
+economy captured both casual players and spenders.
+•   Data-driven iteration: Supercent continually tested creatives, ad networks, and 
+in-game offers by region. This fine-tuning helped sustain millions of daily users  
+and multi-million-dollar monthly revenue.
+By early 2025, Pizza Ready had surpassed 200 million installs and remained 
+a top-charting game. It stands as a case study in hybrid-casual success: 
+combining easy-to-play fun with layered progression and creative monetization 
+to achieve both viral reach and enduring engagement.
+FINAL TAKEAWAYS
+As of mid-2025, Pizza Ready remains a top performer. According to AppMagic 
+data, it was still logging about 11–12 million downloads per month in early 2025, 
+enough to keep it in the global top 10 charts. It recently surpassed 200 million 
+total installs across platforms, underscoring its enduring popularity. 
+Looking ahead, Supercent has launched industry contests (its 2025 game 
+challenge) to find the next hit, but has not announced new Pizza Ready content 
+beyond small patches.CASE STUDIES: SUCCESSFULLY EVOLVING 
+FROM HYPERCASUAL TO HYBRID-CASUAL
+
+--- Page 28 ---
+FOR THE LATEST IN MOBILE GAMES 
+MARKETING, UA, AD MON, AND MUCH 
+MORE, MAKE SURE TO REGISTER YOUR 
+INTEREST FOR OUR UPCOMING EVENTS…
+Written by: Mariam Ahmad and Josh Vowles 
+Marketing by: Nisha Fishlock and Alica Parkes 
+Design by: Jimmy Bridges 
+GAMESFORUM LONDON 
+16-17 SEPTEMBER, 2025 
+155 BISHOPSGATE
+GAMESFORUM VIETNAM 
+26 NOVEMBER, 2025
+INTERCONTINENTAL  
+LANDMARK 72 HOTEL, HANOIGAMESFORUM SAN FRANCISCO 
+22 -23 OCTOBER, 2025
+MARRIOTT MARQUIS SAN FRANCISCOREGISTER YOUR INTEREST HERE
+REGISTER YOUR INTEREST HERE REGISTER YOUR INTEREST HERE
+
