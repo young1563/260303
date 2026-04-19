@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매치3 퍼즐 게임 경제 구조 분석 | 게임 리서치</title>
+    <meta name="description" content="매치3 퍼즐 게임의 하이브리드 캐주얼 이중 경제 루프, DDA, 그리고 결제 심리 구조에 대한 심층 분석 보고서.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#7c3aed',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#6d28d9',
+                lineColor: '#a78bfa',
+                textColor: '#1e293b',
+                secondaryColor: '#ede9fe',
+                tertiaryColor: '#ffffff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter',
+                fontSize: '16px'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 40,
+                useMaxWidth: true
+            }
+        });
+    </script>
+    <style>
+        .analysis-hero {
+            background: linear-gradient(rgba(46, 16, 101, 0.7), rgba(46, 16, 101, 0.8)), url('../img/icons/애니팡.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #f5f3ff;
+            border-left: 5px solid #7c3aed;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, #4c1d95, #7c3aed);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .insight-box h4 {
+            color: white;
+            margin-top: 0;
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .mermaid-container {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            overflow-x: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid rgba(124, 58, 237, 0.1);
+        }
+
+        .mermaid {
+            width: 100% !important;
+            max-width: 800px;
+        }
+
+        /* 화살표 글씨가 안 보이는 문제 해결을 위한 CSS 강제 적용 */
+        .edgeLabel, .edgeLabel span {
+            color: #4c1d95 !important;
+            background-color: white !important;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .table-wrap {
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        th, td {
+            padding: 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            line-height: 1.6;
+        }
+
+        th {
+            background: #f5f3ff;
+            color: #6d28d9;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 850px) {
+            .strategy-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .strategy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1);
+        }
+
+        .strategy-card h4 {
+            color: #6d28d9;
+            margin-top: 0;
+        }
+
+        .game-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            background-color: #f1f5f9; /* Placeholder background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .game-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5rem !important;
+        }
+        
+        .math-box {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border-left: 5px solid #a855f7;
+            overflow-x: auto;
+        }
+
+        /* Chart container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+        
+        .chart-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem;
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../research-ko.html" class="active">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">기획 용어집</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <span class="card-tag-inline" style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Economy & Psychology Design</span>
+            <h1>실패의 가치를 팔다:<br>매치3 경제 구조의 비밀</h1>
+            <p class="subtitle">수학적 확률 모델링과 행동 경제학이 빚어낸 정교한 그물망.<br>왜 우리는 '아까운 실패' 앞에서 기꺼이 지갑을 여는가?</p>
+        </div>
+
+        <div class="metric-grid container">
+            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
+                <span class="value">$12B+</span>
+                <span class="label">2025 글로벌 장르 매출액</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
+                <span class="value">60~65%</span>
+                <span class="label">총 매출 중 IAP 비중</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
+                <span class="value">70~80%</span>
+                <span class="label">비용의 '이어하기' 지출 비중</span>
+            </div>
+            <div class="metric-card fade-in" style="animation-delay: 0.8s;">
+                <span class="value">80%+</span>
+                <span class="label">상위권 타이틀 메타 요소 도입률</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            
+            <h2 class="fade-in">1. 매치3 경제란? "아이템을 파는 것이 아닙니다"</h2>
+            <p class="fade-in">흔히 매치3 게임이라고 하면 '예쁜 보석을 맞추는 게임'이나 '폭탄 아이템을 돈 주고 사는 게임'이라고 생각하기 쉽습니다. 하지만 최근의 매치3 게임 체계는 완전히 달라졌습니다.</p>
+            <p class="fade-in">현대 매치3 경제는 아이템이라는 '물건'을 파는 것이 아니라, <b>'실패 직전의 아쉬움(Frustration)'과 '성공의 짜릿함'이라는 감정을 팝니다.</b></p>
+            
+            <div class="highlight-box fade-in">
+                <h4 style="color: #7c3aed; margin-top: 0;">🧠 기획자의 시선</h4>
+                <p>유저가 지갑을 여는 순간은 보석을 멋지게 터뜨렸을 때가 아닙니다. <b>"아!! 딱 한 수(Move)만 더 있었으면 깨는 건데!"</b>라고 외치는 바로 그 순간입니다. 이 강렬한 아쉬움을 현금(유료 재화)과 교환하도록 설계하는 것이 매치3 경제 시스템의 본질입니다.</p>
+            </div>
+
+            <h2 class="fade-in">2. 하이브리드 경제: '이중 루프 시스템 (Dual-Loop)'</h2>
+            <p class="fade-in">과거의 매치3는 단순히 1탄, 2탄 퍼즐만 계속 푸는 구조였습니다. 하지만 2023년 이후 상위권 매치3 게임의 80% 이상이 <b>하이브리드 캐주얼(Hybrid-Casual)</b> 경제, 즉 두 개의 경제 바퀴가 맞물려 돌아가는 '이중 루프 시스템'을 채택했습니다.</p>
+
+            <div class="mermaid-container fade-in">
+                <!-- Mermaid diagram -->
+                <div class="mermaid">
+                    graph TD
+                    subgraph Core["제1루프: 핵심 퍼즐 경제 (Frustration)"]
+                        A((하트/행동력)) -->|소모| B[퍼즐 플레이]
+                        B -->|실패/아쉬움| C(이어하기 및 부스터 구매)
+                        C -.결제 유도.-> B
+                    end
+                    
+                    subgraph Meta["제2루프: 메타 진행 경제 (Progression)"]
+                        B -->|클리어 보상| D((별/특수 재화))
+                        D -->|소모| E[정원 꾸미기 / 스토리 진행]
+                        E -->|성장 피드백| F(장기 잔존율 증가!)
+                    end
+
+                    style Core fill:#f5f3ff,stroke:#8b5cf6,stroke-width:2px,color:#333
+                    style Meta fill:#f0fdf4,stroke:#10b981,stroke-width:2px,color:#333
+                </div>
+                <p style="font-size: 0.85rem; color: #64748b; margin-top: 1.5rem; text-align: left; padding: 0 1rem;">
+                    <b>💡 일반인 해설 💡</b><br>
+                    <b>1루프(코어)</b>는 퍼즐 플레이입니다. 짜증과 쾌감이 반복되는 롤러코스터죠. 여기서 유저는 결제를 합니다.<br>
+                    <b>2루프(메타)</b>는 퍼즐을 깬 뒤 얻은 '별'로 죽어가는 마을을 살리거나 방을 꾸미는 겁니다. 이 꾸미기 경제 덕분에 유저는 내일도 접속해야 할 '이유(Retention)'를 얻게 되고, 재화가 너무 많이 풀려 게임이 망가지는 인플레이션(Inflation)도 막아줍니다.
+                </p>
+            </div>
+
+            <h2 class="fade-in">3. 행동 경제학이 증명하는 유저의 지갑을 여는 마법</h2>
+            <p class="fade-in">사람들은 왜 몇천 원짜리 커피는 꼼꼼히 리뷰를 보고 사면서, 화면 속 가짜 동전을 살 때는 1초 만에 결제할까요? 여기에는 고도의 '행동 경제학(Behavioral Economics)' 이론이 깔려 있습니다.</p>
+
+            <div class="strategy-grid fade-in">
+                <!-- Card 1 -->
+                <div class="strategy-card" style="border-top: 5px solid #ec4899;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">💔</div>
+                    <h4 style="color: #be185d;">손실 회피<br>(Loss Aversion)</h4>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">프로스펙트 이론 (Kahneman & Tversky)</p>
+                    <p>인간은 1만 원을 얻는 기쁨보다 1만 원을 잃는 고통을 2배 더 크게 느낍니다.</p>
+                    <hr style="margin: 15px 0; border:0; border-top:1px dashed #e2e8f0;">
+                    <p style="font-size: 0.9rem;"><b>게임 속 마법: 연승 보너스</b><br>
+                    어렵게 쌓아온 '부스터 장착' 혜택을 실패 한 번으로 다 잃게 생겼습니다. 이때 이어하기를 위한 코인 지출은 소비가 아닌, <b>내 기득권을 지키기 위한 '보험'</b>으로 느껴집니다.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="strategy-card" style="border-top: 5px solid #3b82f6;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                    <h4 style="color: #1d4ed8;">니어 미스<br>(Near Miss Effect)</h4>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">가변 간격 강화 계획 (B.F. Skinner)</p>
+                    <p>"거의 다 왔어!"라는 느낌은 뇌의 보상 회로를 강하게 자극하여, 실패를 '성공 직전 단계'로 재정의합니다.</p>
+                    <hr style="margin: 15px 0; border:0; border-top:1px dashed #e2e8f0;">
+                    <p style="font-size: 0.9rem;"><b>게임 속 마법: 라스트 팡</b><br>
+                    턴 종료 시 달성 목표가 단 1개 남았고, 화면의 블록들이 부들부들 떨립니다. 과연 이 유혹을 뿌리치고 포기하기 버튼을 누를 수 있을까요?</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="strategy-card" style="border-top: 5px solid #f59e0b;">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">👥</div>
+                    <h4 style="color: #b45309;">사회적 압박<br>(Social Pressure)</h4>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">사회적 증거와 FOMO (R. Cialdini)</p>
+                    <p>개인의 실패는 참을 수 있지만, 나 때문에 우리 팀(길드)이 피해를 보는 것은 견디기 힘듭니다.</p>
+                    <hr style="margin: 15px 0; border:0; border-top:1px dashed #e2e8f0;">
+                    <p style="font-size: 0.9rem;"><b>게임 속 마법: 팀 보물상자</b><br>
+                    우리 팸(Fam)이 다 같이 별을 모으는 중입니다. 내가 못 깨서 팀 목표가 실패할 위기라면? 내 지갑을 여는 명분이 <b>'나를 위한 소비'에서 '팀을 위한 헌신'</b>으로 격상됩니다.</p>
+                </div>
+            </div>
+
+            <h2 class="fade-in">4. 글로벌 TOP 게임 케이스 스터디</h2>
+            <p class="fade-in">이론이 실제 글로벌 게임에서 어떻게 엄청난 매출로 이어졌는지 분석해봅니다.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">분석 대상</th>
+                            <th style="width: 25%;">경제 구조의 핵심 포인트</th>
+                            <th style="width: 50%;">기획적 의도 및 효과</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="game-cell">
+                                <!-- USER: Royal Match 아이콘 이미지 필요 -->
+                                <img src="../img/icons/royal-match-icon.webp" alt="Royal Match" class="game-icon" onerror="this.outerHTML='<div class=\'game-icon\'>ROYAL MATCH</div>'">
+                                <b>Royal Match<br>(Dream Games)</b>
+                            </td>
+                            <td>"무광고 IAP 집중 모델"</td>
+                            <td>광고 수익을 과감히 포기. 광고로 인한 몰입(Flow) 단절을 제거해 오히려 엄청난 '이어하기' IAP(결제) 수익을 창출. "광고 수익 < 몰입 기반 수익"이라는 새 공식을 증명했습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="game-cell">
+                                <!-- USER: Candy Crush 아이콘 이미지 필요 -->
+                                <img src="../img/icons/candy-crush-icon.webp" alt="Candy Crush Saga" class="game-icon" onerror="this.outerHTML='<div class=\'game-icon\'>CANDY CRUSH</div>'">
+                                <b>Candy Crush Saga<br>(King)</b>
+                            </td>
+                            <td>"피기뱅크 (매몰비용)"</td>
+                            <td>퍼즐을 깨서 모은 골드바 덩어리(Piggy Bank)를 얻으려면 소액결제를 해야 합니다. 유저는 잔뜩 쌓인 골드바를 '이미 내 것'이라 착각해, 이를 해금하는 행위를 '구매'가 아닌 '저축 인출'로 느낍니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="game-cell">
+                                <!-- USER: Gardenscapes 아이콘 이미지 필요 -->
+                                <img src="../img/icons/gardenscapes-icon.webp" alt="Gardenscapes" class="game-icon" onerror="this.outerHTML='<div class=\'game-icon\'>GARDENSCAPES</div>'">
+                                <b>Gardenscapes<br>(Playrix)</b>
+                            </td>
+                            <td>"단방향 메타 재화 전환"</td>
+                            <td>진행으로 퍼즐에서 '별'을 얻고, 정원을 꾸밉니다. 중요한 건 별을 영원히 꾸미기에만 쓰고 퍼즐 아이템인 폭탄으로 되돌릴 수 없다는 겁니다(단방향성). 덕분에 경제가 붕괴(인플레이션)되지 않습니다.</td>
+                        </tr>
+                        <tr>
+                            <td class="game-cell">
+                                <!-- USER: 애니팡4 아이콘 이미지 필요 -->
+                                <img src="../img/icons/anipang4-icon.webp" alt="애니팡 4" class="game-icon" onerror="this.outerHTML='<div class=\'game-icon\'>애니팡 4</div>'">
+                                <b>애니팡 4<br>(위메이드 플레이)</b>
+                            </td>
+                            <td>"극대화된 소셜 밸런싱"</td>
+                            <td>한국 유저 특유의 공동체 성향을 분석해 '팸(Fam)' 대항전을 도입. 하트를 주고받으며 접속(Retention)을 유도하고, 개인의 스테이지 클리어를 소셜 기여 영역으로 확장해 코인 가치를 높였습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">5. 2024–2025 최신 트렌드 데이터</h2>
+            <p class="fade-in">현재 모바일 시장은 CPI(유저 획득 비용)가 폭등하고 있습니다. 매력적인 광고로 데려온 매치3 유저 한 명 한 명이 소중해졌으며, 이 기조가 데이터로 나타납니다.</p>
+
+            <div class="chart-row fade-in">
+                <div class="chart-container">
+                    <canvas id="revChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="mechanicChart"></canvas>
+                </div>
+            </div>
+
+            <script>
+                // Revenue Chart
+                const ctxRev = document.getElementById('revChart').getContext('2d');
+                new Chart(ctxRev, {
+                    type: 'bar',
+                    data: {
+                        labels: ['2023', '2024', '2025(Est.)'],
+                        datasets: [{
+                            label: '글로벌 매치3 전체 수익 ($Billion)',
+                            data: [10.5, 11.2, 12.1],
+                            backgroundColor: '#8b5cf6',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { labels: { color: '#475569' } } },
+                        scales: { y: { beginAtZero: false, min: 8 } }
+                    }
+                });
+
+                // Mechanic Adoption Chart
+                const ctxMech = document.getElementById('mechanicChart').getContext('2d');
+                new Chart(ctxMech, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['순수 매치3 (코어만)', '메타 결합형 (장식/내러티브)', 'RPG 결합형 (전투)'],
+                        datasets: [{
+                            data: [15, 75, 10],
+                            backgroundColor: ['#c4b5fd', '#6d28d9', '#f472b6'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom', labels: { color: '#475569' } },
+                            title: { display: true, text: '신규 출시 상위작의 융합 구조 채택률' }
+                        }
+                    }
+                });
+            </script>
+            
+            <p class="fade-in" style="font-size: 0.9rem; color:#64748b;">점점 '한 우물'만 파는 순수 매치3는 살아남기 힘들어지고, 인테리어/건축/이야기가 섞인 <b>메타 결합형</b>이 시장의 75% 이상을 잠식하고 있습니다. 또한 최상위 개발사들은 <b>DDA(동적 난이도 조절) 인공지능</b>을 도입해, 유저가 재화를 많이 쌓아두면 티나지 않게 난이도를 아주 살짝 올려 보유 재화를 다시 쓰게(Sink) 유도하고 있습니다.</p>
+
+            <h2 class="fade-in">6. 기획을 증명할 정량적 잣대: 재화 가치 공식</h2>
+            <p class="fade-in">기획자는 직감으로만 난이도를 정하지 않습니다. 모든 것은 지표(Metric)로 설명되어야 합니다.</p>
+            
+            <div class="math-box fade-in">
+                V (재화 가치) = ( 스테이지 성공 확률 × 평균 플레이 시간 ) / 재화 가격
+            </div>
+            
+            <ul class="fade-in">
+                <li><b>가치 침식 방어:</b> 유저에게 너무 많은 무료 보상을 퍼주면 재화 가치(V)가 하락하여 결제를 아무도 하지 않습니다.</li>
+                <li><b>기간제 보상(Time-limited Value) 도입:</b> 영구적으로 쓸 수 있는 폭탄을 주는 대신 "30분간 하트 무제한" 혹은 "15분간 무한 폭탄"을 줍니다. 이는 게임 내 인플레이션을 막고 유저의 즉각적인 몰입 세션을 강제하는 현재 시장의 핵심 룰입니다.</li>
+            </ul>
+
+            <div class="insight-box fade-in">
+                <h4>🎙️ Antigravity's Insight : 실패의 가치를 설계하다</h4>
+                <p>"훌륭한 기획은 유저에게 '운이 나빠서 열받는다'가 아니라, <b>'아까워서 미치겠네 한 판만 더 하자!'</b>라는 긍정적 결핍을 안겨주는 것입니다."</p>
+                <p style="margin-top: 1.5rem;">제가 주목하는 지수능력은 <b>Sink Efficiency (재화 소모 효율)</b>와 <b>Golden Fail Point</b>입니다.</p>
+                <ol style="margin-top: 0.5rem; line-height: 1.8;">
+                    <li>단순히 어렵게 만드는 것이 능사가 아닙니다. 유저가 무심코 이어하기를 눌러버리는 '결제 전환 마의 구간(Golden Fail Point)'은 "미션 1~2개 남김 + 화면에 특수 유도 블록 1개"의 상관관계를 가집니다. 이를 데이터 로그로 수집하여 스테이지 레벨 디자이너의 가이드라인으로 피드백해야 합니다.</li>
+                    <li>매치3의 밸런싱 검수는 단순한 클리어율이나 재화 소모율 확인을 넘어, 데이터 뒤에 숨겨진 <b>'유저의 좌절감이 어떻게 성취의 쾌감으로 치환되고 있는가'</b>를 증명하는 논리적 장치가 되어야 한다고 확신합니다.</li>
+                </ol>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 4rem 0;">
+
+            <div class="references fade-in" style="margin-bottom: 4rem;">
+                <h4 style="margin-bottom: 1.5rem; color: #64748b;">참고 문헌 및 출처 (References)</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #64748b; line-height: 1.8;">
+                    <li>• "Near-miss effects in Candy Crush Saga" - NIH 다수 연구, 생리적 각성도 논문</li>
+                    <li>• "Analyzing the Monetization of Play: Virtual Goods Models" (2016)</li>
+                    <li>• "Difficulty and User Retention in Mobile Match-3 Games" - Lund University</li>
+                    <li>• GDC Vault - "The Economy of Casual Games" (Playrix, King Post-mortems)</li>
+                    <li>• Deconstructor of Fun - "Royal Match analysis" by Michail Katkoff</li>
+                    <li>• Sensor Tower 2024 Market Report / Adjust Mobile Gaming Report 2024</li>
+                </ul>
+            </div>
+            
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. Match-3 Economy Research.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

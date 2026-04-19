@@ -54,11 +54,11 @@ const GENRE_DNA = {
     },
     'RPG': {
         labels: ['전략성', '조작성', '성장 깊이', '보상 빈도', '과금 압박'],
-        scores: [65, 75, 95, 55, 80],
-        insights: "RPG는 캐릭터의 성장(Progression)에 가장 큰 가치를 둡니다. 장기 잔존을 위해 만렙까지의 콘텐츠 설계를 매우 깊게 가져가며, 이에 따른 과금 압박이 높은 편입니다.",
+        scores: [70, 75, 98, 60, 95],
+        insights: "RPG는 캐릭터의 성장(Progression)과 수집의 가치를 극대화합니다. 특히 '메이플 키우기'와 같은 최신 흥행작은 방치형의 외형에 하드코어한 다층 강화 시스템과 강력한 가챠 BM을 결합하여 매우 높은 ARPU를 기록하고 있습니다.",
         evidence: [
-            { label: '성장 깊이', reason: '메인 스트림 완료까지 평균 250시간 이상의 콘텐츠 분량 확보', source: 'Global Game Insights 2025' },
-            { label: '과금 압박', reason: 'ARPPU가 타 장르 대비 3.5배 높으며 장기 LTV 지표에 의존', source: 'AppMagic Market Report' }
+            { label: '성장 깊이', reason: '스타포스 강화, 잠재 옵션(큐브), 동료 시스템 등 중첩된 메타 레이어 보유', source: 'NamuWiki (Systems)' },
+            { label: '과금 압박', reason: '가챠 천장 시스템 및 하드코어 IAP 비중이 매출의 90% 이상 점유', source: 'SensorTower/AppMagic 2026' }
         ]
     },
     'SLG': {
@@ -445,6 +445,7 @@ function initGameCards(games) {
         setTimeout(() => modal.classList.add('show'), 10);
 
         const sys = g.system || {};
+        const analysis = g.analysis || {};
         const coreMap = {
             'Grid Placement': '그리드 블록 배치 및 라인 클리어',
             'Sorting': '아이템 정렬 및 매칭',
@@ -456,17 +457,25 @@ function initGameCards(games) {
             'Physics Puzzle': '물리 엔진 기반 기믹 해결',
             'Arcade Idle': '자원 채집 및 매장 자동화 확장'
         };
-        const coreLoop = coreMap[sys.coreType] || sys.coreType || '시스템 분석 예정';
-        const metaInfo = sys.metaDepth > 2 ? ' + 심화 메타 시스템' : ' + 기본 성장 루프';
-        const fullSystemDesc = `${coreLoop}${metaInfo}`;
-        const rules = sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
 
-        let uiPoints = 'UX 최적화 설계';
-        if (g.genrePrimary === 'Puzzle') uiPoints = '블록 배치의 시각적 가이드 및 콤보 팡파르 연출';
-        else if (g.genrePrimary === 'Arcade Idle') uiPoints = '한 손 조작 조이스틱 및 자원 스태킹 시각화';
-        else if (g.genrePrimary === 'SLG' || g.genrePrimary === 'Strategy') uiPoints = '정보 집약적 인터페이스 및 직관적인 업그레이드 알림';
-        else if (g.genrePrimary === 'Simulation') uiPoints = '실제 조작계 모사 및 몰입감 높은 1인칭 시점 UI';
-        else if (sys.coreType?.includes('Sorting')) uiPoints = '아이템 이동 시의 부드러운 애니메이션 및 명확한 타겟팅';
+        let fullSystemDesc = analysis.core;
+        if (!fullSystemDesc) {
+            const coreLoop = coreMap[sys.coreType] || sys.coreType || '시스템 분석 예정';
+            const metaInfo = sys.metaDepth > 2 ? ' + 심화 메타 시스템' : ' + 기본 성장 루프';
+            fullSystemDesc = `${coreLoop}${metaInfo}`;
+        }
+
+        const rules = analysis.rules || sys.rules || (sys.pressure ? sys.pressure.join(', ') : '기본 규칙 적용');
+
+        let uiPoints = analysis.ui;
+        if (!uiPoints) {
+            uiPoints = 'UX 최적화 설계';
+            if (g.genrePrimary === 'Puzzle') uiPoints = '블록 배치의 시각적 가이드 및 콤보 팡파르 연출';
+            else if (g.genrePrimary === 'Arcade Idle') uiPoints = '한 손 조작 조이스틱 및 자원 스태킹 시각화';
+            else if (g.genrePrimary === 'SLG' || g.genrePrimary === 'Strategy') uiPoints = '정보 집약적 인터페이스 및 직관적인 업그레이드 알림';
+            else if (g.genrePrimary === 'Simulation') uiPoints = '실제 조작계 모사 및 몰입감 높은 1인칭 시점 UI';
+            else if (sys.coreType?.includes('Sorting')) uiPoints = '아이템 이동 시의 부드러운 애니메이션 및 명확한 타겟팅';
+        }
 
         body.innerHTML = `
             <div class="summary">
@@ -500,23 +509,23 @@ function initGameCards(games) {
 
             <div class="metrics-row">
                 <div class="metric-tag">
-                    <span class="label">Pressure</span>
+                    <span class="label">심리적 압박 (Pressure)</span>
                     <span class="value">${(sys.pressure || []).join('/') || 'Basic'}</span>
                 </div>
                 <div class="metric-tag">
-                    <span class="label">BM Depth</span>
+                    <span class="label">과금 심도 (BM Depth)</span>
                     <span class="value">${sys.monetizationDepth || 1}/4</span>
                 </div>
                 <div class="metric-tag">
-                    <span class="label">LTV</span>
+                    <span class="label">생애 가치 (LTV)</span>
                     <span class="value">${g.kpi?.ltv || 'Mid'}</span>
                 </div>
             </div>
 
             <div class="blueprint-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                    <h4 style="color: var(--analysis-accent); margin: 0; font-size: 1.1rem;">📐 System Blueprint</h4>
-                    <span style="font-size: 0.8rem; color: #64748b;">Archetype: ${g.genrePrimary}</span>
+                    <h4 style="color: var(--analysis-accent); margin: 0; font-size: 1.1rem;">📐 시스템 설계도 (System Blueprint)</h4>
+                    <span style="font-size: 0.8rem; color: #64748b;">장르 원형 (Archetype): ${g.genrePrimary}</span>
                 </div>
                 <div class="mermaid-container" id="modal-blueprint" style="background: transparent; min-height: 200px;">
                     <!-- Mermaid chart will be rendered here -->
@@ -618,28 +627,28 @@ function updateCompareTable(games) {
     head.innerHTML = '<th>비교 항목</th>' + selectedGames.map(g => `<th>${g.name || g.title}</th>`).join('');
 
     const items = [
-        { label: '🔷 Core Layer', isHeader: true },
-        { label: '조작 체계 (Control)', key: 'system', sub: 'controlType' },
-        { label: 'Core Loop Depth', key: 'systemScore', sub: 'complexity' },
-        { label: 'Session Length', key: 'sessionType' },
-        { label: 'Pressure Type', key: 'pressure', join: true },
+        { label: '🔷 코어 레이어 (핵심 게임플레이)', isHeader: true },
+        { label: '조작 체계 (Control Type)', key: 'system', sub: 'controlType' },
+        { label: '핵심 루프 깊이 (Core Loop Depth)', key: 'systemScore', sub: 'complexity' },
+        { label: '평균 세션 시간 (Session Length)', key: 'sessionType' },
+        { label: '심리적 압박 유형 (Pressure Type)', key: 'pressure', join: true },
 
-        { label: '🔷 Meta & Live Layer', isHeader: true },
-        { label: '성장 장벽 (Barrier)', key: 'system', sub: 'progressionBarrier' },
-        { label: '라이브 밀도 (Live)', key: 'system', sub: 'liveIntensity' },
-        { label: 'Meta System Depth', key: 'systemScore', sub: 'complexity' },
-        { label: 'Content Density', key: 'systemScore', sub: 'contentDensity' },
+        { label: '🔷 메타 & 라이브 레이어 (성장 및 운영)', isHeader: true },
+        { label: '성장 장벽 (Progression Barrier)', key: 'system', sub: 'progressionBarrier' },
+        { label: '라이브 운영 강도 (Live Intensity)', key: 'system', sub: 'liveIntensity' },
+        { label: '메타 시스템 깊이 (Meta System Depth)', key: 'systemScore', sub: 'complexity' },
+        { label: '콘텐츠 밀집도 (Content Density)', key: 'systemScore', sub: 'contentDensity' },
 
-        { label: '🔷 Monetization Layer', isHeader: true },
-        { label: '수익 모델 (BM Mix)', key: 'system', sub: 'monetizationMix' },
-        { label: 'Monetization Depth', key: 'systemScore', sub: 'monetizationDepth' },
-        { label: 'Whale Dependency', key: 'monetization', sub: 'whale' },
-        { label: 'Ad Dependency', key: 'monetization', sub: 'ads' },
+        { label: '🔷 수익화 레이어 (비즈니스 모델)', isHeader: true },
+        { label: '수익 모델 구성 (Monetization Mix)', key: 'system', sub: 'monetizationMix' },
+        { label: '과금 심도 (Monetization Depth)', key: 'systemScore', sub: 'monetizationDepth' },
+        { label: '고과금 유저 의존도 (Whale Dependency)', key: 'monetization', sub: 'whale' },
+        { label: '광고 수익 의존도 (Ad Dependency)', key: 'monetization', sub: 'ads' },
 
-        { label: '🔷 KPI Layer', isHeader: true },
-        { label: 'DAU Position', key: 'kpi', sub: 'dau' },
-        { label: 'ARPU Position', key: 'kpi', sub: 'arpu' },
-        { label: 'LTV Length', key: 'kpi', sub: 'ltv' }
+        { label: '🔷 KPI 지표 레이어 (핵심 성과)', isHeader: true },
+        { label: '유저 규모 (DAU Position)', key: 'kpi', sub: 'dau' },
+        { label: '수익성 수준 (ARPU Position)', key: 'kpi', sub: 'arpu' },
+        { label: '생애 가치 기간 (LTV Length)', key: 'kpi', sub: 'ltv' }
     ];
 
     body.innerHTML = items.map(item => {

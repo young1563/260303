@@ -15,23 +15,47 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .analysis-hero {
-            background: linear-gradient(135deg, #ff4d4d 0%, #f97316 100%);
-            color: white;
+            position: relative;
+            background: #fff;
+            color: var(--text-primary);
             padding: 8rem 2rem 4rem;
             text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .analysis-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../data/pizzaready/pizzaready.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            /* 옅게 처리 */
+            z-index: 0;
+        }
+
+        .analysis-hero .fade-in {
+            position: relative;
+            z-index: 1;
         }
 
         .analysis-hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: white;
+            color: var(--text-primary);
         }
 
         .analysis-hero .subtitle {
             font-size: 1.25rem;
-            opacity: 0.9;
+            opacity: 0.8;
             max-width: 800px;
             margin: 0 auto;
+            color: var(--text-secondary);
         }
 
         .metric-grid {
@@ -83,14 +107,26 @@
         }
 
         .mermaid-container {
-            background: white;
-            padding: 2rem;
+            background: #fff;
+            padding: 3rem 1.5rem;
             border-radius: 24px;
-            margin: 2rem 0;
+            margin: 3rem 0;
             overflow-x: auto;
             display: flex;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02), 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #fff7ed;
+        }
+
+        .mermaid {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .mermaid svg {
+            width: 100% !important;
+            height: auto !important;
         }
 
         .table-wrap {
@@ -153,12 +189,16 @@
     </div>
 
     <header>
-        <a href="../index.html" class="logo">Game Research</a>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
-                <li><a href="../index.html">시장 분석</a></li>
-                <li><a href="../index.html#research" class="active">리서치</a></li>
-                <li><a href="../glossary-ko.html">용어 사전</a></li>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../index.html#research" class="active">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">기획 용어집</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="pizze-ready-analysis.html">EN</a>
@@ -169,23 +209,30 @@
 
     <section class="analysis-hero">
         <div class="fade-in">
-            <span class="card-tag-inline"
-                style="background: rgba(255,255,255,0.2); color: white; margin-bottom: 1rem;">Deep Research</span>
+            <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                <img src="../data/pizzaready/icon.png" alt="Pizza Ready Icon"
+                    style="width: 100px; height: 100px; border-radius: 22px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid #eee;">
+            </div>
+            <span class="card-tag-inline" style="background: #f97316; color: white; margin-bottom: 1rem;">Deep
+                Research</span>
             <h1>Pizza Ready: <br>하이브리드 캐주얼의 정점</h1>
             <p class="subtitle">이중 판매 창구 메커닉과 데이터 기반 FTUE 최적화가 만든 <br>글로벌 4억 다운로드 기록을 심층 분석합니다.</p>
         </div>
 
-        <div class="metric-grid container">
-            <div class="metric-card fade-in" style="animation-delay: 0.2s;">
-                <span class="value">400M+</span>
+        <div class="metric-grid container" style="position: relative; z-index: 1;">
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.2s; background: rgba(255,255,255,0.7); border: 1px solid rgba(249, 115, 22, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #f97316;">400M+</span>
                 <span class="label">글로벌 누적 다운로드 (2025.12)</span>
             </div>
-            <div class="metric-card fade-in" style="animation-delay: 0.4s;">
-                <span class="value">$8.3M+</span>
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.4s; background: rgba(255,255,255,0.7); border: 1px solid rgba(249, 115, 22, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #f97316;">$8.3M+</span>
                 <span class="label">누적 인앱 결제(IAP) 매출</span>
             </div>
-            <div class="metric-card fade-in" style="animation-delay: 0.6s;">
-                <span class="value">Arcade Idle</span>
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.6s; background: rgba(255,255,255,0.7); border: 1px solid rgba(249, 115, 22, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #f97316;">Arcade Idle</span>
                 <span class="label">핵심 장르 분류</span>
             </div>
         </div>
@@ -204,21 +251,36 @@
             </div>
 
             <h2 class="fade-in">1. 코어 메커닉과 게임 루프</h2>
-            <p class="fade-in">Pizza Ready는 <b>'마이크로 매니지먼트(Micro-management)'</b>와 <b>'자동화 성장(Automation)'</b>의 완벽한 조화로
-                설계되었습니다.</p>
+            <div style="display: flex; gap: 2rem; align-items: flex-start; margin-bottom: 2rem;" class="fade-in">
+                <div style="flex: 1.2;">
+                    <p>Pizza Ready는 <b>'마이크로 매니지먼트(Micro-management)'</b>와 <b>'자동화 성장(Automation)'</b>의 완벽한 조화로 설계되었습니다.
+                    </p>
+                    <p>플레이어는 직접 피자를 구워 나르는 '노동'으로 시작하여, 직원을 고용하고 설비를 업그레이드하며 점차 매장 운영의 '관리자'로 성장하게 됩니다. 이 과정에서 발생하는 강력한
+                        피드백 루프는 유저의 장기 잔존을 유도합니다.</p>
+                </div>
+                <div style="flex: 0.8;">
+                    <img src="../data/pizzaready/Ingame.webp" alt="Pizza Ready Gameplay"
+                        style="width: 100%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 1px solid #eee;">
+                    <p style="font-size: 0.8rem; text-align: center; color: #666; margin-top: 0.5rem;">[스크린샷] 피자 스태킹 기반의
+                        게임플레이</p>
+                </div>
+            </div>
 
-            <div class="mermaid-container fade-in" style="margin: 2rem 0;">
+            <div class="mermaid-container fade-in">
+                <p
+                    style="font-size: 0.85rem; color: #f97316; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                    🔄 Core Loop Architecture</p>
                 <div class="mermaid">
                     flowchart LR
-                    A["🏪 매장 진입"] --> B["📝 주문 생성"]
-                    B --> C["🍕 생산 & 운반"]
-                    C --> D["🥡 서빙"]
-                    D --> E["💰 재화 획득"]
-                    E --> F["🚀 확장 & 자동화"]
-                    F --> B
+                    A(["🏪 매장 진입"]) ==> B["📝 주문 생성"]
+                    B ==> C["🍕 생산 & 운반"]
+                    C ==> D["🥡 서빙"]
+                    D ==> E["💰 재화 획득"]
+                    E ==> F(["🚀 확장 & 자동화"])
+                    F -.-> B
 
-                    style A fill:#f97316,stroke:#ea580c,color:#fff
-                    style F fill:#f97316,stroke:#ea580c,color:#fff
+                    style A fill:#f97316,stroke:#ea580c,color:#fff,stroke-width:2px
+                    style F fill:#f97316,stroke:#ea580c,color:#fff,stroke-width:2px
                 </div>
             </div>
 

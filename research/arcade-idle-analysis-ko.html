@@ -38,9 +38,11 @@
     </script>
     <style>
         .analysis-hero {
-            background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/arcade-idle-games.webp');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 8rem 2rem 4rem;
+            padding: 10rem 2rem 6rem;
             text-align: center;
         }
 
@@ -185,6 +187,22 @@
             margin-top: 0;
         }
 
+        .game-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .game-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.5rem !important;
+        }
+
         footer {
             text-align: center;
             padding: 4rem;
@@ -196,12 +214,16 @@
 
 <body>
     <header>
-        <a href="../index.html" class="logo">Game Research</a>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
-                <li><a href="../index.html">시장 분석</a></li>
-                <li><a href="../index.html#research" class="active">리서치</a></li>
-                <li><a href="../glossary-ko.html">용어 사전</a></li>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../index.html#research" class="active">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">기획 용어집</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="arcade-idle-analysis.html">EN</a>
@@ -290,56 +312,81 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><b>Pizza Ready!</b><br><span
-                                    style="font-size: 0.8rem; color: #64748b;">(Supercent)</span></td>
+                            <td class="game-cell">
+                                <img src="../img/icons/pizza-ready.webp" alt="Pizza Ready" class="game-icon">
+                                <b>Pizza Ready!</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Supercent)</span>
+                            </td>
                             <td>[Core] 피자 생산-서빙-정산<br>[Meta] 드라이브 스루 확장, 매장 체인화(Prestige)</td>
                             <td>대기열 병목(홀 vs 드라이브 스루) 관리 및 인력 배치 최적화</td>
                             <td>버추얼 조이스틱의 직관적 반응성, 수직으로 쌓이는 피자 뭉치 연출</td>
                         </tr>
                         <tr>
-                            <td><b>My Mini Mart</b><br><span
-                                    style="font-size: 0.8rem; color: #64748b;">(Supersonic)</span></td>
+                            <td class="game-cell">
+                                <img src="../img/icons/my-mini-mart.webp" alt="My Mini Mart" class="game-icon">
+                                <b>My Mini Mart</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Supersonic)</span>
+                            </td>
                             <td>[Core] 작물 수확-진열-결제<br>[Meta] 신규 품목(동물, 가공기) 해금 및 레이아웃 확장</td>
                             <td>고객 만족도(대기 시간) 관리 및 재고 부족 시 발생하는 '품절' 압박</td>
                             <td>아이템 습득/진열 시의 부드러운 애니메이션 및 명확한 영역 표시</td>
                         </tr>
                         <tr>
-                            <td><b>My Little Universe</b><br><span
-                                    style="font-size: 0.8rem; color: #64748b;">(SayGames)</span></td>
+                            <td class="game-cell">
+                                <img src="../img/icons/my-little-universe.webp" alt="My Little Universe"
+                                    class="game-icon">
+                                <b>My Little Universe</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(SayGames)</span>
+                            </td>
                             <td>[Core] 자원 채집-타일 해금-건축<br>[Meta] 행성 단위 확장 및 도구 업그레이드 트리</td>
                             <td>특정 구역 개방을 위한 '자원 게이트' 설정 및 점진적 환경 위협</td>
                             <td>채집 시의 강한 햅틱 피드백, 자원별 아이콘과 수량의 상시 노출</td>
                         </tr>
                         <tr>
-                            <td><b>Office Fever</b><br><span style="font-size: 0.8rem; color: #64748b;">(Rollic)</span>
+                            <td class="game-cell">
+                                <img src="../img/icons/office-fever.webp" alt="Office Fever" class="game-icon">
+                                <b>Office Fever</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Rollic)</span>
                             </td>
                             <td>[Core] 서류 배달-업무 처리-정리<br>[Meta] 사무실 공간 확장 및 관리직 고용</td>
                             <td>서류 적재량에 따른 이동 속도 디버프(Speed vs Capacity trade-off)</td>
                             <td>캐릭터 키를 넘어서는 과장된 서류 스태킹(Stacking) 시각화</td>
                         </tr>
                         <tr>
-                            <td><b>Fashion Universe</b><br><span
-                                    style="font-size: 0.8rem; color: #64748b;">(Voodoo)</span></td>
+                            <td class="game-cell">
+                                <img src="../img/icons/fashion-universe.webp" alt="Fashion Universe" class="game-icon">
+                                <b>Fashion Universe</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Voodoo)</span>
+                            </td>
                             <td>[Core] 의결 수거-진열-피팅룸 관리<br>[Meta] 명품 브랜드 라인 확장, 매장 인테리어</td>
                             <td>유행 주기에 따른 빠른 진열 교체 요구 및 VIP 고객 대응</td>
                             <td>의류의 색감과 재질을 강조한 화려한 UI, 쇼핑백 누적 연출</td>
                         </tr>
                         <tr>
-                            <td><b>Dino Domination</b><br><span style="font-size: 0.8rem; color: #64748b;">(Yso
-                                    Corp)</span></td>
+                            <td class="game-cell">
+                                <img src="../img/icons/dino-domination.webp" alt="Dino Domination" class="game-icon">
+                                <b>Dino Domination</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Yso Corp)</span>
+                            </td>
                             <td>[Core] 자원 획득-진화-전투<br>[Meta] 공룡 군단 육성 및 영토 점령</td>
                             <td>전투 패배 시 자원 손실 리스크 및 진화 단계별 자원 요구량 급증</td>
                             <td>진화 단계별 외형 변화의 직관적 노출, 전투 시 타격 이펙트</td>
                         </tr>
                         <tr>
-                            <td><b>Dreamdale</b><br><span style="font-size: 0.8rem; color: #64748b;">(SayGames)</span>
+                            <td class="game-cell">
+                                <img src="../img/icons/dreamdale.webp" alt="Dreamdale" class="game-icon">
+                                <b>Dreamdale</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(SayGames)</span>
                             </td>
                             <td>[Core] 자원 채집-어드벤처-전투<br>[Meta] 마을 재건, 장비 강화, 던전 탐험</td>
                             <td>RPG 요소(체력 관리)와 Arcade Idle(자원 관리)의 혼합 제약</td>
                             <td>월드 맵의 안개 해금 연출, 캐릭터 장비 장착 모습 실시간 반영</td>
                         </tr>
                         <tr>
-                            <td><b>Stone Grass</b><br><span style="font-size: 0.8rem; color: #64748b;">(Freeplay)</span>
+                            <td class="game-cell">
+                                <img src="../img/icons/stone-grass.webp" alt="Stone Grass" class="game-icon">
+                                <b>Stone Grass</b>
+                                <span style="font-size: 0.8rem; color: #64748b;">(Freeplay)</span>
                             </td>
                             <td>[Core] 잔디 깎기-수거-판매<br>[Meta] 기계 성능(블레이드, 탱크) 및 차량 업그레이드</td>
                             <td>제한된 적재 공간으로 인한 잦은 '기지 귀환' 동선 강제</td>
@@ -351,6 +398,12 @@
 
             <h2 class="fade-in">4. 게임의 뼈대: 멈추지 않는 '순환 고리'</h2>
             <p class="fade-in">아케이드 아이들은 유저가 지루할 틈이 없도록 초 단위와 분 단위의 목표를 계속 던져줍니다.</p>
+
+            <div class="fade-in"
+                style="margin: 2rem 0; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
+                <img src="../img/arcade-idle-games_gif.webp" alt="Arcade Idle Gameplay"
+                    style="width: 100%; height: auto; display: block;">
+            </div>
 
             <div class="mermaid-container fade-in">
                 <div class="mermaid">

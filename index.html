@@ -26,12 +26,16 @@
     </div>
 
     <header>
-        <a href="index.html" class="logo">Game Research</a>
+        <a href="index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">시장 분석</a></li>
-                <li><a href="index.html#research">리서치</a></li>
-                <li><a href="glossary-ko.html">용어 사전</a></li>
+                <li><a href="index.html" class="active">시장 인사이트</a></li>
+                <li><a href="index.html#research">리서치 로그</a></li>
+                <li><a href="glossary-ko.html">기획 용어집</a></li>
             </ul>
             <div class="lang-switch">
                 <a href="index-en.html">EN</a>
@@ -139,16 +143,28 @@
                         style="animation-delay: 1.0s; text-align: left; margin-top: 4rem;">장르별 핵심 지표</h2>
                     <div class="stats-grid">
                         <div class="stat-card slide-left" style="animation-delay: 0.2s;">
-                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이퍼캐주얼</span>
-                            <h4>D1 Retention</h4>
+                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이퍼캐주얼 벤치마크</span>
+                            <h4>익일 리텐션 (D1 Retention)</h4>
+                            <p class="stat-desc">설치 후 1일차에 게임으로 돌아오는 유저의 비율입니다.</p>
                             <div class="value">&lt;25%</div>
-                            <div class="trend down">▼ 업계 벤치마크</div>
+                            <div class="trend down">▼ 업계 벤치마크 미달</div>
+                            <div class="data-source">출처: Gamesforum ⓘ</div>
                         </div>
                         <div class="stat-card fade-in" style="animation-delay: 0.4s;">
-                            <span class="card-tag-inline" style="margin-bottom: 1rem;">시장 점유율</span>
-                            <h4>Install Share</h4>
+                            <span class="card-tag-inline" style="margin-bottom: 1rem;">시장 트렌드 리포트</span>
+                            <h4>시장 설치 점유율 (Install Share)</h4>
+                            <p class="stat-desc">전체 모바일 게임 다운로드 중 하이퍼캐주얼이 차지하는 비중입니다.</p>
                             <div class="value">30%</div>
-                            <div class="trend down">▼ 대비 -20%</div>
+                            <div class="trend down">▼ 2021년 대비 -20%</div>
+                            <div class="data-source">출처: GamesBeat ⓘ</div>
+                        </div>
+                        <div class="stat-card slide-right" style="animation-delay: 0.6s;">
+                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이브리드 전환 지표</span>
+                            <h4>인앱 결제 성장액 (IAP Growth)</h4>
+                            <p class="stat-desc">하이브리드화로 인한 인앱 아이템 구매 매출의 증가세입니다.</p>
+                            <div class="value">$2.1B</div>
+                            <div class="trend up">▲ 250% 이상 증가</div>
+                            <div class="data-source">출처: Sensor Tower ⓘ</div>
                         </div>
                     </div>
                 </section>
@@ -161,7 +177,63 @@
                         <button class="tab-btn" data-target="game">게임</button>
                     </div>
                     <div class="research-grid">
-                        <!-- 기존 카드 데이터... -->
+                        <!-- Card: Game Fun Analysis (New) -->
+                        <article class="research-card fade-in" data-category="game"
+                            style="border: 2px solid #ff00ea; background: linear-gradient(to bottom right, #fff, rgba(255, 0, 234, 0.05));">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline"
+                                        style="background: #ff00ea; color: #fff;">Featured</span>
+                                    <span class="date">2026년 4월</span>
+                                    <span class="read-time">오리지널 분석</span>
+                                </div>
+                                <h3 style="color: #c900b8;">재미에 대한 고찰 및 게임 디자인 공식</h3>
+                                <p>인간이 재미를 느끼는 '인지적 보상'의 본질과, 이를 Meaningful Choice 및 피드백 루프로 구현하는 디자인 설계 공식을 정리했습니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">출처: Game Fun Study ⓘ</span>
+                                    <a href="research/game-fun-analysis-ko.html" class="read-more">분석 열기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card: Match-3 Economy Design (New) -->
+                        <article class="research-card fade-in" data-category="game"
+                            style="border: 2px solid #7c3aed; background: linear-gradient(to bottom right, #fff, rgba(124, 58, 237, 0.05));">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline"
+                                        style="background: #7c3aed; color: #fff;">Featured</span>
+                                    <span class="date">2026년 4월</span>
+                                    <span class="read-time">리서치 리포트</span>
+                                </div>
+                                <h3 style="color: #6d28d9;">실패의 가치를 팔다: 매치3 경제 구조</h3>
+                                <p>수학적 확률 모델링과 행동 경제학이 빚어낸 120억 달러 매치3 시장의 결제 유도 메커니즘을 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">출처: System Analysis ⓘ</span>
+                                    <a href="research/match3-economy-ko.html" class="read-more">리포트 열기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card: Game Churn Analysis (New) -->
+                        <article class="research-card fade-in" data-category="game"
+                            style="border: 2px solid var(--accent-secondary); background: linear-gradient(to bottom right, #fff, rgba(0, 229, 255, 0.05));">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline"
+                                        style="background: var(--accent-secondary); color: #fff;">Featured</span>
+                                    <span class="date">2026년 3월</span>
+                                    <span class="read-time">리서치 리포트</span>
+                                </div>
+                                <h3 style="color: var(--accent-secondary);">게임 장르별 초반 유저 이탈 방지 전략</h3>
+                                <p>TTFR 단축, 튜토리얼 맥락화 등 다양한 장르의 초기 잔존율을 높이기 위한 기획 필살기와 데이터 기반의 리텐션 벤치마크를 정리했습니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">출처: Deep Research ⓘ</span>
+                                    <a href="research/game-churn-analysis.html" class="read-more">리포트 열기 →</a>
+                                </div>
+                            </div>
+                        </article>
+
                         <!-- Card 0: 모바일 TOP20 장르 분석 (New) -->
                         <article class="research-card fade-in" data-category="market"
                             style="border: 2px solid var(--accent-primary); background: linear-gradient(to bottom right, #fff, rgba(124, 77, 255, 0.05));">
@@ -173,9 +245,10 @@
                                     <span class="read-time">대시보드 리포트</span>
                                 </div>
                                 <h3 style="color: var(--accent-primary);">모바일 TOP 50 장르 및 시스템 분석</h3>
-                                <p>상위 50개 게임의 아키텍처를 분석한 인터랙티브 대시보드입니다. Core Loop, BM, Content Layer 비교 데이터를 제공합니다.</p>
+                                <p>글로벌 상위 50개 게임들을 하나씩 뜯어보며 기획자로서 배운 점들을 장르별로 정리했습니다. 시스템 아키텍처와 수익 구조의 흐름을 실무자의 시각에서
+                                    꼼꼼하게 기록한 학습 로그입니다.</p>
                                 <div class="card-footer">
-                                    <span class="source">출처: System Analysis</span>
+                                    <span class="source">출처: System Analysis ⓘ</span>
                                     <a href="research/top20-genre-analysis.html" class="read-more">리포트 열기 →</a>
                                 </div>
                             </div>
@@ -211,7 +284,7 @@
                                 <h3>2025 글로벌 게임 시장 심층 분석</h3>
                                 <p>26개국 콘텐츠 시장 규모, 지역별 성장률 및 미래 전망을 담은 통합 리포트입니다.</p>
                                 <div class="card-footer">
-                                    <span class="source">출처: KOCCA, PwC</span>
+                                    <span class="source">출처: KOCCA, PwC ⓘ</span>
                                     <a href="research/global-report-2025-ko.html" class="read-more">리포트 보기 →</a>
                                 </div>
                             </div>
@@ -228,7 +301,7 @@
                                 <h3>Block Blast: UX 및 성장 전략 분석</h3>
                                 <p>Hungry Studio의 1억 다운로드 신화와 중독적인 'Juicy' 피드백 루프의 비밀을 분석합니다.</p>
                                 <div class="card-footer">
-                                    <span class="source">출처: Market Data</span>
+                                    <span class="source">출처: Market Data ⓘ</span>
                                     <a href="research/block-blast-analysis-ko.html" class="read-more">분석 보기 →</a>
                                 </div>
                             </div>
@@ -245,7 +318,7 @@
                                 <h3>2026 하이퍼캐주얼 시장 전망</h3>
                                 <p>지속 가능한 수익 모델을 위한 하이퍼캐주얼의 하이브리드화 전략과 트렌드 분석입니다.</p>
                                 <div class="card-footer">
-                                    <span class="source">출처: Sensor Tower</span>
+                                    <span class="source">출처: Sensor Tower ⓘ</span>
                                     <a href="research/2026-hypercasual-ko.html" class="read-more">자세히 보기 →</a>
                                 </div>
                             </div>
