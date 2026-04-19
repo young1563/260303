@@ -202,17 +202,17 @@
                 </div>
 
                 <div class="chart-container-grid">
-                    <div>
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
                         <h3
-                            style="text-align: center; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">
+                            style="text-align: center; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-end; justify-content: center; min-height: 3.5rem;">
                             연도별 하이퍼 캐주얼 누적 다운로드 (단위: 억)</h3>
                         <div class="chart-wrapper">
                             <canvas id="downloadsChart"></canvas>
                         </div>
                     </div>
-                    <div>
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
                         <h3
-                            style="text-align: center; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">
+                            style="text-align: center; color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem; display: flex; align-items: flex-end; justify-content: center; min-height: 3.5rem;">
                             연도별 IAP(인앱결제) 수익 (단위: 백만 달러)</h3>
                         <div class="chart-wrapper">
                             <canvas id="revenueChart"></canvas>
@@ -345,8 +345,8 @@
 
     <script src="../js/main.js"></script>
     <script>
-        // Chart configuration with dark theme styles matching the dashboard
-        Chart.defaults.color = 'rgba(255, 255, 255, 0.7)';
+        // Chart configuration dynamically applying colors for Light theme
+        Chart.defaults.color = 'rgba(0, 0, 0, 0.6)';
         Chart.defaults.font.family = "'Inter', sans-serif";
 
         const years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025 (FC)'];
@@ -374,10 +374,12 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        title: { display: true, text: '누적 다운로드 수 (억 건)', color: 'rgba(0,0,0,0.7)', font: { weight: 'bold' } }
                     },
                     x: {
-                        grid: { display: false }
+                        grid: { display: false },
+                        title: { display: true, text: '연도', color: 'rgba(0,0,0,0.7)', font: { weight: 'bold' } }
                     }
                 }
             }
@@ -410,10 +412,12 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        title: { display: true, text: 'IAP (인앱결제) 수익 (백만 달러)', color: 'rgba(0,0,0,0.7)', font: { weight: 'bold' } }
                     },
                     x: {
-                        grid: { display: false }
+                        grid: { display: false },
+                        title: { display: true, text: '연도', color: 'rgba(0,0,0,0.7)', font: { weight: 'bold' } }
                     }
                 }
             }
