@@ -201,11 +201,273 @@
         }
 
         .img-hero {
+            display: block;
             width: 100%;
-            border-radius: 20px;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            margin: 2rem auto 4rem;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .case-study-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px;
+            border: none;
+        }
+
+        .case-study-table th {
+            background: rgba(124, 77, 255, 0.03);
+            color: var(--accent-primary);
+            text-align: left;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid rgba(124, 77, 255, 0.1);
+        }
+
+        .case-study-table td {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .case-study-table tr:hover {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .col-game {
+            width: 22%;
+        }
+
+        .col-strategy {
+            width: 58%;
+        }
+
+        .col-metrics {
+            width: 20%;
+        }
+
+        .game-cell {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .game-icon-main {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-info-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .game-title-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--accent-primary);
+            line-height: 1.2;
+        }
+
+        .publisher-line {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .brand-icon-sub {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            object-fit: contain;
+            background: #fff;
+            padding: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .strategy-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .strategy-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .strategy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+        /* Enhanced Retention Section */
+        .retention-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            margin: 4rem 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .comp-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comp-item.legacy {
+            border-left: 4px solid #ff4e50;
+        }
+
+        .comp-item.hybrid {
+            border-left: 4px solid var(--accent-secondary);
+        }
+
+        .comp-item h4 {
+            margin: 0 0 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .stat-line {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .stat-line .danger {
+            color: #ff4e50;
+        }
+
+        .stat-line .success {
+            color: var(--accent-secondary);
+        }
+
+        .comp-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .margin-analysis {
+            margin-top: 1rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .margin-analysis h4 {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .margin-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .m-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .m-card h5 {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin: 0 0 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .m-val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .m-card.highlight {
+            background: rgba(0, 229, 255, 0.05);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .m-card.highlight .m-val {
+            color: var(--accent-secondary);
+        }
+
+        .analysis-footer {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-style: italic;
+        }
+
+        .metric-badge {
+            display: inline-block;
+            background: rgba(124, 77, 255, 0.08);
+            color: var(--accent-primary);
+            padding: 0.45rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(124, 77, 255, 0.15);
         }
 
         @media (max-width: 768px) {
@@ -296,15 +558,52 @@
                 </div>
 
                 <div class="retention-box">
-                    <div>
-                        <strong style="font-size: 1.2rem; color: #ff4e50;">하이퍼 캐주얼 Retention 절벽 극복</strong>
-                        <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">전통적인 하이퍼 캐주얼의 리텐션(초록색 방어선: D1 25% →
-                            D7 8% 미만) 한계를 극복하기 위해, 하이브리드 캐주얼은 가벼운 메타 성장을 추가하여 <strong>Day-7 리텐션을 15~30%</strong> 수준으로
-                            끌어올렸습니다.</p>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="font-size: 2.5rem; font-weight: 800; color: #fff;">15~30%</span><br>
-                        <span style="font-size: 0.9rem; color: var(--text-secondary);">하이브리드 D7 타겟</span>
+                    <div class="retention-info">
+                        <h3 style="font-size: 1.6rem; color: var(--text-primary); margin-bottom: 1rem;">
+                            하이퍼 캐주얼 "Retention 절벽"과 하이브리드 생존 공식
+                        </h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                            전통적 하이퍼 캐주얼 모델의 치명적인 한계를 데이터 기반 전략으로 극복하는 핵심 지표 분석입니다.
+                        </p>
+
+                        <div class="comparison-grid">
+                            <div class="comp-item legacy">
+                                <h4>Legacy Hypercasual</h4>
+                                <div class="stat-line">D1 25% → <span class="danger">D7 < 8%</span>
+                                </div>
+                                <p>단기 소모적 콘텐츠 소비와 메타 요소의 부재로 인한 급격한 유저 이탈 현상 (Retention Cliff)</p>
+                            </div>
+                            <div class="comp-item hybrid">
+                                <h4>Hybrid-Casual Strategy</h4>
+                                <div class="stat-line">D1 45% → <span class="success">D7 15~30%</span></div>
+                                <p>가벼운 메타 루프(성장/수집/강화) 결합을 통해 핵심 플레이의 장기 리텐션을 2~3배 견인</p>
+                            </div>
+                        </div>
+
+                        <div class="margin-analysis">
+                            <h4>
+                                <span
+                                    style="background: var(--accent-primary); width: 4px; height: 1.2rem; border-radius: 2px;"></span>
+                                수익성 방어 및 마진 확보 타겟 (UA Margin Benchmark)
+                            </h4>
+                            <div class="margin-cards">
+                                <div class="m-card">
+                                    <h5>Android CPI</h5>
+                                    <div class="m-val">&lt; $1.50</div>
+                                </div>
+                                <div class="m-card">
+                                    <h5>iOS CPI</h5>
+                                    <div class="m-val">&lt; $2.50</div>
+                                </div>
+                                <div class="m-card highlight">
+                                    <h5>Target LTV</h5>
+                                    <div class="m-val">$2.80+</div>
+                                </div>
+                            </div>
+                            <p class="analysis-footer">
+                                "안정적인 비즈니스 모델 유지를 위해서는 <strong>LTV/CPI 비율이 최소 15~20% 이상</strong>의 마진을 확보해야 합니다."
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -325,6 +624,7 @@
                 <h2>3. THE SHIFT TO HYBRID-CASUAL: 패러다임의 전환</h2>
                 <p>순수 하이퍼 캐주얼 게임과 하이브리드 캐주얼 게임 간의 경계가 점차 흐려지고 있습니다. 업계를 선도하는 퍼블리셔들은 유저를 <strong>"단 몇 분"이 아닌 "몇 주 이상의 기간"
                         동안</strong> 머물게 하기 위해 가벼운 메타 프로그레션(성장 시스템)을 적극적으로 결합하고 있습니다.</p>
+                <img src="../img/casualgamebanner01.png" alt="Hybrid Casual Market Analysis" class="img-hero">
 
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; margin-top: 1.5rem;">
@@ -349,72 +649,118 @@
                 <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">결과적으로 Day-7 리텐션이 두 자리 수 비율로 크게 상승하여 생애가치(LTV)가 대폭
                     뛰어올랐고, 애플의 IDFA 변경 이후 <strong>치솟는 UA(유저 획득) 비용 환경 속에서 광고 수익 중심의 마진을 입체적으로 방어</strong>하는 필수 생존 공식이
                     되었습니다.</p>
-                
-                <img src="../img/azur games.jpg" alt="Azur Games Market Analysis" class="img-hero" style="min-height: auto;">
 
-                <h2>4. 퍼블리셔들의 하이브리드 전환 주요 성공 사례 (Case Studies)</h2>
-                <div class="case-study-list">
 
-                    <div class="case-study-item">
-                        <div class="tag-list">
-                            <span class="tag">퍼블리셔: Voodoo</span>
-                            <span class="tag">타이틀: Mob Control</span>
-                            <span class="tag">성과: 연매출 $200M 런레이트</span>
-                        </div>
-                        <h3>Mob Control: 철저한 데이터 기반 UA와 IAP 융합</h3>
-                        <p>Voodoo는 전통적인 초캐주얼에서 하이브리드로 대규모 피벗을 시도했습니다. 심플한 타워 디펜스(슈팅) 루프에 점진적 장기 성장(메타) 기능을 추가했습니다.</p>
-                        <div class="image-placeholder case-study-img"></div>
-                        <ul>
-                            <li><strong>UA 최적화 방안:</strong> 스케일 확장보다 '수익성(ROAS 150% 타겟)' 최우선. 이를 위해 매주 300~500개의 방대한 광고
-                                소재 A/B 테스트 진행.</li>
-                            <li><strong>하이브리드 메타요소 추가:</strong> 보상형 광고뿐 아니라 클랜/PvP 요소 추가 및 트랜스포머 IP 크로스오버 진행력으로 LTV 20%
-                                증가 입증.</li>
-                        </ul>
-                    </div>
-
-                    <div class="case-study-item">
-                        <div class="tag-list">
-                            <span class="tag">퍼블리셔: Rollic</span>
-                            <span class="tag">타이틀: Color Block Jam</span>
-                            <span class="tag">성과: D7 20%, D30 10% 유지율</span>
-                        </div>
-                        <h3>Color Block Jam: 3단계 고도화 수익화 퍼즐 전략</h3>
-                        <p>UX에 극도로 공을 들인 블록 퍼즐입니다. 시간 압박(Timer)과 폭탄(Vacuum)이라는 퍼즐 메커니즘을 심어 높은 체류 시간을 확보했습니다. (평균 접속자
-                            167분/Day7 체류)</p>
-                        <div class="image-placeholder case-study-img"></div>
-                        <ul>
-                            <li><strong>3단계 Funnel 모델:</strong>
-                                <br>Stage 1: 완전 무료 (광고 없는 신혼 기간 + 허들 팩 IAP 노출)
-                                <br>Stage 2: 가벼운 배너/인터스티셜 노출
-                                <br>Stage 3: 후반 난이도 상승에 따른 공격적 애드 및 코인 보상
-                            </li>
-                            <li><strong>광고 심리:</strong> 자이가르니크 효과(Zeigarnik Effect)를 역이용해, 광고 마지막 핵심 퍼즐 요소를 의도적으로 끊어 클릭률
-                                대폭 증가.</li>
-                        </ul>
-                    </div>
-
-                    <div class="case-study-item">
-                        <div class="tag-list">
-                            <span class="tag">퍼블리셔: Supercent</span>
-                            <span class="tag">타이틀: Pizza Ready</span>
-                            <span class="tag">성과: 누적 2억 인스톨</span>
-                        </div>
-                        <h3>Pizza Ready: 심플한 텐션과 부드러운 광고 경험 통합</h3>
-                        <p>아케이드 아이들(Idle Arcade) 장르의 대표주자로, 70% 광고 + 30% 커스텀 IAP 의 수익 매칭을 이뤘습니다.</p>
-                        <div class="image-placeholder case-study-img"></div>
-                        <ul>
-                            <li><strong>자연스러운 광고 시청 환경:</strong> 리워드 광고를 외부에 불편하게 팝업하는 대신, 게임 내 피자 배달 트럭의 일환으로 감싸서 자연스러운
-                                광고 시청 유도.</li>
-                            <li><strong>유니버설 테마 & 퍼포먼스 마케팅:</strong> 남녀노소 호불호 없는 '피자 가게' 소재를 사용하여 여성 플레이어 63% 유입. </li>
-                        </ul>
-                    </div>
+                <h2>4. 퍼블리셔들의 하이브리드 전환 주요 성공 사례 (Case Studies Comparison)</h2>
+                <div class="case-study-table-container">
+                    <table class="case-study-table">
+                        <thead>
+                            <tr>
+                                <th class="col-game">게임 및 퍼블리셔</th>
+                                <th class="col-strategy">핵심 하이브리드 성공 전략</th>
+                                <th class="col-metrics">주요 성과 지표</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Case 1: Mob Control -->
+                            <tr>
+                                <td>
+                                    <div class="game-cell">
+                                        <img src="../img/mobcontrol_icon.jpg" class="game-icon-main" alt="Mob Control">
+                                        <div class="game-info-meta">
+                                            <span class="game-title-text">Mob Control</span>
+                                            <div class="publisher-line">
+                                                <img src="../img/voodoo_icon.png" class="brand-icon-sub" alt="Voodoo">
+                                                <span>Voodoo</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ul class="strategy-list">
+                                        <li><strong>UA 최적화 방안:</strong> 매주 300~500개의 방대한 광고 소재 A/B 테스트를 통한 ROAS 150%
+                                            타겟팅.</li>
+                                        <li><strong>메타요소 확장:</strong> 타워 디펜스 루프에 클랜 시스템, PvP 랭킹 요소 추가 및 트랜스포머 IP 크로스오버.
+                                        </li>
+                                        <li><strong>수익화 융합:</strong> 보상형 광고와 시즌 패스형 IAP의 유기적 결합으로 유저당 LTV 20% 상승.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div class="metric-badge">$200M Run-rate</div>
+                                    <div class="metric-badge">ROAS 150%</div>
+                                    <div class="metric-badge">LTV +20%</div>
+                                </td>
+                            </tr>
+                            <!-- Case 2: Color Block Jam -->
+                            <tr>
+                                <td>
+                                    <div class="game-cell">
+                                        <img src="../img/colorblockjam_icon.webp" class="game-icon-main"
+                                            alt="Color Block Jam">
+                                        <div class="game-info-meta">
+                                            <span class="game-title-text">Color Block Jam</span>
+                                            <div class="publisher-line">
+                                                <img src="../img/rollic_icon.png" class="brand-icon-sub" alt="Rollic">
+                                                <span>Rollic (Zynga)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ul class="strategy-list">
+                                        <li><strong>수익화 깔대기(Funnel):</strong> 3단계 고도화 전략(무료 체험 → 가벼운 광고 → 공격적 보상 광고) 적용.
+                                        </li>
+                                        <li><strong>심리 마케팅:</strong> 자이가르니크 효과를 역이용, 광고 마지막에 퍼즐 해결 직전 끊기를 통한 클릭률 극대화.
+                                        </li>
+                                        <li><strong>UX 체류시간:</strong> 평균 접속 시간 167분 달성 (시간 압박 및 폭탄 기믹 활용).</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div class="metric-badge">D7 20% 유지</div>
+                                    <div class="metric-badge">167분 체류/일</div>
+                                    <div class="metric-badge">D30 10% 유지</div>
+                                </td>
+                            </tr>
+                            <!-- Case 3: Pizza Ready -->
+                            <tr>
+                                <td>
+                                    <div class="game-cell">
+                                        <img src="../img/pizzaready_logo.webp" class="game-icon-main" alt="Pizza Ready">
+                                        <div class="game-info-meta">
+                                            <span class="game-title-text">Pizza Ready</span>
+                                            <div class="publisher-line">
+                                                <img src="../img/supercent_logo.jpg" class="brand-icon-sub"
+                                                    alt="Supercent">
+                                                <span>Supercent</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <ul class="strategy-list">
+                                        <li><strong>네이티브 광고:</strong> 리워드 광고를 게임 내 피자 배달 트럭 시스템의 일부로 녹여내어 거부감 없는 시청 유도.
+                                        </li>
+                                        <li><strong>유니버설 테마:</strong> 남녀노소 호불호 없는 '피자' 소재 활용 (여성 플레이어 유입률 63% 달성).</li>
+                                        <li><strong>Idle Arcade 전술:</strong> HC의 조작감과 방치형의 무한 성장을 결합하여 광고 70%, 결제 30%의
+                                            매칭 성공.</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <div class="metric-badge">2억+ 인스톨</div>
+                                    <div class="metric-badge">Female 63%</div>
+                                    <div class="metric-badge">IAP 30% Share</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
 
-                <div class="highlight-box">
-                    <strong>최종 시사점 (Final Takeaways)</strong><br>
-                    순수하게 대규모 유저풀과 저렴한 CPI로 밀어붙였던 트래픽 사업에서 벗어나, <strong>접근성은 유지하되 가벼운 메타 시스템(수집, 레벨업, 시즌 패스)을 첨가하여
-                        IAP(인앱결제)를 이끄는 하이브리드 캐주얼</strong>로의 전략 전환이 필수적인 상황입니다.
-                </div>
+            <div class="highlight-box">
+                <strong>최종 시사점 (Final Takeaways)</strong><br>
+                순수하게 대규모 유저풀과 저렴한 CPI로 밀어붙였던 트래픽 사업에서 벗어나, <strong>접근성은 유지하되 가벼운 메타 시스템(수집, 레벨업, 시즌 패스)을 첨가하여
+                    IAP(인앱결제)를 이끄는 하이브리드 캐주얼</strong>로의 전략 전환이 필수적인 상황입니다.
+            </div>
             </div>
         </article>
     </main>
