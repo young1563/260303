@@ -114,23 +114,47 @@
             width: 100%;
         }
 
-        .img-hero {
+        .image-placeholder {
             width: 100%;
+            background: rgba(124, 77, 255, 0.03);
+            border: 2px dashed rgba(124, 77, 255, 0.2);
             border-radius: 16px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin: 1.5rem 0;
+            min-height: 200px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .retention-box {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-top: 4px solid #ff4e50;
-            margin: 1.5rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .image-placeholder::before {
+            content: 'Visual Asset Area';
+            opacity: 0.5;
+        }
+
+        .banner-placeholder {
+            min-height: 400px;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.05) 0%, rgba(0, 229, 255, 0.05) 100%);
+            border: 2px dashed var(--accent-primary);
+            opacity: 0.8;
+        }
+
+        .banner-placeholder::before {
+            content: 'Hero Banner Image (1200x400)';
+        }
+
+        .case-study-img {
+            min-height: 180px;
+            background: rgba(0, 0, 0, 0.02);
+            margin: 1rem 0;
         }
 
         @media (max-width: 768px) {
@@ -171,6 +195,7 @@
                 <h1>2025 Gamesforum 하이퍼 캐주얼 게임 리포트 분석</h1>
                 <p class="article-meta">분석 데이터: Gamesforum Intelligence Hypercasual Gaming Report | 작성: Antigravity
                     Research</p>
+                <div class="image-placeholder banner-placeholder"></div>
             </div>
 
             <div class="article-body">
@@ -271,9 +296,11 @@
                     </div>
                 </div>
 
-                <p style="margin-bottom: 3rem; font-size: 1.05rem;">결과적으로 Day-7 리텐션이 두 자리 수 비율로 크게 상승하여 생애가치(LTV)가 대폭
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">결과적으로 Day-7 리텐션이 두 자리 수 비율로 크게 상승하여 생애가치(LTV)가 대폭
                     뛰어올랐고, 애플의 IDFA 변경 이후 <strong>치솟는 UA(유저 획득) 비용 환경 속에서 광고 수익 중심의 마진을 입체적으로 방어</strong>하는 필수 생존 공식이
                     되었습니다.</p>
+                
+                <div class="image-placeholder" style="min-height: 300px;"></div>
 
                 <h2>4. 퍼블리셔들의 하이브리드 전환 주요 성공 사례 (Case Studies)</h2>
                 <div class="case-study-list">
@@ -286,6 +313,7 @@
                         </div>
                         <h3>Mob Control: 철저한 데이터 기반 UA와 IAP 융합</h3>
                         <p>Voodoo는 전통적인 초캐주얼에서 하이브리드로 대규모 피벗을 시도했습니다. 심플한 타워 디펜스(슈팅) 루프에 점진적 장기 성장(메타) 기능을 추가했습니다.</p>
+                        <div class="image-placeholder case-study-img"></div>
                         <ul>
                             <li><strong>UA 최적화 방안:</strong> 스케일 확장보다 '수익성(ROAS 150% 타겟)' 최우선. 이를 위해 매주 300~500개의 방대한 광고
                                 소재 A/B 테스트 진행.</li>
@@ -303,6 +331,7 @@
                         <h3>Color Block Jam: 3단계 고도화 수익화 퍼즐 전략</h3>
                         <p>UX에 극도로 공을 들인 블록 퍼즐입니다. 시간 압박(Timer)과 폭탄(Vacuum)이라는 퍼즐 메커니즘을 심어 높은 체류 시간을 확보했습니다. (평균 접속자
                             167분/Day7 체류)</p>
+                        <div class="image-placeholder case-study-img"></div>
                         <ul>
                             <li><strong>3단계 Funnel 모델:</strong>
                                 <br>Stage 1: 완전 무료 (광고 없는 신혼 기간 + 허들 팩 IAP 노출)
@@ -322,6 +351,7 @@
                         </div>
                         <h3>Pizza Ready: 심플한 텐션과 부드러운 광고 경험 통합</h3>
                         <p>아케이드 아이들(Idle Arcade) 장르의 대표주자로, 70% 광고 + 30% 커스텀 IAP 의 수익 매칭을 이뤘습니다.</p>
+                        <div class="image-placeholder case-study-img"></div>
                         <ul>
                             <li><strong>자연스러운 광고 시청 환경:</strong> 리워드 광고를 외부에 불편하게 팝업하는 대신, 게임 내 피자 배달 트럭의 일환으로 감싸서 자연스러운
                                 광고 시청 유도.</li>
