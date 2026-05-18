@@ -30,11 +30,19 @@ def sort_index():
             date_score = 0
             
         is_featured = 1 if 'Featured' in card else 0
-        parsed_cards.append((date_score, is_featured, card.strip('\n')))
+        
+        if '모바일 TOP 50 장르 및 시스템 분석' in card:
+            priority = 2
+        elif 'Arcade Idle: 하이브리드 캐주얼의 진화' in card:
+            priority = 1
+        else:
+            priority = 0
+            
+        parsed_cards.append((priority, date_score, is_featured, card.strip('\n')))
 
-    parsed_cards.sort(key=lambda x: (x[0], x[1]), reverse=True)
+    parsed_cards.sort(key=lambda x: (x[0], x[1], x[2]), reverse=True)
 
-    new_grid_content = '\n                        '.join([x[2] for x in parsed_cards])
+    new_grid_content = '\n                        '.join([x[3] for x in parsed_cards])
 
     new_content = content[:start_idx + len(start_marker)] + '\n                        ' + new_grid_content + '\n                    ' + content[end_idx:]
 

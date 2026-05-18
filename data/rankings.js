@@ -1,5 +1,5 @@
 const G_RANKING_DATA = {
-    "lastUpdated": "2026-04-13 15:34",
+    "lastUpdated": "2026-05-18 22:22",
     "rankings": {
         "all": [
             {

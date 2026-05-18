@@ -118,53 +118,58 @@
 
         <div class="layout-wrapper">
             <div class="content-area">
-                <section class="dashboard-container" style="padding: 2rem 0;">
-                    <h2 class="section-title fade-in" style="animation-delay: 0.5s; text-align: left;">2025 글로벌 시장 인사이트
-                    </h2>
-                    <div class="global-summary-grid">
-                        <div class="summary-card slide-left" style="animation-delay: 0.1s;">
-                            <div class="icon">🌍</div>
-                            <h3>$2.17 Trillion</h3>
-                            <p>2025년 전 세계 콘텐츠 시장 규모</p>
+                <section class="dashboard-container" style="padding: 1rem 0;">
+                    <h2 class="section-title fade-in" style="animation-delay: 0.5s; text-align: left; font-size: 1.8rem; margin-bottom: 1.5rem;">2025 글로벌 시장 인사이트</h2>
+                    <div class="global-summary-grid" style="margin: 0.5rem 0 1.5rem;">
+                        <div class="summary-card slide-left" style="animation-delay: 0.1s; display: flex; align-items: center; gap: 1.2rem; text-align: left; padding: 1.2rem 1.5rem;">
+                            <div class="icon" style="font-size: 2.2rem; margin: 0;">🌍</div>
+                            <div>
+                                <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary); margin: 0 0 2px 0;">$2.17 Trillion</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">2025년 전 세계 콘텐츠 시장 규모</p>
+                            </div>
                         </div>
-                        <div class="summary-card fade-in" style="animation-delay: 0.3s;">
-                            <div class="icon">🎮</div>
-                            <h3>$211.8 Billion</h3>
-                            <p>게임 산업 가치</p>
+                        <div class="summary-card fade-in" style="animation-delay: 0.3s; display: flex; align-items: center; gap: 1.2rem; text-align: left; padding: 1.2rem 1.5rem;">
+                            <div class="icon" style="font-size: 2.2rem; margin: 0;">🎮</div>
+                            <div>
+                                <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary); margin: 0 0 2px 0;">$211.8 Billion</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">게임 산업 가치</p>
+                            </div>
                         </div>
-                        <div class="summary-card slide-right" style="animation-delay: 0.5s;">
-                            <div class="icon">📈</div>
-                            <h3>+5.65% CAGR</h3>
-                            <p>2029년 성장 전망</p>
+                        <div class="summary-card slide-right" style="animation-delay: 0.5s; display: flex; align-items: center; gap: 1.2rem; text-align: left; padding: 1.2rem 1.5rem;">
+                            <div class="icon" style="font-size: 2.2rem; margin: 0;">📈</div>
+                            <div>
+                                <h3 style="font-size: 1.6rem; font-weight: 800; color: var(--accent-primary); margin: 0 0 2px 0;">+5.65% CAGR</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">2029년 성장 전망</p>
+                            </div>
                         </div>
                     </div>
 
                     <h2 class="section-title fade-in"
-                        style="animation-delay: 1.0s; text-align: left; margin-top: 4rem;">장르별 핵심 지표</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card slide-left" style="animation-delay: 0.2s;">
-                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이퍼캐주얼 벤치마크</span>
-                            <h4>익일 리텐션 (D1 Retention)</h4>
-                            <p class="stat-desc">설치 후 1일차에 게임으로 돌아오는 유저의 비율입니다.</p>
-                            <div class="value">&lt;25%</div>
-                            <div class="trend down">▼ 업계 벤치마크 미달</div>
-                            <div class="data-source">출처: Gamesforum ⓘ</div>
+                        style="animation-delay: 1.0s; text-align: left; margin-top: 2rem; margin-bottom: 1.5rem; font-size: 1.8rem;">장르별 핵심 지표</h2>
+                    <div class="stats-grid" style="margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                        <div class="stat-card slide-left" style="animation-delay: 0.2s; display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 1.2rem 1.5rem; gap: 1rem;">
+                            <div style="flex: 1;">
+                                <span class="card-tag-inline" style="margin-bottom: 0.5rem; display: inline-block;">하이퍼캐주얼 벤치마크</span>
+                                <h4 style="margin: 0; font-size: 1.05rem; font-weight: 700; line-height: 1.3;">익일 리텐션 (D1 Retention)</h4>
+                                <p class="stat-desc" style="margin: 0.25rem 0 0; font-size: 0.8rem; opacity: 0.8; line-height: 1.4;">설치 후 1일차에 게임으로 돌아오는 유저의 비율</p>
+                            </div>
+                            <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; min-width: 110px;">
+                                <div class="value" style="font-size: 1.8rem; font-weight: 800; color: var(--accent-primary); line-height: 1.2;">&lt;25%</div>
+                                <div class="trend down" style="font-size: 0.75rem; font-weight: 700; margin: 0;">▼ 업계 벤치마크 미달</div>
+                                <div class="data-source" style="margin: 4px 0 0; padding: 0; border: none; font-size: 0.7rem; opacity: 0.6;">출처: Gamesforum ⓘ</div>
+                            </div>
                         </div>
-                        <div class="stat-card fade-in" style="animation-delay: 0.4s;">
-                            <span class="card-tag-inline" style="margin-bottom: 1rem;">시장 트렌드 리포트</span>
-                            <h4>시장 설치 점유율 (Install Share)</h4>
-                            <p class="stat-desc">전체 모바일 게임 다운로드 중 하이퍼캐주얼이 차지하는 비중입니다.</p>
-                            <div class="value">30%</div>
-                            <div class="trend down">▼ 2021년 대비 -20%</div>
-                            <div class="data-source">출처: GamesBeat ⓘ</div>
-                        </div>
-                        <div class="stat-card slide-right" style="animation-delay: 0.6s;">
-                            <span class="card-tag-inline" style="margin-bottom: 1rem;">하이브리드 전환 지표</span>
-                            <h4>인앱 결제 성장액 (IAP Growth)</h4>
-                            <p class="stat-desc">하이브리드화로 인한 인앱 아이템 구매 매출의 증가세입니다.</p>
-                            <div class="value">$2.1B</div>
-                            <div class="trend up">▲ 250% 이상 증가</div>
-                            <div class="data-source">출처: Sensor Tower ⓘ</div>
+                        <div class="stat-card fade-in" style="animation-delay: 0.4s; display: flex; align-items: center; justify-content: space-between; text-align: left; padding: 1.2rem 1.5rem; gap: 1rem;">
+                            <div style="flex: 1;">
+                                <span class="card-tag-inline" style="margin-bottom: 0.5rem; display: inline-block;">시장 트렌드 리포트</span>
+                                <h4 style="margin: 0; font-size: 1.05rem; font-weight: 700; line-height: 1.3;">시장 설치 점유율 (Install Share)</h4>
+                                <p class="stat-desc" style="margin: 0.25rem 0 0; font-size: 0.8rem; opacity: 0.8; line-height: 1.4;">전체 모바일 게임 다운로드 중 하이퍼캐주얼의 비중</p>
+                            </div>
+                            <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; min-width: 110px;">
+                                <div class="value" style="font-size: 1.8rem; font-weight: 800; color: var(--accent-primary); line-height: 1.2;">30%</div>
+                                <div class="trend down" style="font-size: 0.75rem; font-weight: 700; margin: 0;">▼ 2021년 대비 -20%</div>
+                                <div class="data-source" style="margin: 4px 0 0; padding: 0; border: none; font-size: 0.7rem; opacity: 0.6;">출처: GamesBeat ⓘ</div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -177,6 +182,43 @@
                         <button class="tab-btn" data-target="game">게임</button>
                     </div>
                     <div class="research-grid">
+                        <!-- Card 0: 모바일 TOP20 장르 분석 (New) -->
+                        <article class="research-card fade-in" data-category="market"
+                            style="border: 2px solid var(--accent-primary); background: linear-gradient(to bottom right, #fff, rgba(124, 77, 255, 0.05));">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline"
+                                        style="background: var(--accent-primary); color: #fff;">Featured</span>
+                                    <span class="date">2026년 2월</span>
+                                    <span class="read-time">대시보드 리포트</span>
+                                </div>
+                                <h3 style="color: var(--accent-primary);">모바일 TOP 50 장르 및 시스템 분석</h3>
+                                <p>글로벌 상위 50개 게임들을 하나씩 뜯어보며 기획자로서 배운 점들을 장르별로 정리했습니다. 시스템 아키텍처와 수익 구조의 흐름을 실무자의 시각에서
+                                    꼼꼼하게 기록한 학습 로그입니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">출처: System Analysis ⓘ</span>
+                                    <a href="research/top20-genre-analysis.html" class="read-more">리포트 열기 →</a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Card 7: Arcade Idle -->
+                        <article class="research-card fade-in" data-category="market"
+                            style="border: 2px solid #0066ff; background: linear-gradient(to bottom right, #fff, rgba(0, 102, 255, 0.05));">
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span class="card-tag-inline"
+                                        style="background: #0066ff; color: #fff;">장르 분석</span>
+                                    <span class="date">2026년 2월</span>
+                                    <span class="read-time">15분 소요</span>
+                                </div>
+                                <h3 style="color: #0066ff;">Arcade Idle: 하이브리드 캐주얼의 진화</h3>
+                                <p>HC의 조작감과 Idle의 성장 메커니즘이 결합된 '아케이드 아이들' 장르의 성공 공식을 분석합니다.</p>
+                                <div class="card-footer">
+                                    <span class="source">출처: Medium Research</span>
+                                    <a href="research/arcade-idle-analysis-ko.html" class="read-more" style="color: #0066ff;">분석 보기 →</a>
+                                </div>
+                            </div>
+                        </article>
                         <!-- Card: Game Fun Analysis (New) -->
                         <article class="research-card fade-in" data-category="game"
                             style="border: 2px solid #ff00ea; background: linear-gradient(to bottom right, #fff, rgba(255, 0, 234, 0.05));">
@@ -250,25 +292,6 @@
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 0: 모바일 TOP20 장르 분석 (New) -->
-                        <article class="research-card fade-in" data-category="market"
-                            style="border: 2px solid var(--accent-primary); background: linear-gradient(to bottom right, #fff, rgba(124, 77, 255, 0.05));">
-                            <div class="card-content">
-                                <div class="card-meta">
-                                    <span class="card-tag-inline"
-                                        style="background: var(--accent-primary); color: #fff;">Featured</span>
-                                    <span class="date">2026년 2월</span>
-                                    <span class="read-time">대시보드 리포트</span>
-                                </div>
-                                <h3 style="color: var(--accent-primary);">모바일 TOP 50 장르 및 시스템 분석</h3>
-                                <p>글로벌 상위 50개 게임들을 하나씩 뜯어보며 기획자로서 배운 점들을 장르별로 정리했습니다. 시스템 아키텍처와 수익 구조의 흐름을 실무자의 시각에서
-                                    꼼꼼하게 기록한 학습 로그입니다.</p>
-                                <div class="card-footer">
-                                    <span class="source">출처: System Analysis ⓘ</span>
-                                    <a href="research/top20-genre-analysis.html" class="read-more">리포트 열기 →</a>
-                                </div>
-                            </div>
-                        </article>
                         <!-- Card 6: Pizza Ready -->
                         <article class="research-card fade-in" data-category="game">
                             <div class="card-content">
@@ -282,22 +305,6 @@
                                 <div class="card-footer">
                                     <span class="source">출처: Internal Research</span>
                                     <a href="research/pizze-ready-analysis-ko.html" class="read-more">분석 보기 →</a>
-                                </div>
-                            </div>
-                        </article>
-                        <!-- Card 7: Arcade Idle -->
-                        <article class="research-card fade-in" data-category="market">
-                            <div class="card-content">
-                                <div class="card-meta">
-                                    <span class="card-tag-inline">장르 분석</span>
-                                    <span class="date">2026년 2월</span>
-                                    <span class="read-time">15분 소요</span>
-                                </div>
-                                <h3>Arcade Idle: 하이브리드 캐주얼의 진화</h3>
-                                <p>HC의 조작감과 Idle의 성장 메커니즘이 결합된 '아케이드 아이들' 장르의 성공 공식을 분석합니다.</p>
-                                <div class="card-footer">
-                                    <span class="source">출처: Medium Research</span>
-                                    <a href="research/arcade-idle-analysis-ko.html" class="read-more">분석 보기 →</a>
                                 </div>
                             </div>
                         </article>
