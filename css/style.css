@@ -1043,3 +1043,69 @@ footer {
     border-color: transparent;
     box-shadow: 0 10px 20px rgba(124, 77, 255, 0.3);
 }
+
+/* Print Optimization Styles */
+@media print {
+    header, footer, .scroll-top-btn, #preloader, .lang-switch {
+        display: none !important;
+    }
+    
+    body {
+        background: #fff !important;
+        color: #1a1b25 !important;
+    }
+    
+    main.content-section {
+        padding: 0 !important;
+        margin: 1rem auto !important;
+        max-width: 100% !important;
+    }
+    
+    .analysis-hero {
+        padding: 2rem 0 !important;
+        border-bottom: 2px solid var(--card-border) !important;
+    }
+    
+    .analysis-hero::before {
+        display: none !important;
+    }
+    
+    .metric-grid {
+        margin: 1rem 0 !important;
+        gap: 1rem !important;
+    }
+    
+    .metric-card {
+        border: 1px solid var(--card-border) !important;
+        background: #fff !important;
+        color: var(--text-primary) !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .highlight-box {
+        border-left: 5px solid #10b981 !important;
+        background: #f0fdf4 !important;
+        page-break-inside: avoid;
+    }
+    
+    .chart-container, .mermaid-container {
+        border: 1px solid var(--card-border) !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin: 1.5rem 0 !important;
+    }
+    
+    table {
+        page-break-inside: auto;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+}

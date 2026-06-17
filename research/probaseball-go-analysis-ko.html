@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 프로야구GO!: 수집형 방치 야구의 설계 | Game Research</title>
+    <meta name="description"
+        content="KBO 라이선스를 활용한 수집형 방치 RPG '2026 프로야구GO!'의 코어 루프와 유저 변천사, 실제 플레이어 피드백 및 기획 해결 방안에 대한 심층 분석 리포트입니다.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .analysis-hero {
+            position: relative;
+            background: #fff;
+            color: var(--text-primary);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .analysis-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(30, 41, 59, 0.08) 100%);
+            z-index: 0;
+        }
+
+        .analysis-hero .fade-in {
+            position: relative;
+            z-index: 1;
+        }
+
+        .analysis-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .analysis-hero .subtitle {
+            font-size: 1.25rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-card .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .metric-card .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .highlight-box {
+            background: #f0fdf4;
+            border-left: 5px solid #10b981;
+            padding: 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 2rem 0;
+        }
+
+        .mermaid-container {
+            background: #fff;
+            padding: 3rem 1.5rem;
+            border-radius: 24px;
+            margin: 3rem 0;
+            overflow-x: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.02), 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e6f4ea;
+        }
+
+        .mermaid {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .mermaid svg {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .table-wrap {
+            overflow: auto;
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin: 2rem 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: #fff;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--card-border);
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #f8f9fa;
+            text-align: left;
+        }
+
+        .game-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #e6f4ea;
+            color: #0f766e;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .warning-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #fef3c7;
+            color: #d97706;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .user-feedback-box {
+            background: #f8fafc;
+            border-left: 5px solid #64748b;
+            padding: 1.5rem;
+            border-radius: 0 16px 16px 0;
+            margin: 1.5rem 0;
+        }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#10b981',
+                primaryTextColor: '#fff',
+                primaryBorderColor: '#059669',
+                lineColor: '#6ee7b7',
+                secondaryColor: '#f0fdf4',
+                tertiaryColor: '#fff',
+                edgeLabelBackground: '#ffffff',
+                fontFamily: 'Inter'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="puzzle-container">
+            <div class="puzzle-piece piece-1"></div>
+            <div class="puzzle-piece piece-2"></div>
+            <div class="puzzle-piece piece-3"></div>
+        </div>
+        <div class="loader-text">퍼즐 조각 맞추는 중...</div>
+    </div>
+
+    <header>
+        <a href="../index.html" class="logo" aria-label="Home"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+            </svg></a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">시장 인사이트</a></li>
+                <li><a href="../index.html#research" class="active">리서치 로그</a></li>
+                <li><a href="../glossary-ko.html">기획 용어집</a></li>
+            </ul>
+            <div class="lang-switch">
+                <a href="#">EN</a>
+                <a href="probaseball-go-analysis-ko.html" class="active">KO</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="analysis-hero">
+        <div class="fade-in">
+            <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/c3/d2/f1c3d22d-6182-4505-9b24-2ba9925b14f3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png"
+                    alt="2026 프로야구GO! 아이콘"
+                    style="width: 100px; height: 100px; border-radius: 22px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid #eee;">
+            </div>
+            <span class="card-tag-inline" style="background: #10b981; color: white; margin-bottom: 1rem;">Deep
+                Research</span>
+            <h1>2026 프로야구GO!:<br>수집형 방치 야구의 설계</h1>
+            <p class="subtitle">KBO 라이선스 수집 및 방치형 매니지먼트 구조, 그리고 실제 라이브 서비스 피드백 및 플레이어 UI/UX 단점의 기획 분석 리포트</p>
+        </div>
+
+        <div class="metric-grid container" style="position: relative; z-index: 1;">
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.2s; background: rgba(255,255,255,0.7); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #10b981;">해긴(Haegin)</span>
+                <span class="label">개발 및 유통사 (2026.03.26 출시)</span>
+            </div>
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.4s; background: rgba(255,255,255,0.7); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #10b981;">수집형 RPG</span>
+                <span class="label">KBO 올스타 및 40년 역사 수집</span>
+            </div>
+            <div class="metric-card fade-in"
+                style="animation-delay: 0.6s; background: rgba(255,255,255,0.7); border: 1px solid rgba(16, 185, 129, 0.2); color: var(--text-primary);">
+                <span class="value" style="color: #10b981;">방치형 매니저</span>
+                <span class="label">자동 성장 및 시뮬레이션 시스템</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="content-section">
+        <article class="article-body">
+            <div class="highlight-box fade-in">
+                <h3 style="color: #10b981; margin-top: 0;">🚀 리포트 요약</h3>
+                <p>본 보고서는 KBO 공식 라이선스 기반 스포츠 방치 매니지먼트 게임인 <b>'2026 프로야구GO!'</b>의 실제 플레이어 관점의 코어 경험과 디자인 요소를 입체적으로 다룹니다.
+                </p>
+                <ul>
+                    <li><b>코어 재미의 본질</b>: 야구 시합은 AI의 비동기 연출(스킨)로 기능하며, 핵심 도파민은 <b>'수치적 전력 성장'</b>과 구단/연도별 <b>'시너지 세트덱
+                            조합'</b>에서 나옴.</li>
+                    <li><b>사용자 실제 플레이 불편 요소</b>:
+                        <ul>
+                            <li><b>길드 찾기</b>: 추천 길드에 검색/필터가 없어 무한 스크롤링 유발.</li>
+                            <li><b>광고 체감 부족 (D3 기준)</b>: 초반 성장 가속용 무료 광고 보상 루프의 효용이 희박함.</li>
+                            <li><b>전투 및 연출 밋밋함</b>: 방치형 게임 특유의 눈을 뗄 수 없는 컷씬과 홈런/탈삼진 연출 부족.</li>
+                            <li><b>가챠 도파민 부족</b>: 전체선수영입 시 이펙트가 단순하여 뽑는 맛이 반감됨.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="fade-in">1. 게임 컨셉과 실제 코어 재미 구조</h2>
+            <p class="fade-in">2026 프로야구GO!는 표면적으로는 40년 KBO 역사를 즐기는 야구 시뮬레이터를 표방하나, 실상은 전형적인 방치형 수집 RPG의 스탯 성장 공식을 가지고
+                있습니다.</p>
+
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>개념</th>
+                            <th>표면적 컨셉 (구단 마케팅 소구점)</th>
+                            <th>실제 기획 컨셉 (플레이어 체감 루프)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>핵심 정의</b></td>
+                            <td>KBO 역사 속 올스타 드림팀 육성</td>
+                            <td>수집형 RPG + 방치형 자동 성장 + 야구 매니지먼트</td>
+                        </tr>
+                        <tr>
+                            <td><b>플레이어 행동</b></td>
+                            <td>좋아하는 레전드 라인업으로 경기 소화</td>
+                            <td>오프라인 골드/재화 수거 → 선수 돌파/초월 → 세트덱 시너지 최적화</td>
+                        </tr>
+                        <tr>
+                            <td><b>코어 목표</b></td>
+                            <td>"나의 응원팀 선수들로 로스터를 가득 채운다"</td>
+                            <td>"종합 전투력(스펙)을 극대화해 상위 리그 등급을 등반한다"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="fade-in">진짜 코어 재미의 우선순위 (Core Fun Priority)</h3>
+            <div style="display: flex; gap: 2rem; align-items: center; margin: 2rem 0; flex-wrap: wrap;"
+                class="fade-in">
+                <div style="flex: 1; min-width: 280px;">
+                    <ol style="padding-left: 1.2rem; line-height: 1.8;">
+                        <li><b style="color: #10b981;">1순위 - 성장 (전투력 증가)</b><br>전력 수치가 상승하고, 숫자의 폭발적 상승 피드백을 볼 때 느끼는 방치형
+                            장르의 쾌감.</li>
+                        <li><b>2순위 - 수집 (최애 선수 확보)</b><br>실제 선수들의 라이선스 카드를 뽑거나 계약하여 앨범을 채우는 욕구.</li>
+                        <li><b>3순위 - 조합 (세트덱 시너지)</b><br>구단별덱, 특정 우승 연도덱 등을 구성하여 팀 종합 버프를 튜닝하는 재미.</li>
+                        <li><b>4순위 - 향수 (Nostalgia)</b><br>유년 시절 바라보던 선동열, 이종범, 박찬호 등 추억 속 레전드 카드를 소유하는 만족감.</li>
+                    </ol>
+                </div>
+                <div style="flex: 1; min-width: 280px;" class="chart-container">
+                    <canvas id="coreFunChart" style="max-height: 250px;"></canvas>
+                </div>
+            </div>
+
+            <h2 class="fade-in">2. 코어 및 메타 루프 (Core & Meta Loop)</h2>
+            <div class="mermaid-container fade-in">
+                <p
+                    style="font-size: 0.85rem; color: #10b981; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">
+                    🔄 Core Loop Architecture
+                </p>
+                <div class="mermaid">
+                    flowchart TD
+                    A["📥 방치 및 오프라인 보상 수령"] --> B["🃏 선수 영입 (전체선수영입/계약)"]
+                    B --> C["📈 스태츠 초월 및 돌파 (재료 소모)"]
+                    C --> D["⚡ 동일구단/연도 세트덱 완성 (시너지)"]
+                    D --> E["⚾ AI 자동 리그 매치 (비동기 관전)"]
+                    E --> F["🏆 리그 등급 승격 및 보상 재화 상승"]
+                    F --> A
+                </div>
+            </div>
+
+            <h2 class="fade-in">3. 실제 유저 플레이 피드백 및 UI/UX 단점 분석</h2>
+            <p class="fade-in">실제 3일차(D3) 플레이어들이 게임을 즐기며 겪는 가장 직접적인 불편함과 아쉬운 시스템 요소들을 취합하여 기획적 대안을 도출했습니다.</p>
+
+            <!-- User 1. Guild Filter -->
+            <div class="user-feedback-box fade-in">
+                <h4 style="color: #475569; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 8px;">
+                    📌 피드백 1. 추천 길드 필터링 시스템의 부재
+                </h4>
+                <p><b>현상 및 불편함:</b> 현재 길드 가입 시 가입 조건이나 구단명 필터링 없이 무작위 길드가 추천 목록에 나열되며, 유저가 마땅한 길드를 찾기 위해선 스크롤을 끊임없이 내리며
+                    일일이 확인해야 하는 조작 피로도가 발생합니다.</p>
+                <p style="color: #0f766e; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
+                    💡 <b>기획 대안:</b> 길드 가입 화면 내 '검색 필터' 신설. 즉시 가입 가능 길드 필터링, 최소 전력 조건 검색, 응원 구단 태그 검색 기능을 추가하여 FTUE 가입
+                    허들을 대폭 낮춰야 함.
+                </p>
+            </div>
+
+            <!-- User 2. Low Ad Experience -->
+            <div class="user-feedback-box fade-in">
+                <h4 style="color: #475569; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 8px;">
+                    📌 피드백 2. 초반(D3) 플레이 시 체감 광고 설계의 결여
+                </h4>
+                <p><b>현상 및 불편함:</b> 게임 시작 후 3일차(D3)까지 진행하는 동안 광고 시청을 통해 얻을 수 있는 재화 보상이나 무료 버프의 체감 효과가 희박하게 다가옵니다. 성장이
+                    정체되는 타이밍에 광고 보상 루프가 활성화되지 않아 유저의 가속 동선이 막히게 됩니다.</p>
+                <p style="color: #0f766e; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
+                    💡 <b>기획 대안:</b> 초반 성장을 지원하는 '광고 시청 즉시 소탕권(Fast-forward)' 또는 'D3 전용 무료 10회 가챠 광고'를 전면 배치하여 IAA(광고
+                    수익)와 무과금 유저의 가속 성장을 동시에 견인해야 함.
+                </p>
+            </div>
+
+            <!-- User 3. Graphic / Effects / Cutscenes -->
+            <div class="user-feedback-box fade-in">
+                <h4 style="color: #475569; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 8px;">
+                    📌 피드백 3. 방치 관전 시 핵심 경기 연출 및 스킬 이펙트의 밋밋함
+                </h4>
+                <p><b>현상 및 불편함:</b> 직접 타격하거나 피칭을 조작하지 않는 매니지먼트 방치형 게임임에도 불구하고, 시합 중 핵심 상황(9회 말 역전 홈런, 삼진 아웃 등)에서의 컷씬
+                    연출이나 비주얼 이펙트가 지나치게 단조롭습니다. 유저는 시합 화면을 바라볼 때 시각적 흥미를 급격히 잃게 됩니다.</p>
+                <p style="color: #0f766e; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
+                    💡 <b>기획 대안:</b> 야구공의 실시간 궤적에 따른 만화풍 이펙트(볼 그라데이션 라인), 홈런 달성 시 3D 전광판 컷씬 연출, 레전드 투수 등판 시 고유의 시그니처
+                    컷씬(예: 선동열 슬라이더 연출) 도입이 시급함.
+                </p>
+            </div>
+
+            <!-- User 4. All Recruitment Animation -->
+            <div class="user-feedback-box fade-in">
+                <h4 style="color: #475569; margin: 0 0 0.5rem; display: flex; align-items: center; gap: 8px;">
+                    📌 피드백 4. 전체선수영입(가챠) 카드 연출의 감성 부족 (신규 유저 관점)
+                </h4>
+                <p><b>현상 및 불편함:</b> 신규 유저가 처음 게임에 접속해 대량의 전체선수영입을 실행할 때, 카드팩이 찢어지거나 열리는 애니메이션 연출 효과가 지극히 밋밋하고 평범합니다. 뽑기의
+                    쾌감인 '도파민적 자극'과 수집의 만족감이 부족합니다.</p>
+                <p style="color: #0f766e; font-size: 0.9rem; margin-top: 0.5rem; font-weight: 500;">
+                    💡 <b>기획 대안:</b> 영입 연출 재설계. 고등급(레전드/국가대표) 카드 등장 시 화려한 슬롯 오라(Aura) 이펙트와 KBO 공식 오리지널 로고 등장, 성우의 응원 멘트
+                    출력 등 오디오-비주얼 충격 요소를 대폭 보완하여 뽑기 리텐션 상승 필요.
+                </p>
+            </div>
+
+            <h2 class="fade-in">4. 신규 vs 기존 유저 니즈 및 Churn Trigger 분석</h2>
+            <div class="chart-container fade-in">
+                <canvas id="userNeedsChart" style="max-height: 300px;"></canvas>
+            </div>
+
+            <div class="highlight-box fade-in" style="background: #fffbeb; border-left-color: #d97706;">
+                <h4 style="color: #d97706; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    ⚠️ 방치형 스포츠 게임의 덱 세트 강제 딜레마
+                </h4>
+                <p>방치형 매니지먼트 게임은 결국 '동일 구단/연도 세트덱 시너지'가 팀 종합 전력 상승에 지대한 영향을 줍니다.
+                    이로 인해 신규 유저가 자신이 응원하지 않는 다른 구단 레전드일지라도 성능이 압도적이면 최애 선수를 버려야 하는 <b>'감성적 이탈감'</b>에 빠지게 됩니다.
+                    따라서 <b>'팬심으로 유입 → 효율로 정착 → 수집으로 과금'</b> 흐름에 걸림돌이 되지 않도록 덱 획일화를 방지할 구단 독립형 라이브 보조 시너지(실제 KBO 성적 버프
+                    등)의 기획적 보완이 요구됩니다.</p>
+            </div>
+
+            <h2 class="fade-in">5. 실무 관점의 핵심 KPI 및 모니터링 가설</h2>
+            <div class="table-wrap fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>지표 분류</th>
+                            <th>정의 및 분석 대상</th>
+                            <th>기획 조치 및 대책 (Action Plan)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="game-badge">잔존 KPI</span></td>
+                            <td>신규 유저의 초반 가입 길드 점착도 및 가입 성공률</td>
+                            <td>길드 검색 필터 적용 후 가입률 변화에 따른 <b>D7 리텐션</b> 상호 연관성 분석.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="warning-badge">이탈 신호</span></td>
+                            <td>D3~D5 구간에서의 오프라인 보상 방치 잔존 시간 정체 및 광고 소진율 제로화</td>
+                            <td>초반 성장을 부스팅하는 무료 광고 재화 상자 추가 및 체감 성장 그래프 보완.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="game-badge">수집 지표</span></td>
+                            <td>전체선수영입 컷씬 스킵률 및 레전드 등급 기용 전환 속도</td>
+                            <td>스킵되지 않는 뽑기 연출의 임팩트 수치(이탈 전 재시도 횟수) 비교.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="fade-in">6. 결론 (플레이 리뷰)</h2>
+            <p class="fade-in"><b>'2026 프로야구GO!'</b>는 바쁜 일상 속에서 한 손으로 가볍게 최애 KBO 레전드들을 모으고 육성하는 재미를 제대로 저격한 타이틀입니다. 직접 방구석 감독이 되어 라인업을 짜는 맛은 야구팬들에게 확실한 즐거움을 선사합니다.</p>
+            <p class="fade-in">비록 실제 3일차(D3) 플레이어로 느끼기에 길드를 찾기 위해 스크롤을 무한히 내려야 하는 피로감이나, 스킨 관전 연출 및 가챠 컷씬의 밋밋함, 초반의 섭섭한 광고 혜택 등 개선되었으면 하는 아쉬운 점들도 보입니다. 하지만 KBO의 향수와 방치형 장르의 무한 성장을 맛있게 버무려 낸 시도 자체만으로도 야구 시즌 동안 쏠쏠하게 접속할 가치는 충분합니다. 야구와 방치형 매니지먼트를 좋아하신다면 '나만의 드림팀' 스펙을 올리는 소소한 즐거움을 위해 가벼운 마음으로 '찍먹'해 보시는 것을 적극 추천해 드립니다!</p>
+
+            <section class="references fade-in"
+                style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border); font-size: 0.8rem; opacity: 0.7;">
+                <h3>참고 자료 및 출처</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li>[1] 해긴(Haegin) 2026 프로야구GO! 공식 릴리즈 노트 (2026.03 ~ 2026.06)</li>
+                    <li>[2] 공식 네이버 게임 라운지 유저 건의/피드백 게시판 취합 정보</li>
+                    <li>[3] App Store 스포츠 매니지먼트 장르 플레이어 리뷰 평점 분석 (2026)</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Antigravity Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Core Fun doughnut Chart - Animations disabled for clean PDF printing
+        const funCtx = document.getElementById('coreFunChart').getContext('2d');
+        new Chart(funCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['성장 재미', '수집 재미', '전략 재미', '조작 재미'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: ['#10b981', '#34d399', '#6ee7b7', '#a7f3d0'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: false, // PDF 인쇄 최적화: 애니메이션 대기 제거
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter',
+                                size: 11
+                            }
+                        }
+                    },
+                    title: { display: false }
+                }
+            }
+        });
+
+        // User Needs Chart - Animations disabled for clean PDF printing
+        const needsCtx = document.getElementById('userNeedsChart').getContext('2d');
+        new Chart(needsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['팬심/향수 (감성)', '최애 선수 집착', '성장 효율 (스펙)', '연출/컷씬 니즈', '길드/커뮤니티'],
+                datasets: [{
+                    label: '신규 유저 (유입 단계)',
+                    data: [95, 90, 35, 85, 30],
+                    backgroundColor: '#10b981',
+                }, {
+                    label: '기존 유저 (정착 단계)',
+                    data: [40, 25, 95, 60, 85],
+                    backgroundColor: '#1e293b',
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: false, // PDF 인쇄 최적화: 애니메이션 대기 제거
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '신규 vs 기존 유저의 가치 성향 및 피드백 비중',
+                        font: {
+                            family: 'Noto Sans KR',
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            font: {
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                family: 'Noto Sans KR'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
